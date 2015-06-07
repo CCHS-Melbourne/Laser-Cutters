@@ -23,23 +23,10 @@
 
 #define PROTOCOL_VERSION "1.0"
 
-#if MOTHERBOARD == 7 || MOTHERBOARD == 71
-	#define MACHINE_NAME "Ultimaker"
-	#define FIRMWARE_URL "http://firmware.ultimaker.com"
-#elif MOTHERBOARD == 80
-	#define MACHINE_NAME "Rumba"
-	#define FIRMWARE_URL "https://github.com/ErikZalm/Marlin/"
-#elif MOTHERBOARD == 77
-	#define MACHINE_NAME "3Drag"
-	#define FIRMWARE_URL "http://3dprint.elettronicain.it/"
-#else
-	#ifdef CUSTOM_MENDEL_NAME
-		#define MACHINE_NAME CUSTOM_MENDEL_NAME
-	#else
-		#define MACHINE_NAME "Mendel"
-	#endif
-	#define FIRMWARE_URL "http://www.mendel-parts.com"
-#endif
+#define MACHINE_NAME "K40 Laser"
+#define FIRMWARE_URL "https://github.com/MrMaxP/buildlog-lasercutter-marlin"
+
+//#define FIRMWARE_URL "http://www.mendel-parts.com"
 
 #define STRINGIFY_(n) #n
 #define STRINGIFY(n) STRINGIFY_(n)

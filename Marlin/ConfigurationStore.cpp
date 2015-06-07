@@ -67,12 +67,6 @@ void Config_StoreSettings()
   int plaPreheatHotendTemp = PLA_PREHEAT_HOTEND_TEMP, plaPreheatHPBTemp = PLA_PREHEAT_HPB_TEMP, plaPreheatFanSpeed = PLA_PREHEAT_FAN_SPEED;
   int absPreheatHotendTemp = ABS_PREHEAT_HOTEND_TEMP, absPreheatHPBTemp = ABS_PREHEAT_HPB_TEMP, absPreheatFanSpeed = ABS_PREHEAT_FAN_SPEED;
   #endif
-  EEPROM_WRITE_VAR(i,plaPreheatHotendTemp);
-  EEPROM_WRITE_VAR(i,plaPreheatHPBTemp);
-  EEPROM_WRITE_VAR(i,plaPreheatFanSpeed);
-  EEPROM_WRITE_VAR(i,absPreheatHotendTemp);
-  EEPROM_WRITE_VAR(i,absPreheatHPBTemp);
-  EEPROM_WRITE_VAR(i,absPreheatFanSpeed);
   #ifdef PIDTEMP
     EEPROM_WRITE_VAR(i,Kp);
     EEPROM_WRITE_VAR(i,Ki);
@@ -219,12 +213,6 @@ void Config_RetrieveSettings()
         int plaPreheatHotendTemp, plaPreheatHPBTemp, plaPreheatFanSpeed;
         int absPreheatHotendTemp, absPreheatHPBTemp, absPreheatFanSpeed;
         #endif
-        EEPROM_READ_VAR(i,plaPreheatHotendTemp);
-        EEPROM_READ_VAR(i,plaPreheatHPBTemp);
-        EEPROM_READ_VAR(i,plaPreheatFanSpeed);
-        EEPROM_READ_VAR(i,absPreheatHotendTemp);
-        EEPROM_READ_VAR(i,absPreheatHPBTemp);
-        EEPROM_READ_VAR(i,absPreheatFanSpeed);
         #ifndef PIDTEMP
         float Kp,Ki,Kd;
         #endif
@@ -278,14 +266,6 @@ void Config_ResetDefault()
     add_homeing[0] = add_homeing[1] = add_homeing[2] = 0;
 #ifdef DELTA
     endstop_adj[0] = endstop_adj[1] = endstop_adj[2] = 0;
-#endif
-#ifdef ULTIPANEL
-    plaPreheatHotendTemp = PLA_PREHEAT_HOTEND_TEMP;
-    plaPreheatHPBTemp = PLA_PREHEAT_HPB_TEMP;
-    plaPreheatFanSpeed = PLA_PREHEAT_FAN_SPEED;
-    absPreheatHotendTemp = ABS_PREHEAT_HOTEND_TEMP;
-    absPreheatHPBTemp = ABS_PREHEAT_HPB_TEMP;
-    absPreheatFanSpeed = ABS_PREHEAT_FAN_SPEED;
 #endif
 #ifdef DOGLCD
     lcd_contrast = DEFAULT_LCD_CONTRAST;

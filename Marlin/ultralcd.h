@@ -35,14 +35,6 @@
   FORCE_INLINE void lcd_buttons_update() {}
   #endif
 
-  extern int plaPreheatHotendTemp;
-  extern int plaPreheatHPBTemp;
-  extern int plaPreheatFanSpeed;
-
-  extern int absPreheatHotendTemp;
-  extern int absPreheatHPBTemp;
-  extern int absPreheatFanSpeed;
-    
   void lcd_buzz(long duration,uint16_t freq);
   bool lcd_clicked();
 

@@ -20,44 +20,6 @@
 //#define BAUDRATE 250000
 #define BAUDRATE 115200
 
-//// The following define selects which electronics board you have. Please choose the one that matches your setup
-// 10 = Gen7 custom (Alfons3 Version) "https://github.com/Alfons3/Generation_7_Electronics"
-// 11 = Gen7 v1.1, v1.2 = 11
-// 12 = Gen7 v1.3
-// 13 = Gen7 v1.4
-// 3  = MEGA/RAMPS up to 1.2 = 3
-// 33 = RAMPS 1.3 / 1.4 (Power outputs: Extruder, Fan, Bed)
-// 34 = RAMPS 1.3 / 1.4 (Power outputs: Extruder0, Extruder1, Bed)
-// 35 = RAMPS 1.3 / 1.4 (Power outputs: Extruder, Fan, Fan)
-// 4  = Duemilanove w/ ATMega328P pin assignment
-// 5  = Gen6
-// 51 = Gen6 deluxe
-// 6  = Sanguinololu < 1.2
-// 62 = Sanguinololu 1.2 and above
-// 63 = Melzi
-// 64 = STB V1.1
-// 65 = Azteeg X1
-// 66 = Melzi with ATmega1284 (MaKr3d version)
-// 7  = Ultimaker
-// 71 = Ultimaker (Older electronics. Pre 1.5.4. This is rare)
-// 77 = 3Drag Controller
-// 8  = Teensylu
-// 80 = Rumba
-// 81 = Printrboard (AT90USB1286)
-// 82 = Brainwave (AT90USB646)
-// 9  = Gen3+
-// 70 = Megatronics
-// 701= Megatronics v2.0
-// 702= Minitronics v1.0
-// 90 = Alpha OMCA board
-// 91 = Final OMCA board
-// 301 = Rambo
-// 21 = Elefu Ra Board (v3)
-
-#ifndef MOTHERBOARD
-#define MOTHERBOARD 35
-#endif
-
 // Define this to set a custom name for your generic Mendel,
 // #define CUSTOM_MENDEL_NAME "This Mendel"
 
