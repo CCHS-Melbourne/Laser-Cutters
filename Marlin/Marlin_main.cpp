@@ -44,10 +44,6 @@
 #include "Base64.h"
 #endif // LASER_RASTER
 
-#if NUM_SERVOS > 0
-#include "Servo.h"
-#endif
-
 #if defined(DIGIPOTSS_PIN) && DIGIPOTSS_PIN > -1
 #include <SPI.h>
 #endif
@@ -108,8 +104,6 @@
 // M115 - Capabilities string
 // M117 - display message
 // M119 - Output Endstop status to serial port
-// M126 - Solenoid Air Valve Open (BariCUDA support by jmil)
-// M127 - Solenoid Air Valve Closed (BariCUDA vent to atmospheric pressure by jmil)
 // M128 - EtoP Open (BariCUDA EtoP = electricity to air pressure transducer by jmil)
 // M129 - EtoP Closed (BariCUDA EtoP = electricity to air pressure transducer by jmil)
 // M140 - Set bed target temp
@@ -200,10 +194,6 @@ int fanSpeed=0;
   int servo_endstops[] = SERVO_ENDSTOPS;
   int servo_endstop_angles[] = SERVO_ENDSTOP_ANGLES;
 #endif
-#ifdef BARICUDA
-int ValvePressure=0;
-int EtoPPressure=0;
-#endif
 
 #ifdef FWRETRACT
   bool autoretract_enabled=true;
@@ -260,10 +250,6 @@ static uint8_t tmp_extruder;
 
 
 bool Stopped=false;
-
-#if NUM_SERVOS > 0
-  Servo servos[NUM_SERVOS];
-#endif
 
 bool CooldownNoWait = true;
 bool target_direction;
@@ -370,35 +356,6 @@ void suicide()
   #endif
 }
 
-void servo_init()
-{
-  #if (NUM_SERVOS >= 1) && defined(SERVO0_PIN) && (SERVO0_PIN > -1)
-    servos[0].attach(SERVO0_PIN);
-  #endif
-  #if (NUM_SERVOS >= 2) && defined(SERVO1_PIN) && (SERVO1_PIN > -1)
-    servos[1].attach(SERVO1_PIN);
-  #endif
-  #if (NUM_SERVOS >= 3) && defined(SERVO2_PIN) && (SERVO2_PIN > -1)
-    servos[2].attach(SERVO2_PIN);
-  #endif
-  #if (NUM_SERVOS >= 4) && defined(SERVO3_PIN) && (SERVO3_PIN > -1)
-    servos[3].attach(SERVO3_PIN);
-  #endif
-  #if (NUM_SERVOS >= 5)
-    #error "TODO: enter initalisation code for more servos"
-  #endif
-
-  // Set position of Servo Endstops that are defined
-  #ifdef SERVO_ENDSTOPS
-  for(int8_t i = 0; i < 3; i++)
-  {
-    if(servo_endstops[i] > -1) {
-      servos[servo_endstops[i]].write(servo_endstop_angles[i * 2 + 1]);
-    }
-  }
-  #endif
-}
-
 void setup()
 {
   setup_killpin();
@@ -447,7 +404,6 @@ void setup()
   watchdog_init();
   st_init();    // Initialize stepper, this enables interrupts!
   setup_photpin();
-  servo_init();
 
   lcd_init();
   _delay_ms(1000);	// wait 1sec to display the splash screen
@@ -1703,38 +1659,7 @@ void process_commands()
         fanSpeed = 0;
         break;
     #endif //FAN_PIN
-    #ifdef BARICUDA
-      // PWM for HEATER_1_PIN
-      #if defined(HEATER_1_PIN) && HEATER_1_PIN > -1
-        case 126: //M126 valve open
-          if (code_seen('S')){
-             ValvePressure=constrain(code_value(),0,255);
-          }
-          else {
-            ValvePressure=255;
-          }
-          break;
-        case 127: //M127 valve closed
-          ValvePressure = 0;
-          break;
-      #endif //HEATER_1_PIN
-
-      // PWM for HEATER_2_PIN
-      #if defined(HEATER_2_PIN) && HEATER_2_PIN > -1
-        case 128: //M128 valve open
-          if (code_seen('S')){
-             EtoPPressure=constrain(code_value(),0,255);
-          }
-          else {
-            EtoPPressure=255;
-          }
-          break;
-        case 129: //M129 valve closed
-          EtoPPressure = 0;
-          break;
-      #endif //HEATER_2_PIN
-    #endif
-
+    
     #if defined(PS_ON_PIN) && PS_ON_PIN > -1
       case 80: // M80 - Turn on Power Supply
         SET_OUTPUT(PS_ON_PIN); //GND
@@ -2064,37 +1989,6 @@ void process_commands()
       }
     }
     break;
-
-    #if NUM_SERVOS > 0
-    case 280: // M280 - set servo position absolute. P: servo index, S: angle or microseconds
-      {
-        int servo_index = -1;
-        int servo_position = 0;
-        if (code_seen('P'))
-          servo_index = code_value();
-        if (code_seen('S')) {
-          servo_position = code_value();
-          if ((servo_index >= 0) && (servo_index < NUM_SERVOS)) {
-            servos[servo_index].write(servo_position);
-          }
-          else {
-            SERIAL_ECHO_START;
-            SERIAL_ECHO("Servo ");
-            SERIAL_ECHO(servo_index);
-            SERIAL_ECHOLN(" out of range");
-          }
-        }
-        else if (servo_index >= 0) {
-          SERIAL_PROTOCOL(MSG_OK);
-          SERIAL_PROTOCOL(" Servo ");
-          SERIAL_PROTOCOL(servo_index);
-          SERIAL_PROTOCOL(": ");
-          SERIAL_PROTOCOL(servos[servo_index].read());
-          SERIAL_PROTOCOLLN("");
-        }
-      }
-      break;
-    #endif // NUM_SERVOS > 0
 
     #if LARGE_FLASH == true && ( BEEPER > 0 || defined(ULTRALCD) )
     case 300: // M300
