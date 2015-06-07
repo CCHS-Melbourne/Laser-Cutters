@@ -1,6 +1,5 @@
 #include "Marlin.h"
 #include "planner.h"
-#include "temperature.h"
 #include "ultralcd.h"
 #include "ConfigurationStore.h"
 
@@ -37,7 +36,7 @@ void _EEPROM_readData(int &pos, uint8_t* value, uint8_t size)
 // the default values are used whenever there is a change to the data, to prevent
 // wrong data being written to the variables.
 // ALSO:  always make sure the variables in the Store and retrieve sections are in the same order.
-#define EEPROM_VERSION "V10"
+#define EEPROM_VERSION "V11"
 
 #ifdef EEPROM_SETTINGS
 void Config_StoreSettings()
@@ -62,21 +61,6 @@ void Config_StoreSettings()
   #endif
   #ifdef LASER
   EEPROM_WRITE_VAR(i,laser.lifetime);
-  #endif
-  #ifndef ULTIPANEL
-  int plaPreheatHotendTemp = PLA_PREHEAT_HOTEND_TEMP, plaPreheatHPBTemp = PLA_PREHEAT_HPB_TEMP, plaPreheatFanSpeed = PLA_PREHEAT_FAN_SPEED;
-  int absPreheatHotendTemp = ABS_PREHEAT_HOTEND_TEMP, absPreheatHPBTemp = ABS_PREHEAT_HPB_TEMP, absPreheatFanSpeed = ABS_PREHEAT_FAN_SPEED;
-  #endif
-  #ifdef PIDTEMP
-    EEPROM_WRITE_VAR(i,Kp);
-    EEPROM_WRITE_VAR(i,Ki);
-    EEPROM_WRITE_VAR(i,Kd);
-  #else
-		float dummy = 3000.0f;
-    EEPROM_WRITE_VAR(i,dummy);
-		dummy = 0.0f;
-    EEPROM_WRITE_VAR(i,dummy);
-    EEPROM_WRITE_VAR(i,dummy);
   #endif
   #ifndef DOGLCD
     int lcd_contrast = 32;
@@ -163,15 +147,6 @@ void Config_PrintSettings()
     SERIAL_ECHOPAIR(" Minutes: ",(unsigned long)laser.lifetime % 60);
     SERIAL_ECHOLN("");
 #endif
-#ifdef PIDTEMP
-    SERIAL_ECHO_START;
-    SERIAL_ECHOLNPGM("PID settings:");
-    SERIAL_ECHO_START;
-    SERIAL_ECHOPAIR("   M301 P",Kp);
-    SERIAL_ECHOPAIR(" I" ,unscalePID_i(Ki));
-    SERIAL_ECHOPAIR(" D" ,unscalePID_d(Kd));
-    SERIAL_ECHOLN("");
-#endif
 }
 #endif
 
@@ -209,24 +184,12 @@ void Config_RetrieveSettings()
         #ifdef LASER
         EEPROM_READ_VAR(i,laser.lifetime);
         #endif
-        #ifndef ULTIPANEL
-        int plaPreheatHotendTemp, plaPreheatHPBTemp, plaPreheatFanSpeed;
-        int absPreheatHotendTemp, absPreheatHPBTemp, absPreheatFanSpeed;
-        #endif
-        #ifndef PIDTEMP
-        float Kp,Ki,Kd;
-        #endif
-        // do not need to scale PID values as the values in EEPROM are already scaled
-        EEPROM_READ_VAR(i,Kp);
-        EEPROM_READ_VAR(i,Ki);
-        EEPROM_READ_VAR(i,Kd);
         #ifndef DOGLCD
         int lcd_contrast;
         #endif
         EEPROM_READ_VAR(i,lcd_contrast);
 
 		// Call updatePID (similar to when we have processed M301)
-		updatePID();
         SERIAL_ECHO_START;
         SERIAL_ECHOLNPGM("Stored settings retrieved");
     }
@@ -270,18 +233,6 @@ void Config_ResetDefault()
 #ifdef DOGLCD
     lcd_contrast = DEFAULT_LCD_CONTRAST;
 #endif
-#ifdef PIDTEMP
-    Kp = DEFAULT_Kp;
-    Ki = scalePID_i(DEFAULT_Ki);
-    Kd = scalePID_d(DEFAULT_Kd);
-
-    // call updatePID (similar to when we have processed M301)
-    updatePID();
-
-#ifdef PID_ADD_EXTRUSION_RATE
-    Kc = DEFAULT_Kc;
-#endif//PID_ADD_EXTRUSION_RATE
-#endif//PIDTEMP
 
 SERIAL_ECHO_START;
 SERIAL_ECHOLNPGM("Hardcoded Default Settings Loaded");

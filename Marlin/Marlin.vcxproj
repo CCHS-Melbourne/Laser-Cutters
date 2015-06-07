@@ -84,12 +84,6 @@
     <ClInclude Include="cardreader.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="Configuration-AMRI-ablative.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
-    <ClInclude Include="Configuration-AMRI-SLS.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="Configuration.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -165,9 +159,6 @@
     <ClInclude Include="SdVolume.h">
       <FileType>CppCode</FileType>
     </ClInclude>
-    <ClInclude Include="Servo.h">
-      <FileType>CppCode</FileType>
-    </ClInclude>
     <ClInclude Include="speed_lookuptable.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -206,7 +197,6 @@
     <ClCompile Include="SdFatUtil.cpp" />
     <ClCompile Include="SdFile.cpp" />
     <ClCompile Include="SdVolume.cpp" />
-    <ClCompile Include="Servo.cpp" />
     <ClCompile Include="stepper.cpp" />
     <ClCompile Include="ultralcd.cpp" />
     <ClCompile Include="watchdog.cpp" />

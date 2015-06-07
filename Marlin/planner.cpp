@@ -54,7 +54,6 @@
 #include "Marlin.h"
 #include "planner.h"
 #include "stepper.h"
-#include "temperature.h"
 #include "ultralcd.h"
 #include "language.h"
 
@@ -396,9 +395,6 @@ void getHighESpeed()
   if(!autotemp_enabled){
     return;
   }
-  if(degTargetHotend0()+2<autotemp_min) {  //probably temperature set to zero.
-    return; //do nothing
-  }
 
   float high=0.0;
   uint8_t block_index = block_buffer_tail;
@@ -428,7 +424,6 @@ void getHighESpeed()
     t=AUTOTEMP_OLDWEIGHT*oldt+(1-AUTOTEMP_OLDWEIGHT)*t;
   }
   oldt=t;
-  setTargetHotend0(t);
 }
 #endif
 
@@ -505,7 +500,6 @@ void plan_buffer_line(const float &x, const float &y, const float &z, const floa
   // Rest here until there is room in the buffer.
   while(block_buffer_tail == next_buffer_head)
   {
-    manage_heater();
     manage_inactivity();
     lcd_update();
   }

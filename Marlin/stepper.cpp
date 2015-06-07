@@ -24,7 +24,6 @@
 #include "Marlin.h"
 #include "stepper.h"
 #include "planner.h"
-#include "temperature.h"
 #include "ultralcd.h"
 #include "language.h"
 #include "cardreader.h"
@@ -1009,7 +1008,6 @@ void st_init()
 void st_synchronize()
 {
     while( blocks_queued()) {
-    manage_heater();
     manage_inactivity();
     lcd_update();
   }
