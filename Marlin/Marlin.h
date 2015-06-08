@@ -204,13 +204,6 @@ extern int fanSpeed;
 extern unsigned char fanSpeedSoftPwm;
 #endif
 
-#ifdef FWRETRACT
-extern bool autoretract_enabled;
-extern bool retracted;
-extern float retract_length, retract_feedrate, retract_zlift;
-extern float retract_recover_length, retract_recover_feedrate;
-#endif
-
 extern unsigned long starttime;
 extern unsigned long stoptime;
 
