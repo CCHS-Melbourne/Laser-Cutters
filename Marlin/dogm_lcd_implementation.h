@@ -252,45 +252,13 @@ static void lcd_implementation_status_screen()
  
  // Extruder 2
  u8g.setFont(FONT_STATUSMENU);
- #if EXTRUDERS > 1
- u8g.setPrintPos(31,6);
- u8g.print(itostr3(int(degTargetHotend(1) + 0.5)));
- lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
- u8g.setPrintPos(31,27);
- u8g.print(itostr3(int(degHotend(1) + 0.5)));
- lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
- if (!isHeatingHotend(1)) u8g.drawBox(38,17,2,2);
-	else
-		{
-		 u8g.setColorIndex(0);	// white on black
-		 u8g.drawBox(38,17,2,2);
-		 u8g.setColorIndex(1);	// black on white
-		}
- #else
  u8g.setPrintPos(31,27);
  u8g.print("---");
- #endif
  
  // Extruder 3
  u8g.setFont(FONT_STATUSMENU);
- # if EXTRUDERS > 2
- u8g.setPrintPos(55,6);
- u8g.print(itostr3(int(degTargetHotend(2) + 0.5)));
- lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
- u8g.setPrintPos(55,27);
- u8g.print(itostr3(int(degHotend(2) + 0.5)));
- lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
- if (!isHeatingHotend(2)) u8g.drawBox(62,17,2,2);
-	else
-		{
-		 u8g.setColorIndex(0);	// white on black
-		 u8g.drawBox(62,17,2,2);
-		 u8g.setColorIndex(1);	// black on white
-		}
- #else
  u8g.setPrintPos(55,27);
  u8g.print("---");
- #endif
  
  // Heatbed
  u8g.setFont(FONT_STATUSMENU);

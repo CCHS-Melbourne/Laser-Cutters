@@ -106,15 +106,12 @@
 // M221 S<factor in percent>- set extrude factor override percentage				(****REPURPOSE FOR LASER SCALE?****)
 // M250 - Set LCD contrast C<contrast value> (value 0..63)					(####REALLY?####)
 // M300 - Play beepsound S<frequency Hz> P<duration ms>
-// M302 - Allow cold extrudes, or set the minimum extrude S<temperature>.			(****DELETE****)
-// M303 - PID relay autotune S<temperature> sets the target temperature. (default target temperature = 150C)	(****DELETE****)
 // M400 - Finish all moves
 // M500 - stores paramters in EEPROM
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
 // M502 - reverts to the default "factory settings".  You still need to store them in EEPROM afterwards if you want to.
 // M503 - print the current settings (from memory not from eeprom)
 // M540 - Use S[0|1] to enable or disable the stop SD card print on endstop hit (requires ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED)
-// M600 - Pause for filament change X[pos] Y[pos] Z[relative lift] E[initial retract] L[later retract distance for removal]	(****DELETE****)
 // M649 - 
 // M650 - 
 // M666 - set delta endstop adjustemnt
@@ -153,18 +150,6 @@ float min_pos[3] = { X_MIN_POS, Y_MIN_POS, Z_MIN_POS };
 float max_pos[3] = { X_MAX_POS, Y_MAX_POS, Z_MAX_POS };
 
 // Extruder offset
-#if EXTRUDERS > 1
-#ifndef DUAL_X_CARRIAGE
-  #define NUM_EXTRUDER_OFFSETS 2 // only in XY plane
-#else
-  #define NUM_EXTRUDER_OFFSETS 3 // supports offsets in XYZ plane
-#endif
-float extruder_offset[NUM_EXTRUDER_OFFSETS][EXTRUDERS] = {
-#if defined(EXTRUDER_OFFSET_X) && defined(EXTRUDER_OFFSET_Y)
-  EXTRUDER_OFFSET_X, EXTRUDER_OFFSET_Y
-#endif
-};
-#endif
 uint8_t active_extruder = 0;
 int fanSpeed=0;
 #ifdef SERVO_ENDSTOPS
@@ -626,64 +611,7 @@ XYZ_CONSTS_FROM_CONFIG(float, max_length,      MAX_LENGTH);
 XYZ_CONSTS_FROM_CONFIG(float, home_retract_mm, HOME_RETRACT_MM);
 XYZ_CONSTS_FROM_CONFIG(signed char, home_dir,  HOME_DIR);
 
-#ifdef DUAL_X_CARRIAGE
-  #if EXTRUDERS == 1 || defined(COREXY) \
-      || !defined(X2_ENABLE_PIN) || !defined(X2_STEP_PIN) || !defined(X2_DIR_PIN) \
-      || !defined(X2_HOME_POS) || !defined(X2_MIN_POS) || !defined(X2_MAX_POS) \
-      || !defined(X_MAX_PIN) || X_MAX_PIN < 0
-    #error "Missing or invalid definitions for DUAL_X_CARRIAGE mode."
-  #endif
-  #if X_HOME_DIR != -1 || X2_HOME_DIR != 1
-    #error "Please use canonical x-carriage assignment" // the x-carriages are defined by their homing directions
-  #endif
-
-#define DXC_FULL_CONTROL_MODE 0
-#define DXC_AUTO_PARK_MODE    1
-#define DXC_DUPLICATION_MODE  2
-static int dual_x_carriage_mode = DEFAULT_DUAL_X_CARRIAGE_MODE;
-
-static float x_home_pos(int extruder) {
-  if (extruder == 0)
-    return base_home_pos(X_AXIS) + add_homeing[X_AXIS];
-  else
-    // In dual carriage mode the extruder offset provides an override of the
-    // second X-carriage offset when homed - otherwise X2_HOME_POS is used.
-    // This allow soft recalibration of the second extruder offset position without firmware reflash
-    // (through the M218 command).
-    return (extruder_offset[X_AXIS][1] > 0) ? extruder_offset[X_AXIS][1] : X2_HOME_POS;
-}
-
-static int x_home_dir(int extruder) {
-  return (extruder == 0) ? X_HOME_DIR : X2_HOME_DIR;
-}
-
-static float inactive_extruder_x_pos = X2_MAX_POS; // used in mode 0 & 1
-static bool active_extruder_parked = false; // used in mode 1 & 2
-static float raised_parked_position[NUM_AXIS]; // used in mode 1
-static unsigned long delayed_move_time = 0; // used in mode 1
-static float duplicate_extruder_x_offset = DEFAULT_DUPLICATION_X_OFFSET; // used in mode 2
-static float duplicate_extruder_temp_offset = 0; // used in mode 2
-bool extruder_duplication_enabled = false; // used in mode 2
-#endif //DUAL_X_CARRIAGE
-
 static void axis_is_at_home(int axis) {
-#ifdef DUAL_X_CARRIAGE
-  if (axis == X_AXIS) {
-    if (active_extruder != 0) {
-      current_position[X_AXIS] = x_home_pos(active_extruder);
-      min_pos[X_AXIS] =          X2_MIN_POS;
-      max_pos[X_AXIS] =          max(extruder_offset[X_AXIS][1], X2_MAX_POS);
-      return;
-    }
-    else if (dual_x_carriage_mode == DXC_DUPLICATION_MODE && active_extruder == 0) {
-      current_position[X_AXIS] = base_home_pos(X_AXIS) + add_homeing[X_AXIS];
-      min_pos[X_AXIS] =          base_min_pos(X_AXIS) + add_homeing[X_AXIS];
-      max_pos[X_AXIS] =          min(base_max_pos(X_AXIS) + add_homeing[X_AXIS],
-                                  max(extruder_offset[X_AXIS][1], X2_MAX_POS) - duplicate_extruder_x_offset);
-      return;
-    }
-  }
-#endif
   current_position[axis] = base_home_pos(axis) + add_homeing[axis];
   min_pos[axis] =          base_min_pos(axis) + add_homeing[axis];
   max_pos[axis] =          base_max_pos(axis) + add_homeing[axis];
@@ -1077,12 +1005,7 @@ void process_commands()
       {
         current_position[X_AXIS] = 0;current_position[Y_AXIS] = 0;
 
-       #ifndef DUAL_X_CARRIAGE
         int x_axis_home_dir = home_dir(X_AXIS);
-       #else
-        int x_axis_home_dir = x_home_dir(active_extruder);
-        extruder_duplication_enabled = false;
-       #endif
 
         plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
         destination[X_AXIS] = 1.5 * max_length(X_AXIS) * x_axis_home_dir;destination[Y_AXIS] = 1.5 * max_length(Y_AXIS) * home_dir(Y_AXIS);
@@ -1114,21 +1037,7 @@ void process_commands()
 
       if((home_all_axis) || (code_seen(axis_codes[X_AXIS])))
       {
-      #ifdef DUAL_X_CARRIAGE
-        int tmp_extruder = active_extruder;
-        extruder_duplication_enabled = false;
-        active_extruder = !active_extruder;
         HOMEAXIS(X);
-        inactive_extruder_x_pos = current_position[X_AXIS];
-        active_extruder = tmp_extruder;
-        HOMEAXIS(X);
-        // reset state used by the different modes
-        memcpy(raised_parked_position, current_position, sizeof(raised_parked_position));
-        delayed_move_time = 0;
-        active_extruder_parked = true;
-      #else
-        HOMEAXIS(X);
-      #endif
       }
 
       if((home_all_axis) || (code_seen(axis_codes[Y_AXIS]))) {
@@ -1652,28 +1561,6 @@ void process_commands()
      }
     break;
 #endif
-    #ifdef PREVENT_DANGEROUS_EXTRUDE
-    case 302: // allow cold extrudes, or set the minimum extrude temperature
-    {
-	  float temp = .0;
-	  if (code_seen('S')) temp=code_value();
-      set_extrude_min_temp(temp);
-    }
-    break;
-	#endif
-    case 303: // M303 PID autotune
-    {
-      float temp = 150.0;
-      int e=0;
-      int c=5;
-      if (code_seen('E')) e=code_value();
-        if (e<0)
-          temp=70;
-      if (code_seen('S')) temp=code_value();
-      if (code_seen('C')) c=code_value();
-      PID_autotune(temp, e, c);
-    }
-    break;
     case 400: // M400 finish all moves
     {
       st_synchronize();
@@ -1706,131 +1593,6 @@ void process_commands()
     }
     break;
     #endif
-    #ifdef FILAMENTCHANGEENABLE
-    case 600: //Pause for filament change X[pos] Y[pos] Z[relative lift] E[initial retract] L[later retract distance for removal]
-    {
-        float target[4];
-        float lastpos[4];
-        target[X_AXIS]=current_position[X_AXIS];
-        target[Y_AXIS]=current_position[Y_AXIS];
-        target[Z_AXIS]=current_position[Z_AXIS];
-        target[E_AXIS]=current_position[E_AXIS];
-        lastpos[X_AXIS]=current_position[X_AXIS];
-        lastpos[Y_AXIS]=current_position[Y_AXIS];
-        lastpos[Z_AXIS]=current_position[Z_AXIS];
-        lastpos[E_AXIS]=current_position[E_AXIS];
-        //retract by E
-        if(code_seen('E'))
-        {
-          target[E_AXIS]+= code_value();
-        }
-        else
-        {
-          #ifdef FILAMENTCHANGE_FIRSTRETRACT
-            target[E_AXIS]+= FILAMENTCHANGE_FIRSTRETRACT ;
-          #endif
-        }
-        plan_buffer_line(target[X_AXIS], target[Y_AXIS], target[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder);
-
-        //lift Z
-        if(code_seen('Z'))
-        {
-          target[Z_AXIS]+= code_value();
-        }
-        else
-        {
-          #ifdef FILAMENTCHANGE_ZADD
-            target[Z_AXIS]+= FILAMENTCHANGE_ZADD ;
-          #endif
-        }
-        plan_buffer_line(target[X_AXIS], target[Y_AXIS], target[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder);
-
-        //move xy
-        if(code_seen('X'))
-        {
-          target[X_AXIS]+= code_value();
-        }
-        else
-        {
-          #ifdef FILAMENTCHANGE_XPOS
-            target[X_AXIS]= FILAMENTCHANGE_XPOS ;
-          #endif
-        }
-        if(code_seen('Y'))
-        {
-          target[Y_AXIS]= code_value();
-        }
-        else
-        {
-          #ifdef FILAMENTCHANGE_YPOS
-            target[Y_AXIS]= FILAMENTCHANGE_YPOS ;
-          #endif
-        }
-
-        plan_buffer_line(target[X_AXIS], target[Y_AXIS], target[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder);
-
-        if(code_seen('L'))
-        {
-          target[E_AXIS]+= code_value();
-        }
-        else
-        {
-          #ifdef FILAMENTCHANGE_FINALRETRACT
-            target[E_AXIS]+= FILAMENTCHANGE_FINALRETRACT ;
-          #endif
-        }
-
-        plan_buffer_line(target[X_AXIS], target[Y_AXIS], target[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder);
-
-        //finish moves
-        st_synchronize();
-        //disable extruder steppers so filament can be removed
-        disable_e0();
-        disable_e1();
-        disable_e2();
-        delay(100);
-        LCD_ALERTMESSAGEPGM(MSG_FILAMENTCHANGE);
-        uint8_t cnt=0;
-        while(!lcd_clicked()){
-          cnt++;
-          manage_heater();
-          manage_inactivity();
-          lcd_update();
-          if(cnt==0)
-          {
-          #if BEEPER > 0
-            SET_OUTPUT(BEEPER);
-
-            WRITE(BEEPER,HIGH);
-            delay(3);
-            WRITE(BEEPER,LOW);
-            delay(3);
-          #else
-            lcd_buzz(1000/6,100);
-          #endif
-          }
-        }
-
-        //return to normal
-        if(code_seen('L'))
-        {
-          target[E_AXIS]+= -code_value();
-        }
-        else
-        {
-          #ifdef FILAMENTCHANGE_FINALRETRACT
-            target[E_AXIS]+=(-1)*FILAMENTCHANGE_FINALRETRACT ;
-          #endif
-        }
-        current_position[E_AXIS]=target[E_AXIS]; //the long retract of L is compensated by manual filament feeding
-        plan_set_e_position(current_position[E_AXIS]);
-        plan_buffer_line(target[X_AXIS], target[Y_AXIS], target[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder); //should do nothing
-        plan_buffer_line(lastpos[X_AXIS], lastpos[Y_AXIS], target[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder); //move xy back
-        plan_buffer_line(lastpos[X_AXIS], lastpos[Y_AXIS], lastpos[Z_AXIS], target[E_AXIS], feedrate/60, active_extruder); //move z back
-        plan_buffer_line(lastpos[X_AXIS], lastpos[Y_AXIS], lastpos[Z_AXIS], lastpos[E_AXIS], feedrate/60, active_extruder); //final untretract
-    }
-    break;
-    #endif //FILAMENTCHANGEENABLE
     
 	#ifdef LASER
 	case 649: // M649 set laser options
@@ -1972,79 +1734,8 @@ void process_commands()
           feedrate = next_feedrate;
         }
       }
-      #if EXTRUDERS > 1
-      if(tmp_extruder != active_extruder) {
-        // Save current position to return to after applying extruder offset
-        memcpy(destination, current_position, sizeof(destination));
-      #ifdef DUAL_X_CARRIAGE
-        if (dual_x_carriage_mode == DXC_AUTO_PARK_MODE && Stopped == false &&
-            (delayed_move_time != 0 || current_position[X_AXIS] != x_home_pos(active_extruder)))
-        {
-          // Park old head: 1) raise 2) move to park position 3) lower
-          plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS] + TOOLCHANGE_PARK_ZLIFT,
-                current_position[E_AXIS], max_feedrate[Z_AXIS], active_extruder);
-          plan_buffer_line(x_home_pos(active_extruder), current_position[Y_AXIS], current_position[Z_AXIS] + TOOLCHANGE_PARK_ZLIFT,
-                current_position[E_AXIS], max_feedrate[X_AXIS], active_extruder);
-          plan_buffer_line(x_home_pos(active_extruder), current_position[Y_AXIS], current_position[Z_AXIS],
-                current_position[E_AXIS], max_feedrate[Z_AXIS], active_extruder);
-          st_synchronize();
-        }
-
-        // apply Y & Z extruder offset (x offset is already used in determining home pos)
-        current_position[Y_AXIS] = current_position[Y_AXIS] -
-                     extruder_offset[Y_AXIS][active_extruder] +
-                     extruder_offset[Y_AXIS][tmp_extruder];
-        current_position[Z_AXIS] = current_position[Z_AXIS] -
-                     extruder_offset[Z_AXIS][active_extruder] +
-                     extruder_offset[Z_AXIS][tmp_extruder];
-
-        active_extruder = tmp_extruder;
-
-        // This function resets the max/min values - the current position may be overwritten below.
-        axis_is_at_home(X_AXIS);
-
-        if (dual_x_carriage_mode == DXC_FULL_CONTROL_MODE)
-        {
-          current_position[X_AXIS] = inactive_extruder_x_pos;
-          inactive_extruder_x_pos = destination[X_AXIS];
-        }
-        else if (dual_x_carriage_mode == DXC_DUPLICATION_MODE)
-        {
-          active_extruder_parked = (active_extruder == 0); // this triggers the second extruder to move into the duplication position
-          if (active_extruder == 0 || active_extruder_parked)
-            current_position[X_AXIS] = inactive_extruder_x_pos;
-          else
-            current_position[X_AXIS] = destination[X_AXIS] + duplicate_extruder_x_offset;
-          inactive_extruder_x_pos = destination[X_AXIS];
-          extruder_duplication_enabled = false;
-        }
-        else
-        {
-          // record raised toolhead position for use by unpark
-          memcpy(raised_parked_position, current_position, sizeof(raised_parked_position));
-          raised_parked_position[Z_AXIS] += TOOLCHANGE_UNPARK_ZLIFT;
-          active_extruder_parked = true;
-          delayed_move_time = 0;
-        }
-      #else
-        // Offset extruder (only by XY)
-        int i;
-        for(i = 0; i < 2; i++) {
-           current_position[i] = current_position[i] -
-                                 extruder_offset[i][active_extruder] +
-                                 extruder_offset[i][tmp_extruder];
-        }
-        // Set the new active extruder and position
-        active_extruder = tmp_extruder;
-      #endif //else DUAL_X_CARRIAGE
-        plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
-        // Move to the old position if 'F' was in the parameters
-        if(make_move && Stopped == false) {
-           prepare_move();
-        }
-      }
-      #endif
-      SERIAL_ECHO_START;
+      
+	  SERIAL_ECHO_START;
       SERIAL_ECHO(MSG_ACTIVE_EXTRUDER);
       SERIAL_PROTOCOLLN((int)active_extruder);
     }
@@ -2196,46 +1887,6 @@ void prepare_move()
   }
 #else
 
-#ifdef DUAL_X_CARRIAGE
-  if (active_extruder_parked)
-  {
-    if (dual_x_carriage_mode == DXC_DUPLICATION_MODE && active_extruder == 0)
-    {
-      // move duplicate extruder into correct duplication position.
-      plan_set_position(inactive_extruder_x_pos, current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
-      plan_buffer_line(current_position[X_AXIS] + duplicate_extruder_x_offset, current_position[Y_AXIS], current_position[Z_AXIS],
-          current_position[E_AXIS], max_feedrate[X_AXIS], 1);
-      plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
-      st_synchronize();
-      extruder_duplication_enabled = true;
-      active_extruder_parked = false;
-    }
-    else if (dual_x_carriage_mode == DXC_AUTO_PARK_MODE) // handle unparking of head
-    {
-      if (current_position[E_AXIS] == destination[E_AXIS])
-      {
-        // this is a travel move - skit it but keep track of current position (so that it can later
-        // be used as start of first non-travel move)
-        if (delayed_move_time != 0xFFFFFFFFUL)
-        {
-          memcpy(current_position, destination, sizeof(current_position));
-          if (destination[Z_AXIS] > raised_parked_position[Z_AXIS])
-            raised_parked_position[Z_AXIS] = destination[Z_AXIS];
-          delayed_move_time = millis();
-          return;
-        }
-      }
-      delayed_move_time = 0;
-      // unpark extruder: 1) raise, 2) move into starting XY position, 3) lower
-      plan_buffer_line(raised_parked_position[X_AXIS], raised_parked_position[Y_AXIS], raised_parked_position[Z_AXIS],    current_position[E_AXIS], max_feedrate[Z_AXIS], active_extruder);
-      plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], raised_parked_position[Z_AXIS],
-          current_position[E_AXIS], min(max_feedrate[X_AXIS],max_feedrate[Y_AXIS]), active_extruder);
-      plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS],
-          current_position[E_AXIS], max_feedrate[Z_AXIS], active_extruder);
-      active_extruder_parked = false;
-    }
-  }
-#endif //DUAL_X_CARRIAGE
 
   #ifdef LASER_FIRE_E
   if (current_position[E_AXIS] != destination[E_AXIS] && ((current_position[X_AXIS] != destination [X_AXIS]) || (current_position[Y_AXIS] != destination [Y_AXIS]))){
@@ -2302,15 +1953,6 @@ void controllerFan()
     lastMotorCheck = millis();
 
     if(!READ(X_ENABLE_PIN) || !READ(Y_ENABLE_PIN) || !READ(Z_ENABLE_PIN)
-    #if EXTRUDERS > 2
-       || !READ(E2_ENABLE_PIN)
-    #endif
-    #if EXTRUDER > 1
-      #if defined(X2_ENABLE_PIN) && X2_ENABLE_PIN > -1
-       || !READ(X2_ENABLE_PIN)
-      #endif
-       || !READ(E1_ENABLE_PIN)
-    #endif
        || !READ(E0_ENABLE_PIN)) //If any of the drivers are enabled...
     {
       lastMotor = millis(); //... set time to NOW so the fan will turn on
@@ -2391,18 +2033,8 @@ void manage_inactivity()
      WRITE(E0_ENABLE_PIN,oldstatus);
     }
   #endif
-  #if defined(DUAL_X_CARRIAGE)
-    // handle delayed move timeout
-    if (delayed_move_time != 0 && (millis() - delayed_move_time) > 1000 && Stopped == false)
-    {
-      // travel moves have been received so enact them
-      delayed_move_time = 0xFFFFFFFFUL; // force moves to be done
-      memcpy(destination,current_position,sizeof(destination));
-      prepare_move();
-    }
-  #endif
 
-  check_axes_activity();
+	check_axes_activity();
 }
 
 void kill()

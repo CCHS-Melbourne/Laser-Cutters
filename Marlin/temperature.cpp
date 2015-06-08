@@ -69,15 +69,7 @@ static volatile bool temp_meas_ready = false;
   static unsigned long extruder_autofan_last_check;
 #endif  
 
-#if EXTRUDERS > 3
-  # error Unsupported number of extruders
-#elif EXTRUDERS > 2
-  # define ARRAY_BY_EXTRUDERS(v1, v2, v3) { v1, v2, v3 }
-#elif EXTRUDERS > 1
-  # define ARRAY_BY_EXTRUDERS(v1, v2, v3) { v1, v2 }
-#else
   # define ARRAY_BY_EXTRUDERS(v1, v2, v3) { v1 }
-#endif
 
 // Init min and max temp with extreme values to prevent false errors during startup
 static int minttemp_raw[EXTRUDERS] = ARRAY_BY_EXTRUDERS( HEATER_0_RAW_LO_TEMP , HEATER_1_RAW_LO_TEMP , HEATER_2_RAW_LO_TEMP );
@@ -604,89 +596,6 @@ void tp_init()
   // Wait for temperature measurement to settle
   delay(250);
 
-#ifdef HEATER_0_MINTEMP
-  minttemp[0] = HEATER_0_MINTEMP;
-  while(analog2temp(minttemp_raw[0], 0) < HEATER_0_MINTEMP) {
-#if HEATER_0_RAW_LO_TEMP < HEATER_0_RAW_HI_TEMP
-    minttemp_raw[0] += OVERSAMPLENR;
-#else
-    minttemp_raw[0] -= OVERSAMPLENR;
-#endif
-  }
-#endif //MINTEMP
-#ifdef HEATER_0_MAXTEMP
-  maxttemp[0] = HEATER_0_MAXTEMP;
-  while(analog2temp(maxttemp_raw[0], 0) > HEATER_0_MAXTEMP) {
-#if HEATER_0_RAW_LO_TEMP < HEATER_0_RAW_HI_TEMP
-    maxttemp_raw[0] -= OVERSAMPLENR;
-#else
-    maxttemp_raw[0] += OVERSAMPLENR;
-#endif
-  }
-#endif //MAXTEMP
-
-#if (EXTRUDERS > 1) && defined(HEATER_1_MINTEMP)
-  minttemp[1] = HEATER_1_MINTEMP;
-  while(analog2temp(minttemp_raw[1], 1) < HEATER_1_MINTEMP) {
-#if HEATER_1_RAW_LO_TEMP < HEATER_1_RAW_HI_TEMP
-    minttemp_raw[1] += OVERSAMPLENR;
-#else
-    minttemp_raw[1] -= OVERSAMPLENR;
-#endif
-  }
-#endif // MINTEMP 1
-#if (EXTRUDERS > 1) && defined(HEATER_1_MAXTEMP)
-  maxttemp[1] = HEATER_1_MAXTEMP;
-  while(analog2temp(maxttemp_raw[1], 1) > HEATER_1_MAXTEMP) {
-#if HEATER_1_RAW_LO_TEMP < HEATER_1_RAW_HI_TEMP
-    maxttemp_raw[1] -= OVERSAMPLENR;
-#else
-    maxttemp_raw[1] += OVERSAMPLENR;
-#endif
-  }
-#endif //MAXTEMP 1
-
-#if (EXTRUDERS > 2) && defined(HEATER_2_MINTEMP)
-  minttemp[2] = HEATER_2_MINTEMP;
-  while(analog2temp(minttemp_raw[2], 2) < HEATER_2_MINTEMP) {
-#if HEATER_2_RAW_LO_TEMP < HEATER_2_RAW_HI_TEMP
-    minttemp_raw[2] += OVERSAMPLENR;
-#else
-    minttemp_raw[2] -= OVERSAMPLENR;
-#endif
-  }
-#endif //MINTEMP 2
-#if (EXTRUDERS > 2) && defined(HEATER_2_MAXTEMP)
-  maxttemp[2] = HEATER_2_MAXTEMP;
-  while(analog2temp(maxttemp_raw[2], 2) > HEATER_2_MAXTEMP) {
-#if HEATER_2_RAW_LO_TEMP < HEATER_2_RAW_HI_TEMP
-    maxttemp_raw[2] -= OVERSAMPLENR;
-#else
-    maxttemp_raw[2] += OVERSAMPLENR;
-#endif
-  }
-#endif //MAXTEMP 2
-
-#ifdef BED_MINTEMP
-  /* No bed MINTEMP error implemented?!? */ /*
-  while(analog2tempBed(bed_minttemp_raw) < BED_MINTEMP) {
-#if HEATER_BED_RAW_LO_TEMP < HEATER_BED_RAW_HI_TEMP
-    bed_minttemp_raw += OVERSAMPLENR;
-#else
-    bed_minttemp_raw -= OVERSAMPLENR;
-#endif
-  }
-  */
-#endif //BED_MINTEMP
-#ifdef BED_MAXTEMP
-  while(analog2tempBed(bed_maxttemp_raw) > BED_MAXTEMP) {
-#if HEATER_BED_RAW_LO_TEMP < HEATER_BED_RAW_HI_TEMP
-    bed_maxttemp_raw -= OVERSAMPLENR;
-#else
-    bed_maxttemp_raw += OVERSAMPLENR;
-#endif
-  }
-#endif //BED_MAXTEMP
 }
 
 void setWatch() 
@@ -851,12 +760,6 @@ ISR(TIMER0_COMPB_vect)
   static unsigned char temp_state = 0;
   static unsigned char pwm_count = (1 << SOFT_PWM_SCALE);
   static unsigned char soft_pwm_0;
-  #if EXTRUDERS > 1
-  static unsigned char soft_pwm_1;
-  #endif
-  #if EXTRUDERS > 2
-  static unsigned char soft_pwm_2;
-  #endif
   #if HEATER_BED_PIN > -1
   static unsigned char soft_pwm_b;
   #endif
@@ -864,14 +767,6 @@ ISR(TIMER0_COMPB_vect)
   if(pwm_count == 0){
     soft_pwm_0 = soft_pwm[0];
     if(soft_pwm_0 > 0) WRITE(HEATER_0_PIN,1);
-    #if EXTRUDERS > 1
-    soft_pwm_1 = soft_pwm[1];
-    if(soft_pwm_1 > 0) WRITE(HEATER_1_PIN,1);
-    #endif
-    #if EXTRUDERS > 2
-    soft_pwm_2 = soft_pwm[2];
-    if(soft_pwm_2 > 0) WRITE(HEATER_2_PIN,1);
-    #endif
     #if defined(HEATER_BED_PIN) && HEATER_BED_PIN > -1
     soft_pwm_b = soft_pwm_bed;
     if(soft_pwm_b > 0) WRITE(HEATER_BED_PIN,1);
@@ -882,12 +777,6 @@ ISR(TIMER0_COMPB_vect)
     #endif
   }
   if(soft_pwm_0 <= pwm_count) WRITE(HEATER_0_PIN,0);
-  #if EXTRUDERS > 1
-  if(soft_pwm_1 <= pwm_count) WRITE(HEATER_1_PIN,0);
-  #endif
-  #if EXTRUDERS > 2
-  if(soft_pwm_2 <= pwm_count) WRITE(HEATER_2_PIN,0);
-  #endif
   #if defined(HEATER_BED_PIN) && HEATER_BED_PIN > -1
   if(soft_pwm_b <= pwm_count) WRITE(HEATER_BED_PIN,0);
   #endif
@@ -990,15 +879,6 @@ ISR(TIMER0_COMPB_vect)
     if (!temp_meas_ready) //Only update the raw values if they have been read. Else we could be updating them during reading.
     {
       current_temperature_raw[0] = raw_temp_0_value;
-#if EXTRUDERS > 1
-      current_temperature_raw[1] = raw_temp_1_value;
-#endif
-#ifdef TEMP_SENSOR_1_AS_REDUNDANT
-      redundant_temperature_raw = raw_temp_1_value;
-#endif
-#if EXTRUDERS > 2
-      current_temperature_raw[2] = raw_temp_2_value;
-#endif
       current_temperature_bed_raw = raw_temp_bed_value;
     }
     
@@ -1023,38 +903,6 @@ ISR(TIMER0_COMPB_vect)
 #endif
         min_temp_error(0);
     }
-#if EXTRUDERS > 1
-#if HEATER_1_RAW_LO_TEMP > HEATER_1_RAW_HI_TEMP
-    if(current_temperature_raw[1] <= maxttemp_raw[1]) {
-#else
-    if(current_temperature_raw[1] >= maxttemp_raw[1]) {
-#endif
-        max_temp_error(1);
-    }
-#if HEATER_1_RAW_LO_TEMP > HEATER_1_RAW_HI_TEMP
-    if(current_temperature_raw[1] >= minttemp_raw[1]) {
-#else
-    if(current_temperature_raw[1] <= minttemp_raw[1]) {
-#endif
-        min_temp_error(1);
-    }
-#endif
-#if EXTRUDERS > 2
-#if HEATER_2_RAW_LO_TEMP > HEATER_2_RAW_HI_TEMP
-    if(current_temperature_raw[2] <= maxttemp_raw[2]) {
-#else
-    if(current_temperature_raw[2] >= maxttemp_raw[2]) {
-#endif
-        max_temp_error(2);
-    }
-#if HEATER_2_RAW_LO_TEMP > HEATER_2_RAW_HI_TEMP
-    if(current_temperature_raw[2] >= minttemp_raw[2]) {
-#else
-    if(current_temperature_raw[2] <= minttemp_raw[2]) {
-#endif
-        min_temp_error(2);
-    }
-#endif
   
   /* No bed MINTEMP error? */
 #if defined(BED_MAXTEMP) && (TEMP_SENSOR_BED != 0)

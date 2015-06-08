@@ -165,6 +165,9 @@
     <ClInclude Include="stepper.h">
       <FileType>CppCode</FileType>
     </ClInclude>
+    <ClInclude Include="temperature.h">
+      <FileType>CppCode</FileType>
+    </ClInclude>
     <ClInclude Include="thermistortables.h">
       <FileType>CppCode</FileType>
     </ClInclude>
@@ -198,6 +201,7 @@
     <ClCompile Include="SdFile.cpp" />
     <ClCompile Include="SdVolume.cpp" />
     <ClCompile Include="stepper.cpp" />
+    <ClCompile Include="temperature.cpp" />
     <ClCompile Include="ultralcd.cpp" />
     <ClCompile Include="watchdog.cpp" />
   </ItemGroup>

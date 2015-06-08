@@ -345,17 +345,6 @@ ISR(TIMER1_COMPA_vect)
       #endif //LASER
       step_events_completed = 0;
 
-      #ifdef Z_LATE_ENABLE
-        if(current_block->steps_z > 0) {
-          enable_z();
-          #ifdef MUVE
-            enable_e();
-          #endif //MUVE
-          OCR1A = 2000; //1ms wait
-          return;
-        }
-      #endif
-
       #ifdef LASER_RASTER
         if (current_block->laser_mode == RASTER) {
 			counter_raster = 0;
@@ -388,37 +377,11 @@ ISR(TIMER1_COMPA_vect)
 
     // Set the direction bits (X_AXIS=A_AXIS and Y_AXIS=B_AXIS for COREXY)
     if((out_bits & (1<<X_AXIS))!=0){
-      #ifdef DUAL_X_CARRIAGE
-        if (extruder_duplication_enabled){
-          WRITE(X_DIR_PIN, INVERT_X_DIR);
-          WRITE(X2_DIR_PIN, INVERT_X_DIR);
-        }
-        else{
-          if (current_block->active_extruder != 0)
-            WRITE(X2_DIR_PIN, INVERT_X_DIR);
-          else
-            WRITE(X_DIR_PIN, INVERT_X_DIR);
-        }
-      #else
         WRITE(X_DIR_PIN, INVERT_X_DIR);
-      #endif
       count_direction[X_AXIS]=-1;
     }
     else{
-      #ifdef DUAL_X_CARRIAGE
-        if (extruder_duplication_enabled){
-          WRITE(X_DIR_PIN, !INVERT_X_DIR);
-          WRITE(X2_DIR_PIN, !INVERT_X_DIR);
-        }
-        else{
-          if (current_block->active_extruder != 0)
-            WRITE(X2_DIR_PIN, !INVERT_X_DIR);
-          else
-            WRITE(X_DIR_PIN, !INVERT_X_DIR);
-        }
-      #else
         WRITE(X_DIR_PIN, !INVERT_X_DIR);
-      #endif
       count_direction[X_AXIS]=1;
     }
     if((out_bits & (1<<Y_AXIS))!=0){
@@ -438,11 +401,6 @@ ISR(TIMER1_COMPA_vect)
     #endif
       CHECK_ENDSTOPS
       {
-        #ifdef DUAL_X_CARRIAGE
-        // with 2 x-carriages, endstops are only checked in the homing direction for the active extruder
-        if ((current_block->active_extruder == 0 && X_HOME_DIR == -1)
-            || (current_block->active_extruder != 0 && X2_HOME_DIR == -1))
-        #endif
         {
           #if defined(X_MIN_PIN) && X_MIN_PIN > -1
             bool x_min_endstop=(READ(X_MIN_PIN) != X_MIN_ENDSTOP_INVERTING);
@@ -459,11 +417,6 @@ ISR(TIMER1_COMPA_vect)
     else { // +direction
       CHECK_ENDSTOPS
       {
-        #ifdef DUAL_X_CARRIAGE
-        // with 2 x-carriages, endstops are only checked in the homing direction for the active extruder
-        if ((current_block->active_extruder == 0 && X_HOME_DIR == 1)
-            || (current_block->active_extruder != 0 && X2_HOME_DIR == 1))
-        #endif
         {
           #if defined(X_MAX_PIN) && X_MAX_PIN > -1
             bool x_max_endstop=(READ(X_MAX_PIN) != X_MAX_ENDSTOP_INVERTING);
@@ -514,10 +467,6 @@ ISR(TIMER1_COMPA_vect)
     if ((out_bits & (1<<Z_AXIS)) != 0) {   // -direction
       WRITE(Z_DIR_PIN,INVERT_Z_DIR);
 
-      #ifdef Z_DUAL_STEPPER_DRIVERS
-        WRITE(Z2_DIR_PIN,INVERT_Z_DIR);
-      #endif
-
       count_direction[Z_AXIS]=-1;
       CHECK_ENDSTOPS
       {
@@ -534,10 +483,6 @@ ISR(TIMER1_COMPA_vect)
     }
     else { // +direction
       WRITE(Z_DIR_PIN,!INVERT_Z_DIR);
-
-      #ifdef Z_DUAL_STEPPER_DRIVERS
-        WRITE(Z2_DIR_PIN,!INVERT_Z_DIR);
-      #endif
 
       count_direction[Z_AXIS]=1;
       CHECK_ENDSTOPS
@@ -587,36 +532,10 @@ ISR(TIMER1_COMPA_vect)
 
         counter_x += current_block->steps_x;
         if (counter_x > 0) {
-        #ifdef DUAL_X_CARRIAGE
-          if (extruder_duplication_enabled){
-            WRITE(X_STEP_PIN, !INVERT_X_STEP_PIN);
-            WRITE(X2_STEP_PIN, !INVERT_X_STEP_PIN);
-          }
-          else {
-            if (current_block->active_extruder != 0)
-              WRITE(X2_STEP_PIN, !INVERT_X_STEP_PIN);
-            else
-              WRITE(X_STEP_PIN, !INVERT_X_STEP_PIN);
-          }
-        #else
           WRITE(X_STEP_PIN, !INVERT_X_STEP_PIN);
-        #endif
           counter_x -= current_block->step_event_count;
           count_position[X_AXIS]+=count_direction[X_AXIS];
-        #ifdef DUAL_X_CARRIAGE
-          if (extruder_duplication_enabled){
-            WRITE(X_STEP_PIN, INVERT_X_STEP_PIN);
-            WRITE(X2_STEP_PIN, INVERT_X_STEP_PIN);
-          }
-          else {
-            if (current_block->active_extruder != 0)
-              WRITE(X2_STEP_PIN, INVERT_X_STEP_PIN);
-            else
-              WRITE(X_STEP_PIN, INVERT_X_STEP_PIN);
-          }
-        #else
           WRITE(X_STEP_PIN, INVERT_X_STEP_PIN);
-        #endif
         }
 
         counter_y += current_block->steps_y;
@@ -631,17 +550,10 @@ ISR(TIMER1_COMPA_vect)
       if (counter_z > 0) {
         WRITE(Z_STEP_PIN, !INVERT_Z_STEP_PIN);
 
-        #ifdef Z_DUAL_STEPPER_DRIVERS
-          WRITE(Z2_STEP_PIN, !INVERT_Z_STEP_PIN);
-        #endif
-
         counter_z -= current_block->step_event_count;
         count_position[Z_AXIS]+=count_direction[Z_AXIS];
         WRITE(Z_STEP_PIN, INVERT_Z_STEP_PIN);
 
-        #ifdef Z_DUAL_STEPPER_DRIVERS
-          WRITE(Z2_STEP_PIN, INVERT_Z_STEP_PIN);
-        #endif
       }
 
       #ifndef ADVANCE
@@ -779,36 +691,6 @@ ISR(TIMER1_COMPA_vect)
           WRITE(E0_STEP_PIN, !INVERT_E_STEP_PIN);
         }
       }
- #if EXTRUDERS > 1
-      if (e_steps[1] != 0) {
-        WRITE(E1_STEP_PIN, INVERT_E_STEP_PIN);
-        if (e_steps[1] < 0) {
-          WRITE(E1_DIR_PIN, INVERT_E1_DIR);
-          e_steps[1]++;
-          WRITE(E1_STEP_PIN, !INVERT_E_STEP_PIN);
-        }
-        else if (e_steps[1] > 0) {
-          WRITE(E1_DIR_PIN, !INVERT_E1_DIR);
-          e_steps[1]--;
-          WRITE(E1_STEP_PIN, !INVERT_E_STEP_PIN);
-        }
-      }
- #endif
- #if EXTRUDERS > 2
-      if (e_steps[2] != 0) {
-        WRITE(E2_STEP_PIN, INVERT_E_STEP_PIN);
-        if (e_steps[2] < 0) {
-          WRITE(E2_DIR_PIN, INVERT_E2_DIR);
-          e_steps[2]++;
-          WRITE(E2_STEP_PIN, !INVERT_E_STEP_PIN);
-        }
-        else if (e_steps[2] > 0) {
-          WRITE(E2_DIR_PIN, !INVERT_E2_DIR);
-          e_steps[2]--;
-          WRITE(E2_STEP_PIN, !INVERT_E_STEP_PIN);
-        }
-      }
- #endif
     }
   }
 #endif // ADVANCE
@@ -822,18 +704,12 @@ void st_init()
   #if defined(X_DIR_PIN) && X_DIR_PIN > -1
     SET_OUTPUT(X_DIR_PIN);
   #endif
-  #if defined(X2_DIR_PIN) && X2_DIR_PIN > -1
-    SET_OUTPUT(X2_DIR_PIN);
-  #endif
   #if defined(Y_DIR_PIN) && Y_DIR_PIN > -1
     SET_OUTPUT(Y_DIR_PIN);
   #endif
   #if defined(Z_DIR_PIN) && Z_DIR_PIN > -1
     SET_OUTPUT(Z_DIR_PIN);
 
-    #if defined(Z_DUAL_STEPPER_DRIVERS) && defined(Z2_DIR_PIN) && (Z2_DIR_PIN > -1)
-      SET_OUTPUT(Z2_DIR_PIN);
-    #endif
   #endif
   #if defined(E0_DIR_PIN) && E0_DIR_PIN > -1
     SET_OUTPUT(E0_DIR_PIN);
@@ -851,10 +727,6 @@ void st_init()
     SET_OUTPUT(X_ENABLE_PIN);
     if(!X_ENABLE_ON) WRITE(X_ENABLE_PIN,HIGH);
   #endif
-  #if defined(X2_ENABLE_PIN) && X2_ENABLE_PIN > -1
-    SET_OUTPUT(X2_ENABLE_PIN);
-    if(!X_ENABLE_ON) WRITE(X2_ENABLE_PIN,HIGH);
-  #endif
   #if defined(Y_ENABLE_PIN) && Y_ENABLE_PIN > -1
     SET_OUTPUT(Y_ENABLE_PIN);
     if(!Y_ENABLE_ON) WRITE(Y_ENABLE_PIN,HIGH);
@@ -863,10 +735,6 @@ void st_init()
     SET_OUTPUT(Z_ENABLE_PIN);
     if(!Z_ENABLE_ON) WRITE(Z_ENABLE_PIN,HIGH);
 
-    #if defined(Z_DUAL_STEPPER_DRIVERS) && defined(Z2_ENABLE_PIN) && (Z2_ENABLE_PIN > -1)
-      SET_OUTPUT(Z2_ENABLE_PIN);
-      if(!Z_ENABLE_ON) WRITE(Z2_ENABLE_PIN,HIGH);
-    #endif
   #endif
   #if defined(E0_ENABLE_PIN) && (E0_ENABLE_PIN > -1)
     SET_OUTPUT(E0_ENABLE_PIN);
@@ -932,11 +800,6 @@ void st_init()
     WRITE(X_STEP_PIN,INVERT_X_STEP_PIN);
     disable_x();
   #endif
-  #if defined(X2_STEP_PIN) && (X2_STEP_PIN > -1)
-    SET_OUTPUT(X2_STEP_PIN);
-    WRITE(X2_STEP_PIN,INVERT_X_STEP_PIN);
-    disable_x();
-  #endif
   #if defined(Y_STEP_PIN) && (Y_STEP_PIN > -1)
     SET_OUTPUT(Y_STEP_PIN);
     WRITE(Y_STEP_PIN,INVERT_Y_STEP_PIN);
@@ -945,10 +808,6 @@ void st_init()
   #if defined(Z_STEP_PIN) && (Z_STEP_PIN > -1)
     SET_OUTPUT(Z_STEP_PIN);
     WRITE(Z_STEP_PIN,INVERT_Z_STEP_PIN);
-    #if defined(Z_DUAL_STEPPER_DRIVERS) && defined(Z2_STEP_PIN) && (Z2_STEP_PIN > -1)
-      SET_OUTPUT(Z2_STEP_PIN);
-      WRITE(Z2_STEP_PIN,INVERT_Z_STEP_PIN);
-    #endif
     disable_z();
   #endif
   #if defined(E0_STEP_PIN) && (E0_STEP_PIN > -1)
