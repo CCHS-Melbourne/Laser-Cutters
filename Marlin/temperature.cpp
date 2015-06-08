@@ -59,11 +59,6 @@ static volatile bool temp_meas_ready = false;
 #ifdef FAN_SOFT_PWM
   static unsigned char soft_pwm_fan;
 #endif
-#if (defined(EXTRUDER_0_AUTO_FAN_PIN) && EXTRUDER_0_AUTO_FAN_PIN > -1) || \
-    (defined(EXTRUDER_1_AUTO_FAN_PIN) && EXTRUDER_1_AUTO_FAN_PIN > -1) || \
-    (defined(EXTRUDER_2_AUTO_FAN_PIN) && EXTRUDER_2_AUTO_FAN_PIN > -1)
-  static unsigned long extruder_autofan_last_check;
-#endif  
 
   # define ARRAY_BY_EXTRUDERS(v1, v2, v3) { v1 }
 
@@ -80,11 +75,6 @@ static int maxttemp[EXTRUDERS] = ARRAY_BY_EXTRUDERS( 16383, 16383, 16383 );
 static float analog2temp(int raw, uint8_t e);
 static float analog2tempBed(int raw);
 static void updateTemperaturesFromRawValues();
-
-#ifdef WATCH_TEMP_PERIOD
-int watch_start_temp[EXTRUDERS] = ARRAY_BY_EXTRUDERS(0,0,0);
-unsigned long watchmillis[EXTRUDERS] = ARRAY_BY_EXTRUDERS(0,0,0);
-#endif //WATCH_TEMP_PERIOD
 
 #ifndef SOFT_PWM_SCALE
 #define SOFT_PWM_SCALE 0
@@ -251,77 +241,6 @@ int getHeaterPower(int heater) {
   return soft_pwm[heater];
 }
 
-#if (defined(EXTRUDER_0_AUTO_FAN_PIN) && EXTRUDER_0_AUTO_FAN_PIN > -1) || \
-    (defined(EXTRUDER_1_AUTO_FAN_PIN) && EXTRUDER_1_AUTO_FAN_PIN > -1) || \
-    (defined(EXTRUDER_2_AUTO_FAN_PIN) && EXTRUDER_2_AUTO_FAN_PIN > -1)
-
-  #if defined(FAN_PIN) && FAN_PIN > -1
-    #if EXTRUDER_0_AUTO_FAN_PIN == FAN_PIN 
-       #error "You cannot set EXTRUDER_0_AUTO_FAN_PIN equal to FAN_PIN"
-    #endif
-    #if EXTRUDER_1_AUTO_FAN_PIN == FAN_PIN 
-       #error "You cannot set EXTRUDER_1_AUTO_FAN_PIN equal to FAN_PIN"
-    #endif
-    #if EXTRUDER_2_AUTO_FAN_PIN == FAN_PIN 
-       #error "You cannot set EXTRUDER_2_AUTO_FAN_PIN equal to FAN_PIN"
-    #endif
-  #endif 
-
-void setExtruderAutoFanState(int pin, bool state)
-{
-  unsigned char newFanSpeed = (state != 0) ? EXTRUDER_AUTO_FAN_SPEED : 0;
-  // this idiom allows both digital and PWM fan outputs (see M42 handling).
-  pinMode(pin, OUTPUT);
-  digitalWrite(pin, newFanSpeed);
-  analogWrite(pin, newFanSpeed);
-}
-
-void checkExtruderAutoFans()
-{
-  uint8_t fanState = 0;
-
-  // which fan pins need to be turned on?      
-  #if defined(EXTRUDER_0_AUTO_FAN_PIN) && EXTRUDER_0_AUTO_FAN_PIN > -1
-    if (current_temperature[0] > EXTRUDER_AUTO_FAN_TEMPERATURE) 
-      fanState |= 1;
-  #endif
-  #if defined(EXTRUDER_1_AUTO_FAN_PIN) && EXTRUDER_1_AUTO_FAN_PIN > -1
-    if (current_temperature[1] > EXTRUDER_AUTO_FAN_TEMPERATURE) 
-    {
-      if (EXTRUDER_1_AUTO_FAN_PIN == EXTRUDER_0_AUTO_FAN_PIN) 
-        fanState |= 1;
-      else
-        fanState |= 2;
-    }
-  #endif
-  #if defined(EXTRUDER_2_AUTO_FAN_PIN) && EXTRUDER_2_AUTO_FAN_PIN > -1
-    if (current_temperature[2] > EXTRUDER_AUTO_FAN_TEMPERATURE) 
-    {
-      if (EXTRUDER_2_AUTO_FAN_PIN == EXTRUDER_0_AUTO_FAN_PIN) 
-        fanState |= 1;
-      else if (EXTRUDER_2_AUTO_FAN_PIN == EXTRUDER_1_AUTO_FAN_PIN) 
-        fanState |= 2;
-      else
-        fanState |= 4;
-    }
-  #endif
-  
-  // update extruder auto fan states
-  #if defined(EXTRUDER_0_AUTO_FAN_PIN) && EXTRUDER_0_AUTO_FAN_PIN > -1
-    setExtruderAutoFanState(EXTRUDER_0_AUTO_FAN_PIN, (fanState & 1) != 0);
-  #endif 
-  #if defined(EXTRUDER_1_AUTO_FAN_PIN) && EXTRUDER_1_AUTO_FAN_PIN > -1
-    if (EXTRUDER_1_AUTO_FAN_PIN != EXTRUDER_0_AUTO_FAN_PIN) 
-      setExtruderAutoFanState(EXTRUDER_1_AUTO_FAN_PIN, (fanState & 2) != 0);
-  #endif 
-  #if defined(EXTRUDER_2_AUTO_FAN_PIN) && EXTRUDER_2_AUTO_FAN_PIN > -1
-    if (EXTRUDER_2_AUTO_FAN_PIN != EXTRUDER_0_AUTO_FAN_PIN 
-        && EXTRUDER_2_AUTO_FAN_PIN != EXTRUDER_1_AUTO_FAN_PIN)
-      setExtruderAutoFanState(EXTRUDER_2_AUTO_FAN_PIN, (fanState & 4) != 0);
-  #endif 
-}
-
-#endif // any extruder auto fan pins set
 
 void manage_heater()
 {
@@ -350,32 +269,8 @@ void manage_heater()
       soft_pwm[e] = 0;
     }
 
-    #ifdef WATCH_TEMP_PERIOD
-    if(watchmillis[e] && millis() - watchmillis[e] > WATCH_TEMP_PERIOD)
-    {
-        if(degHotend(e) < watch_start_temp[e] + WATCH_TEMP_INCREASE)
-        {
-            setTargetHotend(0, e);
-            LCD_MESSAGEPGM("Heating failed");
-            SERIAL_ECHO_START;
-            SERIAL_ECHOLN("Heating failed");
-        }else{
-            watchmillis[e] = 0;
-        }
-    }
-    #endif
   } // End extruder for loop
 
-  #if (defined(EXTRUDER_0_AUTO_FAN_PIN) && EXTRUDER_0_AUTO_FAN_PIN > -1) || \
-      (defined(EXTRUDER_1_AUTO_FAN_PIN) && EXTRUDER_1_AUTO_FAN_PIN > -1) || \
-      (defined(EXTRUDER_2_AUTO_FAN_PIN) && EXTRUDER_2_AUTO_FAN_PIN > -1)
-  if(millis() - extruder_autofan_last_check > 2500)  // only need to check fan state very infrequently
-  {
-    checkExtruderAutoFans();
-    extruder_autofan_last_check = millis();
-  }  
-  #endif       
-  
 }
 
 #define PGM_RD_W(x)   (short)pgm_read_word(&x)
@@ -565,21 +460,6 @@ void tp_init()
   delay(250);
 
 }
-
-void setWatch() 
-{  
-#ifdef WATCH_TEMP_PERIOD
-  for (int e = 0; e < EXTRUDERS; e++)
-  {
-    if(degHotend(e) < degTargetHotend(e) - (WATCH_TEMP_INCREASE * 2))
-    {
-      watch_start_temp[e] = degHotend(e);
-      watchmillis[e] = millis();
-    } 
-  }
-#endif 
-}
-
 
 void disable_heater()
 {

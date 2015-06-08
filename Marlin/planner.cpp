@@ -79,13 +79,6 @@ long position[4];   //rescaled from extern when axis_steps_per_unit are changed 
 static float previous_speed[4]; // Speed of previous path line segment
 static float previous_nominal_speed; // Nominal speed of previous path line segment
 
-#ifdef AUTOTEMP
-float autotemp_max=250;
-float autotemp_min=210;
-float autotemp_factor=0.1;
-bool autotemp_enabled=false;
-#endif
-
 //===========================================================================
 //=================semi-private variables, used in inline  functions    =====
 //===========================================================================
@@ -383,47 +376,6 @@ void plan_init() {
 }
 
 
-
-
-#ifdef AUTOTEMP
-void getHighESpeed()
-{
-  static float oldt=0;
-  if(!autotemp_enabled){
-    return;
-  }
-
-  float high=0.0;
-  uint8_t block_index = block_buffer_tail;
-
-  while(block_index != block_buffer_head) {
-    if((block_buffer[block_index].steps_x != 0) ||
-      (block_buffer[block_index].steps_y != 0) ||
-      (block_buffer[block_index].steps_z != 0)) {
-      float se=(float(block_buffer[block_index].steps_e)/float(block_buffer[block_index].step_event_count))*block_buffer[block_index].nominal_speed;
-      //se; mm/sec;
-      if(se>high)
-      {
-        high=se;
-      }
-    }
-    block_index = (block_index+1) & (BLOCK_BUFFER_SIZE - 1);
-  }
-
-  float g=autotemp_min+high*autotemp_factor;
-  float t=g;
-  if(t<autotemp_min)
-    t=autotemp_min;
-  if(t>autotemp_max)
-    t=autotemp_max;
-  if(oldt>t)
-  {
-    t=AUTOTEMP_OLDWEIGHT*oldt+(1-AUTOTEMP_OLDWEIGHT)*t;
-  }
-  oldt=t;
-}
-#endif
-
 void check_axes_activity()
 {
   unsigned char x_active = 0;
@@ -457,30 +409,12 @@ void check_axes_activity()
     disable_e2();
   }
 #if defined(FAN_PIN) && FAN_PIN > -1
-  #ifdef FAN_KICKSTART_TIME
-    static unsigned long fan_kick_end;
-    if (tail_fan_speed) {
-      if (fan_kick_end == 0) {
-        // Just starting up fan - run at full power.
-        fan_kick_end = millis() + FAN_KICKSTART_TIME;
-        tail_fan_speed = 255;
-      } else if (fan_kick_end > millis())
-        // Fan still spinning up.
-        tail_fan_speed = 255;
-    } else {
-      fan_kick_end = 0;
-    }
-  #endif//FAN_KICKSTART_TIME
   #ifdef FAN_SOFT_PWM
   fanSpeedSoftPwm = tail_fan_speed;
   #else
   analogWrite(FAN_PIN,tail_fan_speed);
   #endif//!FAN_SOFT_PWM
 #endif//FAN_PIN > -1
-#ifdef AUTOTEMP
-  getHighESpeed();
-#endif
-
 }
 
 

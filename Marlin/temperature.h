@@ -97,17 +97,6 @@ void disable_heater();
 void setWatch();
 void updatePID();
 
-FORCE_INLINE void autotempShutdown(){
- #ifdef AUTOTEMP
- if(autotemp_enabled)
- {
-  autotemp_enabled=false;
-  if(degTargetHotend(active_extruder)>autotemp_min)
-    setTargetHotend(0,active_extruder);
- }
- #endif
-}
-
 void PID_autotune(float temp, int extruder, int ncycles);
 
 #endif

@@ -7,35 +7,6 @@
 
 #define BED_CHECK_INTERVAL 5000 //ms between checks in bang-bang control
 
-//// Heating sanity check:
-// This waits for the watchperiod in milliseconds whenever an M104 or M109 increases the target temperature
-// If the temperature has not increased at the end of that period, the target temperature is set to zero. 
-// It can be reset with another M104/M109. This check is also only triggered if the target temperature and the current temperature
-//  differ by at least 2x WATCH_TEMP_INCREASE
-//#define WATCH_TEMP_PERIOD 40000 //40 seconds
-//#define WATCH_TEMP_INCREASE 10  //Heat up at least 10 degree in 20 seconds
-
-//automatic temperature: The hot end target temperature is calculated by all the buffered lines of gcode.
-//The maximum buffered steps/sec of the extruder motor are called "se".
-//You enter the autotemp mode by a M109 S<mintemp> T<maxtemp> F<factor>
-// the target temperature is set to mintemp+factor*se[steps/sec] and limited by mintemp and maxtemp
-// you exit the value by any M109 without F*
-// Also, if the temperature is set to a value <mintemp, it is not changed by autotemp.
-// on an ultimaker, some initial testing worked with M109 S215 B260 F1 in the start.gcode
-#define AUTOTEMP
-#ifdef AUTOTEMP
-  #define AUTOTEMP_OLDWEIGHT 0.98
-#endif
-
-//  extruder run-out prevention. 
-//if the machine is idle, and the temperature over MINTEMP, every couple of SECONDS some filament is extruded
-//#define EXTRUDER_RUNOUT_PREVENT  
-#define EXTRUDER_RUNOUT_MINTEMP 190  
-#define EXTRUDER_RUNOUT_SECONDS 30.
-#define EXTRUDER_RUNOUT_ESTEPS 14. //mm filament
-#define EXTRUDER_RUNOUT_SPEED 1500.  //extrusion speed
-#define EXTRUDER_RUNOUT_EXTRUDE 100
-
 //These defines help to calibrate the AD595 sensor in case you get wrong temperature measurements.
 //The measured temperature is defined as "actualTemp = (measuredTemp * TEMP_SENSOR_AD595_GAIN) + TEMP_SENSOR_AD595_OFFSET"
 #define TEMP_SENSOR_AD595_OFFSET 0.0
@@ -47,23 +18,6 @@
 #define CONTROLLERFAN_PIN -1 //Pin used for the fan to cool controller (-1 to disable)
 #define CONTROLLERFAN_SECS 60 //How many seconds, after all motors were disabled, the fan should run
 #define CONTROLLERFAN_SPEED 255  // == full speed
-
-// When first starting the main fan, run it at full speed for the
-// given number of milliseconds.  This gets the fan spinning reliably
-// before setting a PWM value. (Does not work with software PWM for fan on Sanguinololu)
-//#define FAN_KICKSTART_TIME 100
-
-// Extruder cooling fans
-// Configure fan pin outputs to automatically turn on/off when the associated
-// extruder temperature is above/below EXTRUDER_AUTO_FAN_TEMPERATURE.
-// Multiple extruders can be assigned to the same pin in which case 
-// the fan will turn on when any selected extruder is above the threshold.
-#define EXTRUDER_0_AUTO_FAN_PIN   -1
-#define EXTRUDER_1_AUTO_FAN_PIN   -1
-#define EXTRUDER_2_AUTO_FAN_PIN   -1
-#define EXTRUDER_AUTO_FAN_TEMPERATURE 50
-#define EXTRUDER_AUTO_FAN_SPEED   255  // == full speed
-
 
 //===========================================================================
 //=============================Mechanical Settings===========================

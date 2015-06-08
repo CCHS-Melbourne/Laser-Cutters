@@ -1273,7 +1273,6 @@ void process_commands()
       SERIAL_ECHO_START;
       SERIAL_ECHOLN(time);
       lcd_setstatus(time);
-      autotempShutdown();
       }
       break;
     case 42: //M42 -Change pin status via gcode
@@ -2014,26 +2013,7 @@ void manage_inactivity()
   #if defined(CONTROLLERFAN_PIN) && CONTROLLERFAN_PIN > -1
     controllerFan(); //Check if fan should be turned on to cool stepper drivers down
   #endif
-  #ifdef EXTRUDER_RUNOUT_PREVENT
-    if( (millis() - previous_millis_cmd) >  EXTRUDER_RUNOUT_SECONDS*1000 )
-    if(degHotend(active_extruder)>EXTRUDER_RUNOUT_MINTEMP)
-    {
-     bool oldstatus=READ(E0_ENABLE_PIN);
-     enable_e0();
-     float oldepos=current_position[E_AXIS];
-     float oldedes=destination[E_AXIS];
-     plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS],
-                      current_position[E_AXIS]+EXTRUDER_RUNOUT_EXTRUDE*EXTRUDER_RUNOUT_ESTEPS/axis_steps_per_unit[E_AXIS],
-                      EXTRUDER_RUNOUT_SPEED/60.*EXTRUDER_RUNOUT_ESTEPS/axis_steps_per_unit[E_AXIS], active_extruder);
-     current_position[E_AXIS]=oldepos;
-     destination[E_AXIS]=oldedes;
-     plan_set_e_position(oldepos);
-     previous_millis_cmd=millis();
-     st_synchronize();
-     WRITE(E0_ENABLE_PIN,oldstatus);
-    }
-  #endif
-
+  
 	check_axes_activity();
 }
 
