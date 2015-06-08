@@ -41,18 +41,6 @@ extern float current_temperature_bed;
   extern float redundant_temperature;
 #endif
 
-#ifdef PIDTEMP
-  extern float Kp,Ki,Kd,Kc;
-  float scalePID_i(float i);
-  float scalePID_d(float d);
-  float unscalePID_i(float i);
-  float unscalePID_d(float d);
-
-#endif
-#ifdef PIDTEMPBED
-  extern float bedKp,bedKi,bedKd;
-#endif
-  
 //high level conversion routines, for use outside of temperature.cpp
 //inline so that there is no performance decrease.
 //deg=degreeCelsius

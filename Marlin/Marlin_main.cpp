@@ -106,10 +106,8 @@
 // M221 S<factor in percent>- set extrude factor override percentage				(****REPURPOSE FOR LASER SCALE?****)
 // M250 - Set LCD contrast C<contrast value> (value 0..63)					(####REALLY?####)
 // M300 - Play beepsound S<frequency Hz> P<duration ms>
-// M301 - Set PID parameters P I and D								(****DELETE****)
 // M302 - Allow cold extrudes, or set the minimum extrude S<temperature>.			(****DELETE****)
 // M303 - PID relay autotune S<temperature> sets the target temperature. (default target temperature = 150C)	(****DELETE****)
-// M304 - Set bed PID parameters P I and D							(****DELETE****)
 // M400 - Finish all moves
 // M500 - stores paramters in EEPROM
 // M501 - reads parameters from EEPROM (if you need reset them after you changed them temporarily).
@@ -1655,53 +1653,6 @@ void process_commands()
     break;
     #endif // M300
 
-    #ifdef PIDTEMP
-    case 301: // M301
-      {
-        if(code_seen('P')) Kp = code_value();
-        if(code_seen('I')) Ki = scalePID_i(code_value());
-        if(code_seen('D')) Kd = scalePID_d(code_value());
-
-        #ifdef PID_ADD_EXTRUSION_RATE
-        if(code_seen('C')) Kc = code_value();
-        #endif
-
-        updatePID();
-        SERIAL_PROTOCOL(MSG_OK);
-        SERIAL_PROTOCOL(" p:");
-        SERIAL_PROTOCOL(Kp);
-        SERIAL_PROTOCOL(" i:");
-        SERIAL_PROTOCOL(unscalePID_i(Ki));
-        SERIAL_PROTOCOL(" d:");
-        SERIAL_PROTOCOL(unscalePID_d(Kd));
-        #ifdef PID_ADD_EXTRUSION_RATE
-        SERIAL_PROTOCOL(" c:");
-        //Kc does not have scaling applied above, or in resetting defaults
-        SERIAL_PROTOCOL(Kc);
-        #endif
-        SERIAL_PROTOCOLLN("");
-      }
-      break;
-    #endif //PIDTEMP
-    #ifdef PIDTEMPBED
-    case 304: // M304
-      {
-        if(code_seen('P')) bedKp = code_value();
-        if(code_seen('I')) bedKi = scalePID_i(code_value());
-        if(code_seen('D')) bedKd = scalePID_d(code_value());
-
-        updatePID();
-        SERIAL_PROTOCOL(MSG_OK);
-        SERIAL_PROTOCOL(" p:");
-        SERIAL_PROTOCOL(bedKp);
-        SERIAL_PROTOCOL(" i:");
-        SERIAL_PROTOCOL(unscalePID_i(bedKi));
-        SERIAL_PROTOCOL(" d:");
-        SERIAL_PROTOCOL(unscalePID_d(bedKd));
-        SERIAL_PROTOCOLLN("");
-      }
-      break;
-    #endif //PIDTEMP
 #ifdef DOGLCD
     case 250: // M250  Set LCD contrast value: C<value> (value 0..63)
      {

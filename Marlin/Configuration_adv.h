@@ -5,9 +5,6 @@
 //=============================Thermal Settings  ============================
 //===========================================================================
 
-#ifdef BED_LIMIT_SWITCHING
-  #define BED_HYSTERESIS 2 //only disable heating if T>target+BED_HYSTERESIS and enable heating if T>target-BED_HYSTERESIS
-#endif
 #define BED_CHECK_INTERVAL 5000 //ms between checks in bang-bang control
 
 //// Heating sanity check:
@@ -17,16 +14,6 @@
 //  differ by at least 2x WATCH_TEMP_INCREASE
 //#define WATCH_TEMP_PERIOD 40000 //40 seconds
 //#define WATCH_TEMP_INCREASE 10  //Heat up at least 10 degree in 20 seconds
-
-#ifdef PIDTEMP
-  // this adds an experimental additional term to the heatingpower, proportional to the extrusion speed.
-  // if Kc is choosen well, the additional required power due to increased melting should be compensated.
-  #define PID_ADD_EXTRUSION_RATE  
-  #ifdef PID_ADD_EXTRUSION_RATE
-    #define  DEFAULT_Kc (1) //heatingpower=Kc*(e_speed)
-  #endif
-#endif
-
 
 //automatic temperature: The hot end target temperature is calculated by all the buffered lines of gcode.
 //The maximum buffered steps/sec of the extruder motor are called "se".
