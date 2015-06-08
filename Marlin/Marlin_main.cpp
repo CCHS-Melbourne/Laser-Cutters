@@ -306,18 +306,6 @@ void setup_photpin()
   #endif
 }
 
-void setup_powerhold()
-{
-  #if defined(SUICIDE_PIN) && SUICIDE_PIN > -1
-    SET_OUTPUT(SUICIDE_PIN);
-    WRITE(SUICIDE_PIN, HIGH);
-  #endif
-  #if defined(PS_ON_PIN) && PS_ON_PIN > -1
-    SET_OUTPUT(PS_ON_PIN);
-    WRITE(PS_ON_PIN, PS_ON_AWAKE);
-  #endif
-}
-
 void suicide()
 {
   #if defined(SUICIDE_PIN) && SUICIDE_PIN > -1
@@ -329,7 +317,6 @@ void suicide()
 void setup()
 {
   setup_killpin();
-  setup_powerhold();
   MYSERIAL.begin(BAUDRATE);
   SERIAL_PROTOCOLLNPGM("start");
   SERIAL_ECHO_START;
@@ -2438,9 +2425,6 @@ void kill()
     laser_peripherals_off();
   #endif // LASER_PERIPHERALS
 
-  #if defined(PS_ON_PIN) && PS_ON_PIN > -1
-    pinMode(PS_ON_PIN,INPUT);
-  #endif
   SERIAL_ERROR_START;
   SERIAL_ERRORLNPGM(MSG_ERR_KILLED);
   LCD_ALERTMESSAGEPGM(MSG_KILLED);

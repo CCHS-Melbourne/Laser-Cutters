@@ -26,12 +26,6 @@
 // This defines the number of extruders
 #define EXTRUDERS 1
 
-//// The following define selects which power supply you have. Please choose the one that matches your setup
-// 1 = ATX
-// 2 = X-Box 360 203Watts (the blue wire connected to PS_ON and the red wire to VCC)
-
-#define POWER_SUPPLY 1
-
 //===========================================================================
 //============================= Laser Settings ==============================
 //===========================================================================
@@ -64,14 +58,6 @@
 //// Uncomment the following line to enable cubic bezier curve movement with the G5 code
 // #define G5_BEZIER
 
-// Uncomment these options for the mUVe 1 3D printer
-// #define CUSTOM_MENDEL_NAME "mUVe1 Printer"
-// #define LASER_WATTS 0.05
-// #define LASER_DIAMETER 0.1 // milimeters
-// #define LASER_PWM 8000 // hertz
-// #define MUVE_Z_PEEL // The mUVe 1 uses a special peel maneuver between each layer, it requires independent control of each Z motor
-
-// Uncomment these options for the Buildlog.net laser cutter, and other similar models
 #define CUSTOM_MENDEL_NAME "Laser Cutter"
 #define LASER_WATTS 40.0
 #define LASER_DIAMETER 0.1 // milimeters

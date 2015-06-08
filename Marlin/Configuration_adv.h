@@ -296,11 +296,6 @@ const unsigned int dropsegments=5; //everything with less than this number of st
  #undef SDCARDDETECTINVERTED
 #endif
 
-// Power Signal Control Definitions
-// By default use ATX definition
-#ifndef POWER_SUPPLY
-  #define POWER_SUPPLY 1
-#endif
 // 1 = ATX
 #if (POWER_SUPPLY == 1) 
   #define PS_ON_AWAKE  LOW
