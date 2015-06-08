@@ -153,25 +153,6 @@
 // Enable the option to stop SD printing when hitting and endstops, needs to be enabled from the LCD menu when this option is enabled.
 //#define ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED
 
-// extruder advance constant (s2/mm3)
-//
-// advance (steps) = STEPS_PER_CUBIC_MM_E * EXTUDER_ADVANCE_K * cubic mm per second ^ 2
-//
-// hooke's law says:		force = k * distance
-// bernoulli's priniciple says:	v ^ 2 / 2 + g . h + pressure / density = constant
-// so: v ^ 2 is proportional to number of steps we advance the extruder
-//#define ADVANCE
-
-#ifdef ADVANCE
-  #define EXTRUDER_ADVANCE_K .0
-
-  #define D_FILAMENT 2.85
-  #define STEPS_MM_E 836
-  #define EXTRUTION_AREA (0.25 * D_FILAMENT * D_FILAMENT * 3.14159)
-  #define STEPS_PER_CUBIC_MM_E (axis_steps_per_unit[E_AXIS]/ EXTRUTION_AREA)
-
-#endif // ADVANCE
-
 // Arc interpretation settings:
 #define MM_PER_ARC_SEGMENT 1
 #define N_ARC_CORRECTION 25

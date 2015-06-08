@@ -68,6 +68,7 @@
 // M Codes
 // M0   - Unconditional stop - Wait for user to press a button on the LCD (Only if ULTRA_LCD is enabled)
 // M1   - Same as M0
+// M5	- Stop the laser firing
 // M17  - Enable/Power all stepper motors
 // M18  - Disable all stepper motors; same as M84
 // M20  - List SD card
@@ -1161,7 +1162,7 @@ void process_commands()
       break;
     case 5:  //M5 stop firing laser
 	  laser.status = LASER_OFF;
-          lcd_update();
+      lcd_update();
 	  prepare_move();
       break;
 #endif // LASER_FIRE_SPINDLE

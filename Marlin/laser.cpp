@@ -106,7 +106,8 @@ void laser_init()
   
   laser_extinguish();
 }
-void laser_fire(int intensity = 100.0){
+void laser_fire(int intensity = 100.0)
+{
     laser.firing = LASER_ON;
     laser.last_firing = micros(); // microseconds of last laser firing
     if (intensity > 100.0) intensity = 100.0; // restrict intensity between 0 and 100
@@ -121,19 +122,23 @@ void laser_fire(int intensity = 100.0){
       digitalWrite(LASER_FIRING_PIN, HIGH);
     #endif
 
-    if (laser.diagnostics) {
+    if (laser.diagnostics)
+	{
 	  SERIAL_ECHOLN("Laser fired");
     }
 }
-void laser_extinguish(){
-	if (laser.firing == LASER_ON) {
+void laser_extinguish()
+{
+	if (laser.firing == LASER_ON) 
+	{
 	  laser.firing = LASER_OFF;
 
 	  // Engage the pullup resistor for TTL laser controllers which don't turn off entirely without it.
 	  digitalWrite(LASER_FIRING_PIN, LOW);
 	  laser.time += millis() - (laser.last_firing / 1000);
 
-	  if (laser.diagnostics) {
+	  if (laser.diagnostics) 
+	  {
 	    SERIAL_ECHOLN("Laser extinguished");
 	  }
 	}

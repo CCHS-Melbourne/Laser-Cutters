@@ -183,11 +183,6 @@ void calculate_trapezoid_for_block(block_t *block, float entry_factor, float exi
     plateau_steps = 0;
   }
 
-#ifdef ADVANCE
-  volatile long initial_advance = block->advance*entry_factor*entry_factor;
-  volatile long final_advance = block->advance*exit_factor*exit_factor;
-#endif // ADVANCE
-
   // block->accelerate_until = accelerate_steps;
   // block->decelerate_after = accelerate_steps+plateau_steps;
   CRITICAL_SECTION_START;  // Fill variables used by the stepper in a critical section
@@ -196,10 +191,6 @@ void calculate_trapezoid_for_block(block_t *block, float entry_factor, float exi
     block->decelerate_after = accelerate_steps+plateau_steps;
     block->initial_rate = initial_rate;
     block->final_rate = final_rate;
-#ifdef ADVANCE
-    block->initial_advance = initial_advance;
-    block->final_advance = final_advance;
-#endif //ADVANCE
   }
   CRITICAL_SECTION_END;
 }
@@ -803,33 +794,6 @@ block->steps_y = labs((target[X_AXIS]-position[X_AXIS]) - (target[Y_AXIS]-positi
   memcpy(previous_speed, current_speed, sizeof(previous_speed)); // previous_speed[] = current_speed[]
   previous_nominal_speed = block->nominal_speed;
 
-
-#ifdef ADVANCE
-  // Calculate advance rate
-  if((block->steps_e == 0) || (block->steps_x == 0 && block->steps_y == 0 && block->steps_z == 0)) {
-    block->advance_rate = 0;
-    block->advance = 0;
-  }
-  else {
-    long acc_dist = estimate_acceleration_distance(0, block->nominal_rate, block->acceleration_st);
-    float advance = (STEPS_PER_CUBIC_MM_E * EXTRUDER_ADVANCE_K) *
-      (current_speed[E_AXIS] * current_speed[E_AXIS] * EXTRUTION_AREA * EXTRUTION_AREA)*256;
-    block->advance = advance;
-    if(acc_dist == 0) {
-      block->advance_rate = 0;
-    }
-    else {
-      block->advance_rate = advance / (float)acc_dist;
-    }
-  }
-  /*
-    SERIAL_ECHO_START;
-   SERIAL_ECHOPGM("advance :");
-   SERIAL_ECHO(block->advance/256.0);
-   SERIAL_ECHOPGM("advance rate :");
-   SERIAL_ECHOLN(block->advance_rate/256.0);
-   */
-#endif // ADVANCE
 
   calculate_trapezoid_for_block(block, block->entry_speed/block->nominal_speed,
   safe_speed/block->nominal_speed);
