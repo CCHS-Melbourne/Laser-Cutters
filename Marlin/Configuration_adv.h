@@ -271,69 +271,8 @@ const unsigned int dropsegments=5; //everything with less than this number of st
 
 #define MIN_RETRACT 0.1 //minimum extruded mm to accept a automatic gcode retraction attempt
 
-
-//adds support for experimental filament exchange support M600; requires display
-#ifdef ULTIPANEL
-  //#define FILAMENTCHANGEENABLE
-  #ifdef FILAMENTCHANGEENABLE
-    #define FILAMENTCHANGE_XPOS 3
-    #define FILAMENTCHANGE_YPOS 3
-    #define FILAMENTCHANGE_ZADD 10
-    #define FILAMENTCHANGE_FIRSTRETRACT -2
-    #define FILAMENTCHANGE_FINALRETRACT -100
-  #endif
-#endif
- 
 //===========================================================================
 //=============================  Define Defines  ============================
 //===========================================================================
-
-#if TEMP_SENSOR_0 > 0
-  #define THERMISTORHEATER_0 TEMP_SENSOR_0
-  #define HEATER_0_USES_THERMISTOR
-#endif
-#if TEMP_SENSOR_1 > 0
-  #define THERMISTORHEATER_1 TEMP_SENSOR_1
-  #define HEATER_1_USES_THERMISTOR
-#endif
-#if TEMP_SENSOR_2 > 0
-  #define THERMISTORHEATER_2 TEMP_SENSOR_2
-  #define HEATER_2_USES_THERMISTOR
-#endif
-#if TEMP_SENSOR_BED > 0
-  #define THERMISTORBED TEMP_SENSOR_BED
-  #define BED_USES_THERMISTOR
-#endif
-#if TEMP_SENSOR_0 == -1
-  #define HEATER_0_USES_AD595
-#endif
-#if TEMP_SENSOR_1 == -1
-  #define HEATER_1_USES_AD595
-#endif
-#if TEMP_SENSOR_2 == -1
-  #define HEATER_2_USES_AD595
-#endif
-#if TEMP_SENSOR_BED == -1
-  #define BED_USES_AD595
-#endif
-#if TEMP_SENSOR_0 == -2
-  #define HEATER_0_USES_MAX6675
-#endif
-#if TEMP_SENSOR_0 == 0
-  #undef HEATER_0_MINTEMP
-  #undef HEATER_0_MAXTEMP
-#endif
-#if TEMP_SENSOR_1 == 0
-  #undef HEATER_1_MINTEMP
-  #undef HEATER_1_MAXTEMP
-#endif
-#if TEMP_SENSOR_2 == 0
-  #undef HEATER_2_MINTEMP
-  #undef HEATER_2_MAXTEMP
-#endif
-#if TEMP_SENSOR_BED == 0
-  #undef BED_MINTEMP
-  #undef BED_MAXTEMP
-#endif
 
 #endif //__CONFIGURATION_ADV_H

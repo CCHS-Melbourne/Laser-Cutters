@@ -37,9 +37,6 @@ extern int target_temperature[EXTRUDERS];
 extern float current_temperature[EXTRUDERS];
 extern int target_temperature_bed;
 extern float current_temperature_bed;
-#ifdef TEMP_SENSOR_1_AS_REDUNDANT
-  extern float redundant_temperature;
-#endif
 
 //high level conversion routines, for use outside of temperature.cpp
 //inline so that there is no performance decrease.
