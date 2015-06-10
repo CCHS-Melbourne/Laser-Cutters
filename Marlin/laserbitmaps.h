@@ -2,7 +2,8 @@
 #define LASERENABLE_HEIGHT 	20
 #define LASERENABLE_WIDTH	25
 #define LASERENABLE_BYTEWIDTH	4
-const unsigned char laserenable_bmp[] PROGMEM = {
+const unsigned char laserenable_bmp[] PROGMEM =
+{
 	0x00, 0x1c, 0x00, 0x00,
 	0x00, 0x3e, 0x00, 0x00,
 	0x00, 0x77, 0x00, 0x00,
@@ -28,7 +29,8 @@ const unsigned char laserenable_bmp[] PROGMEM = {
 #define ICON_HEIGHT 	13
 #define ICON_WIDTH	12
 #define ICON_BYTEWIDTH	2
-const unsigned char laseron_bmp[] PROGMEM = {
+const unsigned char laseron_bmp[] PROGMEM =
+{
 	0xff, 0xf0,
 	0x8f, 0x10,
 	0x8f, 0x10,
@@ -44,7 +46,8 @@ const unsigned char laseron_bmp[] PROGMEM = {
 	0xff, 0xf0
 };
 
-const unsigned char laseroff_bmp[] PROGMEM = {
+const unsigned char laseroff_bmp[] PROGMEM =
+{
 	0xff, 0xf0,
 	0x8f, 0x10,
 	0x8f, 0x10,
@@ -60,7 +63,8 @@ const unsigned char laseroff_bmp[] PROGMEM = {
 	0xff, 0xf0
 };
 
-const unsigned char lockicon_bmp[] PROGMEM = {
+const unsigned char lockicon_bmp[] PROGMEM =
+{
 	0x0f, 0x00,
 	0x19, 0x80,
 	0x30, 0xc0,
@@ -76,7 +80,8 @@ const unsigned char lockicon_bmp[] PROGMEM = {
 	0x3f, 0xc0
 };
 
-const unsigned char vacicon_bmp[] PROGMEM = {
+const unsigned char vacicon_bmp[] PROGMEM =
+{
 	0x06, 0x00,
 	0x06, 0x00,
 	0x06, 0x00,
@@ -92,7 +97,8 @@ const unsigned char vacicon_bmp[] PROGMEM = {
 	0x50, 0xa0
 };
 
-const unsigned char airicon_bmp[] PROGMEM = {
+const unsigned char airicon_bmp[] PROGMEM =
+{
 	0x32, 0xc0,
 	0x30, 0xc0,
 	0x34, 0xc0,
@@ -108,7 +114,8 @@ const unsigned char airicon_bmp[] PROGMEM = {
 	0x22, 0x40
 };
 
-const unsigned char watericon_bmp[] PROGMEM = {
+const unsigned char watericon_bmp[] PROGMEM =
+{
 	0x02, 0x00,
 	0x07, 0x00,
 	0x05, 0x00,

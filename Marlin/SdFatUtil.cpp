@@ -26,20 +26,24 @@
 /** Amount of free RAM
  * \return The number of free bytes.
  */
-int SdFatUtil::FreeRam() {
-  extern int  __bss_end;
-  extern int* __brkval;
-  int free_memory;
-  if (reinterpret_cast<int>(__brkval) == 0) {
-    // if no heap use from end of bss section
-    free_memory = reinterpret_cast<int>(&free_memory)
-                  - reinterpret_cast<int>(&__bss_end);
-  } else {
-    // use from top of stack to heap
-    free_memory = reinterpret_cast<int>(&free_memory)
-                  - reinterpret_cast<int>(__brkval);
-  }
-  return free_memory;
+int SdFatUtil::FreeRam()
+{
+	extern int  __bss_end;
+	extern int* __brkval;
+	int free_memory;
+	if ( reinterpret_cast<int> ( __brkval ) == 0 )
+	{
+		// if no heap use from end of bss section
+		free_memory = reinterpret_cast<int> ( &free_memory )
+		              - reinterpret_cast<int> ( &__bss_end );
+	}
+	else
+	{
+		// use from top of stack to heap
+		free_memory = reinterpret_cast<int> ( &free_memory )
+		              - reinterpret_cast<int> ( __brkval );
+	}
+	return free_memory;
 }
 //------------------------------------------------------------------------------
 /** %Print a string in flash memory.
@@ -47,8 +51,9 @@ int SdFatUtil::FreeRam() {
  * \param[in] pr Print object for output.
  * \param[in] str Pointer to string stored in flash memory.
  */
-void SdFatUtil::print_P( PGM_P str) {
-  for (uint8_t c; (c = pgm_read_byte(str)); str++) MYSERIAL.write(c);
+void SdFatUtil::print_P ( PGM_P str )
+{
+	for ( uint8_t c; ( c = pgm_read_byte ( str ) ); str++ ) { MYSERIAL.write ( c ); }
 }
 //------------------------------------------------------------------------------
 /** %Print a string in flash memory followed by a CR/LF.
@@ -56,24 +61,27 @@ void SdFatUtil::print_P( PGM_P str) {
  * \param[in] pr Print object for output.
  * \param[in] str Pointer to string stored in flash memory.
  */
-void SdFatUtil::println_P( PGM_P str) {
-  print_P( str);
-  MYSERIAL.println();
+void SdFatUtil::println_P ( PGM_P str )
+{
+	print_P ( str );
+	MYSERIAL.println();
 }
 //------------------------------------------------------------------------------
 /** %Print a string in flash memory to Serial.
  *
  * \param[in] str Pointer to string stored in flash memory.
  */
-void SdFatUtil::SerialPrint_P(PGM_P str) {
-  print_P(str);
+void SdFatUtil::SerialPrint_P ( PGM_P str )
+{
+	print_P ( str );
 }
 //------------------------------------------------------------------------------
 /** %Print a string in flash memory to Serial followed by a CR/LF.
  *
  * \param[in] str Pointer to string stored in flash memory.
  */
-void SdFatUtil::SerialPrintln_P(PGM_P str) {
-  println_P( str);
+void SdFatUtil::SerialPrintln_P ( PGM_P str )
+{
+	println_P ( str );
 }
 #endif

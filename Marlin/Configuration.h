@@ -119,22 +119,22 @@
 #define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
 
 #ifndef ENDSTOPPULLUPS
-  // fine Enstop settings: Individual Pullups. will be ignored if ENDSTOPPULLUPS is defined
-  // #define ENDSTOPPULLUP_XMAX
-  // #define ENDSTOPPULLUP_YMAX
-  // #define ENDSTOPPULLUP_ZMAX
-  // #define ENDSTOPPULLUP_XMIN
-  // #define ENDSTOPPULLUP_YMIN
-  // #define ENDSTOPPULLUP_ZMIN
+	// fine Enstop settings: Individual Pullups. will be ignored if ENDSTOPPULLUPS is defined
+	// #define ENDSTOPPULLUP_XMAX
+	// #define ENDSTOPPULLUP_YMAX
+	// #define ENDSTOPPULLUP_ZMAX
+	// #define ENDSTOPPULLUP_XMIN
+	// #define ENDSTOPPULLUP_YMIN
+	// #define ENDSTOPPULLUP_ZMIN
 #endif
 
 #ifdef ENDSTOPPULLUPS
-  #define ENDSTOPPULLUP_XMAX
-  #define ENDSTOPPULLUP_YMAX
-  #define ENDSTOPPULLUP_ZMAX
-  #define ENDSTOPPULLUP_XMIN
-  #define ENDSTOPPULLUP_YMIN
-  #define ENDSTOPPULLUP_ZMIN
+	#define ENDSTOPPULLUP_XMAX
+	#define ENDSTOPPULLUP_YMAX
+	#define ENDSTOPPULLUP_ZMAX
+	#define ENDSTOPPULLUP_XMIN
+	#define ENDSTOPPULLUP_YMIN
+	#define ENDSTOPPULLUP_ZMIN
 #endif
 
 // The pullups are needed if you directly connect a mechanical endswitch between the signal and ground pins.
@@ -149,7 +149,7 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 // Disable max endstops for compatibility with endstop checking routine
 #if defined(COREXY) && !defined(DISABLE_MAX_ENDSTOPS)
-  #define DISABLE_MAX_ENDSTOPS
+	#define DISABLE_MAX_ENDSTOPS
 #endif
 
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
@@ -231,9 +231,9 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 // AMRI Laser Cutter
 //#define DEFAULT_AXIS_STEPS_PER_UNIT   {167.20882, 167.20882, 4000/25.4, 1380/4}
-//#define DEFAULT_MAX_FEEDRATE          {165, 165, 50, 200000}    // (mm/sec)    
+//#define DEFAULT_MAX_FEEDRATE          {165, 165, 50, 200000}    // (mm/sec)
 //#define DEFAULT_MAX_ACCELERATION      {5000,5000,5000,500}    // X, Y, Z, E maximum start speed for accelerated moves. E default values are good for skeinforge 40+, for older versions raise them a lot.
-//#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves 
+//#define DEFAULT_ACCELERATION          3000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
 //#define DEFAULT_RETRACT_ACCELERATION  3000   // X, Y, Z and E max acceleration in mm/s^2 for r retracts
 
 // Lansing Makers Netowork Laser Cutter
@@ -318,104 +318,104 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 //automatic expansion
 #if defined (MAKRPANEL)
- #define DOGLCD
- #define SDSUPPORT
- #define ULTIPANEL
- #define NEWPANEL
- #define DEFAULT_LCD_CONTRAST 17
+	#define DOGLCD
+	#define SDSUPPORT
+	#define ULTIPANEL
+	#define NEWPANEL
+	#define DEFAULT_LCD_CONTRAST 17
 #endif
 
 #if defined (REPRAP_DISCOUNT_FULL_GRAPHIC_SMART_CONTROLLER)
- #define DOGLCD
- #define U8GLIB_ST7920
- #define REPRAP_DISCOUNT_SMART_CONTROLLER
+	#define DOGLCD
+	#define U8GLIB_ST7920
+	#define REPRAP_DISCOUNT_SMART_CONTROLLER
 #endif
 
 #if defined(ULTIMAKERCONTROLLER) || defined(REPRAP_DISCOUNT_SMART_CONTROLLER) || defined(G3D_PANEL)
- #define ULTIPANEL
- #define NEWPANEL
+	#define ULTIPANEL
+	#define NEWPANEL
 #endif
 
 #if defined(REPRAPWORLD_KEYPAD)
-  #define NEWPANEL
-  #define ULTIPANEL
+	#define NEWPANEL
+	#define ULTIPANEL
 #endif
 #if defined(RA_CONTROL_PANEL)
- #define ULTIPANEL
- #define NEWPANEL
- #define LCD_I2C_TYPE_PCA8574
- #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+	#define ULTIPANEL
+	#define NEWPANEL
+	#define LCD_I2C_TYPE_PCA8574
+	#define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
 #endif
 
 //I2C PANELS
 
 //#define LCD_I2C_SAINSMART_YWROBOT
 #ifdef LCD_I2C_SAINSMART_YWROBOT
-  // This uses the LiquidCrystal_I2C library ( https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home )
-  // Make sure it is placed in the Arduino libraries directory.
-  #define LCD_I2C_TYPE_PCF8575
-  #define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
-  #define NEWPANEL
-  #define ULTIPANEL
+	// This uses the LiquidCrystal_I2C library ( https://bitbucket.org/fmalpartida/new-liquidcrystal/wiki/Home )
+	// Make sure it is placed in the Arduino libraries directory.
+	#define LCD_I2C_TYPE_PCF8575
+	#define LCD_I2C_ADDRESS 0x27   // I2C Address of the port expander
+	#define NEWPANEL
+	#define ULTIPANEL
 #endif
 
 // PANELOLU2 LCD with status LEDs, separate encoder and click inputs
 //#define LCD_I2C_PANELOLU2
 #ifdef LCD_I2C_PANELOLU2
-  // This uses the LiquidTWI2 library v1.2.3 or later ( https://github.com/lincomatic/LiquidTWI2 )
-  // Make sure the LiquidTWI2 directory is placed in the Arduino or Sketchbook libraries subdirectory.
-  // (v1.2.3 no longer requires you to define PANELOLU in the LiquidTWI2.h library header file)
-  // Note: The PANELOLU2 encoder click input can either be directly connected to a pin
-  //       (if BTN_ENC defined to != -1) or read through I2C (when BTN_ENC == -1).
-  #define LCD_I2C_TYPE_MCP23017
-  #define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
-  #define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD
-  #define NEWPANEL
-  #define ULTIPANEL
+	// This uses the LiquidTWI2 library v1.2.3 or later ( https://github.com/lincomatic/LiquidTWI2 )
+	// Make sure the LiquidTWI2 directory is placed in the Arduino or Sketchbook libraries subdirectory.
+	// (v1.2.3 no longer requires you to define PANELOLU in the LiquidTWI2.h library header file)
+	// Note: The PANELOLU2 encoder click input can either be directly connected to a pin
+	//       (if BTN_ENC defined to != -1) or read through I2C (when BTN_ENC == -1).
+	#define LCD_I2C_TYPE_MCP23017
+	#define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
+	#define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD
+	#define NEWPANEL
+	#define ULTIPANEL
 #endif
 
 // Panucatt VIKI LCD with status LEDs, integrated click & L/R/U/P buttons, separate encoder inputs
 //#define LCD_I2C_VIKI
 #ifdef LCD_I2C_VIKI
-  // This uses the LiquidTWI2 library v1.2.3 or later ( https://github.com/lincomatic/LiquidTWI2 )
-  // Make sure the LiquidTWI2 directory is placed in the Arduino or Sketchbook libraries subdirectory.
-  // Note: The pause/stop/resume LCD button pin should be connected to the Arduino
-  //       BTN_ENC pin (or set BTN_ENC to -1 if not used)
-  #define LCD_I2C_TYPE_MCP23017
-  #define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
-  #define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD (requires LiquidTWI2 v1.2.3 or later)
-  #define NEWPANEL
-  #define ULTIPANEL
+	// This uses the LiquidTWI2 library v1.2.3 or later ( https://github.com/lincomatic/LiquidTWI2 )
+	// Make sure the LiquidTWI2 directory is placed in the Arduino or Sketchbook libraries subdirectory.
+	// Note: The pause/stop/resume LCD button pin should be connected to the Arduino
+	//       BTN_ENC pin (or set BTN_ENC to -1 if not used)
+	#define LCD_I2C_TYPE_MCP23017
+	#define LCD_I2C_ADDRESS 0x20 // I2C Address of the port expander
+	#define LCD_USE_I2C_BUZZER //comment out to disable buzzer on LCD (requires LiquidTWI2 v1.2.3 or later)
+	#define NEWPANEL
+	#define ULTIPANEL
 #endif
 
 #ifdef ULTIPANEL
-//  #define NEWPANEL  //enable this if you have a click-encoder panel
-  #define SDSUPPORT
-  #define ULTRA_LCD
-  #ifdef DOGLCD // Change number of lines to match the DOG graphic display
-    #define LCD_WIDTH 20
-    #define LCD_HEIGHT 5
-  #else
-    #define LCD_WIDTH 20
-    #define LCD_HEIGHT 4
-  #endif
+	//  #define NEWPANEL  //enable this if you have a click-encoder panel
+	#define SDSUPPORT
+	#define ULTRA_LCD
+	#ifdef DOGLCD // Change number of lines to match the DOG graphic display
+		#define LCD_WIDTH 20
+		#define LCD_HEIGHT 5
+	#else
+		#define LCD_WIDTH 20
+		#define LCD_HEIGHT 4
+	#endif
 #else //no panel but just lcd
-  #ifdef ULTRA_LCD
-  #ifdef DOGLCD // Change number of lines to match the 128x64 graphics display
-    #define LCD_WIDTH 20
-    #define LCD_HEIGHT 5
-  #else
-    #define LCD_WIDTH 16
-    #define LCD_HEIGHT 2
-  #endif
-  #endif
+	#ifdef ULTRA_LCD
+		#ifdef DOGLCD // Change number of lines to match the 128x64 graphics display
+			#define LCD_WIDTH 20
+			#define LCD_HEIGHT 5
+		#else
+			#define LCD_WIDTH 16
+			#define LCD_HEIGHT 2
+		#endif
+	#endif
 #endif
 
 // default LCD contrast for dogm-like LCD displays
 #ifdef DOGLCD
-# ifndef DEFAULT_LCD_CONTRAST
-#  define DEFAULT_LCD_CONTRAST 32
-# endif
+	#ifndef DEFAULT_LCD_CONTRAST
+		#define DEFAULT_LCD_CONTRAST 32
+	#endif
 #endif
 
 // Increase the FAN pwm frequency. Removes the PWM noise but increases heating in the FET/Arduino

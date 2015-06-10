@@ -3,7 +3,7 @@
 
 // NOTE: IF YOU CHANGE THIS FILE / MERGE THIS FILE WITH CHANGES
 //
-//   ==> ALWAYS TRY TO COMPILE MARLIN WITH/WITHOUT "ULTIPANEL" / "ULTRALCD" / "SDSUPPORT" #define IN "Configuration.h" 
+//   ==> ALWAYS TRY TO COMPILE MARLIN WITH/WITHOUT "ULTIPANEL" / "ULTRALCD" / "SDSUPPORT" #define IN "Configuration.h"
 //   ==> ALSO TRY ALL AVAILABLE "LANGUAGE_CHOICE" OPTIONS
 
 // Languages
@@ -18,7 +18,7 @@
 // 9  Finnish
 
 #ifndef LANGUAGE_CHOICE
-#define LANGUAGE_CHOICE 1  // Pick your language from the list above
+	#define LANGUAGE_CHOICE 1  // Pick your language from the list above
 #endif
 
 #define PROTOCOL_VERSION "1.0"
@@ -33,7 +33,7 @@
 
 #if LANGUAGE_CHOICE == 1
 
-// LCD Menu Messages
+	// LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME " Ready."
 	#define MSG_SD_INSERTED "Card inserted"
 	#define MSG_SD_REMOVED "Card removed"
@@ -115,10 +115,10 @@
 	#define MSG_CONTROL_RETRACT_RECOVERF "UnRet  F"
 	#define MSG_AUTORETRACT "AutoRetr."
 	#define MSG_FILAMENTCHANGE "Change filament"
-	#define MSG_INIT_SDCARD "Init. SD-Card"	
+	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing "enqueing \""
 	#define MSG_POWERUP "PowerUp"
@@ -194,7 +194,7 @@
 
 #if LANGUAGE_CHOICE == 2
 
-// LCD Menu Messages
+	// LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME " Gotowe."
 	#define MSG_SD_INSERTED "Karta wlozona"
 	#define MSG_SD_REMOVED "Karta usunieta"
@@ -279,10 +279,10 @@
 	#define MSG_CONTROL_RETRACT_RECOVERF "Cof. wycof.  F"
 	#define MSG_AUTORETRACT "Auto. wycofanie"
 	#define MSG_FILAMENTCHANGE "Change filament"
-	#define MSG_INIT_SDCARD "Init. SD-Card"	
+	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing "Kolejkowanie \""
 	#define MSG_POWERUP "Zasilanie wlaczone"
@@ -442,10 +442,10 @@
 	#define MSG_CONTROL_RETRACT_RECOVERF "UnRet F"
 	#define MSG_AUTORETRACT "Retract. Auto."
 	#define MSG_FILAMENTCHANGE "Changer filament"
-	#define MSG_INIT_SDCARD "Init. la carte SD"	
+	#define MSG_INIT_SDCARD "Init. la carte SD"
 	#define MSG_CNG_SDCARD "Changer de carte SD"
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing "Mise en tampon \""
 	#define MSG_POWERUP "Allumage"
@@ -515,13 +515,13 @@
 	#define MSG_ENDSTOPS_HIT "Fin de course atteint: "
 	#define MSG_ERR_COLD_EXTRUDE_STOP " Extrusion a froid evitee"
 	#define MSG_ERR_LONG_EXTRUDE_STOP " Extrusion longue evitee"
-	
+
 #endif
 
 
 #if LANGUAGE_CHOICE == 4
 
-// LCD Menu Messages
+	// LCD Menu Messages
 
 	#define WELCOME_MSG MACHINE_NAME " Bereit."
 
@@ -593,7 +593,7 @@
 	#define MSG_STOP_PRINT       "Druck stoppen"
 	#define MSG_CARD_MENU        "SDKarten Menü"
 	#define MSG_NO_CARD          "Keine SDKarte"
-	#define MSG_DWELL            "Warten..."		
+	#define MSG_DWELL            "Warten..."
 	#define MSG_USERWAIT         "Warte auf Nutzer..."
 	#define MSG_RESUMING         "Druck fortsetzung"
 	#define MSG_NO_MOVE          "Kein Zug."
@@ -608,10 +608,10 @@
 	#define MSG_CONTROL_RETRACT_RECOVERF "UnRet  F"
 	#define MSG_AUTORETRACT      "AutoRetr."
 	#define MSG_FILAMENTCHANGE "Filament wechseln"
-	#define MSG_INIT_SDCARD "Init. SD-Card"	
+	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
-	
-// Serial Console Messages
+
+	// Serial Console Messages
 
 	#define MSG_Enqueing "enqueing \""
 	#define MSG_POWERUP "PowerUp"
@@ -687,7 +687,7 @@
 
 #if LANGUAGE_CHOICE == 5
 
-// LCD Menu Messages
+	// LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME "Lista."
 	#define MSG_SD_INSERTED "Tarjeta SD Colocada"
 	#define MSG_SD_REMOVED "Tarjeta SD Retirada"
@@ -781,7 +781,7 @@
 	#define MSG_PART_RELEASE "Desacople Parcial"
 	#define MSG_STEPPER_RELEASED "Desacoplada."
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing "En cola \""
 	#define MSG_POWERUP "PowerUp"
@@ -911,7 +911,7 @@
 	#define MSG_RECTRACT    					" Откат подачи      \x7E"
 	#define MSG_TEMPERATURE  				" Температура       \x7E"
 	#define MSG_MOTION						" Скорости          \x7E"
-		#define MSG_CONTRAST "LCD contrast"
+	#define MSG_CONTRAST "LCD contrast"
 	#define MSG_STORE_EPROM						" Сохранить настройки"
 	#define MSG_LOAD_EPROM						" Загрузить настройки"
 	#define MSG_RESTORE_FAILSAFE				" Сброс настроек     "
@@ -938,10 +938,10 @@
 	#define MSG_CONTROL_RETRACT_RECOVERF		" Возврат  F:"
 	#define MSG_AUTORETRACT						" АвтоОткат:"
 	#define MSG_FILAMENTCHANGE "Change filament"
-	#define MSG_INIT_SDCARD "Init. SD-Card"	
+	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing						"Запланировано \""
 	#define MSG_POWERUP							"Включение питания"
@@ -1177,7 +1177,7 @@
 
 #if LANGUAGE_CHOICE == 8
 
-// LCD Menu Messages
+	// LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME " Pronta."
 	#define MSG_SD_INSERTED "Cartao SD inserido"
 	#define MSG_SD_REMOVED "Cartao SD removido"
@@ -1267,10 +1267,10 @@
 	#define MSG_AUTORETRACT " AutoRetr.:"
 	#define MSG_SERIAL_ERROR_MENU_STRUCTURE "Algo esta errado na estrutura do Menu."
 	#define MSG_FILAMENTCHANGE "Change filament"
-	#define MSG_INIT_SDCARD "Init. SD-Card"	
+	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing "enqueing \""
 	#define MSG_POWERUP "PowerUp"
@@ -1348,9 +1348,9 @@
 
 #if LANGUAGE_CHOICE == 9
 
-// Finnish
+	// Finnish
 
-// LCD Menu Messages
+	// LCD Menu Messages
 	#define WELCOME_MSG MACHINE_NAME " valmis"
 	#define MSG_SD_INSERTED "Kortti asetettu"
 	#define MSG_SD_REMOVED "Kortti poistettu"
@@ -1432,10 +1432,10 @@
 	#define MSG_CONTROL_RETRACT_RECOVERF "UnRet  F"
 	#define MSG_AUTORETRACT "AutoVeto."
 	#define MSG_FILAMENTCHANGE "Change filament"
-	#define MSG_INIT_SDCARD "Init. SD-Card"	
+	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
 
-// Serial Console Messages
+	// Serial Console Messages
 
 	#define MSG_Enqueing "jonoon \""
 	#define MSG_POWERUP "Kaynnistys"

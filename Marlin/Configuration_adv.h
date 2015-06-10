@@ -29,53 +29,53 @@
 //// AUTOSET LOCATIONS OF LIMIT SWITCHES
 //// Added by ZetaPhoenix 09-15-2012
 #ifdef MANUAL_HOME_POSITIONS  // Use manual limit switch locations
-  #define X_HOME_POS MANUAL_X_HOME_POS
-  #define Y_HOME_POS MANUAL_Y_HOME_POS
-  #define Z_HOME_POS MANUAL_Z_HOME_POS
+	#define X_HOME_POS MANUAL_X_HOME_POS
+	#define Y_HOME_POS MANUAL_Y_HOME_POS
+	#define Z_HOME_POS MANUAL_Z_HOME_POS
 #else //Set min/max homing switch positions based upon homing direction and min/max travel limits
-  //X axis
-  #if X_HOME_DIR == -1
-    #ifdef BED_CENTER_AT_0_0
-      #define X_HOME_POS X_MAX_LENGTH * -0.5
-    #else
-      #define X_HOME_POS X_MIN_POS
-    #endif //BED_CENTER_AT_0_0
-  #else    
-    #ifdef BED_CENTER_AT_0_0
-      #define X_HOME_POS X_MAX_LENGTH * 0.5
-    #else
-      #define X_HOME_POS X_MAX_POS
-    #endif //BED_CENTER_AT_0_0
-  #endif //X_HOME_DIR == -1
-  
-  //Y axis
-  #if Y_HOME_DIR == -1
-    #ifdef BED_CENTER_AT_0_0
-      #define Y_HOME_POS Y_MAX_LENGTH * -0.5
-    #else
-      #define Y_HOME_POS Y_MIN_POS
-    #endif //BED_CENTER_AT_0_0
-  #else    
-    #ifdef BED_CENTER_AT_0_0
-      #define Y_HOME_POS Y_MAX_LENGTH * 0.5
-    #else
-      #define Y_HOME_POS Y_MAX_POS
-    #endif //BED_CENTER_AT_0_0
-  #endif //Y_HOME_DIR == -1
-  
-  // Z axis
-  #if Z_HOME_DIR == -1 //BED_CENTER_AT_0_0 not used
-    #define Z_HOME_POS Z_MIN_POS
-  #else    
-    #define Z_HOME_POS Z_MAX_POS
-  #endif //Z_HOME_DIR == -1
+	//X axis
+	#if X_HOME_DIR == -1
+		#ifdef BED_CENTER_AT_0_0
+			#define X_HOME_POS X_MAX_LENGTH * -0.5
+		#else
+			#define X_HOME_POS X_MIN_POS
+		#endif //BED_CENTER_AT_0_0
+	#else
+		#ifdef BED_CENTER_AT_0_0
+			#define X_HOME_POS X_MAX_LENGTH * 0.5
+		#else
+			#define X_HOME_POS X_MAX_POS
+		#endif //BED_CENTER_AT_0_0
+	#endif //X_HOME_DIR == -1
+
+	//Y axis
+	#if Y_HOME_DIR == -1
+		#ifdef BED_CENTER_AT_0_0
+			#define Y_HOME_POS Y_MAX_LENGTH * -0.5
+		#else
+			#define Y_HOME_POS Y_MIN_POS
+		#endif //BED_CENTER_AT_0_0
+	#else
+		#ifdef BED_CENTER_AT_0_0
+			#define Y_HOME_POS Y_MAX_LENGTH * 0.5
+		#else
+			#define Y_HOME_POS Y_MAX_POS
+		#endif //BED_CENTER_AT_0_0
+	#endif //Y_HOME_DIR == -1
+
+	// Z axis
+	#if Z_HOME_DIR == -1 //BED_CENTER_AT_0_0 not used
+		#define Z_HOME_POS Z_MIN_POS
+	#else
+		#define Z_HOME_POS Z_MAX_POS
+	#endif //Z_HOME_DIR == -1
 #endif //End auto min/max positions
 //END AUTOSET LOCATIONS OF LIMIT SWITCHES -ZP
 
 //homing hits the endstop, then retracts by this distance, before it tries to slowly bump again:
-#define X_HOME_RETRACT_MM 5 
-#define Y_HOME_RETRACT_MM 5 
-#define Z_HOME_RETRACT_MM 1 
+#define X_HOME_RETRACT_MM 5
+#define Y_HOME_RETRACT_MM 5
+#define Z_HOME_RETRACT_MM 1
 #define QUICK_HOME  //if this is defined, if both x and y are to be homed, a diagonal move will be performed initially.
 
 #define AXIS_RELATIVE_MODES {false, false, false, false}
@@ -100,7 +100,7 @@
 
 // Feedrates for manual moves along X, Y, Z, E from panel
 #ifdef ULTIPANEL
-#define MANUAL_FEEDRATE {50*60, 50*60, 4*60, 60}  // set the speeds for manual moves (mm/min)
+	#define MANUAL_FEEDRATE {50*60, 50*60, 4*60, 60}  // set the speeds for manual moves (mm/min)
 #endif
 
 // minimum time in microseconds that a movement needs to take if the buffer is emptied.
@@ -144,10 +144,10 @@
 //#define USE_WATCHDOG
 
 #ifdef USE_WATCHDOG
-// If you have a watchdog reboot in an ArduinoMega2560 then the device will hang forever, as a watchdog reset will leave the watchdog on.
-// The "WATCHDOG_RESET_MANUAL" goes around this by not using the hardware reset.
-//  However, THIS FEATURE IS UNSAFE!, as it will only work if interrupts are disabled. And the code could hang in an interrupt routine with interrupts disabled.
-//#define WATCHDOG_RESET_MANUAL
+	// If you have a watchdog reboot in an ArduinoMega2560 then the device will hang forever, as a watchdog reset will leave the watchdog on.
+	// The "WATCHDOG_RESET_MANUAL" goes around this by not using the hardware reset.
+	//  However, THIS FEATURE IS UNSAFE!, as it will only work if interrupts are disabled. And the code could hang in an interrupt routine with interrupts disabled.
+	//#define WATCHDOG_RESET_MANUAL
 #endif
 
 // Enable the option to stop SD printing when hitting and endstops, needs to be enabled from the LCD menu when this option is enabled.
@@ -160,36 +160,36 @@
 const unsigned int dropsegments=5; //everything with less than this number of steps will be ignored as move and joined with the next movement
 
 // If you are using a RAMPS board or cheap E-bay purchased boards that do not detect when an SD card is inserted
-// You can get round this by connecting a push button or single throw switch to the pin defined as SDCARDCARDDETECT 
+// You can get round this by connecting a push button or single throw switch to the pin defined as SDCARDCARDDETECT
 // in the pins.h file.  When using a push button pulling the pin to ground this will need inverted.  This setting should
 // be commented out otherwise
-#define SDCARDDETECTINVERTED 
+#define SDCARDDETECTINVERTED
 
 #ifdef ULTIPANEL
- #undef SDCARDDETECTINVERTED
+	#undef SDCARDDETECTINVERTED
 #endif
 
 // 1 = ATX
-#if (POWER_SUPPLY == 1) 
-  #define PS_ON_AWAKE  LOW
-  #define PS_ON_ASLEEP HIGH
+#if (POWER_SUPPLY == 1)
+	#define PS_ON_AWAKE  LOW
+	#define PS_ON_ASLEEP HIGH
 #endif
 // 2 = X-Box 360 203W
-#if (POWER_SUPPLY == 2) 
-  #define PS_ON_AWAKE  HIGH
-  #define PS_ON_ASLEEP LOW
+#if (POWER_SUPPLY == 2)
+	#define PS_ON_AWAKE  HIGH
+	#define PS_ON_ASLEEP LOW
 #endif
 
 //===========================================================================
 //=============================Buffers           ============================
 //===========================================================================
 
-// The number of linear motions that can be in the plan at any give time.  
+// The number of linear motions that can be in the plan at any give time.
 // THE BLOCK_BUFFER_SIZE NEEDS TO BE A POWER OF 2, i.g. 8,16,32 because shifts and ors are used to do the ringbuffering.
 #if defined SDSUPPORT
-  #define BLOCK_BUFFER_SIZE 16   // SD,LCD,Buttons take more memory, block buffer needs to be smaller
+	#define BLOCK_BUFFER_SIZE 16   // SD,LCD,Buttons take more memory, block buffer needs to be smaller
 #else
-  #define BLOCK_BUFFER_SIZE 16 // maximize block buffer
+	#define BLOCK_BUFFER_SIZE 16 // maximize block buffer
 #endif
 
 
@@ -199,9 +199,9 @@ const unsigned int dropsegments=5; //everything with less than this number of st
 
 
 // Firmware based and LCD controled retract
-// M207 and M208 can be used to define parameters for the retraction. 
+// M207 and M208 can be used to define parameters for the retraction.
 // The retraction can be called by the slicer using G10 and G11
-// until then, intended retractions can be detected by moves that only extrude and the direction. 
+// until then, intended retractions can be detected by moves that only extrude and the direction.
 // the moves are than replaced by the firmware controlled ones.
 
 #define MIN_RETRACT 0.1 //minimum extruded mm to accept a automatic gcode retraction attempt
