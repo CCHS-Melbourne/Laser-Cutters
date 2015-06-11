@@ -146,10 +146,6 @@ float max_pos[3] = { X_MAX_POS, Y_MAX_POS, Z_MAX_POS };
 // Extruder offset
 uint8_t active_extruder = 0;
 int fanSpeed=0;
-#ifdef SERVO_ENDSTOPS
-	int servo_endstops[] = SERVO_ENDSTOPS;
-	int servo_endstop_angles[] = SERVO_ENDSTOP_ANGLES;
-#endif
 
 #ifdef ULTIPANEL
 	bool powersupply = true;
@@ -645,12 +641,6 @@ static void homeaxis(int axis)
 #endif
 
 		// Engage Servo endstop if enabled
-#ifdef SERVO_ENDSTOPS
-		if(servo_endstops[axis] > -1)
-		{
-			servos[servo_endstops[axis]].write(servo_endstop_angles[axis * 2]);
-		}
-#endif
 		has_axis_homed[axis] = true;
 		current_position[axis] = 0;
 		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
@@ -677,12 +667,6 @@ static void homeaxis(int axis)
 		endstops_hit_on_purpose();
 
 		// Retract Servo endstop if enabled
-#ifdef SERVO_ENDSTOPS
-		if(servo_endstops[axis] > -1)
-		{
-			servos[servo_endstops[axis]].write(servo_endstop_angles[axis * 2 + 1]);
-		}
-#endif
 	}
 }
 #define HOMEAXIS(LETTER) homeaxis(LETTER##_AXIS)
