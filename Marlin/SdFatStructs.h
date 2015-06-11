@@ -618,38 +618,38 @@ uint8_t const DIR_ATT_DEFINED_BITS = 0X3F;
  *
  * \return true if the entry is for part of a long name else false.
  */
-static inline uint8_t DIR_IS_LONG_NAME ( const dir_t* dir )
+static inline uint8_t DIR_IS_LONG_NAME(const dir_t* dir)
 {
-	return ( dir->attributes & DIR_ATT_LONG_NAME_MASK ) == DIR_ATT_LONG_NAME;
+	return (dir->attributes & DIR_ATT_LONG_NAME_MASK) == DIR_ATT_LONG_NAME;
 }
 /** Mask for file/subdirectory tests */
-uint8_t const DIR_ATT_FILE_TYPE_MASK = ( DIR_ATT_VOLUME_ID | DIR_ATT_DIRECTORY );
+uint8_t const DIR_ATT_FILE_TYPE_MASK = (DIR_ATT_VOLUME_ID | DIR_ATT_DIRECTORY);
 /** Directory entry is for a file
  * \param[in] dir Pointer to a directory entry.
  *
  * \return true if the entry is for a normal file else false.
  */
-static inline uint8_t DIR_IS_FILE ( const dir_t* dir )
+static inline uint8_t DIR_IS_FILE(const dir_t* dir)
 {
-	return ( dir->attributes & DIR_ATT_FILE_TYPE_MASK ) == 0;
+	return (dir->attributes & DIR_ATT_FILE_TYPE_MASK) == 0;
 }
 /** Directory entry is for a subdirectory
  * \param[in] dir Pointer to a directory entry.
  *
  * \return true if the entry is for a subdirectory else false.
  */
-static inline uint8_t DIR_IS_SUBDIR ( const dir_t* dir )
+static inline uint8_t DIR_IS_SUBDIR(const dir_t* dir)
 {
-	return ( dir->attributes & DIR_ATT_FILE_TYPE_MASK ) == DIR_ATT_DIRECTORY;
+	return (dir->attributes & DIR_ATT_FILE_TYPE_MASK) == DIR_ATT_DIRECTORY;
 }
 /** Directory entry is for a file or subdirectory
  * \param[in] dir Pointer to a directory entry.
  *
  * \return true if the entry is for a normal file or subdirectory else false.
  */
-static inline uint8_t DIR_IS_FILE_OR_SUBDIR ( const dir_t* dir )
+static inline uint8_t DIR_IS_FILE_OR_SUBDIR(const dir_t* dir)
 {
-	return ( dir->attributes & DIR_ATT_VOLUME_ID ) == 0;
+	return (dir->attributes & DIR_ATT_VOLUME_ID) == 0;
 }
 #endif  // SdFatStructs_h
 

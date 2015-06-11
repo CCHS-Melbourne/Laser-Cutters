@@ -74,20 +74,20 @@ const char echomagic[] PROGMEM ="echo:";
 
 #define SERIAL_ECHOPAIR(name,value) (serial_echopair_P(PSTR(name),(value)))
 
-void serial_echopair_P ( const char *s_P, float v );
-void serial_echopair_P ( const char *s_P, double v );
-void serial_echopair_P ( const char *s_P, long v );
-void serial_echopair_P ( const char *s_P, unsigned long v );
+void serial_echopair_P(const char* s_P, float v);
+void serial_echopair_P(const char* s_P, double v);
+void serial_echopair_P(const char* s_P, long v);
+void serial_echopair_P(const char* s_P, unsigned long v);
 
 
 //things to write to serial from Programmemory. saves 400 to 2k of RAM.
-FORCE_INLINE void serialprintPGM ( const char *str )
+FORCE_INLINE void serialprintPGM(const char* str)
 {
-	char ch=pgm_read_byte ( str );
-	while ( ch )
+	char ch=pgm_read_byte(str);
+	while(ch)
 	{
-		MYSERIAL.write ( ch );
-		ch=pgm_read_byte ( ++str );
+		MYSERIAL.write(ch);
+		ch=pgm_read_byte(++str);
 	}
 }
 
@@ -139,7 +139,7 @@ void ClearToSend();
 
 void get_coordinates();
 #ifdef DELTA
-	void calculate_delta ( float cartesian[3] );
+	void calculate_delta(float cartesian[3]);
 	extern float delta[3];
 #endif
 void prepare_move();
@@ -148,13 +148,13 @@ void Stop();
 
 bool IsStopped();
 
-void enquecommand ( const char *cmd ); //put an ascii command at the end of the current buffer.
-void enquecommand_P ( const char *cmd ); //put an ascii command at the end of the current buffer, read from flash
-void prepare_arc_move ( char isclockwise );
-void clamp_to_software_endstops ( float target[3] );
+void enquecommand(const char* cmd);    //put an ascii command at the end of the current buffer.
+void enquecommand_P(const char* cmd);    //put an ascii command at the end of the current buffer, read from flash
+void prepare_arc_move(char isclockwise);
+void clamp_to_software_endstops(float target[3]);
 
 #ifdef FAST_PWM_FAN
-	void setPwmFrequency ( uint8_t pin, int val );
+	void setPwmFrequency(uint8_t pin, int val);
 #endif
 
 #ifndef CRITICAL_SECTION_START

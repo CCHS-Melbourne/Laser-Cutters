@@ -10,7 +10,7 @@
   Max Font    ascent = 7 descent=-2
 */
 #include <utility/u8g.h>
-const u8g_fntpgm_uint8_t u8g_font_6x9[2300] U8G_SECTION ( ".progmem.u8g_font_6x9" ) =
+const u8g_fntpgm_uint8_t u8g_font_6x9[2300] U8G_SECTION(".progmem.u8g_font_6x9") =
 {
 	0,6,9,0,254,6,1,137,2,254,32,255,254,7,254,6,
 	254,0,0,0,6,0,7,1,6,6,6,2,0,128,128,128,
@@ -171,7 +171,7 @@ const u8g_fntpgm_uint8_t u8g_font_6x9[2300] U8G_SECTION ( ".progmem.u8g_font_6x9
   Max Font    ascent = 8 descent=-2
 */
 #include <utility/u8g.h>
-const u8g_fntpgm_uint8_t u8g_font_6x10_marlin[2617] U8G_SECTION ( ".progmem.u8g_font_6x10_marlin" ) =
+const u8g_fntpgm_uint8_t u8g_font_6x10_marlin[2617] U8G_SECTION(".progmem.u8g_font_6x10_marlin") =
 {
 	0,6,9,0,254,7,1,153,3,43,32,255,254,8,254,7,
 	254,0,0,0,6,0,0,1,7,7,6,2,0,128,128,128,

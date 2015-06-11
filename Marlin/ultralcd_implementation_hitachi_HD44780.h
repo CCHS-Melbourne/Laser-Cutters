@@ -153,7 +153,7 @@
 	#include <LCD.h>
 	#include <LiquidCrystal_I2C.h>
 	#define LCD_CLASS LiquidCrystal_I2C
-	LCD_CLASS lcd ( LCD_I2C_ADDRESS,LCD_I2C_PIN_EN,LCD_I2C_PIN_RW,LCD_I2C_PIN_RS,LCD_I2C_PIN_D4,LCD_I2C_PIN_D5,LCD_I2C_PIN_D6,LCD_I2C_PIN_D7 );
+	LCD_CLASS lcd(LCD_I2C_ADDRESS,LCD_I2C_PIN_EN,LCD_I2C_PIN_RW,LCD_I2C_PIN_RS,LCD_I2C_PIN_D4,LCD_I2C_PIN_D5,LCD_I2C_PIN_D6,LCD_I2C_PIN_D7);
 
 #elif defined(LCD_I2C_TYPE_MCP23017)
 	//for the LED indicators (which maybe mapped to different things in lcd_implementation_update_indicators())
@@ -166,18 +166,18 @@
 	#include <Wire.h>
 	#include <LiquidTWI2.h>
 	#define LCD_CLASS LiquidTWI2
-	LCD_CLASS lcd ( LCD_I2C_ADDRESS );
+	LCD_CLASS lcd(LCD_I2C_ADDRESS);
 
 #elif defined(LCD_I2C_TYPE_MCP23008)
 	#include <Wire.h>
 	#include <LiquidTWI2.h>
 	#define LCD_CLASS LiquidTWI2
-	LCD_CLASS lcd ( LCD_I2C_ADDRESS );
+	LCD_CLASS lcd(LCD_I2C_ADDRESS);
 
 #elif defined(LCD_I2C_TYPE_PCA8574)
 	#include <LiquidCrystal_I2C.h>
 	#define LCD_CLASS LiquidCrystal_I2C
-	LCD_CLASS lcd ( LCD_I2C_ADDRESS, LCD_WIDTH, LCD_HEIGHT );
+	LCD_CLASS lcd(LCD_I2C_ADDRESS, LCD_WIDTH, LCD_HEIGHT);
 
 #else
 	// Standard directly connected LCD implementations
@@ -188,7 +188,7 @@
 		#include <LiquidCrystal.h>
 		#define LCD_CLASS LiquidCrystal
 	#endif
-	LCD_CLASS lcd ( LCD_PINS_RS, LCD_PINS_ENABLE, LCD_PINS_D4, LCD_PINS_D5,LCD_PINS_D6,LCD_PINS_D7 ); //RS,Enable,D4,D5,D6,D7
+	LCD_CLASS lcd(LCD_PINS_RS, LCD_PINS_ENABLE, LCD_PINS_D4, LCD_PINS_D5,LCD_PINS_D6,LCD_PINS_D7);    //RS,Enable,D4,D5,D6,D7
 #endif
 
 /* Custom characters defined in the first 8 characters of the LCD */
@@ -294,37 +294,37 @@ static void lcd_implementation_init()
 	}; //thanks Sonny Mounicou
 
 #if defined(LCDI2C_TYPE_PCF8575)
-	lcd.begin ( LCD_WIDTH, LCD_HEIGHT );
+	lcd.begin(LCD_WIDTH, LCD_HEIGHT);
 #ifdef LCD_I2C_PIN_BL
-	lcd.setBacklightPin ( LCD_I2C_PIN_BL,POSITIVE );
-	lcd.setBacklight ( HIGH );
+	lcd.setBacklightPin(LCD_I2C_PIN_BL,POSITIVE);
+	lcd.setBacklight(HIGH);
 #endif
 
 #elif defined(LCD_I2C_TYPE_MCP23017)
-	lcd.setMCPType ( LTI_TYPE_MCP23017 );
-	lcd.begin ( LCD_WIDTH, LCD_HEIGHT );
-	lcd.setBacklight ( 0 ); //set all the LEDs off to begin with
+	lcd.setMCPType(LTI_TYPE_MCP23017);
+	lcd.begin(LCD_WIDTH, LCD_HEIGHT);
+	lcd.setBacklight(0);    //set all the LEDs off to begin with
 
 #elif defined(LCD_I2C_TYPE_MCP23008)
-	lcd.setMCPType ( LTI_TYPE_MCP23008 );
-	lcd.begin ( LCD_WIDTH, LCD_HEIGHT );
+	lcd.setMCPType(LTI_TYPE_MCP23008);
+	lcd.begin(LCD_WIDTH, LCD_HEIGHT);
 
 #elif defined(LCD_I2C_TYPE_PCA8574)
 	lcd.init();
 	lcd.backlight();
 
 #else
-	lcd.begin ( LCD_WIDTH, LCD_HEIGHT );
+	lcd.begin(LCD_WIDTH, LCD_HEIGHT);
 #endif
 
-	lcd.createChar ( LCD_STR_BEDTEMP[0], bedTemp );
-	lcd.createChar ( LCD_STR_DEGREE[0], degree );
-	lcd.createChar ( LCD_STR_THERMOMETER[0], thermometer );
-	lcd.createChar ( LCD_STR_UPLEVEL[0], uplevel );
-	lcd.createChar ( LCD_STR_REFRESH[0], refresh );
-	lcd.createChar ( LCD_STR_FOLDER[0], folder );
-	lcd.createChar ( LCD_STR_FEEDRATE[0], feedrate );
-	lcd.createChar ( LCD_STR_CLOCK[0], clock );
+	lcd.createChar(LCD_STR_BEDTEMP[0], bedTemp);
+	lcd.createChar(LCD_STR_DEGREE[0], degree);
+	lcd.createChar(LCD_STR_THERMOMETER[0], thermometer);
+	lcd.createChar(LCD_STR_UPLEVEL[0], uplevel);
+	lcd.createChar(LCD_STR_REFRESH[0], refresh);
+	lcd.createChar(LCD_STR_FOLDER[0], folder);
+	lcd.createChar(LCD_STR_FEEDRATE[0], feedrate);
+	lcd.createChar(LCD_STR_CLOCK[0], clock);
 	lcd.clear();
 }
 static void lcd_implementation_clear()
@@ -332,12 +332,12 @@ static void lcd_implementation_clear()
 	lcd.clear();
 }
 /* Arduino < 1.0.0 is missing a function to print PROGMEM strings, so we need to implement our own */
-static void lcd_printPGM ( const char* str )
+static void lcd_printPGM(const char* str)
 {
 	char c;
-	while ( ( c = pgm_read_byte ( str++ ) ) != '\0' )
+	while((c = pgm_read_byte(str++)) != '\0')
 	{
-		lcd.write ( c );
+		lcd.write(c);
 	}
 }
 /*
@@ -373,30 +373,30 @@ static void lcd_implementation_status_screen()
 
 #ifdef LASER
 
-	lcd.setCursor ( 0, 0 );
-	lcd.print ( "Laser Power: " );
-	lcd.print ( itostr3 ( int ( laser.intensity ) ) );
-	lcd.print ( itostr3 ( int ( laser.status ) ) );
+	lcd.setCursor(0, 0);
+	lcd.print("Laser Power: ");
+	lcd.print(itostr3(int (laser.intensity)));
+	lcd.print(itostr3(int (laser.status)));
 
 #else
-	int tHotend=int ( degHotend ( 0 ) + 0.5 );
-	int tTarget=int ( degTargetHotend ( 0 ) + 0.5 );
+	int tHotend=int (degHotend(0) + 0.5);
+	int tTarget=int (degTargetHotend(0) + 0.5);
 
 #if LCD_WIDTH < 20
-	lcd.setCursor ( 0, 0 );
-	lcd.print ( itostr3 ( tHotend ) );
-	lcd.print ( '/' );
-	lcd.print ( itostr3left ( tTarget ) );
+	lcd.setCursor(0, 0);
+	lcd.print(itostr3(tHotend));
+	lcd.print('/');
+	lcd.print(itostr3left(tTarget));
 
 #else//LCD_WIDTH > 19
-	lcd.setCursor ( 0, 0 );
-	lcd.print ( LCD_STR_THERMOMETER[0] );
-	lcd.print ( itostr3 ( tHotend ) );
-	lcd.print ( '/' );
-	lcd.print ( itostr3left ( tTarget ) );
-	lcd_printPGM ( PSTR ( LCD_STR_DEGREE " " ) );
-	if ( tTarget < 10 )
-	{ lcd.print ( ' ' ); }
+	lcd.setCursor(0, 0);
+	lcd.print(LCD_STR_THERMOMETER[0]);
+	lcd.print(itostr3(tHotend));
+	lcd.print('/');
+	lcd.print(itostr3left(tTarget));
+	lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
+	if(tTarget < 10)
+	{ lcd.print(' '); }
 
 #endif//LCD_WIDTH > 19
 #endif
@@ -404,64 +404,64 @@ static void lcd_implementation_status_screen()
 //Lines 2 for 4 line LCD
 # if LCD_WIDTH < 20
 #  ifdef SDSUPPORT
-	lcd.setCursor ( 0, 2 );
-	lcd_printPGM ( PSTR ( "SD" ) );
-	if ( IS_SD_PRINTING )
-	{ lcd.print ( itostr3 ( card.percentDone() ) ); }
+	lcd.setCursor(0, 2);
+	lcd_printPGM(PSTR("SD"));
+	if(IS_SD_PRINTING)
+	{ lcd.print(itostr3(card.percentDone())); }
 	else
-	{ lcd_printPGM ( PSTR ( "---" ) ); }
-	lcd.print ( '%' );
+	{ lcd_printPGM(PSTR("---")); }
+	lcd.print('%');
 #  endif//SDSUPPORT
 # else//LCD_WIDTH > 19
-	lcd.setCursor ( 0,1 );
-	lcd.print ( 'X' );
-	lcd.print ( ftostr3 ( current_position[X_AXIS] ) );
-	lcd_printPGM ( PSTR ( " Y" ) );
-	lcd.print ( ftostr3 ( current_position[Y_AXIS] ) );
+	lcd.setCursor(0,1);
+	lcd.print('X');
+	lcd.print(ftostr3(current_position[X_AXIS]));
+	lcd_printPGM(PSTR(" Y"));
+	lcd.print(ftostr3(current_position[Y_AXIS]));
 # endif//LCD_WIDTH > 19
 
-	lcd.print ( 'Z' );
-	lcd.print ( ftostr32 ( current_position[Z_AXIS] ) );
+	lcd.print('Z');
+	lcd.print(ftostr32(current_position[Z_AXIS]));
 #endif
 
 #endif//LCD_HEIGHT > 2
 
 #if LCD_HEIGHT > 3
-	lcd.setCursor ( 0, 2 );
-	lcd.print ( LCD_STR_FEEDRATE[0] );
-	lcd.print ( itostr3 ( feedmultiply ) );
-	lcd.print ( '%' );
+	lcd.setCursor(0, 2);
+	lcd.print(LCD_STR_FEEDRATE[0]);
+	lcd.print(itostr3(feedmultiply));
+	lcd.print('%');
 # if LCD_WIDTH > 19
 #  ifdef SDSUPPORT
-	lcd.setCursor ( 7, 2 );
-	lcd_printPGM ( PSTR ( "SD" ) );
-	if ( IS_SD_PRINTING )
-	{ lcd.print ( itostr3 ( card.percentDone() ) ); }
+	lcd.setCursor(7, 2);
+	lcd_printPGM(PSTR("SD"));
+	if(IS_SD_PRINTING)
+	{ lcd.print(itostr3(card.percentDone())); }
 	else
-	{ lcd_printPGM ( PSTR ( "---" ) ); }
-	lcd.print ( '%' );
+	{ lcd_printPGM(PSTR("---")); }
+	lcd.print('%');
 #  endif//SDSUPPORT
 # endif//LCD_WIDTH > 19
-	lcd.setCursor ( LCD_WIDTH - 6, 2 );
-	lcd.print ( LCD_STR_CLOCK[0] );
-	if ( starttime != 0 )
+	lcd.setCursor(LCD_WIDTH - 6, 2);
+	lcd.print(LCD_STR_CLOCK[0]);
+	if(starttime != 0)
 	{
 		uint16_t time = millis() /60000 - starttime/60000;
-		lcd.print ( itostr2 ( time/60 ) );
-		lcd.print ( ':' );
-		lcd.print ( itostr2 ( time%60 ) );
+		lcd.print(itostr2(time/60));
+		lcd.print(':');
+		lcd.print(itostr2(time%60));
 	}
 	else
 	{
-		lcd_printPGM ( PSTR ( "--:--" ) );
+		lcd_printPGM(PSTR("--:--"));
 	}
 #endif
 
 	//Status message line on the last line
-	lcd.setCursor ( 0, LCD_HEIGHT - 1 );
-	lcd.print ( lcd_status_message );
+	lcd.setCursor(0, LCD_HEIGHT - 1);
+	lcd.print(lcd_status_message);
 }
-static void lcd_implementation_drawmenu_generic ( uint8_t row, const char* pstr, char pre_char, char post_char )
+static void lcd_implementation_drawmenu_generic(uint8_t row, const char* pstr, char pre_char, char post_char)
 {
 	char c;
 	//Use all characters in narrow LCDs
@@ -470,62 +470,62 @@ static void lcd_implementation_drawmenu_generic ( uint8_t row, const char* pstr,
 #else
 	uint8_t n = LCD_WIDTH - 1 - 2;
 #endif
-	lcd.setCursor ( 0, row );
-	lcd.print ( pre_char );
-	while ( ( ( c = pgm_read_byte ( pstr ) ) != '\0' ) && ( n>0 ) )
+	lcd.setCursor(0, row);
+	lcd.print(pre_char);
+	while(((c = pgm_read_byte(pstr)) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		pstr++;
 		n--;
 	}
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
-	lcd.print ( post_char );
-	lcd.print ( ' ' );
+	while(n--)
+	{ lcd.print(' '); }
+	lcd.print(post_char);
+	lcd.print(' ');
 }
-static void lcd_implementation_drawmenu_setting_edit_generic ( uint8_t row, const char* pstr, char pre_char, char* data )
+static void lcd_implementation_drawmenu_setting_edit_generic(uint8_t row, const char* pstr, char pre_char, char* data)
 {
 	char c;
 	//Use all characters in narrow LCDs
 #if LCD_WIDTH < 20
-	uint8_t n = LCD_WIDTH - 1 - 1 - strlen ( data );
+	uint8_t n = LCD_WIDTH - 1 - 1 - strlen(data);
 #else
-	uint8_t n = LCD_WIDTH - 1 - 2 - strlen ( data );
+	uint8_t n = LCD_WIDTH - 1 - 2 - strlen(data);
 #endif
-	lcd.setCursor ( 0, row );
-	lcd.print ( pre_char );
-	while ( ( ( c = pgm_read_byte ( pstr ) ) != '\0' ) && ( n>0 ) )
+	lcd.setCursor(0, row);
+	lcd.print(pre_char);
+	while(((c = pgm_read_byte(pstr)) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		pstr++;
 		n--;
 	}
-	lcd.print ( ':' );
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
-	lcd.print ( data );
+	lcd.print(':');
+	while(n--)
+	{ lcd.print(' '); }
+	lcd.print(data);
 }
-static void lcd_implementation_drawmenu_setting_edit_generic_P ( uint8_t row, const char* pstr, char pre_char, const char* data )
+static void lcd_implementation_drawmenu_setting_edit_generic_P(uint8_t row, const char* pstr, char pre_char, const char* data)
 {
 	char c;
 	//Use all characters in narrow LCDs
 #if LCD_WIDTH < 20
-	uint8_t n = LCD_WIDTH - 1 - 1 - strlen_P ( data );
+	uint8_t n = LCD_WIDTH - 1 - 1 - strlen_P(data);
 #else
-	uint8_t n = LCD_WIDTH - 1 - 2 - strlen_P ( data );
+	uint8_t n = LCD_WIDTH - 1 - 2 - strlen_P(data);
 #endif
-	lcd.setCursor ( 0, row );
-	lcd.print ( pre_char );
-	while ( ( ( c = pgm_read_byte ( pstr ) ) != '\0' ) && ( n>0 ) )
+	lcd.setCursor(0, row);
+	lcd.print(pre_char);
+	while(((c = pgm_read_byte(pstr)) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		pstr++;
 		n--;
 	}
-	lcd.print ( ':' );
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
-	lcd_printPGM ( data );
+	lcd.print(':');
+	while(n--)
+	{ lcd.print(' '); }
+	lcd_printPGM(data);
 }
 #define lcd_implementation_drawmenu_setting_edit_int3_selected(row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(row, pstr, '>', itostr3(*(data)))
 #define lcd_implementation_drawmenu_setting_edit_int3(row, pstr, pstr2, data, minValue, maxValue) lcd_implementation_drawmenu_setting_edit_generic(row, pstr, ' ', itostr3(*(data)))
@@ -563,99 +563,99 @@ static void lcd_implementation_drawmenu_setting_edit_generic_P ( uint8_t row, co
 #define lcd_implementation_drawmenu_setting_edit_callback_bool(row, pstr, pstr2, data, callback) lcd_implementation_drawmenu_setting_edit_generic_P(row, pstr, ' ', (*(data))?PSTR(MSG_ON):PSTR(MSG_OFF))
 
 
-void lcd_implementation_drawedit ( const char* pstr, char* value )
+void lcd_implementation_drawedit(const char* pstr, char* value)
 {
-	lcd.setCursor ( 1, 1 );
-	lcd_printPGM ( pstr );
-	lcd.print ( ':' );
+	lcd.setCursor(1, 1);
+	lcd_printPGM(pstr);
+	lcd.print(':');
 #if LCD_WIDTH < 20
-	lcd.setCursor ( LCD_WIDTH - strlen ( value ), 1 );
+	lcd.setCursor(LCD_WIDTH - strlen(value), 1);
 #else
-	lcd.setCursor ( LCD_WIDTH -1 - strlen ( value ), 1 );
+	lcd.setCursor(LCD_WIDTH -1 - strlen(value), 1);
 #endif
-	lcd.print ( value );
+	lcd.print(value);
 }
-static void lcd_implementation_drawmenu_sdfile_selected ( uint8_t row, const char* pstr, const char* filename, char* longFilename )
+static void lcd_implementation_drawmenu_sdfile_selected(uint8_t row, const char* pstr, const char* filename, char* longFilename)
 {
 	char c;
 	uint8_t n = LCD_WIDTH - 1;
-	lcd.setCursor ( 0, row );
-	lcd.print ( '>' );
-	if ( longFilename[0] != '\0' )
+	lcd.setCursor(0, row);
+	lcd.print('>');
+	if(longFilename[0] != '\0')
 	{
 		filename = longFilename;
 		longFilename[LCD_WIDTH-1] = '\0';
 	}
-	while ( ( ( c = *filename ) != '\0' ) && ( n>0 ) )
+	while(((c = *filename) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		filename++;
 		n--;
 	}
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
+	while(n--)
+	{ lcd.print(' '); }
 }
-static void lcd_implementation_drawmenu_sdfile ( uint8_t row, const char* pstr, const char* filename, char* longFilename )
+static void lcd_implementation_drawmenu_sdfile(uint8_t row, const char* pstr, const char* filename, char* longFilename)
 {
 	char c;
 	uint8_t n = LCD_WIDTH - 1;
-	lcd.setCursor ( 0, row );
-	lcd.print ( ' ' );
-	if ( longFilename[0] != '\0' )
+	lcd.setCursor(0, row);
+	lcd.print(' ');
+	if(longFilename[0] != '\0')
 	{
 		filename = longFilename;
 		longFilename[LCD_WIDTH-1] = '\0';
 	}
-	while ( ( ( c = *filename ) != '\0' ) && ( n>0 ) )
+	while(((c = *filename) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		filename++;
 		n--;
 	}
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
+	while(n--)
+	{ lcd.print(' '); }
 }
-static void lcd_implementation_drawmenu_sddirectory_selected ( uint8_t row, const char* pstr, const char* filename, char* longFilename )
+static void lcd_implementation_drawmenu_sddirectory_selected(uint8_t row, const char* pstr, const char* filename, char* longFilename)
 {
 	char c;
 	uint8_t n = LCD_WIDTH - 2;
-	lcd.setCursor ( 0, row );
-	lcd.print ( '>' );
-	lcd.print ( LCD_STR_FOLDER[0] );
-	if ( longFilename[0] != '\0' )
+	lcd.setCursor(0, row);
+	lcd.print('>');
+	lcd.print(LCD_STR_FOLDER[0]);
+	if(longFilename[0] != '\0')
 	{
 		filename = longFilename;
 		longFilename[LCD_WIDTH-2] = '\0';
 	}
-	while ( ( ( c = *filename ) != '\0' ) && ( n>0 ) )
+	while(((c = *filename) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		filename++;
 		n--;
 	}
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
+	while(n--)
+	{ lcd.print(' '); }
 }
-static void lcd_implementation_drawmenu_sddirectory ( uint8_t row, const char* pstr, const char* filename, char* longFilename )
+static void lcd_implementation_drawmenu_sddirectory(uint8_t row, const char* pstr, const char* filename, char* longFilename)
 {
 	char c;
 	uint8_t n = LCD_WIDTH - 2;
-	lcd.setCursor ( 0, row );
-	lcd.print ( ' ' );
-	lcd.print ( LCD_STR_FOLDER[0] );
-	if ( longFilename[0] != '\0' )
+	lcd.setCursor(0, row);
+	lcd.print(' ');
+	lcd.print(LCD_STR_FOLDER[0]);
+	if(longFilename[0] != '\0')
 	{
 		filename = longFilename;
 		longFilename[LCD_WIDTH-2] = '\0';
 	}
-	while ( ( ( c = *filename ) != '\0' ) && ( n>0 ) )
+	while(((c = *filename) != '\0') && (n>0))
 	{
-		lcd.print ( c );
+		lcd.print(c);
 		filename++;
 		n--;
 	}
-	while ( n-- )
-	{ lcd.print ( ' ' ); }
+	while(n--)
+	{ lcd.print(' '); }
 }
 #define lcd_implementation_drawmenu_back_selected(row, pstr, data) lcd_implementation_drawmenu_generic(row, pstr, LCD_STR_UPLEVEL[0], LCD_STR_UPLEVEL[0])
 #define lcd_implementation_drawmenu_back(row, pstr, data) lcd_implementation_drawmenu_generic(row, pstr, ' ', LCD_STR_UPLEVEL[0])
@@ -669,15 +669,15 @@ static void lcd_implementation_drawmenu_sddirectory ( uint8_t row, const char* p
 static void lcd_implementation_quick_feedback()
 {
 #ifdef LCD_USE_I2C_BUZZER
-	lcd.buzz ( 60,1000/6 );
+	lcd.buzz(60,1000/6);
 #elif defined(BEEPER) && BEEPER > -1
-	SET_OUTPUT ( BEEPER );
-	for ( int8_t i=0; i<10; i++ )
+	SET_OUTPUT(BEEPER);
+	for(int8_t i=0; i<10; i++)
 	{
-		WRITE ( BEEPER,HIGH );
-		delayMicroseconds ( 100 );
-		WRITE ( BEEPER,LOW );
-		delayMicroseconds ( 100 );
+		WRITE(BEEPER,HIGH);
+		delayMicroseconds(100);
+		WRITE(BEEPER,LOW);
+		delayMicroseconds(100);
 	}
 #endif
 }
@@ -689,12 +689,12 @@ static void lcd_implementation_update_indicators()
 	//set the LEDS - referred to as backlights by the LiquidTWI2 library
 	static uint8_t ledsprev = 0;
 	uint8_t leds = 0;
-	if ( target_temperature_bed > 0 ) { leds |= LED_A; }
-	if ( target_temperature[0] > 0 ) { leds |= LED_B; }
-	if ( fanSpeed ) { leds |= LED_C; }
-	if ( leds != ledsprev )
+	if(target_temperature_bed > 0) { leds |= LED_A; }
+	if(target_temperature[0] > 0) { leds |= LED_B; }
+	if(fanSpeed) { leds |= LED_C; }
+	if(leds != ledsprev)
 	{
-		lcd.setBacklight ( leds );
+		lcd.setBacklight(leds);
 		ledsprev = leds;
 	}
 #endif

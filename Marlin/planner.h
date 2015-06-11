@@ -74,11 +74,11 @@ void plan_init();
 
 // Add a new linear movement to the buffer. x, y and z is the signed, absolute target position in
 // millimaters. Feed rate specifies the speed of the motion.
-void plan_buffer_line ( const float &x, const float &y, const float &z, const float &e, float feed_rate, const uint8_t &extruder );
+void plan_buffer_line(const float& x, const float& y, const float& z, const float& e, float feed_rate, const uint8_t& extruder);
 
 // Set position. Used for G92 instructions.
-void plan_set_position ( const float &x, const float &y, const float &z, const float &e );
-void plan_set_e_position ( const float &e );
+void plan_set_position(const float& x, const float& y, const float& z, const float& e);
+void plan_set_e_position(const float& e);
 
 
 
@@ -105,28 +105,28 @@ extern volatile unsigned char block_buffer_tail;
 // availible for new blocks.
 FORCE_INLINE void plan_discard_current_block()
 {
-	if ( block_buffer_head != block_buffer_tail )
+	if(block_buffer_head != block_buffer_tail)
 	{
-		block_buffer_tail = ( block_buffer_tail + 1 ) & ( BLOCK_BUFFER_SIZE - 1 );
+		block_buffer_tail = (block_buffer_tail + 1) & (BLOCK_BUFFER_SIZE - 1);
 	}
 }
 
 // Gets the current block. Returns NULL if buffer empty
-FORCE_INLINE block_t *plan_get_current_block()
+FORCE_INLINE block_t* plan_get_current_block()
 {
-	if ( block_buffer_head == block_buffer_tail )
+	if(block_buffer_head == block_buffer_tail)
 	{
-		return ( NULL );
+		return (NULL);
 	}
-	block_t *block = &block_buffer[block_buffer_tail];
+	block_t* block = &block_buffer[block_buffer_tail];
 	block->busy = true;
-	return ( block );
+	return (block);
 }
 
 // Gets the current block. Returns NULL if buffer empty
 FORCE_INLINE bool blocks_queued()
 {
-	if ( block_buffer_head == block_buffer_tail )
+	if(block_buffer_head == block_buffer_tail)
 	{
 		return false;
 	}
@@ -135,7 +135,7 @@ FORCE_INLINE bool blocks_queued()
 }
 
 #ifdef PREVENT_DANGEROUS_EXTRUDE
-	void set_extrude_min_temp ( float temp );
+	void set_extrude_min_temp(float temp);
 #endif
 
 void reset_acceleration_rates();

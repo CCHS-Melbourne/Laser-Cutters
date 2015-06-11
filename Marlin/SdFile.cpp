@@ -28,7 +28,7 @@
  * \param[in] oflag Values for \a oflag are constructed by a bitwise-inclusive
  * OR of open flags. see SdBaseFile::open(SdBaseFile*, const char*, uint8_t).
  */
-SdFile::SdFile ( const char* path, uint8_t oflag ) : SdBaseFile ( path, oflag )
+SdFile::SdFile(const char* path, uint8_t oflag) : SdBaseFile(path, oflag)
 {
 }
 //------------------------------------------------------------------------------
@@ -47,9 +47,9 @@ SdFile::SdFile ( const char* path, uint8_t oflag ) : SdBaseFile ( path, oflag )
  * for a read-only file, device is full, a corrupt file system or an I/O error.
  *
  */
-int16_t SdFile::write ( const void* buf, uint16_t nbyte )
+int16_t SdFile::write(const void* buf, uint16_t nbyte)
 {
-	return SdBaseFile::write ( buf, nbyte );
+	return SdBaseFile::write(buf, nbyte);
 }
 //------------------------------------------------------------------------------
 /** Write a byte to a file. Required by the Arduino Print class.
@@ -57,14 +57,14 @@ int16_t SdFile::write ( const void* buf, uint16_t nbyte )
  * Use writeError to check for errors.
  */
 #if ARDUINO >= 100
-size_t SdFile::write ( uint8_t b )
+size_t SdFile::write(uint8_t b)
 {
-	return SdBaseFile::write ( &b, 1 );
+	return SdBaseFile::write(&b, 1);
 }
 #else
-void SdFile::write ( uint8_t b )
+void SdFile::write(uint8_t b)
 {
-	SdBaseFile::write ( &b, 1 );
+	SdBaseFile::write(&b, 1);
 }
 #endif
 //------------------------------------------------------------------------------
@@ -72,28 +72,28 @@ void SdFile::write ( uint8_t b )
  * \param[in] str Pointer to the string.
  * Use writeError to check for errors.
  */
-void SdFile::write ( const char* str )
+void SdFile::write(const char* str)
 {
-	SdBaseFile::write ( str, strlen ( str ) );
+	SdBaseFile::write(str, strlen(str));
 }
 //------------------------------------------------------------------------------
 /** Write a PROGMEM string to a file.
  * \param[in] str Pointer to the PROGMEM string.
  * Use writeError to check for errors.
  */
-void SdFile::write_P ( PGM_P str )
+void SdFile::write_P(PGM_P str)
 {
-	for ( uint8_t c; ( c = pgm_read_byte ( str ) ); str++ ) { write ( c ); }
+	for(uint8_t c; (c = pgm_read_byte(str)); str++) { write(c); }
 }
 //------------------------------------------------------------------------------
 /** Write a PROGMEM string followed by CR/LF to a file.
  * \param[in] str Pointer to the PROGMEM string.
  * Use writeError to check for errors.
  */
-void SdFile::writeln_P ( PGM_P str )
+void SdFile::writeln_P(PGM_P str)
 {
-	write_P ( str );
-	write_P ( PSTR ( "\r\n" ) );
+	write_P(str);
+	write_P(PSTR("\r\n"));
 }
 
 

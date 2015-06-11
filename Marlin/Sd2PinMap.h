@@ -323,35 +323,35 @@ static const pin_map_t digitalPinMap[] =
 #error unknown chip
 #endif  // defined(__AVR_ATmega1280__)
 //------------------------------------------------------------------------------
-static const uint8_t digitalPinCount = sizeof ( digitalPinMap ) /sizeof ( pin_map_t );
+static const uint8_t digitalPinCount = sizeof(digitalPinMap) /sizeof(pin_map_t);
 
-uint8_t badPinNumber ( void )
-__attribute__ ( ( error ( "Pin number is too large or not a constant" ) ) );
+uint8_t badPinNumber(void)
+__attribute__((error("Pin number is too large or not a constant")));
 
-static inline __attribute__ ( ( always_inline ) )
-bool getPinMode ( uint8_t pin )
+static inline __attribute__((always_inline))
+bool getPinMode(uint8_t pin)
 {
-	if ( __builtin_constant_p ( pin ) && pin < digitalPinCount )
+	if(__builtin_constant_p(pin) && pin < digitalPinCount)
 	{
-		return ( *digitalPinMap[pin].ddr >> digitalPinMap[pin].bit ) & 1;
+		return (*digitalPinMap[pin].ddr >> digitalPinMap[pin].bit) & 1;
 	}
 	else
 	{
 		return badPinNumber();
 	}
 }
-static inline __attribute__ ( ( always_inline ) )
-void setPinMode ( uint8_t pin, uint8_t mode )
+static inline __attribute__((always_inline))
+void setPinMode(uint8_t pin, uint8_t mode)
 {
-	if ( __builtin_constant_p ( pin ) && pin < digitalPinCount )
+	if(__builtin_constant_p(pin) && pin < digitalPinCount)
 	{
-		if ( mode )
+		if(mode)
 		{
 			*digitalPinMap[pin].ddr |= 1 << digitalPinMap[pin].bit;
 		}
 		else
 		{
-			*digitalPinMap[pin].ddr &= ~ ( 1 << digitalPinMap[pin].bit );
+			*digitalPinMap[pin].ddr &= ~(1 << digitalPinMap[pin].bit);
 		}
 	}
 	else
@@ -359,30 +359,30 @@ void setPinMode ( uint8_t pin, uint8_t mode )
 		badPinNumber();
 	}
 }
-static inline __attribute__ ( ( always_inline ) )
-bool fastDigitalRead ( uint8_t pin )
+static inline __attribute__((always_inline))
+bool fastDigitalRead(uint8_t pin)
 {
-	if ( __builtin_constant_p ( pin ) && pin < digitalPinCount )
+	if(__builtin_constant_p(pin) && pin < digitalPinCount)
 	{
-		return ( *digitalPinMap[pin].pin >> digitalPinMap[pin].bit ) & 1;
+		return (*digitalPinMap[pin].pin >> digitalPinMap[pin].bit) & 1;
 	}
 	else
 	{
 		return badPinNumber();
 	}
 }
-static inline __attribute__ ( ( always_inline ) )
-void fastDigitalWrite ( uint8_t pin, uint8_t value )
+static inline __attribute__((always_inline))
+void fastDigitalWrite(uint8_t pin, uint8_t value)
 {
-	if ( __builtin_constant_p ( pin ) && pin < digitalPinCount )
+	if(__builtin_constant_p(pin) && pin < digitalPinCount)
 	{
-		if ( value )
+		if(value)
 		{
 			*digitalPinMap[pin].port |= 1 << digitalPinMap[pin].bit;
 		}
 		else
 		{
-			*digitalPinMap[pin].port &= ~ ( 1 << digitalPinMap[pin].bit );
+			*digitalPinMap[pin].port &= ~(1 << digitalPinMap[pin].bit);
 		}
 	}
 	else

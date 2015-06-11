@@ -32,7 +32,6 @@
 #include "ultralcd.h"
 #include "planner.h"
 #include "stepper.h"
-#include "temperature.h"
 #include "motion_control.h"
 #include "cardreader.h"
 #include "watchdog.h"
@@ -344,7 +343,6 @@ void setup()
 	// loads data from EEPROM if available else uses defaults (and resets step acceleration rate)
 	Config_RetrieveSettings();
 
-	tp_init();    // Initialize temperature loop
 	plan_init();  // Initialize planner;
 	watchdog_init();
 	st_init();    // Initialize stepper, this enables interrupts!
@@ -360,8 +358,18 @@ void setup()
 #ifdef LASER
 	laser_init();
 #endif
+
+	// Start up our lcd button update interrupt
+	OCR0B = 128;
+	TIMSK0 |= (1<<OCIE0B);
 }
 
+// This interrups used to do the temperature monitoring. It now only does button update.
+// Maybe this could be repurposed for other tasks
+ISR(TIMER0_COMPB_vect)
+{
+	lcd_buttons_update();
+}
 
 void loop()
 {
@@ -404,7 +412,6 @@ void loop()
 		bufindr = (bufindr + 1) %BUFSIZE;
 	}
 	//check heater every n milliseconds
-	manage_heater();
 	manage_inactivity();
 	checkHitEndstops();
 	lcd_update();
@@ -835,7 +842,6 @@ void process_commands()
 			previous_millis_cmd = millis();
 			while(millis()  < codenum)
 			{
-				manage_heater();
 				manage_inactivity();
 				lcd_update();
 			}
@@ -1185,7 +1191,6 @@ void process_commands()
 					codenum += millis();  // keep track of when we started waiting
 					while(millis()  < codenum && !lcd_clicked())
 					{
-						manage_heater();
 						manage_inactivity();
 						lcd_update();
 					}
@@ -1194,7 +1199,6 @@ void process_commands()
 				{
 					while(!lcd_clicked())
 					{
-						manage_heater();
 						manage_inactivity();
 						lcd_update();
 					}
@@ -2135,7 +2139,6 @@ void manage_inactivity()
 void kill()
 {
 	cli(); // Stop interrupts
-	disable_heater();
 
 	disable_x();
 	disable_y();
@@ -2161,7 +2164,6 @@ void kill()
 
 void Stop()
 {
-	disable_heater();
 #ifdef LASER
 	if(laser.diagnostics) { SERIAL_ECHOLN("Laser set to off, stop() called"); }
 	laser_extinguish();

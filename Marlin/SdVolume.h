@@ -62,14 +62,14 @@ class SdVolume
 {
 public:
 	/** Create an instance of SdVolume */
-	SdVolume() : fatType_ ( 0 ) {}
+	SdVolume() : fatType_(0) {}
 	/** Clear the cache and returns a pointer to the cache.  Used by the WaveRP
 	 * recorder to do raw write to the SD card.  Not for normal apps.
 	 * \return A pointer to the cache buffer or zero if an error occurs.
 	 */
 	cache_t* cacheClear()
 	{
-		if ( !cacheFlush() ) { return 0; }
+		if(!cacheFlush()) { return 0; }
 		cacheBlockNumber_ = 0XFFFFFFFF;
 		return &cacheBuffer_;
 	}
@@ -83,8 +83,8 @@ public:
 	 * failure include not finding a valid partition, not finding a valid
 	 * FAT file system or an I/O error.
 	 */
-	bool init ( Sd2Card* dev ) { return init ( dev, 1 ) ? true : init ( dev, 0 );}
-	bool init ( Sd2Card* dev, uint8_t part );
+	bool init(Sd2Card* dev) { return init(dev, 1) ? true : init(dev, 0);}
+	bool init(Sd2Card* dev, uint8_t part);
 
 	// inline functions that return volume info
 	/** \return The volume's cluster size in blocks. */
@@ -119,7 +119,7 @@ public:
 	 * \param[out] v value of entry
 	 * \return true for success or false for failure
 	 */
-	bool dbgFat ( uint32_t n, uint32_t* v ) {return fatGet ( n, v );}
+	bool dbgFat(uint32_t n, uint32_t* v) {return fatGet(n, v);}
 //------------------------------------------------------------------------------
 private:
 	// Allow SdBaseFile access to SdVolume private data.
@@ -155,56 +155,56 @@ private:
 	uint16_t rootDirEntryCount_;  // number of entries in FAT16 root dir
 	uint32_t rootDirStart_;       // root start block for FAT16, cluster for FAT32
 	//----------------------------------------------------------------------------
-	bool allocContiguous ( uint32_t count, uint32_t* curCluster );
-	uint8_t blockOfCluster ( uint32_t position ) const
+	bool allocContiguous(uint32_t count, uint32_t* curCluster);
+	uint8_t blockOfCluster(uint32_t position) const
 	{
-		return ( position >> 9 ) & ( blocksPerCluster_ - 1 );
+		return (position >> 9) & (blocksPerCluster_ - 1);
 	}
-	uint32_t clusterStartBlock ( uint32_t cluster ) const
+	uint32_t clusterStartBlock(uint32_t cluster) const
 	{
-		return dataStartBlock_ + ( ( cluster - 2 ) << clusterSizeShift_ );
+		return dataStartBlock_ + ((cluster - 2) << clusterSizeShift_);
 	}
-	uint32_t blockNumber ( uint32_t cluster, uint32_t position ) const
+	uint32_t blockNumber(uint32_t cluster, uint32_t position) const
 	{
-		return clusterStartBlock ( cluster ) + blockOfCluster ( position );
+		return clusterStartBlock(cluster) + blockOfCluster(position);
 	}
-	cache_t *cache() {return &cacheBuffer_;}
+	cache_t* cache() {return &cacheBuffer_;}
 	uint32_t cacheBlockNumber() {return cacheBlockNumber_;}
 #if USE_MULTIPLE_CARDS
 	bool cacheFlush();
-	bool cacheRawBlock ( uint32_t blockNumber, bool dirty );
+	bool cacheRawBlock(uint32_t blockNumber, bool dirty);
 #else  // USE_MULTIPLE_CARDS
 	static bool cacheFlush();
-	static bool cacheRawBlock ( uint32_t blockNumber, bool dirty );
+	static bool cacheRawBlock(uint32_t blockNumber, bool dirty);
 #endif  // USE_MULTIPLE_CARDS
 	// used by SdBaseFile write to assign cache to SD location
-	void cacheSetBlockNumber ( uint32_t blockNumber, bool dirty )
+	void cacheSetBlockNumber(uint32_t blockNumber, bool dirty)
 	{
 		cacheDirty_ = dirty;
 		cacheBlockNumber_  = blockNumber;
 	}
 	void cacheSetDirty() {cacheDirty_ |= CACHE_FOR_WRITE;}
-	bool chainSize ( uint32_t beginCluster, uint32_t* size );
-	bool fatGet ( uint32_t cluster, uint32_t* value );
-	bool fatPut ( uint32_t cluster, uint32_t value );
-	bool fatPutEOC ( uint32_t cluster )
+	bool chainSize(uint32_t beginCluster, uint32_t* size);
+	bool fatGet(uint32_t cluster, uint32_t* value);
+	bool fatPut(uint32_t cluster, uint32_t value);
+	bool fatPutEOC(uint32_t cluster)
 	{
-		return fatPut ( cluster, 0x0FFFFFFF );
+		return fatPut(cluster, 0x0FFFFFFF);
 	}
-	bool freeChain ( uint32_t cluster );
-	bool isEOC ( uint32_t cluster ) const
+	bool freeChain(uint32_t cluster);
+	bool isEOC(uint32_t cluster) const
 	{
-		if ( FAT12_SUPPORT && fatType_ == 12 ) { return  cluster >= FAT12EOC_MIN; }
-		if ( fatType_ == 16 ) { return cluster >= FAT16EOC_MIN; }
+		if(FAT12_SUPPORT && fatType_ == 12) { return  cluster >= FAT12EOC_MIN; }
+		if(fatType_ == 16) { return cluster >= FAT16EOC_MIN; }
 		return  cluster >= FAT32EOC_MIN;
 	}
-	bool readBlock ( uint32_t block, uint8_t* dst )
+	bool readBlock(uint32_t block, uint8_t* dst)
 	{
-		return sdCard_->readBlock ( block, dst );
+		return sdCard_->readBlock(block, dst);
 	}
-	bool writeBlock ( uint32_t block, const uint8_t* dst )
+	bool writeBlock(uint32_t block, const uint8_t* dst)
 	{
-		return sdCard_->writeBlock ( block, dst );
+		return sdCard_->writeBlock(block, dst);
 	}
 //------------------------------------------------------------------------------
 	// Deprecated functions  - suppress cpplint warnings with NOLINT comment
@@ -214,15 +214,15 @@ public:
 	 * \param[in] dev The SD card where the volume is located.
 	 * \return true for success or false for failure.
 	 */
-	bool init ( Sd2Card& dev ) {return init ( &dev );} // NOLINT
+	bool init(Sd2Card& dev) {return init(&dev);}       // NOLINT
 	/** \deprecated Use: bool SdVolume::init(Sd2Card* dev, uint8_t vol);
 	 * \param[in] dev The SD card where the volume is located.
 	 * \param[in] part The partition to be used.
 	 * \return true for success or false for failure.
 	 */
-	bool init ( Sd2Card& dev, uint8_t part ) // NOLINT
+	bool init(Sd2Card& dev, uint8_t part)    // NOLINT
 	{
-		return init ( &dev, part );
+		return init(&dev, part);
 	}
 #endif  // ALLOW_DEPRECATED_FUNCTIONS
 };

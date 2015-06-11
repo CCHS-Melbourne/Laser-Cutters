@@ -89,38 +89,38 @@ class MarlinSerial //: public Stream
 
 public:
 	MarlinSerial();
-	void begin ( long );
+	void begin(long);
 	void end();
-	int peek ( void );
-	int read ( void );
-	void flush ( void );
+	int peek(void);
+	int read(void);
+	void flush(void);
 
-	FORCE_INLINE int available ( void )
+	FORCE_INLINE int available(void)
 	{
-		return ( unsigned int ) ( RX_BUFFER_SIZE + rx_buffer.head - rx_buffer.tail ) % RX_BUFFER_SIZE;
+		return (unsigned int)(RX_BUFFER_SIZE + rx_buffer.head - rx_buffer.tail) % RX_BUFFER_SIZE;
 	}
 
-	FORCE_INLINE void write ( uint8_t c )
+	FORCE_INLINE void write(uint8_t c)
 	{
-		while ( ! ( ( M_UCSRxA ) & ( 1 << M_UDREx ) ) )
+		while(!((M_UCSRxA) & (1 << M_UDREx)))
 			;
 
 		M_UDRx = c;
 	}
 
 
-	FORCE_INLINE void checkRx ( void )
+	FORCE_INLINE void checkRx(void)
 	{
-		if ( ( M_UCSRxA & ( 1<<M_RXCx ) ) != 0 )
+		if((M_UCSRxA & (1<<M_RXCx)) != 0)
 		{
 			unsigned char c  =  M_UDRx;
-			int i = ( unsigned int ) ( rx_buffer.head + 1 ) % RX_BUFFER_SIZE;
+			int i = (unsigned int)(rx_buffer.head + 1) % RX_BUFFER_SIZE;
 
 			// if we should be storing the received character into the location
 			// just before the tail (meaning that the head would advance to the
 			// current location of the tail), we're about to overflow the buffer
 			// and so we don't write the character or advance the head.
-			if ( i != rx_buffer.tail )
+			if(i != rx_buffer.tail)
 			{
 				rx_buffer.buffer[rx_buffer.head] = c;
 				rx_buffer.head = i;
@@ -130,55 +130,55 @@ public:
 
 
 private:
-	void printNumber ( unsigned long, uint8_t );
-	void printFloat ( double, uint8_t );
+	void printNumber(unsigned long, uint8_t);
+	void printFloat(double, uint8_t);
 
 
 public:
 
-	FORCE_INLINE void write ( const char *str )
+	FORCE_INLINE void write(const char* str)
 	{
-		while ( *str )
-		{ write ( *str++ ); }
+		while(*str)
+		{ write(*str++); }
 	}
 
 
-	FORCE_INLINE void write ( const uint8_t *buffer, size_t size )
+	FORCE_INLINE void write(const uint8_t* buffer, size_t size)
 	{
-		while ( size-- )
-		{ write ( *buffer++ ); }
+		while(size--)
+		{ write(*buffer++); }
 	}
 
-	FORCE_INLINE void print ( const String &s )
+	FORCE_INLINE void print(const String& s)
 	{
-		for ( int i = 0; i < ( int ) s.length(); i++ )
+		for(int i = 0; i < (int) s.length(); i++)
 		{
-			write ( s[i] );
+			write(s[i]);
 		}
 	}
 
-	FORCE_INLINE void print ( const char *str )
+	FORCE_INLINE void print(const char* str)
 	{
-		write ( str );
+		write(str);
 	}
-	void print ( char, int = BYTE );
-	void print ( unsigned char, int = BYTE );
-	void print ( int, int = DEC );
-	void print ( unsigned int, int = DEC );
-	void print ( long, int = DEC );
-	void print ( unsigned long, int = DEC );
-	void print ( double, int = 2 );
+	void print(char, int = BYTE);
+	void print(unsigned char, int = BYTE);
+	void print(int, int = DEC);
+	void print(unsigned int, int = DEC);
+	void print(long, int = DEC);
+	void print(unsigned long, int = DEC);
+	void print(double, int = 2);
 
-	void println ( const String &s );
-	void println ( const char[] );
-	void println ( char, int = BYTE );
-	void println ( unsigned char, int = BYTE );
-	void println ( int, int = DEC );
-	void println ( unsigned int, int = DEC );
-	void println ( long, int = DEC );
-	void println ( unsigned long, int = DEC );
-	void println ( double, int = 2 );
-	void println ( void );
+	void println(const String& s);
+	void println(const char[]);
+	void println(char, int = BYTE);
+	void println(unsigned char, int = BYTE);
+	void println(int, int = DEC);
+	void println(unsigned int, int = DEC);
+	void println(long, int = DEC);
+	void println(unsigned long, int = DEC);
+	void println(double, int = 2);
+	void println(void);
 };
 
 extern MarlinSerial MSerial;

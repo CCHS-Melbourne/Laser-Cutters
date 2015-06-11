@@ -36,10 +36,10 @@
 namespace SdFatUtil
 {
 int FreeRam();
-void print_P ( PGM_P str );
-void println_P ( PGM_P str );
-void SerialPrint_P ( PGM_P str );
-void SerialPrintln_P ( PGM_P str );
+void print_P(PGM_P str);
+void println_P(PGM_P str);
+void SerialPrint_P(PGM_P str);
+void SerialPrintln_P(PGM_P str);
 }
 
 using namespace SdFatUtil;  // NOLINT
