@@ -38,7 +38,6 @@ typedef struct
 	bool diagnostics; // Verbose debugging output over serial
 	unsigned int time; // temporary counter to limit eeprom writes
 	unsigned int lifetime; // laser lifetime firing counter in minutes
-#ifdef LASER_RASTER
 	unsigned char raster_data[LASER_MAX_RASTER_LINE];
 	unsigned char rasterlaserpower;
 
@@ -47,7 +46,6 @@ typedef struct
 	int raster_raw_length;
 	int raster_num_pixels;
 	bool raster_direction;
-#endif // LASER_RASTER
 #ifdef MUVE_Z_PEEL
 	float peel_distance;
 	float peel_speed;

@@ -61,9 +61,7 @@ void Config_StoreSettings()
 #ifdef DELTA
 	EEPROM_WRITE_VAR(i,endstop_adj);
 #endif
-#ifdef LASER
 	EEPROM_WRITE_VAR(i,laser.lifetime);
-#endif
 #ifndef DOGLCD
 	int lcd_contrast = 32;
 #endif
@@ -141,7 +139,6 @@ void Config_PrintSettings()
 	SERIAL_ECHOPAIR(" Z" ,endstop_adj[2]);
 	SERIAL_ECHOLN("");
 #endif
-#ifdef LASER
 	SERIAL_ECHO_START;
 	SERIAL_ECHOLNPGM("Laser lifetime usage:");
 	SERIAL_ECHO_START;
@@ -149,7 +146,6 @@ void Config_PrintSettings()
 	SERIAL_ECHOLN("");
 	SERIAL_ECHOPAIR(" Minutes: ", (unsigned long) laser.lifetime % 60);
 	SERIAL_ECHOLN("");
-#endif
 }
 #endif
 
@@ -184,9 +180,7 @@ void Config_RetrieveSettings()
 #ifdef DELTA
 		EEPROM_READ_VAR(i,endstop_adj);
 #endif
-#ifdef LASER
 		EEPROM_READ_VAR(i,laser.lifetime);
-#endif
 #ifndef DOGLCD
 		int lcd_contrast;
 #endif

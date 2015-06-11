@@ -371,35 +371,11 @@ Possible status screens:
 static void lcd_implementation_status_screen()
 {
 
-#ifdef LASER
-
 	lcd.setCursor(0, 0);
 	lcd.print("Laser Power: ");
 	lcd.print(itostr3(int (laser.intensity)));
 	lcd.print(itostr3(int (laser.status)));
 
-#else
-	int tHotend=int (degHotend(0) + 0.5);
-	int tTarget=int (degTargetHotend(0) + 0.5);
-
-#if LCD_WIDTH < 20
-	lcd.setCursor(0, 0);
-	lcd.print(itostr3(tHotend));
-	lcd.print('/');
-	lcd.print(itostr3left(tTarget));
-
-#else//LCD_WIDTH > 19
-	lcd.setCursor(0, 0);
-	lcd.print(LCD_STR_THERMOMETER[0]);
-	lcd.print(itostr3(tHotend));
-	lcd.print('/');
-	lcd.print(itostr3left(tTarget));
-	lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
-	if(tTarget < 10)
-	{ lcd.print(' '); }
-
-#endif//LCD_WIDTH > 19
-#endif
 #if LCD_HEIGHT > 2
 //Lines 2 for 4 line LCD
 # if LCD_WIDTH < 20

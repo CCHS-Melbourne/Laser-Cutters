@@ -38,10 +38,7 @@
 #include "ConfigurationStore.h"
 #include "language.h"
 #include "pins_arduino.h"
-
-#ifdef LASER_RASTER
-	#include "Base64.h"
-#endif // LASER_RASTER
+#include "Base64.h"
 
 #if defined(DIGIPOTSS_PIN) && DIGIPOTSS_PIN > -1
 	#include <SPI.h>
@@ -355,9 +352,7 @@ void setup()
 	SET_OUTPUT(CONTROLLERFAN_PIN);    //Set pin used for driver cooling fan
 #endif
 
-#ifdef LASER
 	laser_init();
-#endif
 
 	// Start up our lcd button update interrupt
 	OCR0B = 128;
@@ -953,7 +948,6 @@ void process_commands()
 			previous_millis_cmd = millis();
 			break;
 #endif // G5_BEZIER
-#ifdef LASER_RASTER
 		case 7: //G7 Execute raster line
 			if(code_seen('L')) { laser.raster_raw_length = int (code_value()); }
 			if(code_seen('$'))
@@ -990,7 +984,6 @@ void process_commands()
 			prepare_move();
 
 			break;
-#endif // LASER_RASTER
 
 		case 28: //G28 Home all Axis one at a time
 			saved_feedrate = feedrate;
@@ -1675,7 +1668,6 @@ void process_commands()
 			break;
 #endif
 
-#ifdef LASER
 		case 649: // M649 set laser options
 			{
 				if(code_seen('S') && !IsStopped())
@@ -1696,7 +1688,6 @@ void process_commands()
 
 			}
 			break;
-#endif // LASER
 
 #ifdef MUVE_Z_PEEL
 		case 650: // M650 set peel distance
@@ -2110,7 +2101,7 @@ void manage_inactivity()
 				disable_e0();
 				disable_e1();
 				disable_e2();
-#ifdef LASER
+
 				if(laser.time / 60000 > 0)
 				{
 					laser.lifetime += laser.time / 60000; // convert to minutes
@@ -2118,7 +2109,7 @@ void manage_inactivity()
 					Config_StoreSettings();
 				}
 				laser_init();
-#endif // LASER
+
 #ifdef LASER_PERIPHERALS
 				laser_peripherals_off();
 #endif
@@ -2147,9 +2138,7 @@ void kill()
 	disable_e1();
 	disable_e2();
 
-#ifdef LASER
 	laser_init();
-#endif // LASER
 
 #ifdef LASER_PERIPHERALS
 	laser_peripherals_off();
@@ -2164,10 +2153,9 @@ void kill()
 
 void Stop()
 {
-#ifdef LASER
 	if(laser.diagnostics) { SERIAL_ECHOLN("Laser set to off, stop() called"); }
 	laser_extinguish();
-#endif
+
 #ifdef LASER_PERIPHERALS
 	laser_peripherals_off();
 #endif

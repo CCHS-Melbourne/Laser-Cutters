@@ -39,10 +39,7 @@
 #include "ultralcd.h"
 #include "ultralcd_st7920_u8glib_rrd.h"
 #include "Configuration.h"
-
-#ifdef LASER
-	#include "laserbitmaps.h"
-#endif
+#include "laserbitmaps.h"
 
 /* Russian language not supported yet, needs custom font
 
@@ -182,11 +179,6 @@ static void lcd_implementation_status_screen()
 	static unsigned char fan_rot = 0;
 
 	u8g.setColorIndex(1);	// black on white
-#ifndef LASER
-// Symbols menu graphics, animated fan
-	if((blink % 2) &&  fanSpeed)	{ u8g.drawBitmapP(9,1,STATUS_SCREENBYTEWIDTH,STATUS_SCREENHEIGHT,status_screen0_bmp); }
-	else { u8g.drawBitmapP(9,1,STATUS_SCREENBYTEWIDTH,STATUS_SCREENHEIGHT,status_screen1_bmp); }
-#else
 #ifdef LASER_PERIPHERALS
 	if(laser_peripherals_ok())
 	{
@@ -207,7 +199,7 @@ static void lcd_implementation_status_screen()
 		u8g.drawBitmapP(5,14, ICON_BYTEWIDTH, ICON_HEIGHT, laseroff_bmp);
 		lcd_printPGM(PSTR("---%"));
 	}
-#endif
+
 #ifdef SDSUPPORT
 //SD Card Symbol
 	u8g.drawBox(42,42,8,7);
@@ -242,49 +234,6 @@ static void lcd_implementation_status_screen()
 	else
 	{
 		lcd_printPGM(PSTR("--:--"));
-	}
-#endif
-#ifndef LASER
-// Extruder 1
-	u8g.setFont(FONT_STATUSMENU);
-	u8g.setPrintPos(6,6);
-	u8g.print(itostr3(int (degTargetHotend(0) + 0.5)));
-	lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
-	u8g.setPrintPos(6,27);
-	u8g.print(itostr3(int (degHotend(0) + 0.5)));
-	lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
-	if(!isHeatingHotend(0)) { u8g.drawBox(13,17,2,2); }
-	else
-	{
-		u8g.setColorIndex(0);	// white on black
-		u8g.drawBox(13,17,2,2);
-		u8g.setColorIndex(1);	// black on white
-	}
-
-// Extruder 2
-	u8g.setFont(FONT_STATUSMENU);
-	u8g.setPrintPos(31,27);
-	u8g.print("---");
-
-// Extruder 3
-	u8g.setFont(FONT_STATUSMENU);
-	u8g.setPrintPos(55,27);
-	u8g.print("---");
-
-// Heatbed
-	u8g.setFont(FONT_STATUSMENU);
-	u8g.setPrintPos(81,6);
-	u8g.print(itostr3(int (degTargetBed() + 0.5)));
-	lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
-	u8g.setPrintPos(81,27);
-	u8g.print(itostr3(int (degBed() + 0.5)));
-	lcd_printPGM(PSTR(LCD_STR_DEGREE " "));
-	if(!isHeatingBed()) { u8g.drawBox(88,18,2,2); }
-	else
-	{
-		u8g.setColorIndex(0);	// white on black
-		u8g.drawBox(88,18,2,2);
-		u8g.setColorIndex(1);	// black on white
 	}
 #endif
 // Fan

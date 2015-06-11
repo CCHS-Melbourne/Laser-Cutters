@@ -31,9 +31,7 @@
 #if defined(DIGIPOTSS_PIN) && DIGIPOTSS_PIN > -1
 	#include <SPI.h>
 #endif
-#ifdef LASER
-	#include "laser.h"
-#endif // LASER
+#include "laser.h"
 
 //===========================================================================
 //=============================public variables  ============================
@@ -53,13 +51,8 @@ static long counter_x,       // Counter variables for the bresenham line tracer
        counter_z,
        counter_e;
 
-#ifdef LASER
-	static long counter_l;
-#endif // LASER
-
-#ifdef LASER_RASTER
-	static int counter_raster;
-#endif // LASER_RASTER
+static long counter_l;
+static int counter_raster;
 
 volatile static unsigned long step_events_completed; // The number of step events executed in the current block
 static long acceleration_time, deceleration_time;
@@ -323,13 +316,11 @@ FORCE_INLINE void trapezoid_generator_reset()
 // It pops blocks from the block_buffer and executes them by pulsing the stepper pins appropriately.
 ISR(TIMER1_COMPA_vect)
 {
-#ifdef LASER
 	if(laser.dur != 0 && (laser.last_firing + laser.dur < micros()))
 	{
 		if(laser.diagnostics) { SERIAL_ECHOLN("Laser firing duration elapsed, in interrupt handler"); }
 		laser_extinguish();
 	}
-#endif LASER
 
 	// If there is no current block, attempt to pop one from the buffer
 	if(current_block == NULL)
@@ -344,18 +335,14 @@ ISR(TIMER1_COMPA_vect)
 			counter_y = counter_x;
 			counter_z = counter_x;
 			counter_e = counter_x;
-#ifdef LASER
 			counter_l = counter_x;
 			laser.dur = current_block->laser_duration;
-#endif //LASER
 			step_events_completed = 0;
 
-#ifdef LASER_RASTER
 			if(current_block->laser_mode == RASTER)
 			{
 				counter_raster = 0;
 			}
-#endif // LASER_RASTER
 
 		}
 		else
@@ -370,7 +357,6 @@ ISR(TIMER1_COMPA_vect)
 		out_bits = current_block->direction_bits;
 
 		// Continuous firing of the laser during a move happens here, PPM and raster happen further down
-#ifdef LASER
 		if(current_block->laser_mode == CONTINUOUS && current_block->laser_status == LASER_ON)
 		{
 			laser_fire(current_block->laser_intensity);
@@ -380,7 +366,6 @@ ISR(TIMER1_COMPA_vect)
 			if(laser.diagnostics) { SERIAL_ECHOLN("Laser status set to off, in interrupt handler"); }
 			laser_extinguish();
 		}
-#endif // LASER
 
 		// Set the direction bits (X_AXIS=A_AXIS and Y_AXIS=B_AXIS for COREXY)
 		if((out_bits & (1<<X_AXIS)) !=0)
@@ -583,7 +568,6 @@ ISR(TIMER1_COMPA_vect)
 
 			// steps_l = step count between laser firings
 			//
-#ifdef LASER
 			counter_l += current_block->steps_l;
 			if(counter_l > 0)
 			{
@@ -597,7 +581,7 @@ ISR(TIMER1_COMPA_vect)
 						SERIAL_ECHOPAIR("L: ", counter_l);
 					}
 				}
-#ifdef LASER_RASTER
+
 				if(current_block->laser_mode == RASTER && current_block->laser_status == LASER_ON)    // Raster Firing Mode
 				{
 					laser_fire(current_block->laser_raster_data[counter_raster]);    //For some reason, when comparing raster power to ppm line burns the rasters were around 2% more powerful - going from darkened paper to burning through paper.
@@ -607,7 +591,7 @@ ISR(TIMER1_COMPA_vect)
 					}
 					counter_raster++;
 				}
-#endif // LASER_RASTER
+
 				counter_l -= current_block->step_event_count;
 			}
 			if(current_block->laser_duration != 0 && (laser.last_firing + current_block->laser_duration < micros()))
@@ -615,7 +599,6 @@ ISR(TIMER1_COMPA_vect)
 				if(laser.diagnostics) { SERIAL_ECHOLN("Laser firing duration elapsed, in interrupt fast loop"); }
 				laser_extinguish();
 			}
-#endif // LASER
 
 			step_events_completed += 1;
 			if(step_events_completed >= current_block->step_event_count) { break; }

@@ -95,11 +95,9 @@ void laser_init()
 	laser.last_firing = 0;
 	laser.diagnostics = false;
 	laser.time = 0;
-#ifdef LASER_RASTER
 	laser.raster_aspect_ratio = LASER_RASTER_ASPECT_RATIO;
 	laser.raster_mm_per_pulse = LASER_RASTER_MM_PER_PULSE;
 	laser.raster_direction = 1;
-#endif // LASER_RASTER
 #ifdef MUVE_Z_PEEL
 	laser.peel_distance = 2.0;
 	laser.peel_speed = 2.0;

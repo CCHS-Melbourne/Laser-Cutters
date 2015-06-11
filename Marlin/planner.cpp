@@ -500,14 +500,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 
 	block->step_event_count = max(block->steps_x, max(block->steps_y, max(block->steps_z, block->steps_e)));
 
-#ifndef LASER
-	// Bail if this is a zero-length block
-	if(block->step_event_count <= dropsegments)
-	{
-		return;
-	}
-#endif
-
 	block->fan_speed = fanSpeed;
 	// Compute direction bits for this block
 	block->direction_bits = 0;
@@ -590,7 +582,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 		block->millimeters = sqrt(square(delta_mm[X_AXIS]) + square(delta_mm[Y_AXIS]) + square(delta_mm[Z_AXIS]));
 	}
 
-#ifdef LASER
 	block->laser_intensity = laser.intensity;
 	block->laser_duration = laser.duration;
 	block->laser_status = laser.status;
@@ -636,7 +627,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 			SERIAL_ECHOLNPGM("Laser firing enabled");
 		}
 	}
-#endif // LASER
 
 	float inverse_millimeters = 1.0/block->millimeters;  // Inverse millimeters to remove multiple divides
 
