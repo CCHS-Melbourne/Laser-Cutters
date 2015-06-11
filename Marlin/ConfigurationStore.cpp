@@ -58,9 +58,6 @@ void Config_StoreSettings()
 	EEPROM_WRITE_VAR(i,max_z_jerk);
 	EEPROM_WRITE_VAR(i,max_e_jerk);
 	EEPROM_WRITE_VAR(i,add_homeing);
-#ifdef DELTA
-	EEPROM_WRITE_VAR(i,endstop_adj);
-#endif
 	EEPROM_WRITE_VAR(i,laser.lifetime);
 #ifndef DOGLCD
 	int lcd_contrast = 32;
@@ -130,15 +127,6 @@ void Config_PrintSettings()
 	SERIAL_ECHOPAIR(" Y" ,add_homeing[1]);
 	SERIAL_ECHOPAIR(" Z" ,add_homeing[2]);
 	SERIAL_ECHOLN("");
-#ifdef DELTA
-	SERIAL_ECHO_START;
-	SERIAL_ECHOLNPGM("Endstop adjustement (mm):");
-	SERIAL_ECHO_START;
-	SERIAL_ECHOPAIR("  M666 X",endstop_adj[0]);
-	SERIAL_ECHOPAIR(" Y" ,endstop_adj[1]);
-	SERIAL_ECHOPAIR(" Z" ,endstop_adj[2]);
-	SERIAL_ECHOLN("");
-#endif
 	SERIAL_ECHO_START;
 	SERIAL_ECHOLNPGM("Laser lifetime usage:");
 	SERIAL_ECHO_START;
@@ -177,9 +165,6 @@ void Config_RetrieveSettings()
 		EEPROM_READ_VAR(i,max_z_jerk);
 		EEPROM_READ_VAR(i,max_e_jerk);
 		EEPROM_READ_VAR(i,add_homeing);
-#ifdef DELTA
-		EEPROM_READ_VAR(i,endstop_adj);
-#endif
 		EEPROM_READ_VAR(i,laser.lifetime);
 #ifndef DOGLCD
 		int lcd_contrast;
@@ -224,9 +209,6 @@ void Config_ResetDefault()
 	max_z_jerk=DEFAULT_ZJERK;
 	max_e_jerk=DEFAULT_EJERK;
 	add_homeing[0] = add_homeing[1] = add_homeing[2] = 0;
-#ifdef DELTA
-	endstop_adj[0] = endstop_adj[1] = endstop_adj[2] = 0;
-#endif
 #ifdef DOGLCD
 	lcd_contrast = DEFAULT_LCD_CONTRAST;
 #endif
