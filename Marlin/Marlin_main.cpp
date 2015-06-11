@@ -653,31 +653,6 @@ static void homeaxis(int axis)
 #endif
 		has_axis_homed[axis] = true;
 		current_position[axis] = 0;
-#ifdef MUVE_Z_PEEL
-
-		if(axis == Z_AXIS)
-		{
-			has_axis_homed[E_AXIS] = true;
-			current_position[E_AXIS] = 0;
-		}
-
-		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[Z_AXIS]);
-		destination[axis] = 1.5 * max_length(axis) * axis_home_dir;
-		feedrate = homing_feedrate[axis];
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[Z_AXIS], feedrate/60, active_extruder);
-		st_synchronize();
-
-		current_position[axis] = 0;
-		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[Z_AXIS]);
-		destination[axis] = -home_retract_mm(axis) * axis_home_dir;
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[Z_AXIS], feedrate/60, active_extruder);
-		st_synchronize();
-
-		destination[axis] = 2*home_retract_mm(axis) * axis_home_dir;
-		feedrate = homing_feedrate[axis]/2 ;
-
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[Z_AXIS], feedrate/60, active_extruder);
-#else
 		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
 		destination[axis] = 1.5 * max_length(axis) * axis_home_dir;
 		feedrate = homing_feedrate[axis];
@@ -694,7 +669,6 @@ static void homeaxis(int axis)
 		feedrate = homing_feedrate[axis]/2 ;
 
 		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
-#endif // MUVE_Z_PEEL
 
 		st_synchronize();
 		axis_is_at_home(axis);
@@ -1006,11 +980,7 @@ void process_commands()
 
 				axis_is_at_home(X_AXIS);
 				axis_is_at_home(Y_AXIS);
-#ifdef MUVE_Z_PEEL
-				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[Z_AXIS]);
-#else
 				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
-#endif // MUVE_Z_PEEL
 				destination[X_AXIS] = current_position[X_AXIS];
 				destination[Y_AXIS] = current_position[Y_AXIS];
 				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
@@ -1064,11 +1034,7 @@ void process_commands()
 					current_position[Z_AXIS]=code_value()+add_homeing[2];
 				}
 			}
-#ifdef MUVE_Z_PEEL
-			plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[Z_AXIS]);
-#else
 			plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
-#endif // MUVE_Z_PEEL
 
 #ifdef ENDSTOPS_ONLY_FOR_HOMING
 			enable_endstops(false);
@@ -1094,10 +1060,8 @@ void process_commands()
 				{
 					if(i == E_AXIS)
 					{
-#ifndef MUVE_Z_PEEL
 						current_position[i] = code_value();
 						plan_set_e_position(current_position[E_AXIS]);
-#endif // MUVE_Z_PEEL
 					}
 					else
 					{
@@ -1626,61 +1590,6 @@ void process_commands()
 			}
 			break;
 
-#ifdef MUVE_Z_PEEL
-		case 650: // M650 set peel distance
-			{
-				st_synchronize();
-				if(code_seen('D'))
-				{
-					laser.peel_distance = (float) code_value();
-				}
-				else
-				{
-					laser.peel_distance=2.0;
-				}
-				if(code_seen('S'))
-				{
-					laser.peel_speed = (float) code_value();
-				}
-				else
-				{
-					laser.peel_speed=2.0;
-				}
-				if(code_seen('P'))
-				{
-					laser.peel_pause = (float) code_value();
-				}
-				else
-				{
-					laser.peel_pause=0.0;
-				}
-			}
-			break;
-
-		case 651: // M651 run peel move
-			{
-				if(laser.peel_distance > 0);
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS] + laser.peel_distance, destination[Z_AXIS], laser.peel_speed, active_extruder);
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS] + laser.peel_distance, destination[Z_AXIS] + laser.peel_distance, laser.peel_speed, active_extruder);
-				st_synchronize();
-				if(laser.peel_pause > 0);
-				st_synchronize();
-				codenum = laser.peel_pause;
-				codenum += millis();  // keep track of when we started waiting
-				previous_millis_cmd = millis();
-				while(millis()  < codenum)
-				{
-					manage_heater();
-					manage_inactivity();
-					lcd_update();
-				}
-
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[Z_AXIS], 30, active_extruder);
-				st_synchronize();
-			}
-			break;
-#endif // MUVE_Z_PEEL
-
 		case 907: // M907 Set digital trimpot motor current using axis codes.
 			{
 #if defined(DIGIPOTSS_PIN) && DIGIPOTSS_PIN > -1
@@ -1882,20 +1791,11 @@ void prepare_move()
 	// Do not use feedmultiply for E or Z only moves
 	if((current_position[X_AXIS] == destination [X_AXIS]) && (current_position[Y_AXIS] == destination [Y_AXIS]))
 	{
-#ifdef MUVE_Z_PEEL
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[Z_AXIS], feedrate/60, active_extruder);
-		current_position[E_AXIS] = current_position[Z_AXIS];
-#else
 		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
-#endif // MUVE_Z_PEEL
 	}
 	else
 	{
-#ifdef MUVE_Z_PEEL
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[Z_AXIS], feedrate*feedmultiply/60/100.0, active_extruder);
-#else
 		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate*feedmultiply/60/100.0, active_extruder);
-#endif // MUVE_Z_PEEL
 	}
 
 	for(int8_t i=0; i < NUM_AXIS; i++)

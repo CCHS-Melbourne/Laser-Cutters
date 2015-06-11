@@ -98,11 +98,6 @@ void laser_init()
 	laser.raster_aspect_ratio = LASER_RASTER_ASPECT_RATIO;
 	laser.raster_mm_per_pulse = LASER_RASTER_MM_PER_PULSE;
 	laser.raster_direction = 1;
-#ifdef MUVE_Z_PEEL
-	laser.peel_distance = 2.0;
-	laser.peel_speed = 2.0;
-	laser.peel_pause = 0.0;
-#endif // MUVE_Z_PEEL
 
 	laser_extinguish();
 }
