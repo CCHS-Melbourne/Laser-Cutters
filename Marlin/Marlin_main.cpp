@@ -635,10 +635,6 @@ static void homeaxis(int axis)
 	        0)
 	{
 		int axis_home_dir = home_dir(axis);
-#ifdef DUAL_X_CARRIAGE
-		if(axis == X_AXIS)
-		{ axis_home_dir = x_home_dir(active_extruder); }
-#endif
 
 		// Engage Servo endstop if enabled
 		has_axis_homed[axis] = true;
