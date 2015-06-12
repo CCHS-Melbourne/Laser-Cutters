@@ -676,7 +676,25 @@ void process_commands()
 	{
 		switch((int) code_value())
 		{
-		case 0: // G0
+
+		// G Code overview
+		// G0  -> G1
+		// G1  - Coordinated Movement X Y Z E
+		// G2  - CW ARC
+		// G3  - CCW ARC
+		// G4  - Dwell S<seconds> or P<milliseconds>
+		// G28 - Home all Axis
+		// G90 - Use Absolute Coordinates
+		// G91 - Use Relative Coordinates
+		// G92 - Set current position to cordinates given
+
+		//////////////////////////////////////////////////////////////////////
+		// G0 Move to X Y Z
+		// X: XPos to move to
+		// Y: YPos to move to
+		// Z: ZPos to move to
+		//////////////////////////////////////////////////////////////////////
+		case 0:
 			if(Stopped == false)
 			{
 				get_coordinates(); // For X Y Z E F
@@ -684,8 +702,19 @@ void process_commands()
 				//ClearToSend();
 				return;
 			}
-		//break;
-		case 1: // G1
+
+		//////////////////////////////////////////////////////////////////////
+		// G1 Move to X Y Z with laser firing
+		// X: XPos to move to
+		// Y: YPos to move to
+		// Z: ZPos to move to
+		// S: Laser intensity %
+		// L: Laser duration ??????
+		// P: Laser PPM ?????????
+		// D: Laser diagnostics ?????
+		// B: Laser mode ?????
+		//////////////////////////////////////////////////////////////////////
+		case 1:
 			if(Stopped == false)
 			{
 				get_coordinates(); // For X Y Z E F
@@ -710,7 +739,20 @@ void process_commands()
 				//ClearToSend();
 				return;
 			}
-		//break;
+
+		//////////////////////////////////////////////////////////////////////
+		// G2 CW Arc to X Y Z with laser firing
+		// X: XPos to move to
+		// Y: YPos to move to
+		// Z: ZPos to move to
+		// I: ??????
+		// J: ??????
+		// S: Laser intensity %
+		// L: Laser duration ??????
+		// P: Laser PPM ?????????
+		// D: Laser diagnostics ?????
+		// B: Laser mode ?????
+		//////////////////////////////////////////////////////////////////////
 		case 2: // G2  - CW ARC
 			if(Stopped == false)
 			{
@@ -735,7 +777,21 @@ void process_commands()
 
 				return;
 			}
-		case 3: // G3  - CCW ARC
+
+		//////////////////////////////////////////////////////////////////////
+		// G3 CCW Arc to X Y Z with laser firing
+		// X: XPos to move to
+		// Y: YPos to move to
+		// Z: ZPos to move to
+		// I: ??????
+		// J: ??????
+		// S: Laser intensity %
+		// L: Laser duration ??????
+		// P: Laser PPM ?????????
+		// D: Laser diagnostics ?????
+		// B: Laser mode ?????
+		//////////////////////////////////////////////////////////////////////
+		case 3:
 			if(Stopped == false)
 			{
 				get_arc_coordinates();
@@ -759,7 +815,13 @@ void process_commands()
 
 				return;
 			}
-		case 4: // G4 dwell
+
+		//////////////////////////////////////////////////////////////////////
+		// G4 Dwell
+		// P: Milliseconds to wait
+		// S: Seconds to wait
+		//////////////////////////////////////////////////////////////////////
+		case 4:
 			LCD_MESSAGEPGM(MSG_DWELL);
 			codenum = 0;
 			if(code_seen('P')) { codenum = code_value(); }       // milliseconds to wait
@@ -881,6 +943,13 @@ void process_commands()
 			previous_millis_cmd = millis();
 			break;
 #endif // G5_BEZIER
+		//////////////////////////////////////////////////////////////////////
+		// G7 Trace rster line
+		// L: Raw length
+		// $: Increment Y axis
+		// D: BASE64 encoded raster data
+		//		???? Missing data
+		//////////////////////////////////////////////////////////////////////
 		case 7: //G7 Execute raster line
 			if(code_seen('L')) { laser.raster_raw_length = int (code_value()); }
 			if(code_seen('$'))
@@ -918,6 +987,9 @@ void process_commands()
 
 			break;
 
+		//////////////////////////////////////////////////////////////////////
+		// G28 Home all axis
+		//////////////////////////////////////////////////////////////////////
 		case 28: //G28 Home all Axis one at a time
 			saved_feedrate = feedrate;
 			saved_feedmultiply = feedmultiply;
