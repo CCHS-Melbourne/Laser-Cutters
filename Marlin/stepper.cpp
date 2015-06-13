@@ -509,16 +509,16 @@ ISR(TIMER1_COMPA_vect)
 			}
 		}
 
-		if((out_bits & (1<<E_AXIS)) != 0)        // -direction
-		{
-			REV_E_DIR();
-			count_direction[E_AXIS]=-1;
-		}
-		else   // +direction
-		{
-			NORM_E_DIR();
-			count_direction[E_AXIS]=1;
-		}
+//		if((out_bits & (1<<E_AXIS)) != 0)        // -direction
+//		{
+//			REV_E_DIR();
+//			count_direction[E_AXIS]=-1;
+//		}
+//		else   // +direction
+//		{
+//			NORM_E_DIR();
+//			count_direction[E_AXIS]=1;
+//		}
 
 
 
@@ -832,15 +832,15 @@ void st_set_position(const long& x, const long& y, const long& z, const long& e)
 	count_position[X_AXIS] = x;
 	count_position[Y_AXIS] = y;
 	count_position[Z_AXIS] = z;
-	count_position[E_AXIS] = e;
+//	count_position[E_AXIS] = e;
 	CRITICAL_SECTION_END;
 }
 
 void st_set_e_position(const long& e)
 {
-	CRITICAL_SECTION_START;
-	count_position[E_AXIS] = e;
-	CRITICAL_SECTION_END;
+//	CRITICAL_SECTION_START;
+//	count_position[E_AXIS] = e;
+//	CRITICAL_SECTION_END;
 }
 
 long st_get_position(uint8_t axis)
