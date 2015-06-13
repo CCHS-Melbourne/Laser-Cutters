@@ -12,3 +12,8 @@ applet/
 .idea/scopes/scope_settings.xml
 .idea/vcs.xml
 .idea/workspace.xml
+Marlin/Visual Micro/.Marlin.vsarduino.h
+Marlin/Visual Micro/Configuration.Debug.vmps.xml
+Marlin/Visual Micro/Compile.vmps.xml
+Marlin/Marlin.opensdf
+Marlin/Marlin.sdf
