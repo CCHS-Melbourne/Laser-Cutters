@@ -334,7 +334,7 @@ ISR(TIMER1_COMPA_vect)
 			counter_x = - (current_block->step_event_count >> 1);
 			counter_y = counter_x;
 			counter_z = counter_x;
-			counter_e = counter_x;
+//			counter_e = counter_x;
 			counter_l = counter_x;
 			laser.dur = current_block->laser_duration;
 			step_events_completed = 0;
@@ -557,14 +557,14 @@ ISR(TIMER1_COMPA_vect)
 
 			}
 
-			counter_e += current_block->steps_e;
-			if(counter_e > 0)
-			{
-				WRITE_E_STEP(!INVERT_E_STEP_PIN);
-				counter_e -= current_block->step_event_count;
-				count_position[E_AXIS]+=count_direction[E_AXIS];
-				WRITE_E_STEP(INVERT_E_STEP_PIN);
-			}
+//			counter_e += current_block->steps_e;
+//			if(counter_e > 0)
+//			{
+//				WRITE_E_STEP(!INVERT_E_STEP_PIN);
+//				counter_e -= current_block->step_event_count;
+//				count_position[E_AXIS]+=count_direction[E_AXIS];
+//				WRITE_E_STEP(INVERT_E_STEP_PIN);
+//			}
 
 			// steps_l = step count between laser firings
 			//
