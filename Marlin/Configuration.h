@@ -159,7 +159,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define DISABLE_X false
 #define DISABLE_Y false
 #define DISABLE_Z true
-#define DISABLE_E true // For all extruders
 
 // For Z-Axis with leadscrews, uncomment to save homeing status when disabling steppers (axis is unlikely to move on its own)
 #define Z_AXIS_IS_LEADSCREW

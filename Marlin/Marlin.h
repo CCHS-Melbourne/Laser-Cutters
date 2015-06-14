@@ -116,21 +116,6 @@ void manage_inactivity();
 	#define disable_z() ;
 #endif
 
-#if defined(E0_ENABLE_PIN) && (E0_ENABLE_PIN > -1)
-	#define enable_e0() WRITE(E0_ENABLE_PIN, E_ENABLE_ON)
-	#define disable_e0() WRITE(E0_ENABLE_PIN,!E_ENABLE_ON)
-#else
-	#define enable_e0()  /* nothing */
-	#define disable_e0() /* nothing */
-#endif
-
-#define enable_e1()  /* nothing */
-#define disable_e1() /* nothing */
-
-#define enable_e2()  /* nothing */
-#define disable_e2() /* nothing */
-
-
 enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};
 
 

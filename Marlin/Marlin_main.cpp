@@ -1187,9 +1187,6 @@ void process_commands()
 			enable_x();
 			enable_y();
 			enable_z();
-			enable_e0();
-			enable_e1();
-			enable_e2();
 			break;
 
 #ifdef SDSUPPORT
@@ -1360,9 +1357,6 @@ void process_commands()
 				if(all_axis)
 				{
 					st_synchronize();
-					disable_e0();
-					disable_e1();
-					disable_e2();
 					finishAndDisableSteppers();
 				}
 				else
@@ -1385,14 +1379,6 @@ void process_commands()
 #endif
 						disable_z();
 					}
-#if ((E0_ENABLE_PIN != X_ENABLE_PIN) && (E1_ENABLE_PIN != Y_ENABLE_PIN)) // Only enable on boards that have seperate ENABLE_PINS
-					if(code_seen('E'))
-					{
-						disable_e0();
-						disable_e1();
-						disable_e2();
-					}
-#endif
 				}
 			}
 			break;
@@ -1863,8 +1849,7 @@ void controllerFan()
 	{
 		lastMotorCheck = millis();
 
-		if(!READ(X_ENABLE_PIN) || !READ(Y_ENABLE_PIN) || !READ(Z_ENABLE_PIN)
-		        || !READ(E0_ENABLE_PIN))     //If any of the drivers are enabled...
+		if(!READ(X_ENABLE_PIN) || !READ(Y_ENABLE_PIN) || !READ(Z_ENABLE_PIN))     //If any of the drivers are enabled...
 		{
 			lastMotor = millis(); //... set time to NOW so the fan will turn on
 		}
@@ -1903,9 +1888,6 @@ void manage_inactivity()
 #endif
 				has_axis_homed[X_AXIS] = false;
 				has_axis_homed[Y_AXIS] = false;
-				disable_e0();
-				disable_e1();
-				disable_e2();
 
 				if(laser.time / 60000 > 0)
 				{
@@ -1939,9 +1921,6 @@ void kill()
 	disable_x();
 	disable_y();
 	disable_z();
-	disable_e0();
-	disable_e1();
-	disable_e2();
 
 	laser_init();
 

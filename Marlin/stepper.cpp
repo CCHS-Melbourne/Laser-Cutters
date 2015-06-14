@@ -774,21 +774,6 @@ void st_init()
 	WRITE(Z_STEP_PIN,INVERT_Z_STEP_PIN);
 	disable_z();
 #endif
-#if defined(E0_STEP_PIN) && (E0_STEP_PIN > -1)
-	SET_OUTPUT(E0_STEP_PIN);
-	WRITE(E0_STEP_PIN,INVERT_E_STEP_PIN);
-	disable_e0();
-#endif
-#if defined(E1_STEP_PIN) && (E1_STEP_PIN > -1)
-	SET_OUTPUT(E1_STEP_PIN);
-	WRITE(E1_STEP_PIN,INVERT_E_STEP_PIN);
-	disable_e1();
-#endif
-#if defined(E2_STEP_PIN) && (E2_STEP_PIN > -1)
-	SET_OUTPUT(E2_STEP_PIN);
-	WRITE(E2_STEP_PIN,INVERT_E_STEP_PIN);
-	disable_e2();
-#endif
 
 	// waveform generation = 0100 = CTC
 	TCCR1B &= ~(1<<WGM13);
@@ -863,9 +848,6 @@ void finishAndDisableSteppers()
 #endif
 	has_axis_homed[X_AXIS] = false;
 	has_axis_homed[Y_AXIS] = false;
-	disable_e0();
-	disable_e1();
-	disable_e2();
 }
 
 void quickStop()

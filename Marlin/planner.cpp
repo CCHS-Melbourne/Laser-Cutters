@@ -413,7 +413,6 @@ void check_axes_activity()
 	unsigned char x_active = 0;
 	unsigned char y_active = 0;
 	unsigned char z_active = 0;
-	unsigned char e_active = 0;
 	unsigned char tail_fan_speed = fanSpeed;
 	block_t* block;
 
@@ -427,19 +426,13 @@ void check_axes_activity()
 			if(block->steps_x != 0) { x_active++; }
 			if(block->steps_y != 0) { y_active++; }
 			if(block->steps_z != 0) { z_active++; }
-			if(block->steps_e != 0) { e_active++; }
 			block_index = (block_index+1) & (BLOCK_BUFFER_SIZE - 1);
 		}
 	}
 	if((DISABLE_X) && (x_active == 0)) { disable_x(); }
 	if((DISABLE_Y) && (y_active == 0)) { disable_y(); }
 	if((DISABLE_Z) && (z_active == 0)) { disable_z(); }
-	if((DISABLE_E) && (e_active == 0))
-	{
-		disable_e0();
-		disable_e1();
-		disable_e2();
-	}
+
 #if defined(FAN_PIN) && FAN_PIN > -1
 #ifdef FAN_SOFT_PWM
 	fanSpeedSoftPwm = tail_fan_speed;
@@ -494,11 +487,8 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	block->steps_y = labs((target[X_AXIS]-position[X_AXIS]) - (target[Y_AXIS]-position[Y_AXIS]));
 #endif
 	block->steps_z = labs(target[Z_AXIS]-position[Z_AXIS]);
-	block->steps_e = labs(target[E_AXIS]-position[E_AXIS]);
-	block->steps_e *= extrudemultiply;
-	block->steps_e /= 100;
 
-	block->step_event_count = max(block->steps_x, max(block->steps_y, max(block->steps_z, block->steps_e)));
+	block->step_event_count = max(block->steps_x, max(block->steps_y, block->steps_z));
 
 	block->fan_speed = fanSpeed;
 	// Compute direction bits for this block
@@ -543,23 +533,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	if(block->steps_y != 0) { enable_y(); }
 #endif
 	if(block->steps_z != 0) { enable_z(); }
-
-	// Enable all
-	if(block->steps_e != 0)
-	{
-		enable_e0();
-		enable_e1();
-		enable_e2();
-	}
-
-	if(block->steps_e == 0)
-	{
-		if(feed_rate<mintravelfeedrate) { feed_rate=mintravelfeedrate; }
-	}
-	else
-	{
-		if(feed_rate<minimumfeedrate) { feed_rate=minimumfeedrate; }
-	}
 
 	float delta_mm[4];
 #ifndef COREXY
@@ -615,7 +588,7 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	{
 		block->steps_l = 0;
 	}
-	block->step_event_count = max(block->steps_x, max(block->steps_y, max(block->steps_z, max(block->steps_e, block->steps_l))));
+	block->step_event_count = max(block->steps_x, max(block->steps_y, max(block->steps_z, block->steps_l)));
 
 	if(laser.diagnostics)
 	{
@@ -730,8 +703,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 		{ block->acceleration_st = axis_steps_per_sqr_second[X_AXIS]; }
 		if(((float) block->acceleration_st * (float) block->steps_y / (float) block->step_event_count) > axis_steps_per_sqr_second[Y_AXIS])
 		{ block->acceleration_st = axis_steps_per_sqr_second[Y_AXIS]; }
-		if(((float) block->acceleration_st * (float) block->steps_e / (float) block->step_event_count) > axis_steps_per_sqr_second[E_AXIS])
-		{ block->acceleration_st = axis_steps_per_sqr_second[E_AXIS]; }
 		if(((float) block->acceleration_st * (float) block->steps_z / (float) block->step_event_count) > axis_steps_per_sqr_second[Z_AXIS])
 		{ block->acceleration_st = axis_steps_per_sqr_second[Z_AXIS]; }
 	}
