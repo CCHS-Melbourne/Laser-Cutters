@@ -31,6 +31,9 @@
 #define STRINGIFY_(n) #n
 #define STRINGIFY(n) STRINGIFY_(n)
 
+#define MSG_ABOUT "K40 Firmware - MrMaxP"
+
+
 #if LANGUAGE_CHOICE == 1
 
 	// LCD Menu Messages
@@ -117,6 +120,7 @@
 	#define MSG_FILAMENTCHANGE "Change filament"
 	#define MSG_INIT_SDCARD "Init. SD-Card"
 	#define MSG_CNG_SDCARD "Change SD-Card"
+	#define MSG_ABOUT_MENU "About"
 
 	// Serial Console Messages
 

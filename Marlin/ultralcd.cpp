@@ -39,6 +39,7 @@ static void lcd_control_motion_menu();
 #endif
 static void lcd_control_retract_menu();
 static void lcd_sdcard_menu();
+static void lcd_about_menu();
 static void lcd_laser_focus_menu();
 static void lcd_laser_menu();
 static void lcd_laser_test_fire_menu();
@@ -290,6 +291,7 @@ static void lcd_main_menu()
 #endif
 	}
 #endif
+	MENU_ITEM(submenu, MSG_ABOUT_MENU, lcd_about_menu);
 	END_MENU();
 }
 
@@ -687,6 +689,15 @@ static void lcd_sd_updir()
 	card.updir();
 	currentMenuViewOffset = 0;
 }
+
+void lcd_about_menu()
+{
+	START_MENU();
+	MENU_ITEM(back, MSG_MAIN, lcd_main_menu);
+	MENU_ITEM(back, MSG_ABOUT, lcd_about_menu);
+	END_MENU();
+}
+
 
 void lcd_sdcard_menu()
 {
