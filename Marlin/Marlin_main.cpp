@@ -395,7 +395,7 @@ void loop()
 		buflen = (buflen-1);
 		bufindr = (bufindr + 1) %BUFSIZE;
 	}
-	//check heater every n milliseconds
+
 	manage_inactivity();
 	checkHitEndstops();
 	lcd_update();
@@ -678,8 +678,8 @@ void process_commands()
 		{
 
 		// G Code overview
-		// G0  -> G1
-		// G1  - Coordinated Movement X Y Z E
+		// G0  - Coordinated Movement X Y Z
+		// G1  - Coordinated Movement X Y Z with laser params
 		// G2  - CW ARC
 		// G3  - CCW ARC
 		// G4  - Dwell S<seconds> or P<milliseconds>
@@ -1767,8 +1767,12 @@ void get_coordinates()
 			destination[i] = (float) code_value() + (axis_relative_modes[i] || relative_mode) *current_position[i];
 			seen[i]=true;
 		}
-		else { destination[i] = current_position[i]; } //Are these else lines really needed?
+		else //Are these else lines really needed?
+		{
+			destination[i] = current_position[i]; 
+		}
 	}
+
 	if(code_seen('F'))
 	{
 		next_feedrate = code_value();
