@@ -17,3 +17,5 @@ Marlin/Visual Micro/Configuration.Debug.vmps.xml
 Marlin/Visual Micro/Compile.vmps.xml
 Marlin/Marlin.opensdf
 Marlin/Marlin.sdf
+Marlin/Visual Micro/Upload.vmps.xml
+Marlin/Visual Micro/Configuration.Release.vmps.xml
