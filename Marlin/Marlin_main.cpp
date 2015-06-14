@@ -144,7 +144,6 @@ float min_pos[3] = { X_MIN_POS, Y_MIN_POS, Z_MIN_POS };
 float max_pos[3] = { X_MAX_POS, Y_MAX_POS, Z_MAX_POS };
 
 // Extruder offset
-uint8_t active_extruder = 0;
 int fanSpeed=0;
 
 #ifdef ULTIPANEL
@@ -642,19 +641,19 @@ static void homeaxis(int axis)
 		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
 		destination[axis] = 1.5 * max_length(axis) * axis_home_dir;
 		feedrate = homing_feedrate[axis];
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
 		st_synchronize();
 
 		current_position[axis] = 0;
 		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
 		destination[axis] = -home_retract_mm(axis) * axis_home_dir;
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
 		st_synchronize();
 
 		destination[axis] = 2*home_retract_mm(axis) * axis_home_dir;
 		feedrate = homing_feedrate[axis]/2 ;
 
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
 
 		st_synchronize();
 		axis_is_at_home(axis);
@@ -1027,7 +1026,7 @@ void process_commands()
 				feedrate = homing_feedrate[X_AXIS];
 				if(homing_feedrate[Y_AXIS]<feedrate)
 				{ feedrate =homing_feedrate[Y_AXIS]; }
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
+				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
 				st_synchronize();
 
 				axis_is_at_home(X_AXIS);
@@ -1035,7 +1034,7 @@ void process_commands()
 				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
 				destination[X_AXIS] = current_position[X_AXIS];
 				destination[Y_AXIS] = current_position[Y_AXIS];
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
+				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
 				feedrate = 0.0;
 				st_synchronize();
 				endstops_hit_on_purpose();
@@ -1697,36 +1696,6 @@ void process_commands()
 			break;
 		}
 	}
-
-	else if(code_seen('T'))
-	{
-		tmp_extruder = code_value();
-		if(tmp_extruder >= EXTRUDERS)
-		{
-			SERIAL_ECHO_START;
-			SERIAL_ECHO("T");
-			SERIAL_ECHO(tmp_extruder);
-			SERIAL_ECHOLN(MSG_INVALID_EXTRUDER);
-		}
-		else
-		{
-			boolean make_move = false;
-			if(code_seen('F'))
-			{
-				make_move = true;
-				next_feedrate = code_value();
-				if(next_feedrate > 0.0)
-				{
-					feedrate = next_feedrate;
-				}
-			}
-
-			SERIAL_ECHO_START;
-			SERIAL_ECHO(MSG_ACTIVE_EXTRUDER);
-			SERIAL_PROTOCOLLN((int) active_extruder);
-		}
-	}
-
 	else
 	{
 		SERIAL_ECHO_START;
@@ -1847,11 +1816,11 @@ void prepare_move()
 	// Do not use feedmultiply for E or Z only moves
 	if((current_position[X_AXIS] == destination [X_AXIS]) && (current_position[Y_AXIS] == destination [Y_AXIS]))
 	{
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60, active_extruder);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
 	}
 	else
 	{
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate*feedmultiply/60/100.0, active_extruder);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate*feedmultiply/60/100.0);
 	}
 
 	for(int8_t i=0; i < NUM_AXIS; i++)
@@ -1865,7 +1834,7 @@ void prepare_arc_move(char isclockwise)
 	float r = hypot(offset[X_AXIS], offset[Y_AXIS]);    // Compute arc radius for mc_arc
 
 	// Trace the arc
-	mc_arc(current_position, destination, offset, X_AXIS, Y_AXIS, Z_AXIS, feedrate*feedmultiply/60/100.0, r, isclockwise, active_extruder);
+	mc_arc(current_position, destination, offset, X_AXIS, Y_AXIS, Z_AXIS, feedrate*feedmultiply/60/100.0, r, isclockwise);
 
 	// As far as the parser is concerned, the position is now == target. In reality the
 	// motion control system might still be processing the action and the real tool position
@@ -2006,35 +1975,4 @@ void Stop()
 }
 
 bool IsStopped() { return Stopped; };
-
-bool setTargetedHotend(int code)
-{
-	tmp_extruder = active_extruder;
-	if(code_seen('T'))
-	{
-		tmp_extruder = code_value();
-		if(tmp_extruder >= EXTRUDERS)
-		{
-			SERIAL_ECHO_START;
-			switch(code)
-			{
-			case 104:
-				SERIAL_ECHO(MSG_M104_INVALID_EXTRUDER);
-				break;
-			case 105:
-				SERIAL_ECHO(MSG_M105_INVALID_EXTRUDER);
-				break;
-			case 109:
-				SERIAL_ECHO(MSG_M109_INVALID_EXTRUDER);
-				break;
-			case 218:
-				SERIAL_ECHO(MSG_M218_INVALID_EXTRUDER);
-				break;
-			}
-			SERIAL_ECHOLN(tmp_extruder);
-			return true;
-		}
-	}
-	return false;
-}
 

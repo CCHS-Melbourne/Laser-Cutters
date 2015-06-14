@@ -172,7 +172,4 @@ extern int fanSpeed;
 extern unsigned long starttime;
 extern unsigned long stoptime;
 
-// Handling multiple extruders pins
-extern uint8_t active_extruder;
-
 #endif

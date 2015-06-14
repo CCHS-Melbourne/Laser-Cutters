@@ -340,7 +340,7 @@ static void lcd_move_x()
 		if(max_software_endstops && current_position[X_AXIS] > X_MAX_POS)
 		{ current_position[X_AXIS] = X_MAX_POS; }
 		encoderPosition = 0;
-		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[X_AXIS]/60, active_extruder);
+		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[X_AXIS]/60);
 		lcdDrawUpdate = 1;
 	}
 	if(lcdDrawUpdate)
@@ -364,7 +364,7 @@ static void lcd_move_y()
 		if(max_software_endstops && current_position[Y_AXIS] > Y_MAX_POS)
 		{ current_position[Y_AXIS] = Y_MAX_POS; }
 		encoderPosition = 0;
-		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[Y_AXIS]/60, active_extruder);
+		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[Y_AXIS]/60);
 		lcdDrawUpdate = 1;
 	}
 	if(lcdDrawUpdate)
@@ -388,7 +388,7 @@ static void lcd_move_z()
 		if(max_software_endstops && current_position[Z_AXIS] > Z_MAX_POS)
 		{ current_position[Z_AXIS] = Z_MAX_POS; }
 		encoderPosition = 0;
-		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[Z_AXIS]/60, active_extruder);
+		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[Z_AXIS]/60);
 		lcdDrawUpdate = 1;
 	}
 	if(lcdDrawUpdate)
@@ -409,7 +409,7 @@ static void lcd_move_e()
 	{
 		current_position[E_AXIS] += float ((int) encoderPosition) * move_menu_scale;
 		encoderPosition = 0;
-		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[E_AXIS]/60, active_extruder);
+		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS], manual_feedrate[E_AXIS]/60);
 		lcdDrawUpdate = 1;
 	}
 	if(lcdDrawUpdate)
