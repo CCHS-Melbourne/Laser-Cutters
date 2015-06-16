@@ -74,7 +74,7 @@
 
 #define FAN_PIN            9 // (Sprinter config)
 
-#define CONTROLLERFAN_PIN  10 //Pin used for the fan to cool controller
+//#define CONTROLLERFAN_PIN  10 //Pin used for the fan to cool controller
 
 #if defined(REPRAP_DISCOUNT_SMART_CONTROLLER) || defined(G3D_PANEL)
 	#define KILL_PIN           41
@@ -219,9 +219,18 @@
 #endif
 
 #ifdef DISABLE_MAX_ENDSTOPS
-	#define X_MAX_PIN          -1
-	#define Y_MAX_PIN          -1
-	#define Z_MAX_PIN          -1
+	#if defined( X_MAX_PIN )
+		#undef X_MAX_PIN
+		#define X_MAX_PIN          -1
+	#endif
+	#if defined( Y_MAX_PIN )
+		#undef Y_MAX_PIN
+		#define Y_MAX_PIN          -1
+	#endif
+	#if defined( Z_MAX_PIN )
+		#undef Z_MAX_PIN
+		#define Z_MAX_PIN          -1
+	#endif
 #endif
 
 #ifdef DISABLE_MIN_ENDSTOPS

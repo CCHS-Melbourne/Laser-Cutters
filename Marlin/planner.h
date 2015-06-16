@@ -70,10 +70,10 @@ void plan_init();
 
 // Add a new linear movement to the buffer. x, y and z is the signed, absolute target position in
 // millimaters. Feed rate specifies the speed of the motion.
-void plan_buffer_line(const float& x, const float& y, const float& z, const float& e, float feed_rate);
+void plan_buffer_line(const float& x, const float& y, const float& z, float feed_rate);
 
 // Set position. Used for G92 instructions.
-void plan_set_position(const float& x, const float& y, const float& z, const float& e);
+void plan_set_position(const float& x, const float& y, const float& z);
 void plan_set_e_position(const float& e);
 
 
@@ -82,9 +82,9 @@ void check_axes_activity();
 uint8_t movesplanned(); //return the nr of buffered moves
 
 extern unsigned long minsegmenttime;
-extern float max_feedrate[4]; // set the max speeds
-extern float axis_steps_per_unit[4];
-extern unsigned long max_acceleration_units_per_sq_second[4]; // Use M201 to override by software
+extern float max_feedrate[3]; // set the max speeds
+extern float axis_steps_per_unit[3];
+extern unsigned long max_acceleration_units_per_sq_second[3]; // Use M201 to override by software
 extern float minimumfeedrate;
 extern float acceleration;         // Normal acceleration mm/s^2  THIS IS THE DEFAULT ACCELERATION for all moves. M204 SXXXX
 extern float retract_acceleration; //  mm/s^2   filament pull-pack and push-forward  while standing still in the other axis M204 TXXXX

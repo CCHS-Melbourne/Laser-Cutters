@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Base64.cpp" />
+    <ClCompile Include="cardreader.cpp" />
+    <ClCompile Include="ConfigurationStore.cpp" />
+    <ClCompile Include="laser.cpp" />
+    <ClCompile Include="LiquidCrystalRus.cpp" />
+    <ClCompile Include="MarlinSerial.cpp" />
+    <ClCompile Include="Marlin_main.cpp" />
+    <ClCompile Include="motion_control.cpp" />
+    <ClCompile Include="planner.cpp" />
+    <ClCompile Include="Sd2Card.cpp" />
+    <ClCompile Include="SdBaseFile.cpp" />
+    <ClCompile Include="SdFatUtil.cpp" />
+    <ClCompile Include="SdFile.cpp" />
+    <ClCompile Include="SdVolume.cpp" />
+    <ClCompile Include="stepper.cpp" />
+    <ClCompile Include="ultralcd.cpp" />
+    <ClCompile Include="watchdog.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Base64.h" />
+    <ClInclude Include="cardreader.h" />
+    <ClInclude Include="Configuration.h" />
+    <ClInclude Include="ConfigurationStore.h" />
+    <ClInclude Include="Configuration_adv.h" />
+    <ClInclude Include="DOGMbitmaps.h" />
+    <ClInclude Include="dogm_font_data_marlin.h" />
+    <ClInclude Include="dogm_lcd_implementation.h" />
+    <ClInclude Include="fastio.h" />
+    <ClInclude Include="language.h" />
+    <ClInclude Include="laser.h" />
+    <ClInclude Include="laserbitmaps.h" />
+    <ClInclude Include="LiquidCrystalRus.h" />
+    <ClInclude Include="Marlin.h" />
+    <ClInclude Include="MarlinSerial.h" />
+    <ClInclude Include="motion_control.h" />
+    <ClInclude Include="pins.h" />
+    <ClInclude Include="planner.h" />
+    <ClInclude Include="Sd2Card.h" />
+    <ClInclude Include="Sd2PinMap.h" />
+    <ClInclude Include="SdBaseFile.h" />
+    <ClInclude Include="SdFatConfig.h" />
+    <ClInclude Include="SdFatStructs.h" />
+    <ClInclude Include="SdFatUtil.h" />
+    <ClInclude Include="SdFile.h" />
+    <ClInclude Include="SdInfo.h" />
+    <ClInclude Include="SdVolume.h" />
+    <ClInclude Include="speed_lookuptable.h" />
+    <ClInclude Include="stepper.h" />
+    <ClInclude Include="thermistortables.h" />
+    <ClInclude Include="ultralcd.h" />
+    <ClInclude Include="ultralcd_implementation_hitachi_HD44780.h" />
+    <ClInclude Include="ultralcd_st7920_u8glib_rrd.h" />
+    <ClInclude Include="Visual Micro\.Marlin.vsarduino.h" />
+    <ClInclude Include="watchdog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="K40Laser-Firmware.ino" />
+  </ItemGroup>
+</Project>

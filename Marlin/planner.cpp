@@ -62,9 +62,9 @@
 //===========================================================================
 
 unsigned long minsegmenttime;
-float max_feedrate[4]; // set the max speeds
-float axis_steps_per_unit[4];
-unsigned long max_acceleration_units_per_sq_second[4]; // Use M201 to override by software
+float max_feedrate[3]; // set the max speeds
+float axis_steps_per_unit[3];
+unsigned long max_acceleration_units_per_sq_second[3]; // Use M201 to override by software
 float minimumfeedrate;
 float acceleration;         // Normal acceleration mm/s^2  THIS IS THE DEFAULT ACCELERATION for all moves. M204 SXXXX
 float retract_acceleration; //  mm/s^2   filament pull-pack and push-forward  while standing still in the other axis M204 TXXXX
@@ -75,8 +75,8 @@ float mintravelfeedrate;
 unsigned long axis_steps_per_sqr_second[NUM_AXIS];
 
 // The current position of the tool in absolute steps
-long position[4];   //rescaled from extern when axis_steps_per_unit are changed by gcode
-static float previous_speed[4]; // Speed of previous path line segment
+long position[3];   //rescaled from extern when axis_steps_per_unit are changed by gcode
+static float previous_speed[3]; // Speed of previous path line segment
 static float previous_nominal_speed; // Nominal speed of previous path line segment
 
 //===========================================================================
@@ -447,8 +447,10 @@ float junction_deviation = 0.1;
 // Add a new linear movement to the buffer. steps_x, _y and _z is the absolute position in
 // mm. Microseconds specify how many microseconds the move should take to perform. To aid acceleration
 // calculation the caller must also provide the physical length of the line in millimeters.
-void plan_buffer_line(const float& x, const float& y, const float& z, const float& e, float feed_rate)
+void plan_buffer_line(const float& x, const float& y, const float& z, float feed_rate)
 {
+	float e = 0.0;
+
 	// Calculate the buffer head after we push this byte
 	int next_buffer_head = next_block_index(block_buffer_head);
 
@@ -463,11 +465,11 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	// The target position of the tool in absolute steps
 	// Calculate target position in absolute steps
 	//this should be done after the wait, because otherwise a M92 code within the gcode disrupts this calculation somehow
-	long target[4];
+	long target[3];
 	target[X_AXIS] = lround(x*axis_steps_per_unit[X_AXIS]);
 	target[Y_AXIS] = lround(y*axis_steps_per_unit[Y_AXIS]);
 	target[Z_AXIS] = lround(z*axis_steps_per_unit[Z_AXIS]);
-	target[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
+//	target[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
 
 	// Prepare to set up new block
 	block_t* block = &block_buffer[block_buffer_head];
@@ -516,10 +518,10 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	{
 		block->direction_bits |= (1<<Z_AXIS);
 	}
-	if(target[E_AXIS] < position[E_AXIS])
-	{
-		block->direction_bits |= (1<<E_AXIS);
-	}
+//	if(target[E_AXIS] < position[E_AXIS])
+//	{
+//		block->direction_bits |= (1<<E_AXIS);
+//	}
 
 	//enable active axes
 #ifdef COREXY
@@ -534,7 +536,7 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 #endif
 	if(block->steps_z != 0) { enable_z(); }
 
-	float delta_mm[4];
+	float delta_mm[3];
 #ifndef COREXY
 	delta_mm[X_AXIS] = (target[X_AXIS]-position[X_AXIS]) /axis_steps_per_unit[X_AXIS];
 	delta_mm[Y_AXIS] = (target[Y_AXIS]-position[Y_AXIS]) /axis_steps_per_unit[Y_AXIS];
@@ -543,10 +545,10 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	delta_mm[Y_AXIS] = ((target[X_AXIS]-position[X_AXIS]) - (target[Y_AXIS]-position[Y_AXIS])) /axis_steps_per_unit[Y_AXIS];
 #endif
 	delta_mm[Z_AXIS] = (target[Z_AXIS]-position[Z_AXIS]) /axis_steps_per_unit[Z_AXIS];
-	delta_mm[E_AXIS] = ((target[E_AXIS]-position[E_AXIS]) /axis_steps_per_unit[E_AXIS]) *extrudemultiply/100.0;
+//	delta_mm[E_AXIS] = ((target[E_AXIS]-position[E_AXIS]) /axis_steps_per_unit[E_AXIS]) *extrudemultiply/100.0;
 	if(block->steps_x <=dropsegments && block->steps_y <=dropsegments && block->steps_z <=dropsegments)
 	{
-		block->millimeters = fabs(delta_mm[E_AXIS]);
+		block->millimeters = 0.0;	// fabs(delta_mm[E_AXIS]);
 	}
 	else
 	{
@@ -634,9 +636,9 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	block->nominal_rate = ceil(block->step_event_count * inverse_second);    // (step/sec) Always > 0
 
 	// Calculate and limit speed in mm/sec for each axis
-	float current_speed[4];
+	float current_speed[3];
 	float speed_factor = 1.0; //factor <=1 do decrease speed
-	for(int i=0; i < 4; i++)
+	for(int i=0; i < 3; i++)
 	{
 		current_speed[i] = delta_mm[i] * inverse_second;
 		if(fabs(current_speed[i]) > max_feedrate[i])
@@ -681,7 +683,7 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	// Correct the speed
 	if(speed_factor < 1.0)
 	{
-		for(unsigned char i=0; i < 4; i++)
+		for(unsigned char i=0; i < 3; i++)
 		{
 			current_speed[i] *= speed_factor;
 		}
@@ -757,8 +759,8 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	float vmax_junction_factor = 1.0;
 	if(fabs(current_speed[Z_AXIS]) > max_z_jerk/2)
 	{ vmax_junction = min(vmax_junction, max_z_jerk/2); }
-	if(fabs(current_speed[E_AXIS]) > max_e_jerk/2)
-	{ vmax_junction = min(vmax_junction, max_e_jerk/2); }
+//	if(fabs(current_speed[E_AXIS]) > max_e_jerk/2)
+//	{ vmax_junction = min(vmax_junction, max_e_jerk/2); }
 	vmax_junction = min(vmax_junction, block->nominal_speed);
 	float safe_speed = vmax_junction;
 
@@ -776,10 +778,10 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 		{
 			vmax_junction_factor= min(vmax_junction_factor, (max_z_jerk/fabs(current_speed[Z_AXIS] - previous_speed[Z_AXIS])));
 		}
-		if(fabs(current_speed[E_AXIS] - previous_speed[E_AXIS]) > max_e_jerk)
-		{
-			vmax_junction_factor = min(vmax_junction_factor, (max_e_jerk/fabs(current_speed[E_AXIS] - previous_speed[E_AXIS])));
-		}
+//		if(fabs(current_speed[E_AXIS] - previous_speed[E_AXIS]) > max_e_jerk)
+//		{
+//			vmax_junction_factor = min(vmax_junction_factor, (max_e_jerk/fabs(current_speed[E_AXIS] - previous_speed[E_AXIS])));
+//		}
 		vmax_junction = min(previous_nominal_speed, vmax_junction * vmax_junction_factor);    // Limit speed to max previous speed
 	}
 	block->max_entry_speed = vmax_junction;
@@ -825,13 +827,15 @@ void plan_buffer_line(const float& x, const float& y, const float& z, const floa
 	st_wake_up();
 }
 
-void plan_set_position(const float& x, const float& y, const float& z, const float& e)
+void plan_set_position(const float& x, const float& y, const float& z)
 {
+	float e = 0.0;
+
 	position[X_AXIS] = lround(x*axis_steps_per_unit[X_AXIS]);
 	position[Y_AXIS] = lround(y*axis_steps_per_unit[Y_AXIS]);
 	position[Z_AXIS] = lround(z*axis_steps_per_unit[Z_AXIS]);
-	position[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
-	st_set_position(position[X_AXIS], position[Y_AXIS], position[Z_AXIS], position[E_AXIS]);
+//	position[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
+	st_set_position(position[X_AXIS], position[Y_AXIS], position[Z_AXIS]);
 	previous_nominal_speed = 0.0; // Resets planner junction speeds. Assumes start from rest.
 	previous_speed[0] = 0.0;
 	previous_speed[1] = 0.0;
@@ -841,8 +845,8 @@ void plan_set_position(const float& x, const float& y, const float& z, const flo
 
 void plan_set_e_position(const float& e)
 {
-	position[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
-	st_set_e_position(position[E_AXIS]);
+//	position[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
+//	st_set_e_position(position[E_AXIS]);
 }
 
 uint8_t movesplanned()

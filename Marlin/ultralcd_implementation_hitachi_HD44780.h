@@ -373,11 +373,11 @@ static void lcd_implementation_status_screen()
 
 	lcd.setCursor(0, 0);
 	lcd.print("Laser Power: ");
-	lcd.print(itostr3(int (laser.intensity)));
-	lcd.print(itostr3(int (laser.status)));
+	lcd.print(itostr3(int(laser.intensity)));
+	lcd.print(itostr3(int(laser.status)));
 
 #if LCD_HEIGHT > 2
-//Lines 2 for 4 line LCD
+	//Lines 2 for 4 line LCD
 # if LCD_WIDTH < 20
 #  ifdef SDSUPPORT
 	lcd.setCursor(0, 2);
@@ -389,7 +389,7 @@ static void lcd_implementation_status_screen()
 	lcd.print('%');
 #  endif//SDSUPPORT
 # else//LCD_WIDTH > 19
-	lcd.setCursor(0,1);
+	lcd.setCursor(0, 1);
 	lcd.print('X');
 	lcd.print(ftostr3(current_position[X_AXIS]));
 	lcd_printPGM(PSTR(" Y"));
@@ -398,7 +398,7 @@ static void lcd_implementation_status_screen()
 
 	lcd.print('Z');
 	lcd.print(ftostr32(current_position[Z_AXIS]));
-#endif
+}
 
 #endif//LCD_HEIGHT > 2
 

@@ -638,22 +638,22 @@ static void homeaxis(int axis)
 		// Engage Servo endstop if enabled
 		has_axis_homed[axis] = true;
 		current_position[axis] = 0;
-		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 		destination[axis] = 1.5 * max_length(axis) * axis_home_dir;
 		feedrate = homing_feedrate[axis];
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate/60);
 		st_synchronize();
 
 		current_position[axis] = 0;
-		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+		plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 		destination[axis] = -home_retract_mm(axis) * axis_home_dir;
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate/60);
 		st_synchronize();
 
 		destination[axis] = 2*home_retract_mm(axis) * axis_home_dir;
 		feedrate = homing_feedrate[axis]/2 ;
 
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate/60);
 
 		st_synchronize();
 		axis_is_at_home(axis);
@@ -1020,21 +1020,21 @@ void process_commands()
 
 				int x_axis_home_dir = home_dir(X_AXIS);
 
-				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 				destination[X_AXIS] = 1.5 * max_length(X_AXIS) * x_axis_home_dir;
 				destination[Y_AXIS] = 1.5 * max_length(Y_AXIS) * home_dir(Y_AXIS);
 				feedrate = homing_feedrate[X_AXIS];
 				if(homing_feedrate[Y_AXIS]<feedrate)
 				{ feedrate =homing_feedrate[Y_AXIS]; }
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
+				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate/60);
 				st_synchronize();
 
 				axis_is_at_home(X_AXIS);
 				axis_is_at_home(Y_AXIS);
-				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+				plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 				destination[X_AXIS] = current_position[X_AXIS];
 				destination[Y_AXIS] = current_position[Y_AXIS];
-				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
+				plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate/60);
 				feedrate = 0.0;
 				st_synchronize();
 				endstops_hit_on_purpose();
@@ -1085,7 +1085,7 @@ void process_commands()
 					current_position[Z_AXIS]=code_value()+add_homeing[2];
 				}
 			}
-			plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+			plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 
 #ifdef ENDSTOPS_ONLY_FOR_HOMING
 			enable_endstops(false);
@@ -1103,21 +1103,21 @@ void process_commands()
 			relative_mode = true;
 			break;
 		case 92: // G92
-			if(!code_seen(axis_codes[E_AXIS]))
+//			if(!code_seen(axis_codes[E_AXIS]))
 			{ st_synchronize(); }
 			for(int8_t i=0; i < NUM_AXIS; i++)
 			{
 				if(code_seen(axis_codes[i]))
 				{
-					if(i == E_AXIS)
-					{
-						current_position[i] = code_value();
-						plan_set_e_position(current_position[E_AXIS]);
-					}
-					else
+//					if(i == E_AXIS)
+//					{
+//						current_position[i] = code_value();
+//						plan_set_e_position(0.0);
+//					}
+//					else
 					{
 						current_position[i] = code_value()+add_homeing[i];
-						plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], current_position[E_AXIS]);
+						plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 					}
 				}
 			}
@@ -1427,7 +1427,7 @@ void process_commands()
 			SERIAL_PROTOCOLPGM("Z:");
 			SERIAL_PROTOCOL(current_position[Z_AXIS]);
 			SERIAL_PROTOCOLPGM("E:");
-			SERIAL_PROTOCOL(current_position[E_AXIS]);
+			SERIAL_PROTOCOL(0.0);
 
 			SERIAL_PROTOCOLPGM(MSG_COUNT_X);
 			SERIAL_PROTOCOL(float (st_get_position(X_AXIS)) /axis_steps_per_unit[X_AXIS]);
@@ -1788,12 +1788,12 @@ void prepare_move()
 	previous_millis_cmd = millis();
 
 #ifdef LASER_FIRE_E
-	if(current_position[E_AXIS] != destination[E_AXIS] && ((current_position[X_AXIS] != destination [X_AXIS]) || (current_position[Y_AXIS] != destination [Y_AXIS])))
+	if(0.0 != 0.0 && ((current_position[X_AXIS] != destination [X_AXIS]) || (current_position[Y_AXIS] != destination [Y_AXIS])))
 	{
 		laser.status = LASER_ON;
 		laser.fired = LASER_FIRE_E;
 	}
-	if(current_position[E_AXIS] == destination[E_AXIS] && laser.fired == LASER_FIRE_E)
+	if(0.0 == 0.0 && laser.fired == LASER_FIRE_E)
 	{
 		laser.status = LASER_OFF;
 	}
@@ -1802,11 +1802,11 @@ void prepare_move()
 	// Do not use feedmultiply for E or Z only moves
 	if((current_position[X_AXIS] == destination [X_AXIS]) && (current_position[Y_AXIS] == destination [Y_AXIS]))
 	{
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate/60);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate/60);
 	}
 	else
 	{
-		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], destination[E_AXIS], feedrate*feedmultiply/60/100.0);
+		plan_buffer_line(destination[X_AXIS], destination[Y_AXIS], destination[Z_AXIS], feedrate*feedmultiply/60/100.0);
 	}
 
 	for(int8_t i=0; i < NUM_AXIS; i++)

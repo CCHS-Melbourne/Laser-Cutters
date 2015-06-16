@@ -116,7 +116,7 @@ void manage_inactivity();
 	#define disable_z() ;
 #endif
 
-enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2, E_AXIS=3};
+enum AxisEnum {X_AXIS=0, Y_AXIS=1, Z_AXIS=2};
 
 
 void FlushSerialRequestResend();

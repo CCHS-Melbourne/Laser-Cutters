@@ -175,9 +175,6 @@ static void lcd_printPGM(const char* str)
 
 static void lcd_implementation_status_screen()
 {
-
-	static unsigned char fan_rot = 0;
-
 	u8g.setColorIndex(1);	// black on white
 #ifdef LASER_PERIPHERALS
 	if(laser_peripherals_ok())
@@ -324,7 +321,6 @@ static void lcd_implementation_drawmenu_generic(uint8_t row, const char* pstr, c
 
 static void lcd_implementation_drawmenu_setting_edit_generic(uint8_t row, const char* pstr, char pre_char, char* data)
 {
-	static unsigned int fkt_cnt = 0;
 	char c;
 	uint8_t n = LCD_WIDTH - 1 - 2 - strlen(data);
 

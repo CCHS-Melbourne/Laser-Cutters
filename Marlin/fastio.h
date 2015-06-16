@@ -1403,11 +1403,11 @@
 	#define DIO72_DDR		DDRJ
 	#define DIO72_PWM		NULL
 
-	#define DIO73_PIN		PINJ3
-	#define DIO73_RPORT	PINJ
-	#define DIO73_WPORT	PORTJ
-	#define DIO73_DDR		DDRJ
-	#define DIO73_PWM		NULL
+//	#define DIO73_PIN		PINJ3
+//	#define DIO73_RPORT	PINJ
+//	#define DIO73_WPORT	PORTJ
+//	#define DIO73_DDR		DDRJ
+//	#define DIO73_PWM		NULL
 
 	#define DIO74_PIN		PINJ7
 	#define DIO74_RPORT	PINJ
