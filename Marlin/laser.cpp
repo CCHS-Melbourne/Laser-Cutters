@@ -68,14 +68,8 @@ void timer4_init(int pin)
 void laser_init()
 {
 	// Initialize timers for laser intensity control
-#if LASER_CONTROL == 1
-	if(LASER_FIRING_PIN == 2 || LASER_FIRING_PIN == 3 || LASER_FIRING_PIN == 5) { timer3_init(LASER_FIRING_PIN); }
-	if(LASER_FIRING_PIN == 6 || LASER_FIRING_PIN == 7 || LASER_FIRING_PIN == 8) { timer4_init(LASER_FIRING_PIN); }
-#endif
-#if LASER_CONTROL == 2
 	if(LASER_INTENSITY_PIN == 2 || LASER_INTENSITY_PIN == 3 || LASER_INTENSITY_PIN == 5) { timer3_init(LASER_INTENSITY_PIN); }
 	if(LASER_INTENSITY_PIN == 6 || LASER_INTENSITY_PIN == 7 || LASER_INTENSITY_PIN == 8) { timer4_init(LASER_INTENSITY_PIN); }
-#endif
 
 #ifdef LASER_PERIPHERALS
 	digitalWrite(LASER_PERIPHERALS_PIN, HIGH);    // Laser peripherals are active LOW, so preset the pin
@@ -109,13 +103,8 @@ void laser_fire(int intensity = 100.0)
 	if(intensity < 0) { intensity = 0; }
 
 	pinMode(LASER_FIRING_PIN, OUTPUT);
-#if LASER_CONTROL == 1
-	analogWrite(LASER_FIRING_PIN, labs((intensity / 100.0) * (F_CPU / LASER_PWM)));
-#endif
-#if LASER_CONTROL == 2
 	analogWrite(LASER_INTENSITY_PIN, labs((intensity / 100.0) * (F_CPU / LASER_PWM)));
-	digitalWrite(LASER_FIRING_PIN, LOW);
-#endif
+	WRITE(LASER_FIRING_PIN, LOW);
 
 	if(laser.diagnostics)
 	{
@@ -129,7 +118,7 @@ void laser_extinguish()
 		laser.firing = LASER_OFF;
 
 		// Engage the pullup resistor for TTL laser controllers which don't turn off entirely without it.
-		digitalWrite(LASER_FIRING_PIN, HIGH);
+		WRITE(LASER_FIRING_PIN, HIGH);
 		laser.time += millis() - (laser.last_firing / 1000);
 
 		if(laser.diagnostics)

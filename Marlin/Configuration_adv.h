@@ -169,17 +169,6 @@ const unsigned int dropsegments=5; //everything with less than this number of st
 	#undef SDCARDDETECTINVERTED
 #endif
 
-// 1 = ATX
-#if (POWER_SUPPLY == 1)
-	#define PS_ON_AWAKE  LOW
-	#define PS_ON_ASLEEP HIGH
-#endif
-// 2 = X-Box 360 203W
-#if (POWER_SUPPLY == 2)
-	#define PS_ON_AWAKE  HIGH
-	#define PS_ON_ASLEEP LOW
-#endif
-
 //===========================================================================
 //=============================Buffers           ============================
 //===========================================================================
@@ -195,7 +184,7 @@ const unsigned int dropsegments=5; //everything with less than this number of st
 
 //The ASCII buffer for recieving from the serial:
 #define MAX_CMD_SIZE 96
-#define BUFSIZE 4
+#define BUFSIZE 8
 
 
 // Firmware based and LCD controled retract

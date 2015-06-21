@@ -32,10 +32,6 @@
 //
 // Laser control is used by the Muve1 3D printer and the Buildlog.net laser cutter
 //
-//// The following define selects how to control the laser.  Please choose the one that matches your setup.
-// 1 = Single pin control - LOW when off, HIGH when on, PWM to adjust intensity
-// 2 = Two pin control - A firing pin for which LOW = off, HIGH = on, and a seperate intensity pin which carries a constant PWM signal and adjusts duty cycle to control intensity
-#define LASER_CONTROL 2
 
 //// The following defines select which G codes tell the laser to fire.  It's OK to uncomment more than one.
 #define LASER_FIRE_G1 10 // fire the laser on a G1 move, extinguish when the move ends

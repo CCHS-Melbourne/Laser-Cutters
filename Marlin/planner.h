@@ -40,7 +40,7 @@ typedef struct
 	unsigned char direction_bits;             // The direction bit set for this block (refers to *_DIRECTION_BIT in config.h)
 
 	// Fields used by the motion planner to manage acceleration
-//  float speed_x, speed_y, speed_z, speed_e;        // Nominal mm/sec for each axis
+//  float speed_x, speed_y, speed_z, speed_e;		   // Nominal mm/sec for each axis
 	float nominal_speed;                               // The nominal speed for this block in mm/sec
 	float entry_speed;                                 // Entry speed at previous-current junction in mm/sec
 	float max_entry_speed;                             // Maximum allowable junction entry speed in mm/sec

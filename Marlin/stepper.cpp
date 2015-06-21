@@ -334,7 +334,6 @@ ISR(TIMER1_COMPA_vect)
 			counter_x = - (current_block->step_event_count >> 1);
 			counter_y = counter_x;
 			counter_z = counter_x;
-//			counter_e = counter_x;
 			counter_l = counter_x;
 			laser.dur = current_block->laser_duration;
 			step_events_completed = 0;
@@ -347,6 +346,9 @@ ISR(TIMER1_COMPA_vect)
 		}
 		else
 		{
+			// STU: Ran out of data, so turn laser off until next command arrives
+			laser_extinguish();
+
 			OCR1A=2000; // 1kHz.
 		}
 	}
