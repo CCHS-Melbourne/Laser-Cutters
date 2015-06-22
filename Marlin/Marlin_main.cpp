@@ -137,8 +137,8 @@ bool axis_relative_modes[] = AXIS_RELATIVE_MODES;
 int feedmultiply=100; //100->1 200->2
 int saved_feedmultiply;
 int extrudemultiply=100; //100->1 200->2
-float current_position[NUM_AXIS] = { 0.0, 0.0, 0.0, 0.0 };
-bool has_axis_homed[NUM_AXIS] = {false, false, false, false };
+float current_position[NUM_AXIS] = { 0.0, 0.0, 0.0 };
+bool has_axis_homed[NUM_AXIS] = {false, false, false };
 float add_homeing[3]= {0,0,0};
 float min_pos[3] = { X_MIN_POS, Y_MIN_POS, Z_MIN_POS };
 float max_pos[3] = { X_MAX_POS, Y_MAX_POS, Z_MAX_POS };
@@ -153,11 +153,11 @@ int fanSpeed=0;
 //===========================================================================
 //=============================private variables=============================
 //===========================================================================
-const char axis_codes[NUM_AXIS] = {'X', 'Y', 'Z', 'E'};
-static float destination[NUM_AXIS] = {  0.0, 0.0, 0.0, 0.0};
+const char axis_codes[NUM_AXIS] = {'X', 'Y', 'Z'};
+static float destination[NUM_AXIS] = {  0.0, 0.0, 0.0};
 static float offset[3] = {0.0, 0.0, 0.0};
 static bool home_all_axis = true;
-static float feedrate = 1500.0, next_feedrate, saved_feedrate;
+static float feedrate = 2000.0, next_feedrate, saved_feedrate;
 static long gcode_N, gcode_LastN, Stopped_gcode_LastN = 0;
 
 static bool relative_mode = false;  //Determines Absolute or Relative Coordinates
@@ -334,7 +334,9 @@ void setup()
 	setup_photpin();
 
 	lcd_init();
+	tone(BEEPER, 1500);
 	_delay_ms(1000);	// wait 1sec to display the splash screen
+	noTone(BEEPER);
 
 #if defined(CONTROLLERFAN_PIN) && CONTROLLERFAN_PIN > -1
 	SET_OUTPUT(CONTROLLERFAN_PIN);    //Set pin used for driver cooling fan
@@ -835,113 +837,7 @@ void process_commands()
 				lcd_update();
 			}
 			break;
-#ifdef G5_BEZIER
-		case 5: // G5 bezier curve - from http://forums.reprap.org/read.php?147,93577
-			float p[4][2] = {{0.0,0.0},{0.0,0.0},{0.0,0.0},{0.0,0.0}};
-			int steps = 10;
-			float stepsPerUnit = 1;
-			float f[2]= {0,0};
-			float fd[2]= {0,0};
-			float fdd[2]= {0,0};
-			float fddd[2]= {0,0};
-			float fdd_per_2[2]= {0,0};
-			float fddd_per_2[2]= {0,0};
-			float fddd_per_6[2]= {0,0};
-			float t = (1.0);
-			float temp;
-			// get coordinates
-			//---------------------------------------
-			// start point
-			p[0][0] = current_position[0];
-			p[0][1] = current_position[1];
-			// control point 1
-			if(code_seen('I')) { p[1][0] = (float) code_value() + (axis_relative_modes[0] || relative_mode) *current_position[0]; }
-			if(code_seen('J')) { p[1][1] = (float) code_value() + (axis_relative_modes[1] || relative_mode) *current_position[1]; }
 
-			// control point 2
-			if(code_seen('K')) { p[2][0] = (float) code_value() + (axis_relative_modes[0] || relative_mode) *current_position[0]; }
-			if(code_seen('L')) { p[2][1] = (float) code_value() + (axis_relative_modes[1] || relative_mode) *current_position[1]; }
-			// end point
-			if(code_seen(axis_codes[0])) { p[3][0] = (float) code_value() + (axis_relative_modes[0] || relative_mode) *current_position[0]; }
-			if(code_seen(axis_codes[1])) { p[3][1] = (float) code_value() + (axis_relative_modes[1] || relative_mode) *current_position[1]; }
-
-#ifdef DEBUG
-			log_float("CX", p[0][0]);
-			log_float("CY", p[0][1]);
-			log_float("I", p[1][0]);
-			log_float("J", p[1][1]);
-			log_float("K", p[2][0]);
-			log_float("L", p[2][1]);
-			log_float("X", p[3][0]);
-			log_float("Y", p[3][1]);
-#endif
-			// calc num steps
-			float maxD = 0, sqrD = 0;
-			for(int i=1; i<4; i++)
-			{
-				sqrD = (p[i][0] - p[i-1][0]) * (p[i][0] - p[i-1][0]) + (p[i][1] - p[i-1][1]) * (p[i][1] - p[i-1][1]);
-				if(sqrD > maxD) {maxD = sqrD; };
-			}
-			maxD = sqrt(maxD);
-			if(maxD > 0)
-			{
-				steps = round((3 * maxD * stepsPerUnit));
-			}
-			if(steps < 1) { steps = 1; }
-			if(steps > 200) { steps = 200; }
-#ifdef DEBUG
-			log_float("maxD",maxD);
-			log_int("steps", steps);
-#endif
-			// init Forward Differencing algo
-			//---------------------------------------
-			t = 1.0 / steps;
-			temp = t*t;
-			for(int i=0; i<2; i++)
-			{
-				f[i] = p[0][i];
-				fd[i] = 3 * (p[1][i] - p[0][i]) * t;
-				fdd_per_2[i] = 3 * (p[0][i] - 2 * p[1][i] + p[2][i]) * temp;
-				fddd_per_2[i] = 3 * (3 * (p[1][i] - p[2][i]) + p[3][i] - p[0][i]) * temp * t;
-
-				fddd[i] = fddd_per_2[i] + fddd_per_2[i];
-				fdd[i] = fdd_per_2[i] + fdd_per_2[i];
-				fddd_per_6[i] = (fddd_per_2[i] * (1.0 / 3));
-			}
-			// prep destination
-			for(int i=0; i < NUM_AXIS; i++)
-			{
-				destination[i] = current_position[i];
-			}
-			// iterate through curve
-			//---------------------------------------
-			for(int loop=0; loop < steps; loop++)
-			{
-				destination[0] = f[0];
-				destination[1] = f[1];
-#ifdef DEBUG
-				log_float("X",f[0]);
-				log_float("Y",f[1]);
-#endif
-				prepare_move();
-				previous_millis_cmd = millis();
-
-				// update f
-				for(int i=0; i<2; i++)
-				{
-					f[i] = f[i] + fd[i] + fdd_per_2[i] + fddd_per_6[i];
-					fd[i] = fd[i] + fdd[i] + fddd_per_2[i];
-					fdd[i] = fdd[i] + fddd[i];
-					fdd_per_2[i] = fdd_per_2[i] + fddd_per_2[i];
-				}
-			}
-			// Move to final position
-			destination[0] = p[3][0];
-			destination[1] = p[3][1];
-			prepare_move();
-			previous_millis_cmd = millis();
-			break;
-#endif // G5_BEZIER
 		//////////////////////////////////////////////////////////////////////
 		// G7 Trace rster line
 		// L: Raw length
@@ -1348,7 +1244,7 @@ void process_commands()
 			}
 			else
 			{
-				bool all_axis = !((code_seen(axis_codes[0])) || (code_seen(axis_codes[1])) || (code_seen(axis_codes[2])) || (code_seen(axis_codes[3])));
+				bool all_axis = !((code_seen(axis_codes[X_AXIS])) || (code_seen(axis_codes[Y_AXIS])) || (code_seen(axis_codes[Z_AXIS])));
 				if(all_axis)
 				{
 					st_synchronize();
@@ -1478,14 +1374,6 @@ void process_commands()
 			// steps per sq second need to be updated to agree with the units per sq second (as they are what is used in the planner)
 			reset_acceleration_rates();
 			break;
-#if 0 // Not used for Sprinter/grbl gen6
-		case 202: // M202
-			for(int8_t i=0; i < NUM_AXIS; i++)
-			{
-				if(code_seen(axis_codes[i])) { axis_travel_steps_per_sqr_second[i] = code_value() * axis_steps_per_unit[i]; }
-			}
-			break;
-#endif
 		case 203: // M203 max feedrate mm/sec
 			for(int8_t i=0; i < NUM_AXIS; i++)
 			{
@@ -1509,7 +1397,7 @@ void process_commands()
 			}
 			break;
 		case 206: // M206 additional homeing offset
-			for(int8_t i=0; i < 3; i++)
+			for (int8_t i = 0; i < NUM_AXIS; i++)
 			{
 				if(code_seen(axis_codes[i])) { add_homeing[i] = code_value(); }
 			}

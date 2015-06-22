@@ -91,7 +91,6 @@ void Config_PrintSettings()
 	SERIAL_ECHOPAIR("  M203 X",max_feedrate[0]);
 	SERIAL_ECHOPAIR(" Y",max_feedrate[1]);
 	SERIAL_ECHOPAIR(" Z", max_feedrate[2]);
-	SERIAL_ECHOPAIR(" E", max_feedrate[3]);
 	SERIAL_ECHOLN("");
 
 	SERIAL_ECHO_START;
@@ -100,7 +99,6 @@ void Config_PrintSettings()
 	SERIAL_ECHOPAIR("  M201 X" ,max_acceleration_units_per_sq_second[0]);
 	SERIAL_ECHOPAIR(" Y" , max_acceleration_units_per_sq_second[1]);
 	SERIAL_ECHOPAIR(" Z" ,max_acceleration_units_per_sq_second[2]);
-	SERIAL_ECHOPAIR(" E" ,max_acceleration_units_per_sq_second[3]);
 	SERIAL_ECHOLN("");
 	SERIAL_ECHO_START;
 	SERIAL_ECHOLNPGM("Acceleration: S=acceleration, T=retract acceleration");
@@ -117,7 +115,6 @@ void Config_PrintSettings()
 	SERIAL_ECHOPAIR(" B" ,minsegmenttime);
 	SERIAL_ECHOPAIR(" X" ,max_xy_jerk);
 	SERIAL_ECHOPAIR(" Z" ,max_z_jerk);
-	SERIAL_ECHOPAIR(" E" ,max_e_jerk);
 	SERIAL_ECHOLN("");
 
 	SERIAL_ECHO_START;
