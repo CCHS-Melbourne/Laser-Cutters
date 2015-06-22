@@ -23,9 +23,6 @@
 // Define this to set a custom name for your generic Mendel,
 // #define CUSTOM_MENDEL_NAME "This Mendel"
 
-// This defines the number of extruders
-#define EXTRUDERS 1
-
 //===========================================================================
 //============================= Laser Settings ==============================
 //===========================================================================
@@ -105,9 +102,6 @@
 //=============================Mechanical Settings===========================
 //===========================================================================
 
-// Uncomment the following line to enable CoreXY kinematics
-// #define COREXY
-
 // coarse Endstop Settings
 #define ENDSTOPPULLUPS // Comment this out (using // at the start of the line) to disable the endstop pullup resistors
 
@@ -140,16 +134,10 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 #define DISABLE_MAX_ENDSTOPS
 //#define DISABLE_MIN_ENDSTOPS
 
-// Disable max endstops for compatibility with endstop checking routine
-#if defined(COREXY) && !defined(DISABLE_MAX_ENDSTOPS)
-	#define DISABLE_MAX_ENDSTOPS
-#endif
-
 // For Inverting Stepper Enable Pins (Active Low) use 0, Non Inverting (Active High) use 1
 #define X_ENABLE_ON 0
 #define Y_ENABLE_ON 0
 #define Z_ENABLE_ON 0
-#define E_ENABLE_ON 0 // For all extruders
 
 // Disables axis when it's not being used.
 #define DISABLE_X false
@@ -235,12 +223,6 @@ const bool Z_MAX_ENDSTOP_INVERTING = false; // set to true to invert the logic o
 
 #define DEFAULT_ACCELERATION          2000    // X, Y, Z and E max acceleration in mm/s^2 for printing moves
 #define DEFAULT_RETRACT_ACCELERATION  2000   // X, Y, Z and E max acceleration in mm/s^2 for retracts
-
-// Offset of the extruders (uncomment if using more than one and relying on firmware to position when changing).
-// The offset has to be X=0, Y=0 for the extruder 0 hotend (default extruder).
-// For the other hotends it is their distance from the extruder 0 hotend.
-// #define EXTRUDER_OFFSET_X {0.0, 20.00} // (in mm) for each extruder, offset of the hotend on the X axis
-// #define EXTRUDER_OFFSET_Y {0.0, 5.00}  // (in mm) for each extruder, offset of the hotend on the Y axis
 
 // The speed change that does not require acceleration (i.e. the software might assume it can be done instantaneously)
 #define DEFAULT_XYJERK                20.0    // (mm/sec)

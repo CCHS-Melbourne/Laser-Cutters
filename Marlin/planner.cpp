@@ -469,7 +469,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, float feed
 	target[X_AXIS] = lround(x*axis_steps_per_unit[X_AXIS]);
 	target[Y_AXIS] = lround(y*axis_steps_per_unit[Y_AXIS]);
 	target[Z_AXIS] = lround(z*axis_steps_per_unit[Z_AXIS]);
-//	target[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
 
 	// Prepare to set up new block
 	block_t* block = &block_buffer[block_buffer_head];
@@ -478,16 +477,8 @@ void plan_buffer_line(const float& x, const float& y, const float& z, float feed
 	block->busy = false;
 
 	// Number of steps for each axis
-#ifndef COREXY
-// default non-h-bot planning
 	block->steps_x = labs(target[X_AXIS]-position[X_AXIS]);
 	block->steps_y = labs(target[Y_AXIS]-position[Y_AXIS]);
-#else
-// corexy planning
-// these equations follow the form of the dA and dB equations on http://www.corexy.com/theory.html
-	block->steps_x = labs((target[X_AXIS]-position[X_AXIS]) + (target[Y_AXIS]-position[Y_AXIS]));
-	block->steps_y = labs((target[X_AXIS]-position[X_AXIS]) - (target[Y_AXIS]-position[Y_AXIS]));
-#endif
 	block->steps_z = labs(target[Z_AXIS]-position[Z_AXIS]);
 
 	block->step_event_count = max(block->steps_x, max(block->steps_y, block->steps_z));
@@ -495,7 +486,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, float feed
 	block->fan_speed = fanSpeed;
 	// Compute direction bits for this block
 	block->direction_bits = 0;
-#ifndef COREXY
 	if(target[X_AXIS] < position[X_AXIS])
 	{
 		block->direction_bits |= (1<<X_AXIS);
@@ -504,48 +494,20 @@ void plan_buffer_line(const float& x, const float& y, const float& z, float feed
 	{
 		block->direction_bits |= (1<<Y_AXIS);
 	}
-#else
-	if((target[X_AXIS]-position[X_AXIS]) + (target[Y_AXIS]-position[Y_AXIS]) < 0)
-	{
-		block->direction_bits |= (1<<X_AXIS);
-	}
-	if((target[X_AXIS]-position[X_AXIS]) - (target[Y_AXIS]-position[Y_AXIS]) < 0)
-	{
-		block->direction_bits |= (1<<Y_AXIS);
-	}
-#endif
 	if(target[Z_AXIS] < position[Z_AXIS])
 	{
 		block->direction_bits |= (1<<Z_AXIS);
 	}
-//	if(target[E_AXIS] < position[E_AXIS])
-//	{
-//		block->direction_bits |= (1<<E_AXIS);
-//	}
 
 	//enable active axes
-#ifdef COREXY
-	if((block->steps_x != 0) || (block->steps_y != 0))
-	{
-		enable_x();
-		enable_y();
-	}
-#else
 	if(block->steps_x != 0) { enable_x(); }
 	if(block->steps_y != 0) { enable_y(); }
-#endif
 	if(block->steps_z != 0) { enable_z(); }
 
 	float delta_mm[3];
-#ifndef COREXY
 	delta_mm[X_AXIS] = (target[X_AXIS]-position[X_AXIS]) /axis_steps_per_unit[X_AXIS];
 	delta_mm[Y_AXIS] = (target[Y_AXIS]-position[Y_AXIS]) /axis_steps_per_unit[Y_AXIS];
-#else
-	delta_mm[X_AXIS] = ((target[X_AXIS]-position[X_AXIS]) + (target[Y_AXIS]-position[Y_AXIS])) /axis_steps_per_unit[X_AXIS];
-	delta_mm[Y_AXIS] = ((target[X_AXIS]-position[X_AXIS]) - (target[Y_AXIS]-position[Y_AXIS])) /axis_steps_per_unit[Y_AXIS];
-#endif
 	delta_mm[Z_AXIS] = (target[Z_AXIS]-position[Z_AXIS]) /axis_steps_per_unit[Z_AXIS];
-//	delta_mm[E_AXIS] = ((target[E_AXIS]-position[E_AXIS]) /axis_steps_per_unit[E_AXIS]) *extrudemultiply/100.0;
 	if(block->steps_x <=dropsegments && block->steps_y <=dropsegments && block->steps_z <=dropsegments)
 	{
 		block->millimeters = 0.0;	// fabs(delta_mm[E_AXIS]);
@@ -759,8 +721,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, float feed
 	float vmax_junction_factor = 1.0;
 	if(fabs(current_speed[Z_AXIS]) > max_z_jerk/2)
 	{ vmax_junction = min(vmax_junction, max_z_jerk/2); }
-//	if(fabs(current_speed[E_AXIS]) > max_e_jerk/2)
-//	{ vmax_junction = min(vmax_junction, max_e_jerk/2); }
 	vmax_junction = min(vmax_junction, block->nominal_speed);
 	float safe_speed = vmax_junction;
 
@@ -778,10 +738,6 @@ void plan_buffer_line(const float& x, const float& y, const float& z, float feed
 		{
 			vmax_junction_factor= min(vmax_junction_factor, (max_z_jerk/fabs(current_speed[Z_AXIS] - previous_speed[Z_AXIS])));
 		}
-//		if(fabs(current_speed[E_AXIS] - previous_speed[E_AXIS]) > max_e_jerk)
-//		{
-//			vmax_junction_factor = min(vmax_junction_factor, (max_e_jerk/fabs(current_speed[E_AXIS] - previous_speed[E_AXIS])));
-//		}
 		vmax_junction = min(previous_nominal_speed, vmax_junction * vmax_junction_factor);    // Limit speed to max previous speed
 	}
 	block->max_entry_speed = vmax_junction;
@@ -834,19 +790,12 @@ void plan_set_position(const float& x, const float& y, const float& z)
 	position[X_AXIS] = lround(x*axis_steps_per_unit[X_AXIS]);
 	position[Y_AXIS] = lround(y*axis_steps_per_unit[Y_AXIS]);
 	position[Z_AXIS] = lround(z*axis_steps_per_unit[Z_AXIS]);
-//	position[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
 	st_set_position(position[X_AXIS], position[Y_AXIS], position[Z_AXIS]);
 	previous_nominal_speed = 0.0; // Resets planner junction speeds. Assumes start from rest.
 	previous_speed[0] = 0.0;
 	previous_speed[1] = 0.0;
 	previous_speed[2] = 0.0;
 	previous_speed[3] = 0.0;
-}
-
-void plan_set_e_position(const float& e)
-{
-//	position[E_AXIS] = lround(e*axis_steps_per_unit[E_AXIS]);
-//	st_set_e_position(position[E_AXIS]);
 }
 
 uint8_t movesplanned()

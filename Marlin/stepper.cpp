@@ -369,7 +369,7 @@ ISR(TIMER1_COMPA_vect)
 			laser_extinguish();
 		}
 
-		// Set the direction bits (X_AXIS=A_AXIS and Y_AXIS=B_AXIS for COREXY)
+		// Set the direction bits
 		if((out_bits & (1<<X_AXIS)) !=0)
 		{
 			WRITE(X_DIR_PIN, INVERT_X_DIR);
@@ -392,13 +392,8 @@ ISR(TIMER1_COMPA_vect)
 		}
 
 		// Set direction en check limit switches
-#ifndef COREXY
 		if((out_bits & (1<<X_AXIS)) != 0)        // stepping along -X axis
 		{
-#else
-		if((((out_bits & (1<<X_AXIS)) != 0) && (out_bits & (1<<Y_AXIS)) != 0))                //-X occurs for -A and -B
-		{
-#endif
 			CHECK_ENDSTOPS
 			{
 				{
@@ -434,13 +429,8 @@ ISR(TIMER1_COMPA_vect)
 			}
 		}
 
-#ifndef COREXY
 		if((out_bits & (1<<Y_AXIS)) != 0)        // -direction
 		{
-#else
-		if((((out_bits & (1<<X_AXIS)) != 0) && (out_bits & (1<<Y_AXIS)) == 0))                // -Y occurs for -A and +B
-		{
-#endif
 			CHECK_ENDSTOPS
 			{
 #if defined(Y_MIN_PIN) && Y_MIN_PIN > -1
@@ -511,19 +501,6 @@ ISR(TIMER1_COMPA_vect)
 			}
 		}
 
-//		if((out_bits & (1<<E_AXIS)) != 0)        // -direction
-//		{
-//			REV_E_DIR();
-//			count_direction[E_AXIS]=-1;
-//		}
-//		else   // +direction
-//		{
-//			NORM_E_DIR();
-//			count_direction[E_AXIS]=1;
-//		}
-
-
-
 		for(int8_t i=0; i < step_loops; i++)    // Take multiple steps per interrupt (For high speed moves)
 		{
 #ifndef AT90USB
@@ -558,15 +535,6 @@ ISR(TIMER1_COMPA_vect)
 				WRITE(Z_STEP_PIN, INVERT_Z_STEP_PIN);
 
 			}
-
-//			counter_e += current_block->steps_e;
-//			if(counter_e > 0)
-//			{
-//				WRITE_E_STEP(!INVERT_E_STEP_PIN);
-//				counter_e -= current_block->step_event_count;
-//				count_position[E_AXIS]+=count_direction[E_AXIS];
-//				WRITE_E_STEP(INVERT_E_STEP_PIN);
-//			}
 
 			// steps_l = step count between laser firings
 			//
@@ -677,15 +645,6 @@ void st_init()
 	SET_OUTPUT(Z_DIR_PIN);
 
 #endif
-#if defined(E0_DIR_PIN) && E0_DIR_PIN > -1
-	SET_OUTPUT(E0_DIR_PIN);
-#endif
-#if defined(E1_DIR_PIN) && (E1_DIR_PIN > -1)
-	SET_OUTPUT(E1_DIR_PIN);
-#endif
-#if defined(E2_DIR_PIN) && (E2_DIR_PIN > -1)
-	SET_OUTPUT(E2_DIR_PIN);
-#endif
 
 	//Initialize Enable Pins - steppers default to disabled.
 
@@ -701,18 +660,6 @@ void st_init()
 	SET_OUTPUT(Z_ENABLE_PIN);
 	if(!Z_ENABLE_ON) { WRITE(Z_ENABLE_PIN,HIGH); }
 
-#endif
-#if defined(E0_ENABLE_PIN) && (E0_ENABLE_PIN > -1)
-	SET_OUTPUT(E0_ENABLE_PIN);
-	if(!E_ENABLE_ON) { WRITE(E0_ENABLE_PIN,HIGH); }
-#endif
-#if defined(E1_ENABLE_PIN) && (E1_ENABLE_PIN > -1)
-	SET_OUTPUT(E1_ENABLE_PIN);
-	if(!E_ENABLE_ON) { WRITE(E1_ENABLE_PIN,HIGH); }
-#endif
-#if defined(E2_ENABLE_PIN) && (E2_ENABLE_PIN > -1)
-	SET_OUTPUT(E2_ENABLE_PIN);
-	if(!E_ENABLE_ON) { WRITE(E2_ENABLE_PIN,HIGH); }
 #endif
 
 	//endstops and pullups
@@ -819,15 +766,7 @@ void st_set_position(const long& x, const long& y, const long& z)
 	count_position[X_AXIS] = x;
 	count_position[Y_AXIS] = y;
 	count_position[Z_AXIS] = z;
-//	count_position[E_AXIS] = e;
 	CRITICAL_SECTION_END;
-}
-
-void st_set_e_position(const long& e)
-{
-//	CRITICAL_SECTION_START;
-//	count_position[E_AXIS] = e;
-//	CRITICAL_SECTION_END;
 }
 
 long st_get_position(uint8_t axis)

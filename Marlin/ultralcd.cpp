@@ -403,27 +403,6 @@ static void lcd_move_z()
 	}
 }
 
-static void lcd_move_e()
-{
-//	if(encoderPosition != 0)
-//	{
-//		current_position[E_AXIS] += float ((int) encoderPosition) * move_menu_scale;
-//		encoderPosition = 0;
-//		plan_buffer_line(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS], manual_feedrate[E_AXIS]/60);
-//		lcdDrawUpdate = 1;
-//	}
-//	if(lcdDrawUpdate)
-//	{
-//		lcd_implementation_drawedit(PSTR("Extruder"), ftostr31(current_position[E_AXIS]));
-//	}
-//	if(LCD_CLICKED)
-//	{
-//		lcd_quick_feedback();
-//		currentMenu = lcd_move_menu_axis;
-//		encoderPosition = 0;
-//	}
-}
-
 static void lcd_move_menu_axis()
 {
 	START_MENU();
@@ -433,7 +412,6 @@ static void lcd_move_menu_axis()
 	if(move_menu_scale < 10.0)
 	{
 		MENU_ITEM(submenu, "Move Z", lcd_move_z);
-		MENU_ITEM(submenu, "Extruder", lcd_move_e);
 	}
 	END_MENU();
 }
@@ -492,18 +470,15 @@ static void lcd_control_motion_menu()
 	MENU_ITEM_EDIT(float3, MSG_VMAX MSG_X, &max_feedrate[X_AXIS], 1, 999);
 	MENU_ITEM_EDIT(float3, MSG_VMAX MSG_Y, &max_feedrate[Y_AXIS], 1, 999);
 	MENU_ITEM_EDIT(float3, MSG_VMAX MSG_Z, &max_feedrate[Z_AXIS], 1, 999);
-//	MENU_ITEM_EDIT(float3, MSG_VMAX MSG_E, &max_feedrate[E_AXIS], 1, 999);
 	MENU_ITEM_EDIT(float3, MSG_VMIN, &minimumfeedrate, 0, 999);
 	MENU_ITEM_EDIT(float3, MSG_VTRAV_MIN, &mintravelfeedrate, 0, 999);
 	MENU_ITEM_EDIT_CALLBACK(long5, MSG_AMAX MSG_X, &max_acceleration_units_per_sq_second[X_AXIS], 100, 99000, reset_acceleration_rates);
 	MENU_ITEM_EDIT_CALLBACK(long5, MSG_AMAX MSG_Y, &max_acceleration_units_per_sq_second[Y_AXIS], 100, 99000, reset_acceleration_rates);
 	MENU_ITEM_EDIT_CALLBACK(long5, MSG_AMAX MSG_Z, &max_acceleration_units_per_sq_second[Z_AXIS], 100, 99000, reset_acceleration_rates);
-//	MENU_ITEM_EDIT_CALLBACK(long5, MSG_AMAX MSG_E, &max_acceleration_units_per_sq_second[E_AXIS], 100, 99000, reset_acceleration_rates);
 	MENU_ITEM_EDIT(float5, MSG_A_RETRACT, &retract_acceleration, 100, 99000);
 	MENU_ITEM_EDIT(float52, MSG_XSTEPS, &axis_steps_per_unit[X_AXIS], 5, 9999);
 	MENU_ITEM_EDIT(float52, MSG_YSTEPS, &axis_steps_per_unit[Y_AXIS], 5, 9999);
 	MENU_ITEM_EDIT(float51, MSG_ZSTEPS, &axis_steps_per_unit[Z_AXIS], 5, 9999);
-//	MENU_ITEM_EDIT(float51, MSG_ESTEPS, &axis_steps_per_unit[E_AXIS], 5, 9999);
 #ifdef ABORT_ON_ENDSTOP_HIT_FEATURE_ENABLED
 	MENU_ITEM_EDIT(bool, "Endstop abort", &abort_on_endstop_hit);
 #endif

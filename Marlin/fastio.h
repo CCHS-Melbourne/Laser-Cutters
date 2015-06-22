@@ -27,7 +27,11 @@
 /// write to a pin
 // On some boards pins > 0x100 are used. These are not converted to atomic actions. An critical section is needed.
 
-#define _WRITE_NC(IO, v)  do { if (v) {DIO ##  IO ## _WPORT |= MASK(DIO ## IO ## _PIN); } else {DIO ##  IO ## _WPORT &= ~MASK(DIO ## IO ## _PIN); }; } while (0)
+#define _WRITE_NC(IO, v)  do { if (v) \
+				{DIO ##  IO ## _WPORT |= MASK(DIO ## IO ## _PIN); } \
+			else \
+				{DIO ##  IO ## _WPORT &= ~MASK(DIO ## IO ## _PIN); }; \
+			} while (0)
 
 #define _WRITE_C(IO, v)   do { if (v) { \
 			CRITICAL_SECTION_START; \
@@ -64,8 +68,10 @@
 
 /// Read a pin wrapper
 #define READ(IO)  _READ(IO)
+
+// STU: Changed this to directly call _WRITE_NC as we don't have any non-atomic ports on a MEGA 2560
 /// Write to a pin wrapper
-#define WRITE(IO, v)  _WRITE(IO, v)
+#define WRITE(IO, v)  _WRITE_NC(IO, v)
 
 /// toggle a pin wrapper
 #define TOGGLE(IO)  _TOGGLE(IO)

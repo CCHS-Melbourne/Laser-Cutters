@@ -33,7 +33,6 @@ void mc_arc(float* position, float* target, float* offset, uint8_t axis_0, uint8
 	float center_axis0 = position[axis_0] + offset[axis_0];
 	float center_axis1 = position[axis_1] + offset[axis_1];
 	float linear_travel = target[axis_linear] - position[axis_linear];
-//	float extruder_travel = target[E_AXIS] - position[E_AXIS];
 	float r_axis0 = -offset[axis_0];  // Radius vector from center to current location
 	float r_axis1 = -offset[axis_1];
 	float rt_axis0 = target[axis_0] - center_axis0;
@@ -97,9 +96,6 @@ void mc_arc(float* position, float* target, float* offset, uint8_t axis_0, uint8
 
 	// Initialize the linear axis
 	arc_target[axis_linear] = position[axis_linear];
-
-	// Initialize the extruder axis
-//	arc_target[E_AXIS] = position[E_AXIS];
 
 	for(i = 1; i<segments; i++)    // Increment (segments-1)
 	{

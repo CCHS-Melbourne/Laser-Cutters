@@ -1107,22 +1107,13 @@ void process_commands()
 			relative_mode = true;
 			break;
 		case 92: // G92
-//			if(!code_seen(axis_codes[E_AXIS]))
-			{ st_synchronize(); }
+			st_synchronize();
 			for(int8_t i=0; i < NUM_AXIS; i++)
 			{
 				if(code_seen(axis_codes[i]))
 				{
-//					if(i == E_AXIS)
-//					{
-//						current_position[i] = code_value();
-//						plan_set_e_position(0.0);
-//					}
-//					else
-					{
-						current_position[i] = code_value()+add_homeing[i];
-						plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
-					}
+					current_position[i] = code_value()+add_homeing[i];
+					plan_set_position(current_position[X_AXIS], current_position[Y_AXIS], current_position[Z_AXIS]);
 				}
 			}
 			break;
