@@ -987,7 +987,11 @@ void process_commands()
 			break;
 
 		//////////////////////////////////////////////////////////////////////
-		// G28 Home all axis
+		// G28 Home all axis (optionally via an intermediate position)
+		// X: XPos to move via (optional)
+		// Y: YPos to move via (optional)
+		// Z: ZPos to move via (optional)
+		// NOTE: This may not be properly implemented
 		//////////////////////////////////////////////////////////////////////
 		case 28: //G28 Home all Axis one at a time
 			saved_feedrate = feedrate;
