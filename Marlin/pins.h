@@ -31,7 +31,8 @@
 
 #define LARGE_FLASH true
 
-#define X_STEP_PIN         54
+// AJ FISHER VERSIONS for RAMPS
+/**#define X_STEP_PIN         54
 #define X_DIR_PIN          55
 #define X_ENABLE_PIN       38
 #define X_MIN_PIN           3
@@ -59,6 +60,37 @@
 
 #define LASER_INTENSITY_PIN 6 // Digital pins 2, 3, 5, 6, 7, 8 are attached to timers we can use
 #define LASER_FIRING_PIN	5
+**/
+
+
+#define X_STEP_PIN         17
+#define X_DIR_PIN          16
+#define X_ENABLE_PIN       48
+#define X_MIN_PIN          37
+#define X_MAX_PIN           -1
+
+#define Y_STEP_PIN         54
+#define Y_DIR_PIN          47
+#define Y_ENABLE_PIN       55
+#define Y_MIN_PIN          35
+#define Y_MAX_PIN          -1
+
+#define Z_STEP_PIN         57
+#define Z_DIR_PIN          56
+#define Z_ENABLE_PIN       62
+#define Z_MIN_PIN          33
+#define Z_MAX_PIN          -1
+
+#define Z2_STEP_PIN        36
+#define Z2_DIR_PIN         34
+#define Z2_ENABLE_PIN      30
+
+#define SDPOWER            -1
+#define SDSS               25
+#define LED_PIN            13
+
+#define LASER_INTENSITY_PIN 5 // Digital pins 2, 3, 5, 6, 7, 8 are attached to timers we can useUdefine LASER_FIRING_PIN	11
+#define LASER_FIRING_PIN	11
 
 #ifdef LASER_POWER_DOWN
 	#define LASER_POWER_PIN 9 // This is currently hard-coded to timer2 which services pins 9, 10
@@ -104,8 +136,8 @@
 		#ifdef REPRAP_DISCOUNT_SMART_CONTROLLER
 			#define BEEPER 37
 
-			#define BTN_EN1 31
-			#define BTN_EN2 33
+			#define BTN_EN1 33
+			#define BTN_EN2 31
 			#define BTN_ENC 35
 
 			#define SDCARDDETECT 49
