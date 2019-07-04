@@ -2,10 +2,10 @@
 
 This readme contains mostly content copied over from the old CCHS wiki.
 
-Head on over to [the wiki for the in depth laser cutter info.](https://github.com/CCHS-Melbourne/LaserCutter/wiki)
+Head on over to [the wiki for the current in depth laser cutter info.](https://github.com/CCHS-Melbourne/LaserCutter/wiki)
 
 
-In this fork I intend to strip the code down to the laser essentials only, fix some bugs, and make useful additions for my personal setup. This isn't intended to be a one-size-fits-all implementation, but if you have a K40 laser with RAMPS 1.4 upgrade, it may be useful to you.
+
 
 ==========================================
 Turnkey K40 Laser Arduino + Ramps Firmware
@@ -17,15 +17,6 @@ Original credits for building this firmware from stock Marlin go to THinkscape a
 This firmware is based on their foundation work.
 
 This firmware is designed to be used in conjunction with my Inkscape 0.91 gcode exporter https://github.com/TurnkeyTyranny/laser-gcode-exporter-inkscape-plugin
-
-You can contact me via email at : 394ad2f@gmail.com, I check my email daily usually.
-
-Donations
----------
-Find this software useful? Donations are gratefully appreciated. 
-
-* Paypal to 394ad2f@gmail.com
-* Bitcoins to 16TFmnFyvDA8Q6TTakvvhargy8c89Rb3cj
 
 Safety Warnings
 ==================
