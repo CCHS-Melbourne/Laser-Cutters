@@ -1,3 +1,10 @@
+# Readme
+
+This readme contains mostly content copied over from the old CCHS wiki.
+
+Head on over to [the wiki for the in depth laser cutter info.](https://github.com/CCHS-Melbourne/LaserCutter/wiki)
+
+
 In this fork I intend to strip the code down to the laser essentials only, fix some bugs, and make useful additions for my personal setup. This isn't intended to be a one-size-fits-all implementation, but if you have a K40 laser with RAMPS 1.4 upgrade, it may be useful to you.
 
 ==========================================
