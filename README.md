@@ -1,4 +1,4 @@
-# Readme
+# CCHS Laser Cutter
 
 This readme contains mostly content copied over from the old CCHS wiki.
 
