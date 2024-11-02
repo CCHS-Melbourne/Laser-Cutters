@@ -1,0 +1,4658 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<LightBurnLibrary>
+    <Material name="Acrylic">
+        <Entry Thickness="-1.0000" Desc="Etch Vector">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Fill">
+            <CutSetting type="Scan">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="10"/>
+                <maxPower Value="10"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="400"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector - Slow">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="7"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="40"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Acrylic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="15"/>
+                <kerf Value="0.05"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="1.5000" Desc="Acrylic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="35"/>
+                <kerf Value="0.075"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="4.5000" Desc="Acrylic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="10"/>
+                <kerf Value="0.09"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="10.0000" Desc="Acrylic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="3"/>
+                <kerf Value="0.011"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="6.0000" Desc="Acrylic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="7"/>
+                <kerf Value="0.015"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="2.0000" Desc="Acrylic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="25"/>
+                <kerf Value="0.05"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector (4mm De-Focus)">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0"/>
+                <zOffset Value="-25.3"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="2.0000" Desc="Glassy (Slow)">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="30"/>
+                <maxPower Value="35"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="5"/>
+                <kerf Value="0.05"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Balsa Wood">
+        <Entry Thickness="3.0000" Desc="Bunnings">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="15"/>
+                <maxPower Value="15"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="50"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Bamboo">
+        <Entry Thickness="3.0000" Desc="Plyco Carbonated Bamboo">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Cardboard">
+        <Entry Thickness="-1.0000" Desc="Etch Vector">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="7"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="mergeAll"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Fill">
+            <CutSetting type="Scan">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="10"/>
+                <maxPower Value="10"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="400"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="mergeAll"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.2000" Desc="210gsm - Fast">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="20"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="85"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.2000" Desc="210gsm - Clean">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="10"/>
+                <maxPower Value="10"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="25"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.8500" Desc="10 Sheet Pasteboard">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0.09"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.6500" Desc="600gsm">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="20"/>
+                <maxPower Value="20"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="75"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="1.0000" Desc="Screenboard">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="80"/>
+                <kerf Value="0.09"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="1.1500" Desc="Boxboard">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="90"/>
+                <kerf Value="0.09"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.2000" Desc="210gsm - Perforated">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="20"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="1"/>
+                <perfLen Value="1"/>
+                <perfSkip Value="1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.2000" Desc="210gsm - Fold">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="20"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="1"/>
+                <perfLen Value="0.3"/>
+                <perfSkip Value="1.2"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="2.0000" Desc="Mount Board">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="65"/>
+                <kerf Value="0.09"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="2.3500" Desc="Boxboard">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Cardboard (Corrugated)">
+        <Entry Thickness="6.0000" Desc="Corrugated">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.09"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Corflute">
+        <Entry Thickness="5.0000" Desc="Corflute">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="12"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Corflute">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Cork">
+        <Entry Thickness="1.5000" Desc="Daiso">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="25"/>
+                <maxPower Value="25"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="60"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="200"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="EVA">
+        <Entry Thickness="2.0000" Desc="EVA">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="40"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="1.0000" Desc="EVA">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="60"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="6.0000" Desc="EVA">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="10"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="15"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector - Deeper">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="15"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="10.0000" Desc="Floor Mats">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="10"/>
+                <maxPower Value="10"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="15"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Lumins">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="15"/>
+                <maxPower Value="15"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="6.0100" Desc="Dense">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="10"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="20.0000" Desc="Lumins Prop Block">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="42"/>
+                <maxPower Value="42"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="6"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="10.0000" Desc="Blue Floor Mat">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="15"/>
+                <maxPower Value="15"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="6"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Eucalypt">
+        <Entry Thickness="2.3500" Desc="Plyco Eucalypt">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="European Beech">
+        <Entry Thickness="2.3500" Desc="Plyco">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="2.7000" Desc="Plyco Beech">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="15"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Felt">
+        <Entry Thickness="1.6000" Desc="Engineering Felt (Wool)">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Fijian Cedar">
+        <Entry Thickness="1.6500" Desc="Plyco">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="50"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Foam Core">
+        <Entry Thickness="3.0000" Desc="Foam Core - Cut">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="22"/>
+                <maxPower Value="22"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="60"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Foam Core - Top Layer">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="10"/>
+                <maxPower Value="10"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="75"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Foamcore">
+        <Entry Thickness="5.0000" Desc="Foamcore">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="35"/>
+                <maxPower Value="35"/>
+                <minPower2 Va àª    ˝
+àªÒZ”µ ˙ Tb∑€z ‡Ì¬øˇPâÒ!k\‹¨Œ0˝S[à·’ﬁâßL@àœı¶S—˚(*õP#·P¡fxË¥:[¡SÔZ◊–`ËO“¬ß£J±ùÆR ºÊ1p=;ÿã≠3?°ôx´°hBåÄ ª\„ëˇ¥˜^êqÒöıÄ~>Åß%ÙˇZD†–4.Œ¶zq9µ¥ñdp∞]kú˝Ja}J*"0?¿X]zaO˛<Q3x+vˇC–å=+tÚA•4käŸ¿‡ò¨â7dÅ1ıEËŸã™]≤ÕπNC!ÅsæÛ@O˛ ëƒ(iO•Ñc)81’r√‘}…f·Øswo@…	 A«ˇàu>
+Ò–¨¸&$pô0> Œ9Ô>˙·§„ìB–w@©V*ã—Í{≥’∑¢P¬*6UpŸ¡bÅ,NWËo`…îõUÄª±Ã∑dN^íp˛ƒΩéd>±°ËäÕ‚l Ä°# •2Ïëvÿ6ô˙êÚP©«p≈Å6æÎBé‚·†1%–lå(qË-2 li(∞û∞s<[êaLY{)	f¿y;ãó∫‚Q"|(°hÑƒ–F_¬C>¨A*ï3˚Îv‡yàºF‚Ìå1$ˇºx˛Û≥|(ı!–>ã>~ Úàª    .˝
+Úàª≥\”µ\˙~nb∑!z byƒøw∫âÒøÉ\ff÷0?ØÆ\ø·≥D<ûu^Õ@äà&òÕD—b¯ÅtêPÉøçnÌvi¡±8N l∑ª`jRïõ¯M±;‘ø}r€&po=ÒØ°wàôTüæ°Äˇ˛ïÕ≥ë%ÒIà&ê3!Ê˚È2ÅÚ√ˆ÷†R.{1päGq◊∂7ÜÂJ¨∞ü∂CNJPa[≥˜E˙@ı¿ZÇÉzÇVQQ£¥Ì¨ ï–√ëï>sçqAyä√zÑ€<‡ur<gT1ì¥‹î•)güîÓÈF%Ë!_µ˙§«√à ì†∞À.˛ùhYÔùSï4!=ﬁNÚîl7¿∏ √.∫]L5hÒnΩËù<N’0Ä£1¸Rh·Ç~éGˆø@´iYQ≠ÏÕ—1=”GjPÑﬂïffw¡¿»Hﬂî`Ksπ61Å±j¡›¶uUKp@U˛wO√G°∆˛ÊwË∆2Ä£Ìàße¶‡ëîÏQò≠≤ê¥‹XPÅ~ÅîÓ4EHLº†≥˙è–f=qÜ∞ÖÏ ≥∞‡W’ñZæa*&ÄÜ/˛¿{<ÇBÛôiQ@ã°•ºA≤–ƒ(wNeAàc˚!Wö‡˚‘∫>£–1¬zÚååÂ`15s˛T^!Æ‰∞I,º Ùàª    L˝
+Ùàªu^”µò˙‹àb∑gz ‰∆øÔ#äÒ]Iö\ﬁ0ÅL
+^s(û·ë{ö≤C´N@å=XâÑ6—7õ∆hò?PE£Ù%≥w¡lé•~ó¶`ÏTXt{LQ±Ÿ˘,1(–p¡£¢í4,Œ°Uòá÷:∑ÄÌÒ‡
+DëC„,ç%êÓêıP°÷vU'Åcæs#ÏRÔ†‘'»î9öyquU∫W41Ë∞·ÎîÜ7Ua9≈iƒBÈ¿\ßåìªpQoŒ=eZ˝–Öü?ª¶A◊oRä~›∏‡úç‘[Aj'11LtAq«#·v–‘˚å!=˜6VN8 ï|8.‘CWªLOµvUˆ~•∞Ú6Qkp≤i.∑g Eñt2#,∆ÒŒ‘U,0¬x)	g÷·`	ûK@≠|à#œ¡Ç—&NˇT–◊1PFîıÀ[ÛÍ¡∞cCß÷π`ÕQ◊≥ÎCG±ÀùÈúLpÇÂ>a:Hﬁ°§rØ"Ó EÄ•∑G©ò`ºë≤¬3kó`QêvhŸëk¯ÅÚ~G∂ñ†5–c±…Rq$3Ÿlò=∞"ˇππx!uaÛÂë5ıñ¿}=yÌ+QæQ^ö™ˇü–ÜèHXåzAÊ¨a≥DΩ‡}!π6d≥x1`ˆÿ]§À¢o∂i‘ó«!åä∞!Uh ˆàª    j˝
+ˆàª7`”µ‘˙:£b∑≠ z fê«øgçäÒ˚u±\zŸÂ0√Èe_'4)·o≤¯∆¯œ@étíâz;(—U‘îOºÌPq∏z^ÔÖ¡müŒÄêwë`nWMÂ†T±wö‰›ƒpÿx®ï°3®u∫∑ÃÄ€‰çÚatëa’h–<ò∂ê∑Ä$«Ò¿Å¡ä#;‚Œƒ†V!¯™´qÙ<)É$∞#Mí€¬TZaÖíçéD›¿^Ãï¨qââQç˘∆‹⁄§–Gü®@¿oA5U·ôxﬂ4‡˛3EFm˙1œ„Ó<e‡#Y≤#a“1!9s’¨ù óX¿êñY∞Ÿ0E{iò∏‹Jâ…Óœf%Æ «˝.˙"$Ò™ﬁ¿ãm
+M0M!{D·>¥É#PBP@Øè∑ıñ7—Dk¡•Õg˘PIUáQÄ^¡|Gˇ=œÕﬁ`O0ıb°V±¶‘],ƒCΩpƒuJ%Õt°ÇÊwÕÛzWÄßÅ´Àòë–òaÖñê8Ù∑a¢ærÅPO«Iºq†∑•≠”X+hq¬µ,Ï/»∞d¶û‹ñÑÁaÊøKù;k/¿>pòdQ|©ìÆdºç–HÓ¶ãb≥·ADˆ«˛q‡‡ˇm∑.%ñÓ1˛qøú-:≤‰≠7`™⁄0!j0Cì‡} ¯àª    à˝
+¯àª˘a”µ˙òΩb∑Û%z Ë…øﬂˆäÒô¢»\ìÌ0á¡`€?¥·MÈV€ﬂDQ@ê´ªkÚ—sc6‡ﬂúP……Õ ó+î¡À“\¢W|`Yﬁ%OıW±EòìπpEmôª$]°∏cmC3‚Ä…◊	π§ë«§T†~êy∞ß∑l,ÅW”RÿJö†ÿb[Ãπ›q±íø˙—˝_∞eò9"ˇq_aıÌ_±XF—¿`Òû≈'£Q´$PTµ∂,–	&≤AKŸÓAì:p©r·∞‡†nì.KpÕ1m{£öùe;î@Ó®÷!˘zØ∏[!( ô4HÛXo	˜;Aœ∫’z:v„¡'mÌc•≈ IeÈ€–ÇÒHÔ¨ÜËà0F"#è≤·O˛®Thò@±¢Ê«lÏ—bàÉˆ ˜¿P ˝¥BG“¡⁄ﬁö8˜ƒ`—Wi”±DﬁoÎ:vp¿3R°`Z@x˘‘iÄ©K≈¨˛‘sëÓnèüï∆éê˙gÍ≤ÌÅÆLvâK†9{˜ıúç}q`8Ä	l«R∞¶MÉˇ¥ÁYaƒå±®A·«¿Å?gCùøgQö∏≥∏y{–
+—æŒl⁄HA¢?.Ìjù‡Å∫µ&Êxd1úÌ•$˛œò&Ï∏VÄö!H÷’¨¶¿ ˙àª    ¶˝
+˙àªªc”µL˙ˆ◊b∑9+z jß øW`ãÒ7œﬂ\éLı0G$bèK?·+ µÔ≠ë“@í‚úÏ\©—ëF1œKPã"„Üœg¢¡)O7¥7g`r\°˛∏I[±≥jtKIÆ˙pá@“ˇ†$°Ô«Q zØ˜Ä
+∑ Ö’ëùπ‡Vk®Fê;‡*®ÁóÅ}#ÉjŒ∆o†ZØæï…qO1BÃ ‰õ∞ß„‡h;èda”V-’"H≈¿b®ﬁ›êºQ…OŸÀbì¥–À¨ªBìÚmAÒˇ∏l„,‡"ﬂÚPs†1;G‘†Yßv]{{!◊ºÎi‚ï≤ õ–UÖb˘05›ï<òﬁ|0Ô¯ÖÎ
+aút ÀÃ£∞ß‡ÒÊˇòyû∆ƒ0à˛ˆ0£ ·˙Èx.Yé‡@≥µö4A°—Ä•EG»áàPå≤˛<öE¡8v63º(`SÌ0¡|ô±‚Á›±2/pHñ ˚÷°°>Œ#ˇ.|Ä´ÑÆ1èOëEΩπîy-êºs√dgÅ∞YN0Û%†ªPA·Ôíq˛∫”Ï^›∞ËÙg"”JÃa¢Y¥GW`¿É@^Ó’vºQ∏«Ö∑7i–Ã≥÷w∞A âî€∆…&‡¥ß[⁄1:iå¨Œeh*:MV`!&|hvwœl ¸àª    ƒ˝
+¸àª}e”µà˙TÚb∑0z Ï2Ãøœ…ãÒ’˚ˆ\˝0â¡xcCW ·	W|ﬁS@î"N`˝—Øˇ(æ˙PM{¯§∞¡á9è∆R`Ù^d◊"û^±Qê·˛˛¢Ôp…t7†BÏ°Õ◊?”∞+Ä•Ω*gëª´öÇ∞ê˝Æòb˘Å€Ô2ÇƒBE†‹¸!_ŸAqÌœƒùo ◊∞È.àØw¨ia±ø˙¯ÏIπ¿d;±˜ì÷QÁzbCp<–ç3≈C€ÌAOé»fÂ®‡§ORUvs1©™“Ûü>ÈˇWzV !µ˛'i
+= ùÏW∏›öª3›&ÕöˇU˛ıFE◊0„i(^
+ì# M4^Ö~>ÒÑÖ∂§ 0 ˜À=∑é·ÿÑÛ≥]¥(@µ»DlVV—û¬ò≈PPNgtπ2'π¡ñ“-G≥M`’ÀNp¬é_±ÄÒùÙ9)Ëpä&AÊ[8°B—ÕâéÄ≠ﬂB∞dI+ë*Î”ì,Ãê~ó∆˚”∑·Åj‡¢PÍ\ †=&ã:%R®qú='lˆg∞*úLEÒ≠>aÄ&}øMÕ¯¿ÖAUô.Q÷÷˛ª`ÙV–éñÓTÅ(A^“˙…"ˆI‡ÖS≤h>P1ÿ‰r4ü˚e™hªC,£l!"˚ÁB¯ ˛àª    ‚˝
+˛àª?g”µƒ˙≤c∑≈5z næÕøG3åÒs(]¢ø0À^‘d˜bU·ÁçqJ+’@ñPßO?Ô—Õ∏ÕÍK≠©P‘ì@‡æ¡ÂlœÌ◊˜<`va'∞åÚa±ÔµN≤¥ó‰p©ú#Üô≥°´Á-ÜÁß"Äì∞}<æ5ëŸùX›ô∏÷êø?1â›nÌÅ9º‚ô∫æ†^IÖ(ÈsqãnGoæ∞∞+z/ˆ≥…naè(»∑K≠¿f`∫JòÔQ¶Î∫ΩLƒ–O∫ŒD#%lA≠Íÿ`Á$‡&¿±ÍYyF1GBj†k‹“+‚9óï,≈!ì@dÃÔ~« ü»ﬂ†∞Q¡ì "¿SØØYøhAËE[ä“ œõZU˛õÒ"!qgœÇ<0Ò† JÀ¸·∂n9b⁄p@∑€s>xÎ
+—ºﬂ…Ë¬ßP‘t(¥,¡Ù§m(o™r`W™lx°%±˚]7a °pÃ∂ÅÔ–‡Œ°˙µôx
+„†ÄØ©≤óëHÒÓíﬂjê@#vÑ‰
+\Å»ÏR§∆⁄†ø˚‘\i¥Ωq:¿zÏçÚ∞lC1h±a^Û‚ SCë¿áBLDGÂeQÙÂw¿¥±D–PyòãO~Aºa∏~"m‡†∞)!∆1v`YºoëLÏ¶<:Ê’!‚«çY!≈  âª     ˝
+ âªi”µ ˙'c∑;z IœøøúåÒU%],y0¸/f´n‡·≈ƒœ,xV@òá,Å0Œ‡—ÎÒõ—oúXP—,#yÕ¡C†…È◊'`¯cÍàˆFe±ç€ªejåŸpM›ß…{°â˜9$8ÄÅ£˘Nfë˜èî ±¿ûêÅo¥yX⁄·Åóàí±∞:†‡ ñËÒ¯•q) @óO∞m≈÷<Êsamëï@ÅM°¿hÖ√) 	Q#—t2k)L–AÿEk>ÎA–´ÁZÈ†‡®0‘^|1ÂŸM7zèmƒ¥"j!qÇ†}vÛQ °§g}b∆mo•YfD÷Ç±Inß†üfcX¯ÄÅ Q”.,ı˘Ò¿1]ﬁÁ`x0NÍu¯Vﬂj·î∫Ëæf π@πÓ¢ö¿ø—⁄¸ã9¿7ﬂP“–30A†¡R<	#ó°ó`ŸàäŒ-¥Î±ºzàZpG¬ÿªee°ÿ)b#=≥Ä±s¿≥ Ω‚ëf«Fíí	êØ%ı]÷Å&A5U^0µ†A—≠”qÿBŒl%}∞ÆÍã-t#a<¿H÷Yπ)¿âCCÔú∫Qıƒo2–\€ïvÂAe«¶⁄Nê‡âÏÆÍ<1‹?D@'3.ÂΩ0ÿ(?!¿m ÀŸIq âª    ˝
+âª√j”µ<˙nAc∑Q@z r’–ø7çÒØÅ<]∂20Oôãg_zk·£˚-AÊƒ◊@öæ±≤!Ö“—	+j∏ìãPìÖ8ü±X€¡°”O§˚∑`zf≠a`õh±+) ÅŒpèg*íB°g
+ÏT†MÄoñualñëÇ–c»»fêCü7j”E÷ÅıTB…¶∂≈†b˙‚Kªÿq«´L\}ã∞Ø~É,yaK˙bdKOï¿j™ÃB∂ü"QA¸˝©‘–”«·F≥WjAiµ:˜TÎ‡*°pΩcÏ1Éqô˘LØ¶˝–ØŸ!Oƒ‹.˝g‹ £ÄÔﬂ$‹∆çâÃfñDÄ‚Çèÿ˝‰ÄUÔw0 ”jçÏWÒ^BIU ?¥0ê„JcÛÿ·rUcDk&@ª“‚ªït—¯NäΩ«¶PîÖìÎŒ¡∞”§øòº`[g®}„∆±±ZﬁºØpP◊¬¶Í˚°∂ù*Œó≈Ä≥=µ˝wæëÑùt"ëE®êƒ:’ï±PÅÑq~Wöè†√¶h°ÒxËqv≈!Ïº∞ë˙≠K◊ïaçÆ·_/¬¿ãD:ö∏SQ0j…\, –‘>6†ùLAxÆ-ï6{≥‡9≠˛™Ê±1≤W&ÃΩp#?'Æk®!û≥<•r âª    <˝
+âªÖl”µx˙Ã[c∑óEz Ù`“øØoçÒMÆS]@Ï0ë6ÁhÜˆ·Å2åU¥Y@úı6‰<ƒ—'d8ü∑z∂PUﬁM%ÍîÈ¡ˇêò˝`¸hp: Ôk±…&ñÃ’u√p—EÃ≠P
+°E¯ûãcÄ]âÒs√∆ë3tßﬂ–.êœ∫ZN± ÅS!Ú‡ú2õ†‰Û/ØÑ
+qeJœ„™c«∞Ò[% h!~a)c0àQâ¿lœ’[l#<Q_'á!∆‚[–ïNÎG˚pÈA«ö…OÌò‡¨–¶hÇø1!	1¶ŒµÒàﬂÌ<∞≥!-‡É‹f •\wBÁÒ´m˛‰1âVmË{ów[cûRÊnﬂ U“GÿŸ‚µÒ¸R5Ã0“‹ËpG·P›…oLI@Ωµ›j)—7€∫WnPV:Û¶	[á¡k@Áè·`›E∆,ôŸw±¯ûˇ÷ÃpígC´ëoí°îÛxÒ◊Äµ>∑02öë¢s¢<ê¯FêÜ∆ÑÀÅ‚°«Y“j†E|≤√5€˝qHulTí∞29ﬂ–i:a¯YÌe•Z¿çE1EÒ
+dQN„Õ∞È–ñ!Na™ƒ≥A÷˜ìÉíß÷‡çÖ´ˆk…'1P”T·R ≤a¿ÑÆ!|πEÆpõ… âª    Z˝
+âªGn”µ¥˙*vc∑›Jz vÏ”ø'ŸçÒÎ⁄j] •#0””Bj«ëÅ·_iÍiÇ^⁄@û,ºÛµ—EùÜ€ieP7c´"—˜¡]:–ZxË`~k34Do±gLÄãj∏pz11îä—°#'ÊQ¬òxÄK|mÜ˜ëQfHÍˆÿˆê«˛=K…øÅ±Ì°¯íÆp†fÌ|N(<qÈQµ˘I∞3ßÃ•>ÉaÃ˝´ﬂR}¿nÙﬁt"ßUQ}Rôsø„–W’ÙHCähA%ÄXIÔ‡.Ç/êmÖí1ø†»RöS≈3k¡
+ ÜX!HUë
+QÒ ß8ˇ§©y…QÙ™ó´» P¨_Hπ·ªO›eé ◊9≠∞ŸÒöc!C1˚+0÷Ùﬂ}µ·.ãXOtrë@ø'0áˇ?ﬁ—4T“+∏Á5PÔRbˇÁ˙¡l‹á`_$‰€NÏ=±ñ!^B˛¸Ñp‘˜Éî|Ù(°rÖª#!KÍÄ∑—¸∏cÏuë¿I–Vè´ÂêHR4ß&WEÅ@“\åmD†«Q¸Ây=q≤ »ÏÎ∞t‡√Ûáùza÷&z¯kÛ¿èF()¬∏Ql"\“ß˚–Xf§¥ÎA4A˙qÓ”˘‡“©Ó,¨ù1ÓNÛ€±ËÊÙüAZÒz!Z_ÿ<ƒu âª    x˝
+âª	p”µ˙àêc∑#Pz ¯w’øüBéÒâÇ]T_+0qûk{ù·=†H~P´[@†cAGı©ß—c÷‘lˇXPŸèx1[¡ªm61X”` nˆÎùòr±rp3A_≠pUÆñ¥◊ô°7‘˘éÄ9oÈòq'ëoXÑ-·æêâ.¡;Dà≥Å∫Qâ*F†ËÊ…u8nq°á‘ÜH0?∞uÚsW·[àaÂ4Àœ©Tq¿pËçÿ*oQõ}ô!úk–\˛Iã£ÁAÉeÁ%CÒê‡∞Úéyràe1]8`ˇeÒÅuM£'W]˝!ÈâëBë≈{ ©ál“Á5Íp˝Õ÷ä(πÆ¿GÄ`ŸL‘\= Y°ºÅá–qÒ8t∫IŸg0Vœ…◊ä/#·&”‘xòŸ@¡:_Y!ì—Rqî|µw˝P⁄£≤ıtn¡ ôw7~+`·ãˇ±4+Ö%Ù=pàƒ}gyø°P˘ÉŒ&•¸Äπõª∫ñ¶Qëﬁ˛pé^Ñê
+ﬁ„/7™øÅûZ^F◊†I'Fæü(qPMlÉß∞∂á®¶ Ìa¥Ûﬂrëã¿ëGõbyQä1’÷XdÈ–Á}ÁæÇAíä``J ‡ë®ÊÌé1å ŸcÇ~Õ6ﬁ¬
+04‰!8këÌ! 
+âª    ñ˝
+
+âªÀq”µ,˙Ê™c∑iUz z◊ø¨éÒ'4ô]ﬁ30W˙l/©ó·◊¶í¯‹@¢ö∆xÊ`ô—Å£S#H√PõËç∑ìI¡°PC8æ`ÇpπƒÌu±£ó›ÊˆS¢pó‚˚7É`°ﬂF¬∑/ë£Ä'be´»WëçJ¿p%ÈÜêK^D,øÛßÅmÜ(¶†j‡Ÿ‡G†q?&WXó{∞∑=ûyça√ùòÛsVe¿r>Ò¶éÆàQπ®"àŒxÛ–€‚K”ºfA·Jv5=Û‡2cÓbwã81˚œ˜´1è>∑/ÖD‰3¢!«ÀÕÛ: ´j.3+‡6cñLÜ!H’/∏uﬁˆIÀSÏ €wV^«œÒ÷Ñ˘0b∑£0ò»ûœóCë·Í¿MZ}æ!@√Mé+CÍG—péVÕ≤≈PúXŸÍ‚¡(1_uP`c·:∫ ±“4ﬁ«LÎˆpXgR˛U°.mLy,ˇÄªezº…`-ë¸ı+ãç#êÃiì∏G˝9Å¸2£` A˘†À¸è*>qÓœoÏ2∞¯.ç9ƒc_aí¿Ex$¿ìHFõ0bQ®@N€¨!◊–‹…ï*…9ÈA”∆N¶,@‡k¶ﬁÆqâ1*F¿ÎR¥xDwM!´˝”Œ âª    ¥˝
+âªçs”µh˙D≈c∑ØZz ¸éÿøèèÒ≈`∞]h“:0ô´Un„¥"·˘ßÏD^@§—K™◊ã—üHq:G7rP]A£=ÃÖ"¡w‘êÏT©`s|ùqAy±AΩJö¨HópŸaª^ˇ'°ΩV∞jfπÄU·Ωàë´<¸≥<ÒNêé«:_úÅÀR±?u"Ò†ÏŸc<™W“q›ƒŸ)Ê¸∂∞˘à¬‰Yñía°f>XY¿tc˙øD2¢Q◊”´ˇ{U{–ùiL÷ÂA?0E7ıà‡¥”ML|é1ôgèX˝,˚˘gaq
+G!•
+•ûÆê ≠ÃñÃHÑ#˛’¸»W‰â·È”\G¬Jõ ]p1+5æ-ÒtïÂßzïﬂ0⁄¡s«§Wˇ·»[»ﬂÅ‰i@≈`Ω˝dø¸—é´∞óåP^rî‡éU¡Ü»Æálu`Âø=Èo$ê±p>û
+t‚Øpö®EP=ÉÏ°·$2Y!ÄΩ/9æ¸	ëÃY•åƒ¡êéıBAXP¥ÅZcÏb∫™”†M“ŸLFdSqåR√ l≤º∞:÷q\‚∆—apç´~}º¿ïIÒ”Á∂Q∆O«ﬂ ﬂƒ–û¨≠m”`PAN-=Yc‡ï∑§÷oTˇ1»¡¶s#™ö∫Z≈˜€π∂!ÙPêtû>z âª    “˝
+âªOu”µ§˙¢ﬂc∑ı_z ~⁄øèÒcç«]ÚãB0€H±oó¿≠·◊Dcª∫ëﬂ@¶—€»Œ|—ΩÅ?!k&!Pö∏√¬0¡’—«f¯ì`Üu?v€ï|±ﬂ‚∑Mb=åpK∆>¢{Ô°õfûùâŒÄH]–v∏ë….8˜S˘êœΩJµ êÅ)aWkû∆†n”∞üsgq{c\˚4„Ú∞;‘i+ñ≥óao3;ZM¿vàŸ˙µªQı˛4w)2–_McÔdAùîT1˜‡6D≠5Åëﬁ17ˇ&… ∑;ÙH~˛‡Î!ÉOFV%# Ø®/≥^›A‚À¬.5–AÚz˛ˇ'1€1DπAJ ﬂ◊ÎˇµãÒ¶—ìs0ªHø±km·¶ˆBeÜ
+≤@«sÏœÜî±—¨»⁄n≠'TP ¬—O÷…¡‰_J˝Æcö`gû[ò%7V±H^MõŸhp‹8Ü9(É°ÍT›Œ7≥3Äø˘˜ø/’‰ë8¢áøãw`êPÅÚ…h£.Å∏ì5etÆ†œß#oä∆hq*’#ÏIG∞|}V *DaNZ&ÑÛT¿óJúüQ‰^@‰Tú≤–`è≈∞›á∑A¨fì+^ÖÜ‡£Œ07u1f=ç˚Û?Å¸òFÓ±¸!“ˆ"Êig& âª    ˝
+âªw”µ‡˙ ˙c∑;ez  ¶€øËèÒ∫ﬁ]|EJ0ÊqKÃ8·µ{¡œàﬁ`@®?V∫Ön—€∫è–P·ÚÕI=˛>¡3;£xÿ~`xOEÍ±}%2Åp]+¬Â˜∂°yvå–”‰Ä Ò:Ÿ‚ÕËëÁ t:kﬂêëÌÕ˝/6ÖÅáÎoaú†Ã˝=w6qﬂÃÉ….∞}r“–úa]ÿ _“[A¿x≠Ú∞9’Q*æÓ÷ã–!w$N´‰A˚˙"d+˘Ä‡∏¥Üî±1’ñæ±îht}÷*õã∑ê!aëÇ¨ó• ±Ñ¶ëut6_∆¡àîW◊íüZË_èYOA∞8˘ a?¶‘‚´ÈÒ∞∂Ωï´QW0^¥∑æ€·ÑëΩÍä0˙@…Ü¢®if— Âúø™∑P‚v1Ã®<¡B˜Â˜÷Zø`È|yG€I±¨Qê¬–!p…∆"ç°»»•y=FÄ¡√∂¡bè¿ëVxµŸä*ˇê¢Ryˆ®Åƒ~g.~à†Q}mëŒ(~q»Wj%l·—∞æ$;¢ç∂a,'w1äiÌ¿ôK˚FEV`QnπË®Y†–"r›ÛÁÆA
+∞˘∫±©‡ôP°∆ÒÎ1πsÉƒ’g>◊«‰á?â!∞úµW5ê“ âª    ˝
+âª”x”µ˙^d∑Åjz Ç1›ø˜QêÒüÊı]ˇQ0_Éhrˇ◊√·ì≤‰V+‚@™v€>´<`—˘Û€Ó≤P£K„œu:M¡ënQ~ä∏i`äz≈'Ø>É±.í¥Õ&vpü≥êE)t~°WÜzÉ
+Ç˘Ä"ﬂ-Uı$ë∞}Ç	ßêSQÓ™°yÅÂ∑¿ÜWñq†r∆Jfáhq∑†aû“Øj∞øj∏∏Ó°a;AŒÇú]5¿z“gΩÓQ1UGfÑÎ–„˝-OÛ!cAY‡±s%˚¸‡:%lãóÑ1s.V^`1ø∏∏é5!?”æ∏20 ≥`.Ù7äè}™∑N˙yóT˝¬≠'–óÌ◊l>ß/® „¶`©π¢GÒN«©ƒ/ì0†≠ÚÆÀìI·b,8pèVB@ÀôJt >—Ë_®G„P§+ë∆¡5∞¡†éÅÚ˛Q‰`k[óˆê\‚±J[ﬁ“È«⁄p`Y˛∞°¶<n$CgXÄ√çu√ïIúëtN„Ûâ›ùê‘òQ€âI#ÅtÙ«iËÁb†”R∑≥ãìqf⁄Ω'Ïx\∞ Ã≈<(a
+Ù‹<êﬂÖ¿õLÚÒ}µQ }2Ì¸é–‰Tı6Ú’ÖAh˘_ﬁÃ‡ùüæ≤¸`1¢4ZïkNÄI€]ÇÚ!éBH… π~ âª    ,˝
+âªïz”µX˙º.d∑«oz ΩﬁøoªêÒ=^ê∏Y0° ƒs≥„N·qÈ}¯$xc@¨≠`púÛQ—-™’÷Û-Pe§¯UÆv[¡Ô°ëYúòT`}à ìÜ±πSˇgÉkp·Áı»lE°5ñh6A˛Ä$Õ —|Ië#Ï¿ôoêM‘ﬁ%nÅCÑpûMG†Ùøó…œñöqU?‰o!ñ¶∞∂_ˇJßa™õ¶f_)¿|˜$AQOÄ–›1»ö–•Ñ7P;;‚A∑≈@É˝x‡ºïÀÒèöW1∆Ì
+,§ÌõÓ‘•d⁄!˚iπÄ∫ µ<∂V˙üËõé≠`úW[+G<∏œKVä;û&W e~êô•ÒÏ◊ïÉ‹œ0‚¶«¶ÿß∑·@«≤ıì|ä@Õ¨yFÏ–— !a•◊™Pf‡Å∑¬#¡˛%Ì&I	`Ì9µ•Fo®±Ëdûøìp¢ÈGıËñF°Ñ∞6œH¡jÄ≈W4≈»xëí$âê<êñ$döúùÅ“$l¢Q=†U(÷VÌ®q]*lÁ∞BsËZSõaË¿BHñU¿ùMÈú∂ƒ	Q>å´ÒP‘{–¶7z¸¸ÏA∆B∆ˆq
+‡ùÈù∂sﬂ÷1@∞@ìe5¬S —3≈[!lË⁄:Ã·* âª    J˝
+âªW|”µî˙Id∑uz ÜH‡øÁ$ëÒ€?$^ra0„ΩugÔŸ·O ‹Ûƒ‰@Æ‰Â°ç™C—5fxº˙‚‹P'˝‹Ê≤i¡M’—4Æx?`éKŸÇÁâ±Wyl9`p#[L∞l°¶VÈwz$Ä&ªM”yëA˜'±7ê◊|Wœ†xbÅ°P ∂Cé†vπ‰,ô¶ÃqÛ›fAp|‚∞CFá(¨a˜i 0a¿~(=”ƒ!Qm´YUﬂ§"–gAQÉTaA´œíˇÙ‡>+€îù*1Ø]Ö∑˜A™C}–Ò2;!˚V7@ıD ∑>πºµAπr£⁄≈æÿ∏ì‡P†©‘ß8ï Áu’RgêÒäËÅ˙ÙÎ
+0$†úûÂª%·b-{ò¢“@œø®ÈÑ—$=„±¢grP(ïP=≠Oó¡\Ω∏ÁN@.`o”T¸Ån±Ün^X8∂Lp‰yàﬁ”›°b$ˇyN}Ä«!Û∆˚ΩSë∞˙>(àC€êX∞∞Ï™ÔÅ0UZn\ª†◊˝J¯öOæq¢ﬂd,Ïßq∞ÑÈ
+y∂a∆ç®SúÀ∂¿üN‡GÔ{^Q\õ$ˆ§ëi–h%Ω$TA$å,ÂÕ6‡6úÆ4¬L1ﬁ+'6óíK»	≈!Jém¨ó
+◊ âª    h˝
+âª~”µ–˙xcd∑Szz ‘·ø_éëÒyl;^§+i0%[{v˚d·-W:!¡f@∞k”~a5—SüF£“ãPÈU#bÔw¡´¿X*`Ç≤Ï;ç±ıûŸŒÓUpeP¿œÛË‘°ÒµDúÆˆ9Ä(©…,*™ë_ÈcG»!ˇêô¨⁄ø‰VÅˇ–Õ9
+Ú†¯≤1êb∂˛që|Èøb∞ÖLÆå√E±a’{6Ó˙b¿ÄA1VâH;Qã÷‚ÃåÅ™–)íJRÀm‡Asê^¢q‡¿väƒô†˝1Mıd√ﬂfÖ_≤¿$!ŸòsÃ∆iœ πÙ≈Àö◊Vô†+·◊ö¸yeà?S≈5åµ i›è'>áaÒ(˘mq F0fôqñÚœì·¸¸ß ù»@—“◊Í/æ9—BZ•†˜9PÍI∞¯¢‹
+¡∫TT‚v7S`Òˆ≤î4±$xõ_≠p&
+…«æ†s°@ò«$TuèÄ…Î±».x/ëŒ–lBáˆyê<`uªBíÅéÖ£p%Ú†Y”îﬂ±”q@b∏.l?¸∞∆¡Õ-óÄa§Z_¢AO¿°O◊Ú'3≥Qz™ù˙¯NW–*˝< KªAÇ’í”)c6‡°Çö¶ı§¬1|ß£-F–ÃæﬂJ.!(4 c3É âª    Ü˝
+âª€”µ˙÷}d∑ôz ä_„ø◊˜ëÒôR^.Âp0g¯÷wœ·éò5è^Á@≤Rp'—qÿäB¡:P´Æ8ËW+Ü¡	<RÎ—8`íÑ—äVêê±ìƒFÇ§˘IpßÑ%S7eú°œ≈2OÂrOÄ*ó˘D?Å⁄ë}€üäﬂ)«ê[‹]∞ñOKÅ]ÈÂ/Ü«†z¨~Û+∆0q/l‰IZ∞«óU”ˇb∂a≥‰≈d¿Çf:o?ÃTQ©lD:^2–ÎTSá_A—uÌ±Ì‡BÁÈ≠û£–1Îå¥è}#«Aî+MË»!∑⁄Ø}MﬁY ª–M~A·Ûı:èfëò\tdzpwe—‚2Éd ÎDJ¸~øÒ∆	ZË%®Ç0®íFéˇ„·⁄ó"Ü°Ób@”ÂΩQìÓ—`wgSùáP¨˛¥òi~¡ÏÔ‹û.x`s’≥gß˙±¬Åﬁ›Ü§æphö	±©%
+°êœYœ°ÄÀµp a2ëÏ¶ö\Ü©ê‹«˛ÀïÅÏµÏr–éÃ†€®ﬁ<#Èqﬁ‰1Ï÷Ü∞i≤Pµ|ÚaÇ'tj®∑Á¿£PŒù`ÍQòπˇLE–ÏﬂTCr"A‡˘¡ÖèY‡#œòû∂á81#Ù*◊¬ËàNµµçó!⁄íè.\/ âª    §˝
+âªùÅ”µH˙4òd∑ﬂÑz Î‰øOaíÒµ≈i^∏ûx0©ï2yÉ{·ÈƒˆI]´h@¥âu6aœ—è„pf∞ÈPmNnêgî¡goí∆„ `áîc¿‰ì±1Í≥5ZÓ>pÈ∏ä÷z·c°≠’ ÔdÄ,ÖÏ¿Qÿ
+ëõÕ€Õˆ1èê·†ª?Åªµ/˝%ù†¸•ÀVı’bqÕπÓµ\/ñ∞	„¸<ÄªaëM—5èf˘¿ÑãCàıOnQ«,ıªÁ:∫–≠ü]T[†ﬁA/[|¡i‡ƒWIó£¶£1â$LΩZ‡	$vH⁄æm!ïÏ.‘R‰ Ω¨’‡˜LÖ,˜%X“Ã¨éXØ√O 0z m¨—ÎtÒdF_>Üæ0ÍãÜ¯o·∏2ù¶´@’¯5èsh£—~î)§ö…Pn≥ooéˆÒ¡vÉã◊∆%ù`ı≥,b∫¿±`ãû Æõwp™*Jöî™†°¸Xz_)¥ÄÕ/ÃîÏÊë
+}»vÖ\∑êûSøÜ‹ËÜÅJÊ5uä¯¶†]~(_gv˛q|g_3ln∞Jós”ﬂda`ÙŸuÆ-Ä¿•Q≈Hô°\Q∂»è°…2–Æ¬lÜ%ôâA>h_∞·ª|‡•óñwjÆ1∏û⁄≤ßXœ Lœ´ã– !‰%˙Ñ€ âª    ¬˝
+âª_É”µÑ˙í≤d∑%äz évÊø« íÒSÚÄ^BXÄ0Î2éz7·«˚T^+¯È@∂¿˙gRÜ
+—≠J±WäüòP/`cÙ»£¢¡≈¢“°ı¯Í`ñâW<*9ó±œ!È„3p+ÌÔYæ]+°ãÂµRkzÄ.sﬂ<d/;ëπø:Wêﬂ;dëå&4ÅÇﬂ~r†~ü∫æÂîqkXqá´“∞K.§`xù¿ao∂ûYYhÌ¿Ü∞L°´”áQÂW~3ïB–o&gU£π]Aç@—Â‡F»®Ä®©v1'º„i&πúKXegï!s^(‡Z«n øà]C∆¶1{Ú\H‡/5F£@Á!Œ-q˘¡ Ôø•¬k{Ò+2÷Vd˙0,Ö}ﬁ·ñÕë™:Û@◊eaï=X—ú±ÎÙóßêP0hœ*ÑÉe¡‘'“Ó¬`wíJ”ÃÜ±˛î^c’í0pÏ∫äÉ/7°⁄Û %eÉ∆ÄœIÓÕ«¶¬ë(SˆêÑVê`ﬂnÌ;Å®wDbÅ†ﬂSrÅ´ÿqÍ≤5Ïú∞å∑{ñÒB◊a>¡?Å¥£¿ßRºÛ—X±Q‘◊ıÜ –p•Ñ…/¿Aú±≈û=Ëü‡'hïé8M$1V¡:xÓµãP¢aj!¬%∏r≈≠á  âª    ‡˝
+ âª!Ö”µ¿˙Ãd∑kèz Ëø?4ìÒÒò^Ãà0-–È{Î)ë·•2≥r˘Dk@∏˜ôC=¸—ÀÉ>ÆéGPÒ∏xz‡∞¡#÷}Ÿ’`åîçö±m5éú≈◊(pm!U›⁄Ú°iı¸gâÁèÄ0a“∏vÜkë◊±ST%Bê°kÁÅí(ÅwNè,˙G† ôeàı∆q	˜ÛX˙˚∞çyKß¥∫≈aMl}#j·¿à’U∫aW°QÉ´BÙ…–1≠pVÎ“‹AÎ%ö‡˚a‡»8j≠¨I1≈S{ÚVYçË9ÇÙk∑!Q†dë·;˘ ¡dÂ•à"ˇOÁp∏¬jÿ¢çùﬂ∑(L;*hp q{yzôbŸÒ†;MoB60n~≈u& L·thíØ`;@Ÿî3∑—∫Œ≠Eï7XPÚ/ÊyŸ¡2≤¬ÃÁ`˘ph¿àﬂL±úû¶¸âÈp.KÀlj¥Õ°∏gÈœj›ÿÄ—≠œ˙`ûëF)$´É¬Ùê"kò˝é{ÅG»y˛À[†a)º£Ô:)q∏l8lù&∞Œ^`π¶Iaé•å∫±¿©S≥û
+QÚÊÅID–2àú:ÁWA˙˙+çô√‡©¥ìÜ˘/ö1Ùïß¬HÑúN…—ò7V”!†ÀJ‰ê÷3 "âª    ˛˝
+"âª„Ü”µ¸˙NÁd∑±îz íçÈø∑ùìÒèKØ^VÀè0omE}ü5·Éiá«ëÏ@∫.À4ÙÌ—ÈºM%“}ˆP≥é :ø¡Å	SXπ¿`öé›Ì˝·ù±[˚O{ÃpØU∫`EV∫°GÎ¿c•Ä2O≈4â›õëı£èó<JÁêcõjrÇ˝Å’?Dv†Çí≤ÄQ˘qßïv*I‚I∞œƒÚÌ◊ a+à9°Ìk’¿ä˙^”€∫Q!Æê"–Q–Û3zW3Ï[AI)ı
+›‡J©gS≤Ø1cÎ√ΩÙœ üÅB\!/‚†Bh∞É √@mK8XmÀf~(çòdÎyÃW› X'_Á Û‚3OpY7Ò>L
+ƒá r0∞wöm34∫·Rú≥ÜÉ@€1√ŸÁ¡—ÿÎoñí«P¥—é°oùL¡êI^«>`{OÜo>Ú±:®ﬁË#Å¢pp€VU9d°ñ€±zp7ÎÄ”›k—-zëdˇQ≈Çuìê‰ˆÕ ‚ıÅdw|∏56†„˛∆3ù>qVÔY:Ï4±∞E‹-	ºa˙Zò¿èI¿´T™IC«ZQˆ˙ù¸–Ùj¥ODøAXDí{ı@Ê‡+í~∫1íéJÉêSèô<!~q›U\ˇﬂ $âª    	˝
+$âª•à”µ8˙¨e∑˜ôz Îø/îÒ-x∆^‡Ñó0±
+°~SAß·a†oõïﬁm@ºeä¸%´ﬂ—ˆˆl•Puj£ÜrXÕ¡ﬂ<ì3+ô´`ë†∆g6°±©Äh1¡pÒâ‰à“Å°%ŸÕˆﬂ∫Ä4=∏∞õ4ÃëñÀ⁄SRØê%ÀÌb˝hÅ3ÁÓ[˛ÒÚ†åˇ„+qE4˘˚ó»Ö∞ö4-ıœa	Ò≈∑m…¿åhÏÕ^‘Q?Ÿöù≠Ÿ–µ∫ÉX{€Aß∑ˇÔY‡Ã«<∑≤Ô1É™oâí“≠˝ª!$›ÛÓ$ ≈ıjN±ãØ\DéØX&In·¯é;Iv$VﬁŒ uJÓ#GPïÒ‹\ˆ:†˛≠0Úpoe@H(·0ûá!∏¨À@›DÚ◊˙ºv—ˆ2ÁèWÁPvÜÓ\e*¿¡Ó‡˘¡f1`˝-§ÙŸ±ÿ±û+Kx[p≤kL?@æ˙°tOz%vë˝Ä’ß*”`’UëÇ’ﬂÅ(2ê¶Ç}©5pÅ¬ßZ~rü†e‘OËwˇSqÙq≠<lÃ;∞R≠)ˇKl.aÿ'q£∆‚¿≠U°Ù{~ØQ.tÒæÈ–∂MÃíN5&A∂ç¯iQm	‡≠Mêv{ıÖ10çt“ÈØi“E‘Ö„€•!\p«'(å &âª    :	˝
+&âªgä”µt˙
+e∑=üz ñ§ÏøßpîÒÀ§›^j>ü0Ûß¸M2·?◊ÕØc+Ô@æú.b——%/ÍÚ\TP7√∏´î€¡=p”=yñ`ûìcü—ä§±G¶’∂Êµp3æÑgÃNI°%«Ä-\–Ä6+´,Æã¸ë1àkZwêÁ˙pSx‘Åë≥ûsÙm»†ÜÖLG‰$]q„“{ÕÊÆ¡∞S[A{i’aÁY‘ËÅoΩ¿éDqÑ‚ÌQ]£Käa–wAçY√ZA÷FÍ’‡Nä&&ºµ¬1üBU0èSèﬂÿõÔ•!Îe•uôò «¯|Õœc
+©ìR
+Ù—Ë¶÷´ı‡∆ô«ì!M’} ˜±®¯GÛÒzm‚±∏‹È04jD]M\ñ·9ßº“@ﬂW!™í+—&Ù7çÁÆP8;N[∑3¡Lxïºé˘U`¬Õ©ü±vª^nropÙ˚å(+Cë°R√B–{ÎÄ◊qÈ‘ìè1ë†´≠˘Ä€–êh-2/àÍÅ ÿ£Ä,	Î†Á©ô
+ºaiqíÙ ?Ïc∆∞îT"jœ†a∂Ù÷ÆÃ{z¿ØVòü¥5QLÌE|◊–x0‰’X\çA◊^X≠ô,‡/öén<ÿ˚1Œ[Z∫EPÑU|π!:Ω9ÛP8 (âª    X	˝
+(âª)å”µ∞˙h6e∑É§z 0Óø⁄îÒi—Ù^Ù˜¶05EXÅªXΩ·,ƒ1xp@¿”î_√—Ch∏Ÿ=KP˘Œí„–È¡õ£ÍNYÅ` ñ&x;ﬂß±ÂÀBjú™¸puÚÈÍÀ°·4µ3dÿÂÄ8û®¿‚,ëOzCaÇb?ê©*ÙCÛ?˙ÅÔNãÍÈù†ô™≠4èqÅq˛û5ï˝∞ï¶Ë¡•/⁄a≈¬°Lq±¿êiz:fQ{/,â¯fÈ–9»ñZ8ŸAcª’‰Q‡–˙Ö¡∏ï1=≤Ÿ» ŒKïq¡ı(∆J!…ßUV¸# …‘0íyc«wH–YÙÿ™?E
+…˛˜E±DÃ, ycÕÙ=QÒ~Œ(—∫%0vcUZp·Ï”|,¡¯[@·jP|>g‡—2C∂àäwvP˙Ô≠”PDß¡™1∑∂z`Îﬂ|_*e±≈±ôfÕp6åÕ»'°07{ÅE"ÄŸ;®÷∆IëæÅ€Äéoê*ö‹∫?€dÅ~ÌÇÊr≈†i„, ƒ~q0wTAl˚P∞÷˚ÚDà2aî¡<∫“Ò¿±WèJÌÏXQj#fô9≈–:¸cÉÙAr ≈F	∆O‡±Êåf˝∫q1lÑA‚ä€6V¬÷rèax!cï™æy‰ *âª    v	˝
+*âªÎç”µÏ˙∆Pe∑…©z öªÔøóCïÒ˛_~±Æ0w‚≥ÇodH·˚DäÿˇƒÒ@¬
+ë˘œ¥—a°Ü¿a:≤Pªt„¯¡˘÷S≈`9l`¢òÈP•3´±ÉÒØRüÒp∑&OnSGÿ°øD£ÊöT˚Ä:ë$”9]ëml§ôjêkZw4n´ÓÅML˛¢‡es†äxÊwD¡qÅpÑ{9∞◊Òè‚Lﬂa£+o0s•¿íéÉ7È QôZµ ¶Cq–˚N†[SQXA¡†d.ﬁÕ‡RkÂ¯≈ªh1€IquÏk◊S£∂úÔ!ßÈëÉÇ≠ À∞åíTèºÂ[>ñøôlbßﬁ±6UƒŒ;√€ ˚Ä¢À4ØÒ∂é∫üÈòa0∏\ÓLgÑr· n˜±≈§@„}N`<ï—P`xŸá>Pº§èF—¡ßÃ±ﬁÁü`É…˝+=+±≤ŒﬁÛ¿]Üpx˚ Mæ°´”%áü4Ä€gÿ˘Èë‹W	.AêÏ%åCP.ﬂÅ‹86Ö†‹ü†ÎT-OD&îqŒ˘ßCÏí€∞£◊g¶ïÖaré¢≈ÿg´¿≥XÜı%§≠Qà2ﬂ"Ìˆ≤–¸ı\m™[A–i+5eÚr‡33ã^æùÁ1
+ (j[qò Xie§·!ˆ(ä¢ê ,âª    î	˝
+,âª≠è”µ(˙$ke∑Øz GÒø≠ïÒ•*#_k∂0πÑ#p”·Ÿ{ËÏÕs@ƒAü¬ÍÜ¶—⁄TßÖ)aP}Õ¯ûTI¡W
+î†rW`$õ¨)àÆ±!—îÊp˘Z¥Òñ√ü°ùTëô—–Ä<ıÉ†Âêçëã^ªÁ∞rœê-ä˙$È„Å´Æ∫÷·H†r3q@TÛqΩÆB”au∞=7Oj‰aÅî<T‡tô¿î≥åP¶m:Q∑Ö>xS ˘–Ω’©\õj◊AÜÛ=ÿI‡‘€D‚ æ;1y·"∏	≈6Ö/Csî!Ö+Œ∏	˜7 Õåı•@4\%9Y.¿x3ôn≥BÏ2∫ä }Ë◊v¢+ÒTü¶wù0˙U√Dtò‡·®	r7 DÏ@ÂêÆ ÇJ—n}:*ÖóP~YmJ<^é¡f>h¨ﬂƒ`®€ OÒ±Pÿû6ËT?p∫¨N‰Î—T°Ïú–å˘FÄ›œ%⁄,æƒë˙-7H~Ù¨êÆ±;Ã`ÅYÅ:iáZFz†m*wqàà©ql|˚El*f∞ZJºäƒ¯˜aP[—ﬁ›C¿µY}†^[Q¶AX'A¥†–æÿ+üw—¬A.≥ë#¡ñ‡µâVÄ]1®{Ú+⁄>Ÿ_;ÁJ!‘Æ∫çUÀ< .âª    ≤	˝
+.âªoë”µd˙ÇÖe∑U¥z û“ÚøáñÒCW:_í$æ0˚kÖ◊{^·∑≤Fú^Ù@∆x$Ù€=ò—ù#é©P?&%çÖ¡µ=‘{Ñ˘A`¶ùoy‹±±ø<äÑΩà€p;èu⁄?g°{dLM&Ä>„v¯ÁΩë©P˜*»zóêÔπ}dÇ◊Å	Â]“Ã]†ékÄ‘	d%q[MÜ"H±∞[àﬁïZáÈa_˝	x™vç¿ñÿïi\ÒSQ’∞«Ô ˝Ä–\≥]„ÉVA}kÇM“≈‡VL§Àœ¡1y†ŒÉßÅ[gL–I9!cm
+jêk¬ œhúWŸ∫n!$*"ã[xHÅ¶¡	)±9 ˇOíKy"kÒÚØíçUŸ0<Oò<Å¨N·Ü§ÏºŒj4@Á£›Ú£Ê˛—åö¸zÇ'ÕP@Õ2Î¡ƒ’ß.÷È`áÜ9äÄb∑±Ó·^yL¯p¸<èÕ÷VÎ° íd{íSYÄﬂô‰€_x†ëeb}ßKêp=ÎTq‘”Åòô»â∞T†Ôˇ¿ìÃÍæq
+ˇNHÏ¡∞úÒ†≠‚[ja.(n‹‰S‹¿∑ZtKóWQƒP—+ïqé–ÄªC‚Å¯)Aå¸˜Kπ‡7ÃáN@c”1F˜Ùy¸úÍ}ZV*¥!≤TMˇ ÙË 0âª    –	˝
+0âª1ì”µ†˙‡üe∑õπz  ^ÙøˇñÒ·ÉQ_ﬁ≈0=∫∆ÜãáÈ·ïÈ§j´u@»Ø©%ÕÙâ—ªLÒtÕøP#´≈¡"¡qWñŸ,`(†2€‚0µ±]b˜7s}–p}√~¯º.°Ytmˇ>…;Ä@—iò
+?Óë«B3nﬂÇ_ê±È ﬂÌÀÅg±Í¬ŸÛ†eÕ7”sWq˘ÎÂp.Ì∞ù”Ö‹ñ§Óa=f◊õtxÅ¿ò˝ûÇumQÛ€PgÆŸ–A„º^+ù’A€P]ÃA‡ÿºµ‘ƒ·1µ8{OE>ù˙Hi] ﬁ!AØF‡L —D$∫õ–«? Ë}Ÿ≤{‡™\iﬁo?' ®Ë Å∑L P…Òê¿~330~Hm4é¿º·d?gB”ê|@È∂≈≈ª≥—™∑æÀ∑îP√,¡'xu¡"mü°VÕ`	eW96u}±åÎº6C±p>Õœ∂¡€Å°®-&ò≠kÄ·c£›í2|ë6⁄í||ZÍê2…ö›Å'NÅˆ…åŒ/†q’
+∂M‘q®Å¢JlY{∞ﬁòÖ– ø‹aı”ÁÍ…t¿π[kˆœ…´Q‚_J0È.|–Bû[%åëAÍE^ yw‹‡πÜFFI1‰r€Õ2—^ª€LÁl!ê˙ﬂpÏï 2âª    Ó	˝
+2âªÛî”µ‹˙>∫e∑·æz ¢ÈıøwÈñÒ∞h_¶óÕ0W"à?ìt·s *8¯ˆ@ Ê.Wæ´{—ŸÖø[ÒˆmP√◊81˛˝0¡q§T2®π`™¢ı≥LÖ∏±˚ádÎ(r≈pø˜„{a8ˆ°7Ñ[≤uEQÄBø\ñëÂ4o±ˆä'êsÑˆYY¿Å≈}ΩπU…†í^õúÉâqóäã∂ø)∞ﬂ-#”¡Ûaœ§ø>zu¿ö"®õ»¯ÜQ⁄ﬁ[∂ê–j∆_s∂TA96†l∆Ω‡Z-cûŸ«¥1S®œ'„˙ﬂ‹*ÜÍˆÇ!ÒÇÃùT◊ ” ¨^Ê ]ÏÆV†ôtŸHDqQÕΩDüó ı&'Ò.—j{KQ0¿AB,õ‘*·B⁄·«◊∂ƒ@Î…;óÁêh—»‘Ä}G\Pƒwå|È¡Ä;ú~ƒ3`ãCuËÎáC±*ıﬁ˛]:jpÄ]†¨`°Üzı–ù~Ä„-bﬂ≈ÏWëT∞¿ñ{âêÙTJfíz»ÅT˙ZéàÉ	†Û™TÿTØÈqFˆLÏ∞ @jÛ"OaÍ¡9Û?¿ª\b°Å Q o√4=Ïi–ÅshñF¯AHèƒÓ‘£ˇ‡;eÑ>¬(ø1ÇÓ¡âù»∑†˘\CΩØÜ!n†r‚∑EA 4âª    
+˝
+4âªµñ”µ˙ú‘e∑'ƒz $u˜øÔRóÒ›_0Q’0¡Ù}âÛûˇ·QWa>Ex@Ã¥àØbm—˜æçBÊPÖ0N∑6:?¡œ◊î∫ô`,•∏å∂Ÿª±ô≠—ûﬁf∫p,Iˇ§¥Ω°îIe¨¡fÄD≠Oê/ÌNë'´ÙìÔê5IÁ‘ƒ¥Å#JmØ—û†Xg˛eìªq5)à˚d∞!j‘iﬂ¯a˘7r„|i¿úG±¥~|†Q/2cV	ì–≈œ`ªœ”Aó/|¿9‡‹ù¬áﬁ á1Ò?g‘ÊÄ∑!ø£wÕ'!˝2ø}$…a ’¸3 ¸y{–tº¬Y67±›Ö9N+<bñF ÖÜ¡…˝ÖÒÃ·VÚcÔå0;$®Ëò· u\M‹‹@Ì‹ji	f—ÊÒBmz◊#PÜ,Ï7í\¡ﬁõ÷ñ¶ªX`"ìó°ö	±»˛ûAÖ1#p¬ÌPâóÂÆ°dÓΩ{£aêÄÂ˜ ·¯¶3ërÜÓ∞z¿'ê∂‡˘Ó¢ÕBÅ≤*§êBÌ„†uÄû˙òˇq‰ÜIOlàê∞bÁN=Ö¡a»éü˛ˆµ•¿Ω]YLA8UQ~<9ë©W–∆cã´†m_A¶ÿ*›0–"‡Ω±Ç6É51 j®n^û‚7ﬁ9ìÚÔ!LFTÉnÌ 6âª    *
+˝
+6âªwò”µT˙˙Óe∑m…z ¶ ˘øgºóÒª	ó_∫
+›0íŸäß™ä·/éøR‘ë˘@ŒT9∫†_—¯[)9’ÀPGâc=ovM¡-’ËÀyÌ`Æß{e .ø±7”>Rî[ØpC`ÆÇË0Ö°Û£7„=|ÄFõBBDë!Á7%õ∑ê˜xä◊O0©ÅÅ1•Mt†ñQ¥a/£Ìq”«êY]·†∞cµ{∞K¸˝a◊†?”}]¿ûl∫Õ4 ∫QM]ÏÕ∂o†–áwŸaÈRAı æã∫µ‡^"q„ÕZ1è◊˛Ä≤tc°Óø§Ã!€t˚.´=Ï ◊ÿª·‚”ô¥:"Â¯îwö!Üâ∫
+çı Ó{û‘˝‚ÒjÚBi|Õ»0D4Ïµ¸·˛◊“‡U@ÔÔô;+;“—æwgÎPH·KÛ–¡<3rëŒ≤}`è ±FW≠œ±f_Ñ¨(‹p~ërÇjE°BbÜ&©ª¢ÄÁ¡ﬂ‚+aëê\Àys∆êxl©w≥ ΩÅ[Ìí¸Væ†˜UË›sqÇ	ùQÏ∞§é39[Ë3a¶[
+˝+>¿ø^P˜yÔ©Q<çµ=ÂfE–àF£Ó™î∆A"ëÀå¸E‡?˛Ä.DÓ™1æÂéô>ÙÑ$v_0i5Y!*Ïó≈Nóô 8âª    H
+˝
+8âª9ö”µê˙X	f∑≥Œz (å˙øﬂ%òÒY6Æ_Dƒ‰0E/5å[∂·≈g¢ﬁz@–ãæÎë–P—31*]ƒzP	‚x√ß≤[¡ã>ƒ›Yÿ`0™>>äÇ¬±’¯´JP§pÖî,≠L°—≥%À∫ëÄHâ5àTõØë?#{<£êπ®» õùÅﬂ‚ÃHõ…I†K≈¯≤qqf+¨«‹∞• #˜áaµ	+ùQ¿†ë√ÊÍÉ”QkàuEdL(–I˛‚bK“ASÊLõ¥ 1‡‡~ÅZË–-1-oñ-~º0•É–‹ëzq!π∂7‡1≤v Ÿ¥CD•',∑ò˜ˇá⁄∫ÚÅØ	æÁ8ù¸É§ âU6s´Ù@Ò/‡î´0Ü-¡¬u·‹™QXÂ(ù@Ò…Má—",«u˜≤P
+ñ´Æ˛´C¡ö åˆ©¢`ﬂŒı¿ï±«”ïpF“[mÔ€° ÷N—ÆµÄÈãû‰^ÎëÆ2JÂx&eê:¯X ƒs7Ånã6ï∂¿ò†y+2?!÷)q åSl∑•∞Ê5\yK¶aÑ(k¢÷¿¡_G¢≤¶˛QZú.B9$3–J)ª1µª-Abk˜πË(i‡¡J&— 1\au!äkf¥‡&?x¬!í*7¿E :âª    f
+˝
+:âª˚õ”µÃ˙∂#f∑˘”z ™¸øWèòÒ˜b≈_Œ}Ï0áÃêç¬†·Î˚{{p+¸@“¬CÉáB—Qj¯ˆÄ≥)PÀ:éI‡Ói¡ÈqUüÔ9√`≤¨Ù÷≈±sπˇDôp«»xâo)°Ø√~P6ßÄJw(gÚﬂë]˝^æS´Gê{ÿê∏EíÅ=Ø|`ëE†öDN(¬¬Qqñ¸˙≠∞ÁK =ƒ6aìr⁄NgÅE¿¢∂Ãˇ†ÌQâ≥˛º)∞–ÖÏcìQA±À€™Æ"≠‡bÔ‡CÌ” 1À.⁄IZÌÁe≤˘Q!ó¯së∏& €êÀ¶g=Ö’|Ì≈Ì)ö|PÍ©√ÒıE∑∫ÛzS ΩGÇÎûÒ¶W≠â@0»&ñœ$„·∫EÃ›ÈNÂ@Û¯ﬂnÂ;—@Iâ_rázPÃJjÙ8∑¡¯a©Ü°«`ìΩÏ§¬“[±¢ﬂ	˚NpàûEXtr°˛I|¥o«ÄÎU]Êë’∆ëÃxˇwŸê¸Éâ‘∆±ÅÃªóp*s†˚ |ae8?qæDVÏN0∞(›¸~óÆabı– 	o¿√`>MÎ]SQx´ßFç· –”tø‚îA¿¥]®DUå‡Có}∆≥ñ1˙‹[©ﬂR®Úaª+!Ê7Ω®ÂËÒ <âª    Ñ
+˝
+<âªΩù”µ˙>f∑?Ÿz ,£˝øœ¯òÒïè‹_X7Ù0…iÏé√Õ+·…2⁄è>x}@‘˘»Nt>4—o£∆›§¢ÿPçì£œ+x¡G•ïzÆ`4ØƒÔ]+…±DÜlµ9ép	˝›≥•€°ç”1á≤ºÄLeÄyIë{Ôök≥ê=©¿rÜÅõ{,xá¡Ù†>õãã“Éq≠£ŒIîT∞)óqÑ Taq€ßr1É9¿§€’WãQßﬁá4ø8–Õˆd€4–A±j∫®$)‡‰_@-Ú÷”1iû≈Ü¯©)Hî¨'ª!u:∞B?õã ›lS	*SﬁÛ`„ãSLZ>ÆRCÿŸ-£5ÿÍq ç$´Y‚¸ÒD$Œ≈g|0
+ k‹8Q·ò‡FcÓt-@ı('≤ê∫—^fK∞oBPéˇj%Í≈*¡V˘DÅFòÏ`ú
+TxÂ!±@%üL"p .S.C˘°‹Ωﬂ&∫…ŸÄÌËƒè¢ëÍﬁ•wå¢êæ∏Â,Å*Ï»ô*îM†}÷≈É©öTq\ëóXlÊ∫∞jÑ·°µãa@¬6,é¿≈a5¯#®Qñ∫ K·û–ŒÓÍ∑…	¸A˛√ñ†ÅØ‡≈„{áñ1òXB1∞µ8Í0„Î˝î!ƒ›O±û >âª    ¢
+˝
+>âªü”µD˙rXf∑Öﬁz Æ.ˇøGbôÒ3ºÛ_‚˚0HêwŸ∂·ßi8§≈˛@÷0NÄeı%—ç‹îƒ»ëáPOÏ∏UQgÜ¡•ÿ’U˙ò`∂±á»«Ã±ØiÛk.ÉpK1Cêˆ!£°k„Ô„Ω.“ÄNS¸ã†@ëô·÷DÇª◊êˇ7óô;ﬁzÅ˘G‹è}= †û7ËÓT‚µqKBõüòzê∞k‚À<qaODuñ˚Ñ-¿¶ ﬂ1 Q≈	¨l‚ø–èíˇe#NOAmñ˘…¢&•‡f–ü˜Ÿ¶16]3·ïfk*v39˛_!S|ÏÛ≈ ﬂH€kÏh7EŸQπn ª‹Ï¡e¥ı˛‡h± åeÒ/ŸZÒ‚4ÛDﬁE∏0L@˚ËLø·v{¡ËÚöu@˜;VÑ≤è•—|Émß	PP¥ ‡ﬂRû¡¥ê‡{nè`óz(.¯Á±ﬁ._èI¿pøì.~ü°∫1®—ø#ÏÄÔÈ⁄È˜I~ëµ”3v?AêÄõgöıl¶Åàú‰˝'†ˇ´¶Ì¸iq˙ÎZÏ}E∞¨+∆ƒ”t˝aèú7†¿«b,£\Ã¸Q¥…ôO5\¸–ê—˚”0cA|G*Ö¸≠“‡G0zHyÇ16‘(πÄK,od
+¡@˛!¢É‚ã|:J @âª    ¿
+˝
+@âªA°”µÄ˙–rf∑À„z 0∫ ¿øÀôÒ—Ë
+`l™0M§£ë+ÂA·Ö†ñ∏⁄Ä@ÿg”±V¨—´c´ÏÄ6PEŒ€â£î¡1%⁄É`8¥J°1‘œ±Mè`” #xpçe®:ûj°IÛ›ñÙ™ÁÄPAxû˜pë∑”àô√üê¡gä∂IoÅWåßsπü† 15RÚÁqÈ‡qÁ`Ã∞≠-¿yéa-≠B∫≈Ü!¿®%ËJ√í9Q„4ö#øG–Q	gkgŒAÀ{àŸú(!‡Ë@ˇˇ˚‹y1•ÕÙﬂ¨3#≠XP∆‘!1æ(•LÑ† ·$cŒÆ~ê/)œë⁄¬i#v™ù_2¸◊_` ëÛ∆–∏ÒÄEﬂªˆ#Ù0éÛı`-·T<n˜¿Ω@˘NÖV‘dZ—ö†œQj7—Pi*ú’ﬂ¡(|vñÜ6`YF≤„
+Æ±|8“p¸xpNO‘ 6°ò•p|≈}˛ÄÒ≥ôÎ*Zë&ãNuÚﬂêB'#¿ ÅÊL[ûûg†ÅÅY»1_qòñ>]l–∞Ó“™ÁÒ◊oa¸[Cz8¿…c#NïÉQQ“ÿTâÍ–R¥>ﬁW A⁄êêsX⁄ı‡…|x	\¯1‘OAQ·n≠Â óÉg!Ä)u˝Gcˆ Bâª    ﬁ
+˝
+Bâª£”µº˙.çf∑Èz ≤E¿75öÒo"`ˆc0èAˇíﬂÃ·c◊ÙÃ®^@⁄ûX„Gc	—…N1ípÂP”ù„a¬ﬂ¢¡a?V7∫n`∫∂zõ(”±Î¥ÕÜ÷mpœôó}2°'ÃI+'˝ÄR/ÙÛ∞N°ë’≈NÀ∞ÀgêÉóùz1µcÅµ‡;øi5u†¢*ÇµÁqá†B6G∞ÔxgXµ´aﬁèà¿™JÒcySQ`#õ«õœ–†h≥ÄMA)aÈñ*ù‡j±^È ‡L1Ceååx—ﬂÔÓ9mS´©! eV”¯* „ Î0qîÈM≈›Ñ≥öÑ«ãí’Ω∞0˘ŒV [⁄ö›∆ÒVÀ200–ÍÍuõ·2±∂Û˚Ê@˚a¥(ˆ9—∏Ωë¢g«òP‘äWÀlÖ¡pøqæ}[`õ7daôt±BﬂòÛ1pêﬂÍàÃ°v9'À◊ÄÛ}XÌ]æ5ëDa/ht•~ê≥∆´õÅD}§†X—‹†W£Íu¡îq6í_Ï¨Z∞0zè
+;‚a⁄(hN!–¿Àd˘Õ:¶QÁãX›÷◊–ó2ÅË~1A8⁄ˆa¥‡K…v˛…>n1rÀı»!wÏ∞Îf˜l∆–!^œoå¢ Dâª    ¸
+˝
+Dâª≈§”µ¯˙åßf∑WÓz 4—¿ØûöÒB9`Ä0—ﬁZîì¸W·AS·v´Ç@‹’›9˚—Ááˇx4_îPïˆ¯Á˙±¡ørñÁHöY`<π–R}÷±â⁄::åbpŒr¡ñ˘°∫¸a£ÄTÁo√•—ëÛ∑ä»”/êE« k¨ XÅ≠Î÷_±J†$$œ±Lq%#Ö-D∞1ƒüÒ»!aÈ~›Zä	¿¨o˙|/ölQã¨uxW–’&i˚ôÃAáF¶¯ê,‡Ï!æ“„1·¸#9Doú1—ä‡ÅN!ÌA°Zmµ Â‹rì3™BkÒ∫£Í’ZF%Ù®*z/Nˆ≈Mæ ï¬îo¥ΩtÒºf∑©'‡k0ø‚â	·L1y N@˝t„˙ƒ—÷⁄SÛdW`Pñ“È¡˘¯¡ŒV≥kÊtÄ`ÇO0:±∏KüWøÍÍp“oU”Óc°Tç“–1#ÄıGÔêxëb7]ÇsXê∆>v4'fÅ¢≠Ì¢;∑†Ö,Ì∫#™q‘õÂalDÂ∞r!t-.ûTa∏ıÕY'fi¿Õe§Ú˙Q˜]1î≈–÷yJƒÚ•òAñ#]P3<‡Õuˆä!‰1G‹PÚ”Ú)ËÌB	:!<uö‡ﬁ¥N Fâª    ˝
+Fâªá¶”µ4˙Í¡f∑ùÛz ∂\¿'õÒ´nP`
+◊0|∂ïG„·E±ıD¯@ﬁcF*—Ï—¡Õ_XNCPWOn3Xø¡¶÷¬ZzD`æªì+o—Ÿ±' ®ÌAWpSÿù¡°„"®Øò(ÄV⁄Î’¸ë™∆Qﬂ€˜ê˜£['åLÅqyõÓU- †¶|z!~q√º•Â”Ä∞s∂Â-Ê&a«Á™%$å˝¿ÆîñÂÜQ=∂5ä"Uﬂ–ó≠%jC≥KAÂ+5ã.ï‡níº
+ÊÚ1îªÂYs≥˝¶mXÛ!ÀÉ›∏‡·? Á∏˙ııøõâ’∞iP¯É\B?bEy≠kÛºDm *ODã¥“ÒZw£ @æß0T˛ì⁄ùw·ÓÊ´˛3ñ@ˇáÕ9‰x—Ù˜DbÁ'PXáIŒ∂Ül¡,ÓNfl•`üÙüøC ±VU_öÊ·£p ñºŸë˘°2 |÷ã5Ä˜÷√2ÌëÄãúrºêà %Ω7πèÅ ﬁ6•Ã§ë†7/˛Öøqr9dÏ€o∞¥»XPL«añ¬3e-‹¿œfO?©OQ,~aÖQ≥–ò\b˝ÃˇAÙl√>l__‡ObsÓKZ1Æ¬¬ÿ¬¢π4hi‰L£!-R™›˙ Hâª    8˝
+HâªI®”µp˙H‹f∑„¯z 8Ë¿üqõÒIõg`îê"0Uó˚n·˝{
+EÖ@‡CËwàﬁ—#˙õF|=ÚP®#ÙkîÕ¡{ŸûlZ/`@æVŸ%›±≈%°˜ıKpï6=!Hèà°¡2ñbœõ=ÄX˘ÃgËS2ë/úïˆ„øê…&'L¢˜@ÅœEKL©ı†(iﬂC1∞qa[(∑"˙ª∞µZ],j,a•PxIÓçÒ¿∞πØõ°üQ[·æ–1g–Y4/kãÃ ACƒÖ0‡}•È≈1,Sí€™µïﬂ√˙.ò!©≈jgV  ÈîÇX∏’Ùßπ¶/∂€ ‡ƒ€SJ}◊+â≥; ôë	b´0Ò¯áèóXú„0ñ˜h“)±Â·ÃÅ&Ñ	Yﬁ@õAü[π-—ÿî_wÔP<©â¨‡¡äÖÍ`6c `!”Ωn∫U∆±Ù^›Ÿ\pVê÷•ƒê°uí'‹ÂGÄ˘€îÚˆÏ»ëû„∏∂qæZêJV’EH
+Å^ÄßÜl†â◊ÄQBË‘q°åfls˙∞ˆo=sjd9atèôp3Rö¿—gˇ˘w`§QJ˜eŸ°–Z?zJÙfAR∂)-»ãÇ‡—ÆqÊÁœ1L>©`ì8†v¶Í⁄Óé!¯¿ø√uß Jâª    V˝
+Jâª™”µ¨˙¶ˆf∑)˛z ∫s¿€õÒÁ«~`J*0ó∂mòØ˘·€≤m·ë@‚zm©?–—A3j-†,°P€ 9z§–€¡ŸWy~:`¬¿›Bz‡±cKÇT≠Í@p◊j¢§ãP°üBÑSÄZÁø„˙™bëMé>ÿÏáêãV™<c5Å-˚B%À†™∂BA‚qˇ˘™àq‡˜∞˜•s¶ 1aÉπEm∏èÂ¿≤ﬁ»Q%πQyHy}Ô–ª8l”ÂIA°ˆR'2ç‡rs‹éÏò1ª√Í>ßH“˜w¡‡á=!áVÓ T Îp
+ªzÎM≈ùúı=õå>-uh2µ5™¶Ì™2À ˘√Ì8¢éÒñò{qz0ÿ= 6≈S·™°	&@Æpq}é‚—02öÂ\∑P‹E¢†S¡ËÜ[^ZÔ`£±€phå±íhﬂ5–pò èØõ&°ÓËZ“·?ZÄ˚•SÙ)ß§ëºπÊ–pq˘ê‚ÑŒX_ÑÅº>…©@xF†≠ sÜJÍqÆ#‡hÏ
+Ö∞8"ñà«´aR\ˇ{9»2¿”hˆ§∞˘Qh$pj-Ãé–"íçŒA∞ˇè$∏•‡S˚oﬁÕ…E1ÍπèËcŒÜ∏‰k—ƒ—u!÷fR5A/S Lâª    t˝
+LâªÕ´”µË˙g∑o{ <ˇ	¿èDúÒÖÙï`®20ŸS…ôc+Ñ·πÈÀ2Øﬁá@‰±Ú⁄˝ı¡—_l8ƒPPùYN ›Í¡7@óTê`D√‹µ¨Œ„±qÔcﬂ5pü(œá°}Rr»<îhÄ\’≤_ìëkÄz%ÙOêMÜ--òŒ)Åãﬁ™58°††,
+¶÷Pqùò-Z¿∆3∞9Ò´π‚=6aa"ëÇëŸ¿¥·©“Qó7—*Îv–›ABmˇ»Aˇ€·6y4	‡Ù„;xÔk1Y[ÇÎrÊé9Z£˝‹·!eIíÃt?ﬂ ÌLí=ß„ÅíªÅ_[Núï}Ìì(ƒÍ°)z ù`~¬ôÏÒ4©gÖâX[0Í¬CŸ¡·à∑è•n@¡üCücó—NO\6Zó~Pû•h ò-«¡F¥!VÜQ`%ê˘Ã%{R±0rüb\«Œp⁄∞Wxö Ω°Ã\#}ÁôlÄ˝oˆ\aÄë⁄èÎo$òêŒm4Wi≤˛Åo¨˙· †çÇñ ¨ˇqL¶3kl¢∞zæπ¶*a0)eá?>À¿’iÌOÈŒMQÜ3ÈnÅâ|–ﬁ™–B5AIˆ	Ä‰»‡’Gn÷é¨ª1à5vp4dm˙"Ì«öﬂ!¥Â¶Xˇ Nâª    í˝
+Nâªè≠”µ$˙b+g∑µ{ æä¿ÆúÒ#!≠`2Ω90Ò$õ7·ó *G}+	@ÊËwÔ¨≥—}•˚Á
+ˇP_≤cÜI¯¡ïs◊/¢˙Ô`∆≈üé#Á±üñ\ª‘*p[”l´ﬂ°[b`{s~Ä^√•€Y√ëâr∂^<¸ê∂∞:ÅÈ™ZM.v†ÆP	†`Fq;7∞+≠o∞{<S [;a?ã‡¥LìÕ¿∂((˙Ω,ÏQµbZhÿ«˛–ü»KncHA]¡pFs6Ö‡vTõaÚ>1˜Úò>ÑK{<Ö¢≤Ü!CãŒ}˚≥i Ô(Äˇ fàÅÁÅ˙˝ßë%Ò¶·Áò ) »8óÊèJÒ“πS¸°6ó0\„ÁπPÌ/·fRñÀ∂@‘Œ¡8L—lláW'FP`Z»ªç∫:¡§KΩPÆH9`ßn|€ç±Œ{_•ÉæápAòaÖ•S°™–Î'ÌÛ~Äˇ9—˜è\ë¯eBo◊6êê˘„ﬂyyÅxü[Æ¥K˚†X^∏qÍ(ámÏ9ö∞ºeÎ€ƒçêaˆ íE¥c¿◊j‰˙!Ü¢Q§Bbs’Fj–†Á¡&iúAlí\¯€Ï‡WîlŒOè11&±\¯˙S<anæpWH!í≤wÿÄ´ Pâª    ∞˝
+PâªQØ”µ`˙¿Eg∑˚{ @¿ùÒ¡Mƒ`ºvA0]éÄúÀBö·uWà[Kxä@Ë˝=‡c•—õﬁ‘·˙≠P!yNÖ¡Û¶¥⁄⁄`H»bgÄwÍ±=º…nŒ»pù“.VÄ¶°9rN.™åìÄ`±òW2∞ÛëßdÚ°S‡ê—Â3é•ÅGw
+e$ôK†0˝úlipxqŸ’2˝]ì´∞Ωá˙F[x@aÙ≠ÿï¡¿∏M1t∞Q”ç„ﬂÖ§Ü–aOUo´1«Aª¶ˇUm8‡¯ƒ˙J#ı1ïä±D
+"Ωg7/â+!!Õ
+/Ç(Ù Ò¢‚¡,YJ~GM§€“WfA¶Í\O%ˇ‰èÿ °/ÛkΩÜ®Òp ?s∫”0û‹º±]û·DÌöÒ˛@	Á˝Á‚—äâ‡◊T∑P"(wÉGÆ¡„XK÷?^`)M5+ë†ﬁ±lÖË™µ@p^—ÿJp*Í°àD¥“ÚMëÄê˘¬’7ë<pnä’êRÖìhäXÛÅ÷œ§∞nµ’†ë-®⁄Rq*qà´⁄ol—$∞˛–˛‚aÏ¬0ûK*¸¿Ÿk€•Z=˜Q¬Q€w)X–b ŸV0êA €¬Ê7=‡Ÿ‡j∆rß1ƒ,CÄ’è:~üÔ¥Fö±!pX
+ä£©W Râª    Œ˝
+Râª±”µú˙`g∑A{ ¬°¿˜ÄùÒ_z€`F0I0ü+‹ùN%·SéÊo≈@ÍVÇo—ó—π£»/È\P„céíÜ¡¡Q⁄WÊ≈∫≈`  %@ÍÀÌ±€·6"ÑΩpﬂ;7≤ô¸m°Ç<·‡©Äbüã”D$ë≈V.Âj®êì∑˛Å•C∫|!†≤ˆÈœ2Ä™qwtµŒ¨yÁ∞ˇ“°çóïEa˚\{¸‡ñµ¿∫r:,*4QÒ∏lW3Å–#÷^pÛJFAåéeg:}‡z5Z4(¯‰13"IÒ’øƒˇ ITº_–!ˇG‡ù~ Û‡)EÑB≤=.t≥∆õîµŒ⁄∫“î≠£‚Üá #ó≠@î}Ò€+Í“Ú0‡’ë©j·"àã G@˙,∫„µ—®¶¢(RG’P‰√á2y‘!¡`zÙE˛6É`´+S⁄F≥§±
+èﬂ*“¨˘p†a4[ØÄ°f∏|}¯ß£ÄŒN˚ıèë4û9m=têCÒö´mÅ4 Ó≤(∞†Ú¸ñ”?q&..rÏhØ∞@¥¥!Tua èñ©Q†î¿€l“PìÙKQ‡`T|}¡E–$≠Òô:∑jA(%)’ìi2‡[-iæ—T1b®)¶%!¿›p´›!N˛ú˚n“ Tâª    Ï˝
+Tâª’≤”µÿ˙|zg∑á{ D-¿oÍùÒ˝¶Ú`–ÈP0·»7ü3Z∞·1≈DÑÁç@Ïç°¬—à—◊PqØSÿP•º£ø˝"¡Øò¡◊ö∞`LÕËT Ò±y§’9≤	p!pú5›x5°ıë*îÖæÄdç~OW^Të„Hj(ÇpêUE:ÔÉ|˚Åjîëˆ†463¸è‹q8†˚_#∞AI‘”≤JaŸ≈H ´ò©¿ºóCE‡∑8Q‰ıŒ‡]ñ–Â\hq;d≈Awqua<˘‡¸•π-˚∑1—π‡ù°]ÅA„*qI6u!›PÉëè	 ıº±ßFX[j”È[V7tœ∫Ã":ﬂ}6 •˛gktdÒ¨ÎaÎ–J0"œf°w)z· #•$=è@\å&∏j—∆√dyO◊úP¶xÁÌnaï¡æê@&.®`-
+qâ¸≈j±®òüm˘£≤p‚ÒYF4°D,E(˛∂Äò˝(JÔëRËÀSlê÷úÚy´˛ÁÅí07µ‚àä†ïÿ;€5Uqƒ∞Åtl :∞Ç[ôD∑Áa®\¸¥W-¿›m…˚À´†Q˛oÕÄ—~3–Êè	›Dﬁ—AÜnè√ÔïU‡›yg∂í7ì1 $êvªÚ°ÚÑ!,§/m:˚Ø Vâª    
+˝
+Vâªó¥”µ˙⁄îg∑Õ{ ∆∏¿ÁSûÒõ”	aZ£X0#fì†Áe;·¸¢òµ^@Óƒå“≥àz—ıâ?ñw«∫Pgπû˜91¡AÿúÈzõ`Œœ´ÒΩtÙ±-âÔ¶˛pc§π ı¸°”°GN‘Äf{qÀiµÑë;¶kô8êuΩﬂ˛ÁÔÅa‹¨Ã†∂ÈÉñ≈üq≥±∫qJF_∞Éi–Oa∑.Duöù¿æºL^ñ;RQ-Fé:–ß„qrÉ}DA’V¨Ñ[>u‡~2˛ä1oQxJm˚=É≈é÷!ªíøBÜì ˜ò9
+	ndyˆ_ô~qü‰¢i†W‹t¸‰ 'f"ÍAk¬ÒJ¸ÿØÜ0d»;ôÑ=Ë·ﬁΩÄ*)c◊@ ã^Hç—‰‡& LgdPh-G©dÓ¡©+;N%Õ`ØËé8≤ÿ0±F¢_∞ õkp$Çö1π≠°"†”\»ÄbÃ˛[Àëpæ˘mk£±êò(¢ºQbÅ`Ä∑úÚd†ÆÖAòjqb3’vÏóƒ∞ƒ~g=ZaÜ)b¿]å≈¿ﬂn¿¶cıQFÖ%<!–®r! O9A‰∑ı±K¬x‡_∆eÆS	1ûüˆGQÓDZsò»bÌ!
+J¬ﬁ$\ Xâª    (˝
+XâªY∂”µP˙8Øg∑#{ HD¿_ΩûÒ9 !a‰\`0eÔ°õq∆·Ì2≠É´è@˚•?l—√}õ∂iP)nŒ$0v?¡ktx˚ZÜ`P“n '…˜±µR~<•õÛp•ÿf<dqƒ°±±˙Ñ}ÈÄhidG|µë-‚Æ∞$ êŸ§@–yS‰Åø®…√¸à°†8„–˘éØ@qQP=Cô,õ∞≈¥óaLÌTaïó„g?úë¿¿·UwLøkQK:æ;¶–ij{sÀñ√A3<;îU@Ò‡ áx6^1È˜8ô˙≈ßÓ™c„æ!ô‘˚Ûú˙ ˘t¡lÀÉΩó⁄U_‰-‹⁄Œß¯ä<«uŸkÛì ©Õ‹æb ÒËNç¬0¶¡ëëQV·ºX˚Ø-â@3∫0jb‘—˛ËJ˜+P*‚¶dZ{|¡z@«5vÚ`1«¨ÁgÎˆ±‰´ÛGí$pf€Ô>D° ÷}	∂⁄Ä	,ã èæ¶ëéî'àjVPêZ¥QãÃ§‹ÅNë…πV\?†ôÉœcc˙q ∂(yl/O∞™bä[}Ãadˆ«Àc^¿·o∑Q=JQ:éøây˘–jU9cY,†AB\†ßÓõ‡·d¶˝~1<›üÁ‘ÜòÙéû•V!ËÔTP—L Zâª    F˝
+Zâª∏”µå˙ñ…g∑Y({  œ¿◊&üÒ◊,8anh0ß†J£O}Q·Ài_¡Q¯@Ú2ó5ñˆ]—1¸€cø•PÎ∆„™h≤M¡…ßXS;q`“‘1£ë˚±SxÎÔZêËpÁÃøßÌã°è¡Ù¨ª˘˛ÄjWW√écÂë=Ú«,»êõ‘√¿ÙæÿÅuy€Úw†∫‹]XørqÔÓøË◊∞ ?®à
+Zas ±ã	ûÖ¿¬_êCÖQieë5ÈÛ-–+ÒÑt∞BAë! £OBm‡Ç˜◊Ÿ;11´Äß£7∑ä–«πc!w8•#o® ˚PIœçôµæK%JPúú,p@st%ùí÷bÍB +5óìÔX~ÒÜ‹≈4k˛0Ë∫Âàûeƒ·öÛu52Øg@FÈå7â— ´kGáÛPÏñ P¡ÿ◊b0û`≥• ñ˛º±Çµﬂ5oâ›p®¢Ÿ√⁄°ﬁáû(ÌÄˆI¬xÇë¨jU¢i	Ôê@›˜VÅ¨¡º∆†YÜß\ïqû8|{Ï∆Ÿ∞HQG≠y‡>aB√-◊ixˆ¿„pÆ¸u—ûQXù8éÕ∂¸–,8Q¶cSA†J¬éø‡c_bû’ﬂÙ1⁄ñ√'Ë|ª»÷uÖtËø!∆ïÁ¡úu¥ \âª    d˝
+\âª›π”µ»˙Ù„g∑ü-{ L[¿OêüÒuYOa¯œo0È=¶§â‹·©†Ω’Eí@Ùigá≠O—O5™J„î«P≠˘0°Ó[¡'€ò.\`T◊Ù{˚q˛±ÒùX£Ö›p)A1CÎiS°m—‚_ÚuÄlEJ?°∫ë[Z5ﬂ4êê]G±o*ÕÅ{A)ÛËÄL†<÷j¿!œ§qççBÊ6˘∞IKÊÓƒ'_aQi~Ø”üy¿ƒ+h©∏∆ûQáê≠ñ–µ–Ìwéu[…¡AÔY≥IDÈ‡h7√@1I?P–‘sIl≤‰}ê!UXtV™„2 ˝,—1PØo”¢AÎØr\^äÿŸ![¨É∞”Y·Ò ≠úQh∆O‹Ò$.»<MI:0*¥∫Ä´y2·xé∫6’Ø@Y’≠>—>8mºDªPÆKf€Eïc¡6o˛*∆
+<`5ÑËE”É± øüxñÄñpÍ2\¬ÒGq°º˚f”jˇÄ¿ı2^ë @ÉºhºçêﬁÀ∞úÌJ—Å
+Ú[æ /Ù†ù.c®Îæ™q<ªœ}l^d∞ä¯+–óC±a êì‚oÓé¿Âq•ßÆàÛQv¨±í!tÍ–ÓiÈmznA˛ì(}_G‚‡Â´`ññ¬j1x™Ø∏¢
+˜{J+)!§;z3hû` ^âª    Ç˝
+^âªüª”µ˙R˛g∑Â2{ ŒÊ¿«˘üÒÜfaÇâw0+€¶∑îg·á◊ÍÌë@ˆ†°òxdA—mnx1ÑvPox∑Ÿ*j¡ÖŸ	1˚F`÷Ÿ∑Te∆±è√≈V∆y“pkuñ∆.Ê°K·–)Ú)Än3=ª≥Fëyñxˆ<Xê4 °Íï¡ÅŸŸ
+ﬂ¸!†æœ∑#Îﬁ÷q+,≈∑ÖﬂN∞ãñç5Eda/“K”ù°m¿∆Pq¬nJ∏Q•ª£$D≠=–Ø˛óv£‚@AMÏÁ¬CFe‡Üÿñ¨E
+◊1ÁØ÷¸õr0ãNîg≠!3ö∞1XΩ ˇYî≈»ÒÜ7±ï Ë@s6C‰·ôÕ–Pÿ† /=ùF:Ò¬>¥≥e'v0l≠èx∏ç†·V)k@;˚˜@lGßœ·Ú—\U/BßÇPp ∆ñ;"◊¡îö%Óa`∑bıà#I±æ»_ªΩwOp,√ú´‹Ã°öo/~ƒÄä«(Ì9ëË±÷go,ê†W`%˛ùKÅh"•¿ÑôŒ†≠ /!¿q⁄=#ÄÏıÓ∞ÃüÛµ¶#a˛\˘Ìud'¿ÁrúRÁ?HQîª*óu1ÿ–∞˝Ä,x°’A\›ékªs‡g¯^éW•‡1éê7â®àLSxr ní!Ç·•3« `âª    †˝
+`âªaΩ”µ@˙∞h∑+8{ Pr¿?c†Ò±≤}aC0mx]ßk†Ú·ez˛ªﬁî@¯◊& i3—ãßF+s%P1—#=gx¡„AÂB€1`X‹z-œ±-È2
+|n«p≠©˚Irb‚°)Òæ≈_n?Äp!07∆hvëóı—ªE ê·cMíe∂Å7⁄à"’x˜†@…á¥Óq… Gâ‘≈ä∞Õ·4|=bia;˜g£a¿»uz€$Œ—Q√Ê,úÒâ≈–qÖ°wÎ˚øA´—v“=H·‡IˆïJ™1ÖGn©gÌÕ0vò=R!‹Ï∏∑ÃG Â‡ˆ‘⁄!k-w{∑‹‚E©K+?ÎÕGœO ±k∆t=òÒ`O†*~≤0Æ¶dp≈°·4ƒÂ≈?!@@vyÒ∂ß—zrÒ]?7JP2µ%R1ØJ¡Úù5 ˘Ö`9A$§>6±\“˛‰npnS›î«Qû°x„˜( $ÄTÜ[ßëÌﬁf"Àêb„ÆÒ≈Å∆RÓ¬>©†°ŸˆÏsÉ’qx¿vÇlçy∞Gı‘	ña‹)_˘{⁄ø¿Èsì˝˜úQ≤ £õ…Ó≈–r‡òoÇ»<A∫&ıY†(‡ÈD]ÜàV1¥	wøY>oéë˘hˆ∞˚!`áüˇÔ∏ bâª    æ˝
+bâª#ø”µ|˙3h∑q={ “˝¿∑Ã†ÒOﬂîañ¸Ü0Øπ®¨}·CEÿä+@˙¨˚Z“$—©‡ˇNb‘PÛ)9√J£Ü¡AuY¿Tª`⁄ﬁ=9o±À†Ω1cºpÔ›`Õµﬁ©°≠xñÍTÄr#≥ÿø¶ëµÁˇ$MËê£ì–Ç‡l™Åï¶8:ÀÙÃ†¬¬QÍ}˛:qgi Z#¨∆∞-‹¬ynaÎ£Ê2•U¿ öÉÙ⁄QÎQ·∂üfM–3´x3?A	∑‚7J]‡äπUO}1#ﬂV3Æ©X;%˜!Ô)j>A“ ¡hYóz-O#=·Ÿú§£¶_TùñÀ>∆˛ 3”ÄÊJ4ˆÒ˛_å°ñ„Ì0ü9h“µ|·_`KDGà@í•Kå\—òè≥Æ<«PÙiÖ'<æ¡P5—>™`ªBSÙH’±˙€ﬂ@f¡p∞„~≤÷4°VW¿”%x6ÄE	éaÒë$√f’iê$oø6D@Å$É7≈¯lÉ†#Ø@∏ÂÍqC ÑÏ$∞PÓŸ8Úla∫ˆƒÇPX¿Îtä®XÆÒQ–Ÿ†¨≥–4√∞≤åÔ£Ap[HsÃK‡kë[~ŸjÃ1RÖ]G*‘U–œz_ÃÛd!>-2à e dâª    ‹˝
+dâªÂ¿”µ∏˙lMh∑∑B{ Tâ¿/6°ÒÌ¨a ∂é0Ò≤™”∑·!|6'Xxó@¸E1-Lâ—«„ÂrQÉPµÇNIÉﬂî¡ü®ôõfõ`\· ﬂ¢√±i4qÁW±p1∆P˘Zq°Âõ+ÕfjÄt˝/Î◊ë”ŸIB<U∞êe√Ss[ÿûÅÛrËQ¡p¢†DºûMGmqM,rí∞QxÉ	∂úsa…¥>¸¶I¿Ãøåë’Qˇ<?ãLC’–ıí¥y{.æAgúîÒ1LŸ‡*µhTP1¡vùˇKfQı9X≤Íõ!Õ_e≈µ\ ùªY‘K3G¸\fz?t˚ã˚&»5Ω≠ µ:;ª!+TÒúpxØ¡)02ô`ﬂ…Í·˘⁄–Hm–@•‘5a—∂¨uˇ9WŸP∂Â»…1¡ÆÃlfÁœ`=˛_™[õ±òÂüÉ3]zpÚs^gù[À°4Àà~+“HÄË¡ÕëBô:%eàêÊ˙nø/ó∫ÅÇ≥Ä«≤÷]†•Ñä1¸G q¥≈álºé∞íïæ[–zaò√*à∆¿ÌuÅSëeFQÓËï§qi°–ˆ•»ıñAvπ¡6œ¯n‡Ì›YvöMB1 Dœ˙i<¸U¢6Œ!”ƒ˘ïA fâª    ˙˝
+fâªß¬”µÙ˙ gh∑˝G{ ÷¿ßü°Òã8√a™oñ03Pp´á√ì·ˇ≤î;&≈@˛|∂^=@—ÂR±Ãñ@2Pw€cœª£¡˝€Ÿvx{Ú`ﬁ„√∑±Zz$ùL¶psF+‘<◊8°√ âﬁ„ÄvÎ´˝mëÒÀÖÖS]xê'Û÷c÷CìÅQ?òi∑Ïw†∆µÎ∞üq£¶œ˝¿x>∞ì√*PÚπxaßuÅb∆®=¿Œ‰ï&GYQh»˙]–∑æz√G=A≈Å#,NU‡éöRY#1_5Ø È"ì◊u?¡@!´°°ÃK*Á yx-i…¨(_‚ÿà„√YìC≈,¥\ 7¢ıè¯!≤Ò:Ådè«üe0tí„WÏ›X·ŒîUVMì@∏V6∆—‘…7P7Á†Px”DÑV•¡déﬁÙ`ø‹}±_na±6Ô_∆ZT3p4üPà‡a°?Q)1,[Ä≤¬Ù’®ë`oh?d;ßê®ÜH@Í4Å‡„……l@8†'Z‘S@™qRHqâÏS∞‘<£~.3Ìavêêé<â¿Ôvx˛…õQ¯©≈&è–∏à‡8°=rA‘(%+%í‡o*Xn[0∏1é|*WÀˇ"TL}Lxy7!˙xWkajΩ hâª    ˝
+hâªiƒ”µ0˙(Çh∑CM{ X†¿	¢Ò)e⁄a4)û0uÌÀ¨;œ·›ÈÚOÙö@ ¥;ê.˜˘—å≥∫/·P94yUÙW±¡[Rä[›``ÊÜêvl±•Á◊RAõpµzêWÄS °°0wë:_ïÄxŸ˚&≈7ëæ¡»je@êÈ"ZTQØáÅØHÅ≠hM†HØ8⁄-—qAERœ_z∞’“ñ.◊}aÖﬁNÜê™1¿–	ü?˝‹7Q;ìQzß¸‰–y†«{aºA#g≤&P—‡t;^ˆ1˝•Ã[ñáﬂ’π˝ëÃóÂ!â„›}“ûq 	U Åﬁ1Üá˚èA›ÍºJrùÀ˚∑a¬#´ π	∞dœÒÿëP‡}°0∂ã∏O˘Ò∆·¨/–€Qπ`@!À2¬x{—ÚÊ˘†4whP:à§?„¡j˚£
+∂’`Aªõ`Å'±‘¯	ÇKÏpvîﬂ9se¯°≤‘6ÜmÄ|Å'êÑë~EñYcÓEêjŒ–P=ØÅ>Ã&™†©/vÑ+q ƒãlÎ£∞‰á°Lñ_aT]ˆ&î≤!¿Òwo©‘ÔQ*à≠‰|–zk¯{´dŸA2LéáQµ‡ÒvVf.1,¯ﬂõï	ñä˛BNº†!ÿÍ‹,ìi jâª    6˝
+jâª+∆”µl˙Üúh∑âR{ ⁄+!¿ór¢Ò«ëÒaæ‚•0∑ä'ÆÔ⁄©·ª Qd¬^@Î¿¡ÆÎ—!≈MöﬁêP˚åé€,îø¡πBZ-ú;»`‚ËIi‡¿±C•Tã6êp˜Æı⁄√œ«°@eDq€™Äz«Ó¢"hë-∞˝Çmê´R›DÃ|Åÿ˜ò£‰"† ®Öw£=qﬂ„‘†^E∂∞Zy›jÙÇacG™Z¨%¿“.®X≥`QQYæ⁄ÒTŸl–;'—|Sz;AÅLA  RM‡í{”$c…1õ=db%úúﬂÆYnä!g%/Y¸ 1à„†Gﬂ•ﬂ˙Txcù¨≥≤≥3ê~ø¢∫ ;qj9¶nÒv¢<}¯[›0¯ÑçG5·ä JaVﬂ®@#ﬁaîö‡/—ºÒ10P¸<˚˝oå¡»í?ﬁÃ>`√ôπÀìÌ±r‡K©B•p∏$ #^Íé°Œ&‚~<‡ÄF@ZJ`ëúƒsb°‰ê,û}Yaê)ÅúD\Œ‡Ì†+hò»n@qéMéÏÇ.∞Xãlƒj˘—a2*\2ö(∫¿ÛxfT;ãDQH≤m°j–<Nøµã@AêïÙ„}ÿ‡s√T^›ı£1 s˜fl+ÿ»9$ˇ	!∂ƒ|N¯ª lâª    T˝
+lâªÌ«”µ®˙‰∂h∑œW{ \∑"¿‹¢ÒeæbHú≠0˘'ÉØ£Ê4·ôWØxê´ú@"FÛe›—?˛Å?PΩÂ£ae–Õ¡vöÆ≥`dÎBJ±· ¡>æ*Öp9„Z^Lè°]PS˜ßW¿Ä|µ·5sòëK¢9Oôu–êmÇ`5GÜpÅk§ß∞ô`¯†L¢“⁄lM5q}ÇWr≠+Ú∞Y• $ßàaA∞ÈÕ$Æ¿‘S±qi‰jQwÈci∂Ù–˝≠⁄}õì∫Aﬂ1–/T…‡Ï2hú19’˚¥-√XY~¡ÀÊD/!EgV‡ﬂáÜ Fc]8√√ﬁÖ]nx•∆õksúºôi Ωÿ$}ÃÒ≥(Ù:0:~b?£·he≈ÊZÒ@%Òêfºµ‰—.!~B/ó˜PæÒc∂Û¸ˇ¡&*€ˇƒc`Ex◊æÄ¶≥±†é–9^p˙¥`Io%°¨ö™)B:íÄˇç<ë∫ÒÒçaTÉêÓ)-‚q„£Å˙t•–ö}«†≠⁄±∫—Uq,–kêlπ∞ö2QÁà\Da˜¡=†ûR¿ıy]ˇsBôQf%z∂¡^X–˛0(¿≤ßAÓﬁZ>™˚‡ıSVûÿ1hÔ›Ó<¡÷0˙As!îj¿√‰¡ nâª    r˝
+nâªØ…”µ‰˙B—h∑]{ ﬁB$¿áE£ÒÎb“Uµ0;≈ﬁ∞WÚø·wéç^¯@YÀ$œ—]7Íg&˝ÌP>πÁù‹¡u©⁄„ø˚ù`ÊÌœ¥i±.Úszp{¿·J»V°;`A™ﬁ”’Ä~£‘öG »ëiîuí∞}òê/≤„%¬ÒdÅ…pW»è‹Õ†Œõ>6]gq!⁄C¸.∞õ«j„.ça∑ÒÓØ¿÷x∫ähÑQïÌ‡Øí|–ø4‰~„¨9A=_?VE‡ñ\í˜l"o1◊lìa˘`õ`£Ës‘!#©íëf¸ Èó®%së·ßÊ‡C®0÷É>€É£—åππê ?@ﬂ‚S˝)Ò≤√k)U0|w77 .·F @l_+9@'¿8ﬁäô—L>@ì,'øPÄ¶√qÈâs¡Ñ¡v˙-ªà`«Vım6πy±Æ`—˜0p<E°ı3Ùª°äs‘Gî§Ä⁄Ω¿æëÿ«®`"ê∞µ‹jÇ6ÅX•Ó“TÁ°†/∞˚‹P3kq RøíÏ±C∞‹Ÿ5
+ßø∂aÓ√'I¶Î¿˜zT™¨˘ÌQÑ4Û∫F–¿@E ŸAL(¡ﬁö÷‡w\QN_ªè1kƒvWΩ\EÇ&–Ñ‹!r¢1ènotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Paper">
+        <Entry Thickness="0.0500" Desc="Tracing Paper">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="7"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="50"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.1000" Desc="Copy Paper">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="12"/>
+                <maxPower Value="12"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Plywood">
+        <Entry Thickness="-1.0000" Desc="Etch Fill">
+            <CutSetting type="Scan">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="22"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="400"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="12"/>
+                <maxPower Value="12"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Plyco Birch">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="22"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Plyco Poplar">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="50"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="6.0000" Desc="Plyco Poplar">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="10"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="6.0000" Desc="Plyco Birch">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="7.5"/>
+                <kerf Value="0.04"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="12.0000" Desc="Plyco Poplar">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="6"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Radiata">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="25"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Polypropylene">
+        <Entry Thickness="0.1000" Desc="Officeworks Dividers">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="7"/>
+                <maxPower Value="7"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="25"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.4000" Desc="Officeworks Dividers">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="8"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="15"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="2"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.1500" Desc="Clear Pockets">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="10"/>
+                <maxPower Value="15"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="50"/>
+                <kerf Value="0.075"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Etch Vector - Light">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="6"/>
+                <maxPower Value="7.5"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="65"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.5000" Desc="Polypropylene (Quill)">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="60"/>
+                <kerf Value="0.07"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="0.8000" Desc="Quill (officeworks)">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="45"/>
+                <maxPower Value="45"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="60"/>
+                <kerf Value="0.27"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Rubber Stamp">
+        <Entry Thickness="-1.0000" Desc="Etch">
+            <CutSetting type="Scan">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="30"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="mergeAll"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="45"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="-1.0000" Desc="Outline">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="8"/>
+                <maxPower Value="15"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="100"/>
+                <kerf Value="0"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="mergeAll"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="45"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="3.0000" Desc="Cut">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="40"/>
+                <maxPower Value="40"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="10"/>
+                <kerf Value="0.075"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="1"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="-1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="mergeAll"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="45"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+    <Material name="Teflon">
+        <Entry Thickness="3.0000" Desc="PTFE Regency Plastic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="35"/>
+                <maxPower Value="35"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="4"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="0"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+        <Entry Thickness="1.0000" Desc="PTFE Regency Plastic">
+            <CutSetting type="Cut">
+                <index Value="0"/>
+                <name Value=""/>
+                <minPower Value="35"/>
+                <maxPower Value="35"/>
+                <minPower2 Value="10"/>
+                <maxPower2 Value="20"/>
+                <speed Value="30"/>
+                <kerf Value="0.045"/>
+                <zOffset Value="0"/>
+                <enableLaser1 Value="1"/>
+                <enableLaser2 Value="0"/>
+                <startDelay Value="0"/>
+                <endDelay Value="0"/>
+                <throughPower Value="0"/>
+                <throughPower2 Value="0"/>
+                <enableCutThroughStart Value="0"/>
+                <enableCutThroughEnd Value="0"/>
+                <priority Value="0"/>
+                <frequency Value="20000"/>
+                <overrideFrequency Value="0"/>
+                <PPI Value="0"/>
+                <enablePPI Value="0"/>
+                <doOutput Value="0"/>
+                <hide Value="0"/>
+                <runBlower Value="1"/>
+                <autoBlower Value="0"/>
+                <blowerSpeedOverride Value="0"/>
+                <blowerSpeedPercent Value="100"/>
+                <overcut Value="0"/>
+                <rampLength Value="0"/>
+                <rampOuter Value="0"/>
+                <forceConstantPower Value="0"/>
+                <numPasses Value="1"/>
+                <zPerPass Value="0"/>
+                <perforate Value="0"/>
+                <perfLen Value="0.1"/>
+                <perfSkip Value="0.1"/>
+                <dotMode Value="0"/>
+                <dotTime Value="1"/>
+                <dotSpacing Value="0.1"/>
+                <tabsEnabled Value="0"/>
+                <manualTabs Value="1"/>
+                <tabSize Value="0.5"/>
+                <tabCount Value="1"/>
+                <tabCountMax Value="-1"/>
+                <limitMaxTabs Value="0"/>
+                <tabSpacing Value="50"/>
+                <skipInnerTabs Value="0"/>
+                <tabsUseSpacing Value="1"/>
+                <tabCutPower Value="0"/>
+                <usePen Value="0"/>
+                <scanOpt Value="byGroup"/>
+                <bidir Value="1"/>
+                <crossHatch Value="0"/>
+                <overscan Value="0"/>
+                <overscanPercent Value="2.5"/>
+                <floodFill Value="0"/>
+                <interval Value="0.1"/>
+                <angle Value="0"/>
+                <cellsPerInch Value="50"/>
+                <halftoneAngle Value="22.5"/>
+            </CutSetting>
+        </Entry>
+    </Material>
+</LightBurnLibrary>
